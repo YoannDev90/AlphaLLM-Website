@@ -1,0 +1,176 @@
+:root {
+    --bg-color: #ffffff;
+    --text-color: #333333;
+    --accent-color: #3498db;
+    --header-color: #333333;
+    --button-bg: #f8f9fa;
+    --button-text: #333333;
+    --button-border: #dee2e6;
+    --section-bg: #f8f9fa;
+    --footer-text: #6c757d;
+}
+
+body.dark {
+    --bg-color: #1a1a1a;
+    --text-color: #e0e0e0;
+    --accent-color: #4fa3d1;
+    --header-color: #a0c4de;
+    --button-bg: #333333;
+    --button-text: #e0e0e0;
+    --button-border: #4fa3d1;
+    --section-bg: #2c2c2c;
+    --footer-text: #a0a0a0;
+}
+
+body.amoled {
+    --bg-color: #000000;
+    --text-color: #e0e0e0;
+    --accent-color: #333333;
+    --header-color: #a0c4de;
+    --button-bg: #000000;
+    --button-text: #e0e0e0;
+    --button-border: #000000;
+    --section-bg: #000000;
+    --footer-text: #a0a0a0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 20px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+header {
+    background-color: var(--bg-color);
+    padding: 10px 30px;
+    border: 1px solid var(--button-border);
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-title-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo {
+    width: 65px;
+    height: 65px;
+    border-radius: 25px;
+    object-fit: cover;
+    margin-right: 15px;
+}
+
+h1 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: var(--header-color);
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .logo-title-container {
+        margin-bottom: 10px;
+    }
+
+    h1 {
+        display: block;
+        font-size: 1.2rem;
+    }
+
+    .buttons {
+        width: 100%;
+        justify-content: center;
+    }
+
+    button {
+        padding: 10px;
+    }
+
+    .lang-btn img {
+        width: 30px;
+    }
+}
+
+button {
+    background-color: var(--button-bg);
+    color: var(--button-text);
+    border: 1px solid var(--button-border);
+    border-radius: 5px;
+    padding: 5px 12px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background-color: var(--accent-color);
+    color: #ffffff;
+    transform: scale(1.05);
+}
+
+.buttons {
+    display: flex;
+    gap: 12px;
+}
+
+main {
+    max-width: 800px;
+    margin: auto;
+    text-align: left;
+}
+
+section {
+    margin-bottom: 30px;
+    opacity: 0;
+    transform: translateY(5px);
+    animation: fadeIn 0.5s forwards;
+    background-color: var(--section-bg);
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+h2 {
+    color: var(--header-color);
+}
+
+ul {
+    padding-left: 20px;
+}
+
+li {
+    margin: 10px 0;
+}
+
+footer {
+    margin-top: 30px;
+    font-size: 14px;
+    border-radius: 10px;
+    padding: 20px;
+    background: var(--bg-color);
+    color: var(--footer-text);
+    text-align: center;
+    border: 1px solid var(--button-border);
+}

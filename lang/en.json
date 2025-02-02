@@ -1,0 +1,18 @@
+{
+    "title": "AlphaLLM",
+    "theme-toggle": "Theme",
+    "date": "Last updated: February 2, 2025",
+    "tos-title": "Terms of Service",
+    "tos-intro": "By using the AlphaLLM bot, you agree to the following terms:",
+    "tos-item-1": "The bot is provided \"as is\", without warranty of any kind.",
+    "tos-item-2": "You agree not to use the bot for any illegal or malicious purposes.",
+    "tos-item-3": "We reserve the right to modify or suspend the service at any time.",
+    "tos-item-4": "You are responsible for any activity performed with your account in connection with the bot.",
+    "privacy-title": "Privacy Policy",
+    "privacy-intro": "We take your privacy seriously. Here's how we handle your data:",
+    "privacy-item-1": "We only collect data necessary for the bot's operation.",
+    "privacy-item-2": "Messages processed by the bot are not permanently stored.",
+    "privacy-item-3": "We do not share your data with third parties.",
+    "privacy-item-4": "You can request the deletion of your data at any time.",
+    "footer": "© 2025 AlphaLLM. All rights reserved."
+}
