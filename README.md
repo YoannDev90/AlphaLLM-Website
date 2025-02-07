@@ -1,1 +1,1 @@
-http://alphallm.fr.nf/
+alphallm.fr.nf/
