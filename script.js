@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const themeToggle = document.getElementById("themeToggle");
     const langBtns = document.querySelectorAll(".lang-btn");
     const body = document.body;
-    let themeClickCount = 0;
+    let themeClickCount = 1;
 
     console.log("Éléments initiaux récupérés:", { themeToggle, langBtns, body });
 
