@@ -17,19 +17,16 @@
             </div>
             <div class="buttons">
                 <button class="lang-btn" id="themeToggle" width="30"><i class="fas fa-sun"></i></button>
-                <button class="lang-btn" data-lang="fr"><img src="https://flagcdn.com/fr.svg" alt="FR" width="30"></button>
-                <button class="lang-btn" data-lang="en"><img src="https://flagcdn.com/us.svg" alt="EN" width="30"></button>
-                <button class="lang-btn" data-lang="de"><img src="https://flagcdn.com/de.svg" alt="DE" width="30"></button>
-                <button class="lang-btn" data-lang="es"><img src="https://flagcdn.com/es.svg" alt="ES" width="30"></button>
-                <button class="lang-btn" data-lang="it"><img src="https://flagcdn.com/it.svg" alt="IT" width="30"></button>
-                <button class="lang-btn" data-lang="ru"><img src="https://flagcdn.com/ru.svg" alt="RU" width="30"></button>
-                <button class="lang-btn" data-lang="zh"><img src="https://flagcdn.com/cn.svg" alt="ZH" width="30"></button>
-                <button class="lang-btn" data-lang="pt"><img src="https://flagcdn.com/pt.svg" alt="PT" width="30"></button>
-                <button class="lang-btn" data-lang="ar"><img src="https://flagcdn.com/sa.svg" alt="AR" width="30"></button>
-
+                <div class="dropdown">
+                    <button class="lang-btn dropdown-toggle" id="langDropdown">Langues</button>
+                    <div class="dropdown-menu" id="dropdownMenu">
+                        <!-- Langues affichées dynamiquement -->
+                    </div>
+                </div>
             </div>
         </nav>
     </header>
+    
 
     <main>
         <section id="bot-info" class="section">

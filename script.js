@@ -100,6 +100,71 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+    document.addEventListener("DOMContentLoaded", () => {
+        const langDropdown = document.getElementById("langDropdown");
+        const dropdownMenu = document.getElementById("dropdownMenu");
+        
+        const availableLangs = [
+            { code: "fr", flag: "https://flagcdn.com/fr.svg", name: "Français" },
+            { code: "en", flag: "https://flagcdn.com/us.svg", name: "English" },
+            { code: "de", flag: "https://flagcdn.com/de.svg", name: "Deutsch" },
+            { code: "es", flag: "https://flagcdn.com/es.svg", name: "Español" },
+            { code: "it", flag: "https://flagcdn.com/it.svg", name: "Italiano" },
+            { code: "ru", flag: "https://flagcdn.com/ru.svg", name: "Русский" },
+            { code: "zh", flag: "https://flagcdn.com/cn.svg", name: "中文" },
+            { code: "pt", flag: "https://flagcdn.com/pt.svg", name: "Português" },
+            { code: "ar", flag: "https://flagcdn.com/sa.svg", name: "العربية" }
+        ];
+    
+        function populateDropdown() {
+            dropdownMenu.innerHTML = ""; // Clear previous items
+            const storedLang = localStorage.getItem("lang") || "fr";
+    
+            // Reorder languages to show the stored language first
+            const reorderedLangs = [
+                ...availableLangs.filter(lang => lang.code === storedLang),
+                ...availableLangs.filter(lang => lang.code !== storedLang)
+            ];
+    
+            reorderedLangs.slice(0, 3).forEach(lang => {
+                const button = document.createElement("button");
+                button.className = "lang-btn";
+                button.dataset.lang = lang.code;
+                button.innerHTML = `<img src="${lang.flag}" alt="${lang.name}" width="30"> ${lang.name}`;
+                button.addEventListener("click", () => {
+                    localStorage.setItem("lang", lang.code);
+                    loadLanguage(lang.code);
+                });
+                dropdownMenu.appendChild(button);
+            });
+    
+            // Add a button to expand the full list of languages
+            const expandButton = document.createElement("button");
+            expandButton.textContent = "Voir toutes les langues";
+            expandButton.addEventListener("click", () => {
+                dropdownMenu.innerHTML = ""; // Clear previous items
+                reorderedLangs.forEach(lang => {
+                    const button = document.createElement("button");
+                    button.className = "lang-btn";
+                    button.dataset.lang = lang.code;
+                    button.innerHTML = `<img src="${lang.flag}" alt="${lang.name}" width="30"> ${lang.name}`;
+                    button.addEventListener("click", () => {
+                        localStorage.setItem("lang", lang.code);
+                        loadLanguage(lang.code);
+                    });
+                    dropdownMenu.appendChild(button);
+                });
+            });
+            dropdownMenu.appendChild(expandButton);
+        }
+    
+        langDropdown.addEventListener("click", () => {
+            dropdownMenu.classList.toggle("active");
+        });
+    
+        populateDropdown();
+    });    
+
     function highlightActiveLang(lang) {
         console.log("Mise en évidence de la langue active:", lang);
         langBtns.forEach(btn => {
