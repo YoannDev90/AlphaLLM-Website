@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const themeToggle = document.getElementById("themeToggle");
     const langBtns = document.querySelectorAll(".lang-btn");
     const body = document.body;
-    let themeClickCount = 1;
+    let themeClickCount = 2;
 
     console.log("Éléments initiaux récupérés:", { themeToggle, langBtns, body });
 
@@ -41,11 +41,11 @@ document.addEventListener("DOMContentLoaded", () => {
         console.log("Application du thème stocké:", storedTheme);
         if (body.classList.contains('dark')) {
             themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
-            themeClickCount = 1;
+            themeClickCount = 2;
             console.log("Thème sombre détecté, mise à jour du compteur et de l'icône");
         } else if (body.classList.contains('amoled')) {
             themeToggle.innerHTML = '<i class="fas fa-star"></i>';
-            themeClickCount = 2;
+            themeClickCount = 3;
             console.log("Thème AMOLED détecté, mise à jour du compteur et de l'icône");
         }
     }
@@ -66,7 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
     function loadLanguage(lang) {
         console.log("Chargement de la langue:", lang);
         console.time("Chargement de la langue");
-        fetch(`lang/${lang}.json?v=${Date.now()}`)
+        fetch(`lang/${lang}.json?v=${Date.now()}`, {mode: 'cors'})
             .then(response => {
                 if (!response.ok) {
                     throw new Error(`Erreur HTTP! statut: ${response.status}`);

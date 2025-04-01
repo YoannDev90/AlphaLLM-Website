@@ -25,11 +25,11 @@ body.dark {
 body.amoled {
     --bg-color: #000000;
     --text-color: #e0e0e0;
-    --accent-color: #333333;
+    --accent-color: #a0a0a0;
     --header-color: #a0c4de;
     --button-bg: #000000;
     --button-text: #e0e0e0;
-    --button-border: #000000;
+    --button-border: #a0a0a0;
     --section-bg: #000000;
     --footer-text: #a0a0a0;
 }
@@ -69,6 +69,14 @@ header {
     border-radius: 25px;
     object-fit: cover;
     margin-right: 15px;
+}
+
+.banner {
+    width: 100%;
+    max-height: 300px; /* Limite la hauteur à 300px */
+    object-fit: cover; /* Rogne l'image pour remplir le conteneur */
+    object-position: center; /* Centre l'image dans le conteneur */
+    border-radius: 25px; /* Conserve les coins arrondis */
 }
 
 h1 {
@@ -173,4 +181,93 @@ footer {
     color: var(--footer-text);
     text-align: center;
     border: 1px solid var(--button-border);
+}
+
+.styled-links {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+/* Style des boutons */
+.animated-button {
+    display: flex; /* Aligne les éléments en ligne */
+    align-items: center; /* Centre verticalement le contenu */
+    background-color: var(--button-bg);
+    color: var(--button-text);
+    border: 1px solid var(--button-border);
+    border-radius: 8px;
+    padding: 12px 20px;
+    margin: 10px 0;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    white-space: nowrap; /* Empêche le retour à la ligne */
+}
+
+.animated-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    background-color: var(--accent-color);
+}
+
+/* Animation des flèches */
+.arrow {
+    display: flex; /* Assure l'alignement correct des flèches */
+    width: auto; /* Ajuste la largeur automatiquement */
+    height: auto; /* Ajuste la hauteur automatiquement */
+    padding: 0 10px; /* Ajoute un espacement autour des flèches */
+    margin-right: 50px; /* Ajoute un espacement à gauche */
+    position: relative; /* Nécessaire pour le positionnement absolu des flèches */
+}
+
+.arrow span {
+    display: block;
+    position: relative;
+    width: 10px;
+    height: 10px;
+    border-bottom: 2px solid var(--accent-color);
+    border-right: 2px solid var(--accent-color);
+    transform: rotate(-45deg);
+    animation: animate 2s infinite;
+    opacity: 0;
+}
+
+.arrow span:nth-child(1) {
+    animation-delay: -0.2s;
+    left: 0;
+}
+
+.arrow span:nth-child(2) {
+    animation-delay: -0.1s;
+    left: 8px;
+}
+
+.arrow span:nth-child(3) {
+    left: 16px;
+}
+
+@keyframes animate {
+    0% {
+        opacity: 0;
+        transform: rotate(-45deg) translate(-20px, -20px);
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform: rotate(-45deg) translate(20px, 20px);
+    }
+}
+
+/* Texte des boutons */
+.btn-text {
+    position: relative;
+    text-align: center;
+    transition: color 0.3s ease;
+}
+
+.animated-button:hover .btn-text {
+    color: #fff;
 }
