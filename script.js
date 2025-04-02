@@ -5,6 +5,22 @@ document.addEventListener("DOMContentLoaded", () => {
     const langBtns = document.querySelectorAll(".lang-btn");
     const body = document.body;
     let themeClickCount = 2;
+    const langMenuButton = document.getElementById("langMenuButton");
+    const langMenu = document.getElementById("langMenu");
+    
+    // Ouvre ou ferme le menu au clic
+    langMenuButton.addEventListener("click", () => {
+        langMenu.classList.toggle("show");
+        console.log("Menu de langue affiché/masqué");
+    });
+    
+    // Ferme le menu si on clique ailleurs
+    document.addEventListener("click", (e) => {
+        if (!langMenu.contains(e.target) && e.target !== langMenuButton) {
+            langMenu.classList.remove("show");
+            console.log("Menu de langue masqué");
+        }
+    });
 
     console.log("Éléments initiaux récupérés:", { themeToggle, langBtns, body });
 
