@@ -320,39 +320,45 @@ footer {
     color: #ffffff;
 }
 
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+#langMenuButton {
+    background-color: var(--button-bg);
+    color: var(--button-text);
+    border: 1px solid var(--button-border);
+    border-radius: 5px;
+    padding: 10px 15px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#langMenuButton:hover {
+    background-color: var(--accent-color);
+    color: #ffffff;
+}
+
 /* Contenu du menu déroulant */
 .dropdown-menu {
     display: none; /* Masqué par défaut */
     position: absolute;
     top: calc(100% + 5px); /* Positionné juste en dessous du bouton */
-    left: 0;
+    left: 100%; /* Aligne le menu à droite du bouton */
     min-width: 200px;
     background-color: var(--section-bg);
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     z-index: 1000;
-    overflow: hidden; /* Empêche le débordement */
 }
 
-/* Animation d'apparition */
+/* Empêche le débordement de la page */
 .dropdown-menu.show {
     display: block; /* Affiché lorsque la classe "show" est ajoutée */
-    animation: fadeInDropdown 0.3s ease forwards;
 }
 
-/* Animation de transition fluide */
-@keyframes fadeInDropdown {
-    from {
-        opacity: 0;
-        transform: translateY(-10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Style des éléments du menu */
 .dropdown-menu button {
     display: flex;
     align-items: center; /* Centre le texte et l'image verticalement */
@@ -364,7 +370,6 @@ footer {
     border: none;
     text-align: left; /* Alignement du texte à gauche */
     cursor: pointer;
-    transition: all 0.3s ease;
 }
 
 .dropdown-menu button:hover {
@@ -380,8 +385,10 @@ footer {
 /* Responsive : ajustement pour les petits écrans */
 @media (max-width: 768px) {
     .dropdown-menu {
-        min-width: 150px; /* Réduit la largeur minimale sur mobile */
+        left: auto; /* Ajuste l'alignement sur mobile */
+        right: 0; /* Aligne le menu au bord droit du conteneur */
         font-size: 0.9rem; /* Texte légèrement plus petit */
         top: calc(100% + 2px); /* Ajuste l'espacement sur mobile */
+        min-width: unset; /* Supprime la largeur minimale sur petit écran */
     }
 }

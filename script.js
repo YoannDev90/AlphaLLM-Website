@@ -8,17 +8,28 @@ document.addEventListener("DOMContentLoaded", () => {
     const langMenuButton = document.getElementById("langMenuButton");
     const langMenu = document.getElementById("langMenu");
     
-    // Ouvre ou ferme le menu au clic
     langMenuButton.addEventListener("click", () => {
         langMenu.classList.toggle("show");
-        console.log("Menu de langue affiché/masqué");
+
+        // Vérifie si le menu dépasse de la page
+        const menuRect = langMenu.getBoundingClientRect();
+        const viewportWidth = window.innerWidth;
+
+        if (menuRect.right > viewportWidth) {
+            // Si le menu dépasse, alignez-le à gauche
+            langMenu.style.left = "auto";
+            langMenu.style.right = "100%";
+        } else {
+            // Sinon, alignez-le à droite
+            langMenu.style.left = "100%";
+            langMenu.style.right = "auto";
+        }
     });
-    
+
     // Ferme le menu si on clique ailleurs
     document.addEventListener("click", (e) => {
         if (!langMenu.contains(e.target) && e.target !== langMenuButton) {
             langMenu.classList.remove("show");
-            console.log("Menu de langue masqué");
         }
     });
 
