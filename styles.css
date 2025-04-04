@@ -1,38 +1,4 @@
-:root {
-    --bg-color: #ffffff;
-    --text-color: #333333;
-    --accent-color: #3498db;
-    --header-color: #333333;
-    --button-bg: #f8f9fa;
-    --button-text: #333333;
-    --button-border: #dee2e6;
-    --section-bg: #f8f9fa;
-    --footer-text: #6c757d;
-}
 
-body.dark {
-    --bg-color: #1a1a1a;
-    --text-color: #e0e0e0;
-    --accent-color: #4fa3d1;
-    --header-color: #a0c4de;
-    --button-bg: #333333;
-    --button-text: #e0e0e0;
-    --button-border: #4fa3d1;
-    --section-bg: #2c2c2c;
-    --footer-text: #a0a0a0;
-}
-
-body.amoled {
-    --bg-color: #000000;
-    --text-color: #e0e0e0;
-    --accent-color: #a0a0a0;
-    --header-color: #a0c4de;
-    --button-bg: #000000;
-    --button-text: #e0e0e0;
-    --button-border: #a0a0a0;
-    --section-bg: #000000;
-    --footer-text: #a0a0a0;
-}
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -99,38 +65,6 @@ h1 {
         display: block;
         font-size: 1.2rem;
     }
-
-    .buttons {
-        width: 100%;
-        justify-content: center;
-    }
-
-    button {
-        padding: 10px;
-    }
-
-    .lang-btn img {
-        width: 30px;
-
-    }
-}
-
-.lang-btn {
-    align-items: center;
-    justify-content: center;
-    background-color: var(--button-bg);
-    color: var(--button-text);
-    border: 1px solid var(--button-border);
-    border-radius: 5px;
-    padding: 5px 12px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    display: inline-block;
-}
-
-.lang-btn img {
-    width: 30px;    
 }
 
 button {
@@ -281,61 +215,150 @@ footer {
     }
 }
 
-/* Texte des boutons */
-.btn-text {
+:root {
+    /* Variables communes */
+    --transition: all 0.3s ease;
+    --border-radius: 12px;
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Thème clair (par défaut) */
+  .light-theme {
+    --bg-primary: #ffffff;
+    --bg-secondary: #f8f9fa;
+    --text-primary: #212529;
+    --text-secondary: #495057;
+    --accent: #0d6efd;
+    --hover-bg: #e9ecef;
+  }
+  
+  /* Thème sombre */
+  .dark-theme {
+    --bg-primary: #1a1a1a;
+    --bg-secondary: #2d2d2d;
+    --text-primary: #f8f9fa;
+    --text-secondary: #adb5bd;
+    --accent: #4dabf7;
+    --hover-bg: #343a40;
+  }
+  
+  /* Thème AMOLED */
+  .amoled-theme {
+    --bg-primary: #000000;
+    --bg-secondary: #111111;
+    --text-primary: #ffffff;
+    --text-secondary: #888888;
+    --accent: #ff69b4;
+    --hover-bg: #1a1a1a;
+  }
+  
+  /* Styles de base */
+  body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    transition: var(--transition);
+    line-height: 1.6;
+  }
+  
+  /* Sélecteur de langue amélioré */
+  .language-select {
     position: relative;
-    text-align: center;
-    transition: color 0.3s ease;
-}
-
-.animated-button:hover .btn-text {
-    color: #fff;
-}
-
-/* Conteneur principal du menu déroulant */
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
-
-/* Bouton principal "Langues" */
-#langMenuButton {
-    background-color: var(--button-bg);
-    color: var(--button-text);
-    border: 1px solid var(--button-border);
-    border-radius: 5px;
-    padding: 10px 15px;
+    width: 200px;
+    margin: 1rem;
+  }
+  
+  .language-select select {
+    appearance: none;
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid var(--accent);
+    border-radius: var(--border-radius);
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
     font-size: 1rem;
     cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-#langMenuButton:hover {
-    background-color: var(--accent-color);
-    color: #ffffff;
-}
-
-/* Boutons des langues */
-.lang-btn {
-    display: none; /* Masqué par défaut */
-    background-color: var(--button-bg);
-    color: var(--text-color);
-    border: 1px solid var(--button-border);
-    border-radius: 5px;
-    padding: 8px 12px;
-    font-size: 0.9rem;
+    transition: var(--transition);
+    background-image: url("data:image/svg+xml;charset=UTF-8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%238C8C8C'><path d='M7 10l5 5 5-5z'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 12px;
+  }
+  
+  .language-select select:hover {
+    border-color: var(--text-secondary);
+    box-shadow: var(--shadow);
+  }
+  
+  .language-select option {
+    padding: 1rem;
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+  }
+  
+  /* Éléments d'interface */
+  .navbar {
+    background: var(--bg-secondary);
+    padding: 1rem;
+    box-shadow: var(--shadow);
+  }
+  
+  .theme-toggle {
+    background: var(--accent);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
     cursor: pointer;
-    margin-top: 5px; /* Espacement entre les boutons */
-    width: 100%; /* S'adapte à la largeur du conteneur */
-}
-
-.lang-btn img {
-    width: 20px; /* Taille des drapeaux */
-    margin-right: 10px; /* Espacement entre l'image et le texte */
-}
-
-.lang-btn:hover {
-    background-color: var(--accent-color);
-    color: #ffffff;
-}
-
+    transition: var(--transition);
+  }
+  
+  .theme-toggle:hover {
+    opacity: 0.9;
+    transform: scale(1.05);
+  }
+  
+  .banner {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: var(--border-radius);
+  }
+  
+  /* Cartes et sections */
+  .section {
+    background: var(--bg-secondary);
+    padding: 2rem;
+    margin: 2rem 0;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+  }
+  
+  .styled-links .animated-button {
+    background: linear-gradient(45deg, var(--accent), #0066cc);
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    transition: var(--transition);
+  }
+  
+  /* Responsive design */
+  @media (max-width: 768px) {
+    .language-select select {
+      padding: 10px 14px;
+      font-size: 0.9rem;
+    }
+    
+    .section {
+      padding: 1rem;
+      margin: 1rem 0;
+    }
+  }
+  
+  /* Transitions thématiques */
+  body, .section, .navbar, select {
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
