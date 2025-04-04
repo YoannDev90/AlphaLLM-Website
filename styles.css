@@ -292,18 +292,13 @@ footer {
     color: #fff;
 }
 
-
-
-
-
-
 /* Conteneur principal du menu déroulant */
 .dropdown {
     position: relative;
     display: inline-block;
 }
 
-/* Bouton du menu déroulant */
+/* Bouton principal "Langues" */
 #langMenuButton {
     background-color: var(--button-bg);
     color: var(--button-text);
@@ -320,75 +315,27 @@ footer {
     color: #ffffff;
 }
 
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
-
-#langMenuButton {
-    background-color: var(--button-bg);
-    color: var(--button-text);
-    border: 1px solid var(--button-border);
-    border-radius: 5px;
-    padding: 10px 15px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-#langMenuButton:hover {
-    background-color: var(--accent-color);
-    color: #ffffff;
-}
-
-/* Contenu du menu déroulant */
-.dropdown-menu {
+/* Boutons des langues */
+.lang-btn {
     display: none; /* Masqué par défaut */
-    position: absolute;
-    top: calc(100% + 5px); /* Positionné juste en dessous du bouton */
-    left: 100%; /* Aligne le menu à droite du bouton */
-    min-width: 200px;
-    background-color: var(--section-bg);
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
-}
-
-/* Empêche le débordement de la page */
-.dropdown-menu.show {
-    display: block; /* Affiché lorsque la classe "show" est ajoutée */
-}
-
-.dropdown-menu button {
-    display: flex;
-    align-items: center; /* Centre le texte et l'image verticalement */
-    gap: 10px; /* Ajoute un espacement entre l'image et le texte */
-    width: 100%;
-    padding: 10px;
-    background-color: transparent;
+    background-color: var(--button-bg);
     color: var(--text-color);
-    border: none;
-    text-align: left; /* Alignement du texte à gauche */
+    border: 1px solid var(--button-border);
+    border-radius: 5px;
+    padding: 8px 12px;
+    font-size: 0.9rem;
     cursor: pointer;
+    margin-top: 5px; /* Espacement entre les boutons */
+    width: 100%; /* S'adapte à la largeur du conteneur */
 }
 
-.dropdown-menu button:hover {
+.lang-btn img {
+    width: 20px; /* Taille des drapeaux */
+    margin-right: 10px; /* Espacement entre l'image et le texte */
+}
+
+.lang-btn:hover {
     background-color: var(--accent-color);
     color: #ffffff;
 }
 
-/* Images des drapeaux dans les boutons */
-.dropdown-menu button img {
-    width: 20px; /* Taille des drapeaux */
-}
-
-/* Responsive : ajustement pour les petits écrans */
-@media (max-width: 768px) {
-    .dropdown-menu {
-        left: auto; /* Ajuste l'alignement sur mobile */
-        right: 0; /* Aligne le menu au bord droit du conteneur */
-        font-size: 0.9rem; /* Texte légèrement plus petit */
-        top: calc(100% + 2px); /* Ajuste l'espacement sur mobile */
-        min-width: unset; /* Supprime la largeur minimale sur petit écran */
-    }
-}

@@ -9,39 +9,51 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" crossorigin="anonymous">
 </head>
 <body>
-    <header>
+    <header class="header">
         <nav class="navbar">
             <div class="logo-title-container">
                 <img src="cover.webp" alt="Logo" class="logo">
                 <h1 class="title">AlphaLLM</h1>
             </div>
-            <button id="themeToggle" width="30"><i class="fas fa-sun"></i></button>
-            <div class="dropdown">
-                <button id="langMenuButton">Langues</button>
-                <ul id="langMenu" class="dropdown-menu">
-                        <button class="lang-btn" data-lang="fr"><img src="https://flagcdn.com/fr.svg" alt="FR" width="30">Français</button>
-                        <button class="lang-btn" data-lang="en"><img src="https://flagcdn.com/us.svg" alt="EN" width="30">English</button>
-                        <button class="lang-btn" data-lang="de"><img src="https://flagcdn.com/de.svg" alt="DE" width="30">Deutsch</button>
-                        <button class="lang-btn" data-lang="es"><img src="https://flagcdn.com/es.svg" alt="ES" width="30">Español</button>
-                        <button class="lang-btn" data-lang="it"><img src="https://flagcdn.com/it.svg" alt="IT" width="30">Italiano</button>
-                        <button class="lang-btn" data-lang="ru"><img src="https://flagcdn.com/ru.svg" alt="RU" width="30">Русский</button>
-                        <button class="lang-btn" data-lang="zh"><img src="https://flagcdn.com/cn.svg" alt="ZH" width="30">中国人</button>
-                        <button class="lang-btn" data-lang="pt"><img src="https://flagcdn.com/pt.svg" alt="PT" width="30">Português</button>
-                        <button class="lang-btn" data-lang="ar"><img src="https://flagcdn.com/sa.svg" alt="AR" width="30">عربي</button>
-                </ul>
-            </div>
+            <button id="themeToggle" class="theme-toggle">
+                <i class="fas fa-sun"></i>
+            </button>
+
+            <select id="language-select" class="language-select">
+                <option class="lang-btn" data-lang="fr">
+                    <img src="https://flagcdn.com/fr.svg" alt="FR" width="30"> Français
+                </option>
+                <option class="lang-btn" data-lang="en">
+                    <img src="https://flagcdn.com/us.svg" alt="EN" width="30"> English
+                </option>
+                <option class="lang-btn" data-lang="de">
+                    <img src="https://flagcdn.com/de.svg" alt="DE" width="30"> Deutsch
+                </option>
+                <option class="lang-btn" data-lang="es">
+                    <img src="https://flagcdn.com/es.svg" alt="ES" width="30"> Español
+                </option>
+                <option class="lang-btn" data-lang="it">
+                    <img src="https://flagcdn.com/it.svg" alt="IT" width="30"> Italiano
+                </option>
+                <option class="lang-btn" data-lang="ru">
+                    <img src="https://flagcdn.com/ru.svg" alt="RU" width="30"> Русский
+                </option>
+                <option class="lang-btn" data-lang="zh">
+                    <img src="https://flagcdn.com/cn.svg" alt="ZH" width="30"> 中国人
+                </option>
+            </select>
         </nav>
     </header>
 
-    <main>
+    <main class="main-content">
         <section id="bot-info" class="section">
-            <h2 id="about"></h2>
+            <h2 id="about" class="section-title"></h2>
             <img src="banner.png" alt="Banner" class="banner">
-            <h3 id="intro"></h3>
-            <p id="about-intro"></p>
-            <h3 id="features"></h3>
-            <p id="about-features"></p>
-            
+            <h3 id="intro" class="section-subtitle"></h3>
+            <p id="about-intro" class="section-text"></p>
+            <h3 id="features" class="section-subtitle"></h3>
+            <p id="about-features" class="section-text"></p>
+
             <ul class="styled-links">
                 <li>
                     <a href="https://discord.com/oauth2/authorize?client_id=1286951908786962442" target="_blank" class="animated-button">
@@ -53,7 +65,7 @@
                         <span class="btn-text" id="invite-bot"></span>
                     </a>
                 </li>
-                
+
                 <li>
                     <a href="https://discord.gg/QGvyrUgwdK" target="_blank" class="animated-button">
                         <div class="arrow">
@@ -64,7 +76,7 @@
                         <span class="btn-text" id="support-server"></span>
                     </a>
                 </li>
-                
+
                 <li>
                     <a href="doc.md" target="_blank" class="animated-button">
                         <div class="arrow">
@@ -76,35 +88,35 @@
                     </a>
                 </li>
             </ul>
-        </section>        
+        </section>
 
-        <p id="date"></p>
+        <p id="date" class="date-info"></p>
 
         <section id="tos" class="section">
-            <h2 id="tos-title"></h2>
-            <p id="tos-intro"></p>
+            <h2 id="tos-title" class="section-title"></h2>
+            <p id="tos-intro" class="section-text"></p>
             <ul>
-                <li id="tos-item-1"></li>
-                <li id="tos-item-2"></li>
-                <li id="tos-item-3"></li>
-                <li id="tos-item-4"></li>
+                <li id="tos-item-1" class="tos-item"></li>
+                <li id="tos-item-2" class="tos-item"></li>
+                <li id="tos-item-3" class="tos-item"></li>
+                <li id="tos-item-4" class="tos-item"></li>
             </ul>
         </section>
 
         <section id="privacy" class="section">
-            <h2 id="privacy-title"></h2>
-            <p id="privacy-intro"></p>
+            <h2 id="privacy-title" class="section-title"></h2>
+            <p id="privacy-intro" class="section-text"></p>
             <ul>
-                <li id="privacy-item-1"></li>
-                <li id="privacy-item-2"></li>
-                <li id="privacy-item-3"></li>
-                <li id="privacy-item-4"></li>
+                <li id="privacy-item-1" class="privacy-item"></li>
+                <li id="privacy-item-2" class="privacy-item"></li>
+                <li id="privacy-item-3" class="privacy-item"></li>
+                <li id="privacy-item-4" class="privacy-item"></li>
             </ul>
         </section>
     </main>
 
-    <footer>
-        <p id="footer"></p>
+    <footer class="footer">
+        <p id="footer" class="footer-text"></p>
     </footer>
 </body>
 </html>
