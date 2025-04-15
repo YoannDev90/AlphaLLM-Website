@@ -1,17 +1,58 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ALPHALLM</title>
-    <meta name="description" content="Web interface for AlphaLLM" />
-    <meta name="author" content="Lucky" />
-    <script type="module" crossorigin src="/assets/index.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index.css">
-  </head>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AlphaLLM</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" crossorigin="anonymous">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo-title-container">
+                <img src="img.webp" alt="Logo" class="logo">
+                <h1>AlphaLLM</h1>
+            </div>
+            <div class="buttons">
+                <button id="themeToggle"><i class="fas fa-sun"></i></button>
+                <button class="lang-btn" data-lang="fr"><img src="https://flagcdn.com/fr.svg" alt="FR" width="20"></button>
+                <button class="lang-btn" data-lang="en"><img src="https://flagcdn.com/us.svg" alt="EN" width="20"></button>
+                <button class="lang-btn" data-lang="de"><img src="https://flagcdn.com/de.svg" alt="DE" width="20"></button>
+                <button class="lang-btn" data-lang="es"><img src="https://flagcdn.com/es.svg" alt="ES" width="20"></button>
+            </div>
+        </nav>
+    </header>
 
-  <body>
-    <div id="root"></div>
+    <main>
+        <p id="date"></p>
 
-  </body>
+        <section id="tos" class="section">
+            <h2 id="tos-title"></h2>
+            <p id="tos-intro"></p>
+            <ul>
+                <li id="tos-item-1"></li>
+                <li id="tos-item-2"></li>
+                <li id="tos-item-3"></li>
+                <li id="tos-item-4"></li>
+            </ul>
+        </section>
+
+        <section id="privacy" class="section">
+            <h2 id="privacy-title"></h2>
+            <p id="privacy-intro"></p>
+            <ul>
+                <li id="privacy-item-1"></li>
+                <li id="privacy-item-2"></li>
+                <li id="privacy-item-3"></li>
+                <li id="privacy-item-4"></li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p id="footer"></p>
+    </footer>
+</body>
 </html>
