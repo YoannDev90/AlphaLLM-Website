@@ -1,0 +1,18 @@
+{
+ "title": "AlphaLLM",
+ "theme-toggle": "Thema",
+ "date": "Letzte Aktualisierung: 18. März 2025",
+ "tos-title": "Nutzungsbedingungen",
+ "tos-intro": "Durch die Nutzung des AlphaLLM-Bots erklären Sie sich mit den folgenden Bedingungen einverstanden:",
+ "tos-item-1": "Der Bot wird ohne jegliche Garantie bereitgestellt. Der Dienst kann für längere Zeit unterbrochen werden, wenn dies notwendig ist.",
+ "tos-item-2": "Sie verpflichten sich, den Bot nicht für illegale oder böswillige Zwecke zu verwenden. Der Missbrauch unserer Dienste kann zu einer vorübergehenden oder dauerhaften Sperrung Ihres Discord-Kontos führen.",
+ "tos-item-3": "Wir behalten uns das Recht vor, den Dienst jederzeit zu ändern oder einzustellen. Da der Dienst kostenlos ist, müssen wir ihn zu sehr niedrigen Kosten hosten, was zu Ausfällen führen kann.",
+ "tos-item-4": "Sie sind für alle Aktivitäten verantwortlich, die Sie mit Ihrem Konto in Verbindung mit dem Bot durchführen.",
+ "privacy-title": "Datenschutzerklärung",
+ "privacy-intro": "Wir nehmen Ihre Privatsphäre sehr ernst. Hier ist, wie wir mit Ihren Daten umgehen:",
+ "privacy-item-1": "Wir sammeln nur Daten, die für den Betrieb des Bots notwendig sind: Ihre Discord-Nutzer-ID, Ihre letzten Nachrichten mit dem Bot, um eine bessere Integration zu ermöglichen, Ihre Sprache, die vom Nutzer mit dem Befehl /set-language festgelegt wird.",
+ "privacy-item-2": "Die vom Bot verarbeiteten Nachrichten werden nicht dauerhaft gespeichert. Die Logs werden automatisch nach 24 Stunden gelöscht, es sei denn, der Bot wird vollständig ausgeloggt, dann werden die Log-Dateien manuell gelöscht.",
+ "privacy-item-3": "Wir geben Ihre Daten nicht an Dritte weiter. Lediglich der Hosting-Anbieter könnte potenziell auf Ihre Daten zugreifen, was jedoch nur in Ausnahmefällen geschieht.",
+ "privacy-item-4": "Sie können jederzeit die Löschung Ihrer Daten beantragen. Dies geschieht automatisch nach 24 Stunden oder in Ausnahmefällen manuell, sofern Sie den Bot nicht mehr verwenden.",
+ "footer": "Alle Rechte vorbehalten."
+}

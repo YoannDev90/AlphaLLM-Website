@@ -1,0 +1,18 @@
+{
+ "title": "AlphaLLM",
+ "theme-toggle": "Tema",
+ "date": "Última actualización: 18 de marzo de 2025",
+ "tos-title": "Condiciones de uso",
+ "tos-intro": "Al utilizar el bot AlphaLLM, usted acepta los siguientes términos y condiciones:",
+ "tos-item-1": "El bot se proporciona \"tal cual\", sin garantía de ningún tipo. El servicio puede ser interrumpido, y por un periodo prolongado, si esta decisión resulta necesaria.",
+ "tos-item-2": "Usted se compromete a no utilizar el bot con fines ilegales o malintencionados. El abuso de nuestros servicios puede dar lugar a la prohibición temporal o permanente de tu cuenta de Discord en el bot.",
+ "tos-item-3": "Nos reservamos el derecho a modificar o suspender el servicio en cualquier momento. Como el servicio es gratuito, tenemos que proporcionar un alojamiento de muy bajo coste, lo que puede provocar tiempos de inactividad.",
+ "tos-item-4": "Eres responsable de cualquier actividad que se lleve a cabo utilizando tu cuenta en relación con el bot.",
+ "privacy-title": "Política de privacidad",
+ "privacy-intro": "Nos tomamos muy en serio tu privacidad. Así es como tratamos tus datos:",
+ "privacy-item-1": "Solo recopilamos los datos necesarios para que el bot funcione, es decir, tu ID de usuario de Discord, tus últimos mensajes con el bot para permitir una mejor integración, tu idioma, definido por el usuario con el comando /set-language.",
+ "privacy-item-2": "Los mensajes procesados por el bot no se almacenan de forma permanente. Los registros se eliminan automáticamente después de 24 horas, a menos que el bot se desconecte por completo, en cuyo caso los archivos de registro se eliminarán manualmente.",
+ "privacy-item-3": "No compartimos tus datos con terceros. Sólo el host podría potencialmente acceder a tus datos, pero esta acción no se llevará a cabo salvo en circunstancias excepcionales.",
+ "privacy-item-4": "Puedes solicitar la eliminación de tus datos en cualquier momento. Esta supresión se hará efectiva automáticamente transcurridas 24 horas, o manualmente en circunstancias excepcionales, siempre que dejes de utilizar el bot.",
+ "footer": "Todos los derechos reservados."
+}

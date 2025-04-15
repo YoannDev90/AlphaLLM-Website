@@ -1,0 +1,19 @@
+{
+ "title": "AlphaLLM",
+ "theme-toggle": "Theme",
+ "date": "Last update: March 18, 2025",
+ "tos-title": "Terms of use",
+ "tos-intro": "By using the AlphaLLM bot, you agree to the following conditions:",
+ "tos-item-1": "The bot is provided \"as is\", without warranty of any kind. The service may be interrupted, and for an extended period of time, if necessary.",
+ "tos-item-2": "You agree not to use the bot for illegal or malicious purposes. Abuse of our services may result in your Discord account being temporarily or permanently banned from the bot.",
+ "tos-item-3": "We reserve the right to modify or suspend the service at any time. As the service is free, we have to provide very low-cost hosting, which may result in downtime.",
+ "tos-item-4": "You are responsible for any activity carried out with your account in connection with the bot.",
+ "privacy-title": "Privacy policy",
+ "privacy-intro": "We take your privacy seriously. Here's how we handle your data:",
+ "privacy-item-1": "We only collect the data necessary for the bot to function, i.e. your Discord user ID, your last messages with the bot to enable better integration, your language, defined by the user with the /set-language command.",
+ "privacy-item-2": "Messages processed by the bot are not stored permanently. Logs are automatically deleted after 24 hours, unless the bot is completely disconnected, in which case log files will be deleted manually.",
+ "privacy-item-3": "We do not share your data with third parties. Only the host could potentially access your data, but this action will not be carried out except in exceptional situations.",
+ "privacy-item-4": "You can request the deletion of your data at any time. This deletion will take effect automatically after 24 hours, or manually in exceptional circumstances, on condition that you no longer use the bot.",
+ "footer": "All rights reserved."
+}
+
