@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AlphaLLM - Discord Bot</title>
+    <title>Support - AlphaLLM</title>
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="assets/css/themes.css">
     <script defer src="assets/js/main.js"></script>
@@ -16,6 +16,7 @@
 <body class="dark-theme">
     <div class="noise-overlay"></div>
     
+    <!-- Header section with navigation -->
     <header>
         <nav class="navbar">
             <div class="logo-title-container">
@@ -24,10 +25,10 @@
             </div>
             
             <div class="nav-links">
-                <a href="index.html" class="active" data-i18n="nav.home">Accueil</a>
+                <a href="index.html" data-i18n="nav.home">Accueil</a>
                 <a href="docs.html" data-i18n="nav.docs">Documentation</a>
                 <a href="status.html" data-i18n="nav.status">Statut</a>
-                <a href="support.html" data-i18n="nav.support">Support</a>
+                <a href="support.html" class="active" data-i18n="nav.support">Support</a>
             </div>
             
             <div class="buttons">
@@ -46,88 +47,80 @@
         </nav>
     </header>
 
-    <div class="hero-section">
-        <div class="hero-content fade-in">
-            <h1 class="hero-title" data-i18n="hero.title">AlphaLLM Bot</h1>
-            <p class="hero-subtitle" data-i18n="hero.subtitle">L'IA avancée pour votre serveur Discord</p>
-            <div class="hero-buttons">
-                <a href="https://discord.com/api/oauth2/authorize?client_id=YOUR_CLIENT_ID&permissions=8&scope=bot" class="btn btn-primary" data-i18n="hero.invite">
-                    <i class="fas fa-plus"></i> Inviter
-                </a>
-                <a href="#features" class="btn btn-secondary" data-i18n="hero.learn">
-                    <i class="fas fa-info-circle"></i> En savoir plus
-                </a>
-            </div>
-        </div>
-        <div class="hero-stats">
-            <div class="stat-box fade-in" style="animation-delay: 0.2s;">
-                <i class="fas fa-server"></i>
-                <span class="stat-number">1000+</span>
-                <span class="stat-label" data-i18n="stats.servers">Serveurs</span>
-            </div>
-            <div class="stat-box fade-in" style="animation-delay: 0.4s;">
-                <i class="fas fa-users"></i>
-                <span class="stat-number">100K+</span>
-                <span class="stat-label" data-i18n="stats.users">Utilisateurs</span>
-            </div>
-            <div class="stat-box fade-in" style="animation-delay: 0.6s;">
-                <i class="fas fa-bolt"></i>
-                <span class="stat-number">99.9%</span>
-                <span class="stat-label" data-i18n="stats.uptime">Disponibilité</span>
-            </div>
-        </div>
-    </div>
-
     <main>
-        <section id="features" class="features-section">
-            <h2 class="section-title slide-in" data-i18n="features.title">Fonctionnalités</h2>
-            
+        <section class="support-hero">
+            <h1 class="section-title fade-in" data-i18n="support.title">Centre de Support</h1>
+            <p class="section-subtitle fade-in" data-i18n="support.subtitle">Comment pouvons-nous vous aider ?</p>
+        </section>
+
+        <section class="support-options">
             <div class="grid-container">
-                <div class="feature-card slide-in" style="animation-delay: 0.1s;">
-                    <div class="feature-icon">
-                        <i class="fas fa-robot"></i>
+                <div class="support-card slide-in" style="animation-delay: 0.1s;">
+                    <div class="support-icon">
+                        <i class="fas fa-book"></i>
                     </div>
-                    <h3 data-i18n="features.ai.title">IA Conversationnelle</h3>
-                    <p data-i18n="features.ai.description">Discutez avec une IA avancée capable de comprendre le contexte et de générer des réponses pertinentes.</p>
+                    <h3 data-i18n="support.docs.title">Documentation</h3>
+                    <p data-i18n="support.docs.description">Consultez notre documentation détaillée pour tout savoir sur l'utilisation d'AlphaLLM.</p>
+                    <a href="docs.html" class="btn btn-secondary" data-i18n="support.docs.button">Voir la documentation</a>
                 </div>
-                
-                <div class="feature-card slide-in" style="animation-delay: 0.2s;">
-                    <div class="feature-icon">
-                        <i class="fas fa-image"></i>
+
+                <div class="support-card slide-in" style="animation-delay: 0.2s;">
+                    <div class="support-icon">
+                        <i class="fab fa-discord"></i>
                     </div>
-                    <h3 data-i18n="features.image.title">Génération d'Images</h3>
-                    <p data-i18n="features.image.description">Créez des images uniques à partir de simples descriptions textuelles.</p>
+                    <h3 data-i18n="support.discord.title">Serveur Discord</h3>
+                    <p data-i18n="support.discord.description">Rejoignez notre communauté Discord pour obtenir de l'aide et discuter avec d'autres utilisateurs.</p>
+                    <a href="https://discord.gg/YOUR_INVITE" class="btn btn-primary" target="_blank" data-i18n="support.discord.button">Rejoindre le Discord</a>
                 </div>
-                
-                <div class="feature-card slide-in" style="animation-delay: 0.3s;">
-                    <div class="feature-icon">
-                        <i class="fas fa-language"></i>
+
+                <div class="support-card slide-in" style="animation-delay: 0.3s;">
+                    <div class="support-icon">
+                        <i class="fas fa-envelope"></i>
                     </div>
-                    <h3 data-i18n="features.translate.title">Traduction</h3>
-                    <p data-i18n="features.translate.description">Traduisez instantanément des messages dans plus de 50 langues.</p>
-                </div>
-                
-                <div class="feature-card slide-in" style="animation-delay: 0.4s;">
-                    <div class="feature-icon">
-                        <i class="fas fa-code"></i>
-                    </div>
-                    <h3 data-i18n="features.code.title">Assistance Code</h3>
-                    <p data-i18n="features.code.description">Obtenez de l'aide pour votre code, générez des fonctions et débogez vos programmes.</p>
+                    <h3 data-i18n="support.contact.title">Contact Direct</h3>
+                    <p data-i18n="support.contact.description">Une question spécifique ? Contactez directement notre équipe de support.</p>
+                    <a href="mailto:support@alphallm.com" class="btn btn-secondary" data-i18n="support.contact.button">Envoyer un email</a>
                 </div>
             </div>
         </section>
-        
-        <section class="cta-section">
-            <div class="cta-content fade-in">
-                <h2 data-i18n="cta.title">Prêt à améliorer votre serveur Discord ?</h2>
-                <p data-i18n="cta.description">Invitez AlphaLLM dès maintenant et découvrez toutes ses fonctionnalités.</p>
-                <a href="https://discord.com/api/oauth2/authorize?client_id=YOUR_CLIENT_ID&permissions=8&scope=bot" class="btn btn-glow" data-i18n="cta.invite">
-                    <i class="fab fa-discord"></i> Ajouter à Discord
-                </a>
+
+        <section class="faq-section">
+            <h2 class="section-title slide-in" data-i18n="support.faq.title">Questions Fréquentes</h2>
+            <div class="faq-container">
+                <div class="faq-item slide-in" style="animation-delay: 0.1s;">
+                    <button class="faq-question">
+                        <span data-i18n="support.faq.q1">Comment inviter AlphaLLM sur mon serveur ?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p data-i18n="support.faq.a1">Cliquez simplement sur le bouton "Inviter" en haut de la page et suivez les instructions de Discord pour ajouter AlphaLLM à votre serveur.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item slide-in" style="animation-delay: 0.2s;">
+                    <button class="faq-question">
+                        <span data-i18n="support.faq.q2">Le bot est-il gratuit ?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p data-i18n="support.faq.a2">Oui, AlphaLLM est gratuit à utiliser avec des fonctionnalités de base. Des fonctionnalités premium sont disponibles pour les utilisateurs souhaitant plus de possibilités.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item slide-in" style="animation-delay: 0.3s;">
+                    <button class="faq-question">
+                        <span data-i18n="support.faq.q3">Comment configurer le bot ?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p data-i18n="support.faq.a3">Utilisez la commande /setup pour accéder au menu de configuration ou visitez notre tableau de bord web pour une configuration détaillée.</p>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
 
+    <!-- Footer section -->
     <footer>
         <div class="footer-content">
             <div class="footer-logo">

@@ -1,0 +1,304 @@
+:root {
+    --primary-color: #4f46e5;
+    --primary-light: #6366f1;
+    --primary-dark: #3730a3;
+    --secondary-color: #8b5cf6;
+    --success-color: #10b981;
+    --warning-color: #f59e0b;
+    --error-color: #ef4444;
+    --info-color: #3b82f6;
+    --text-color: #f8fafc;
+    --text-muted: #94a3b8;
+    --background-color: #0f172a;
+    --background-darker: #0a0f1d;
+    --background-lighter: #1e293b;
+    --border-color: #1e293b;
+    --card-bg: rgba(30, 41, 59, 0.7);
+    --shadow-color: rgba(0, 0, 0, 0.5);
+    --glow-color: rgba(79, 70, 229, 0.5);
+    --navbar-bg: rgba(15, 23, 42, 0.9);
+    --navbar-border: #1e293b;
+    --font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+    --surface-1: rgba(30, 41, 59, 0.7);
+    --surface-2: rgba(51, 65, 85, 0.7);
+    --neon-glow: 0 0 10px var(--primary-color), 0 0 20px var(--primary-light);
+    --transition-speed: 0.3s;
+}
+
+/* AMOLED Theme - Noir profond */
+.amoled-theme {
+    --background-color: #000000;
+    --background-darker: #000000;
+    --background-lighter: #121212;
+    --border-color: #1a1a1a;
+    --card-bg: rgba(18, 18, 18, 0.7);
+    --navbar-bg: rgba(0, 0, 0, 0.9);
+    --navbar-border: #1a1a1a;
+    --shadow-color: rgba(0, 0, 0, 0.8);
+    --glow-color: rgba(99, 102, 241, 0.5);
+}
+
+/* Light Theme */
+.light-theme {
+    --primary-color: #6366f1;
+    --primary-light: #818cf8;
+    --primary-dark: #4f46e5;
+    --secondary-color: #a78bfa;
+    --success-color: #10b981;
+    --warning-color: #f59e0b;
+    --error-color: #ef4444;
+    --info-color: #60a5fa;
+    --text-color: #0f172a;
+    --text-muted: #475569;
+    --background-color: #f8fafc;
+    --background-darker: #e2e8f0;
+    --background-lighter: #ffffff;
+    --border-color: #e2e8f0;
+    --card-bg: rgba(255, 255, 255, 0.8);
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --glow-color: rgba(99, 102, 241, 0.3);
+    --navbar-bg: rgba(248, 250, 252, 0.9);
+    --navbar-border: #e2e8f0;
+}
+
+/* Gradient Background */
+.gradient-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: radial-gradient(circle at top right, rgba(99, 102, 241, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at bottom left, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.amoled-theme .gradient-bg {
+    background: radial-gradient(circle at top right, rgba(99, 102, 241, 0.1) 0%, transparent 30%),
+                radial-gradient(circle at bottom left, rgba(139, 92, 246, 0.05) 0%, transparent 30%);
+}
+
+/* Noise Overlay */
+.noise-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('data:image/svg+xml;charset=utf-8,<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><filter id="noiseFilter"><feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/><feColorMatrix type="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0.1 0"/></filter><rect width="100%" height="100%" filter="url(%23noiseFilter)"/></svg>');
+    opacity: 0.4;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.amoled-theme .noise-overlay {
+    opacity: 0.2;
+}
+
+/* Glass effect */
+.glass-effect {
+    background: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 20px var(--shadow-color);
+}
+
+.amoled-theme .glass-effect {
+    background: rgba(15, 15, 15, 0.7);
+}
+
+.light-theme .glass-effect {
+    background: rgba(255, 255, 255, 0.7);
+}
+
+/* Glass Card */
+.glass-card {
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 20px var(--shadow-color);
+    padding: 1.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.glass-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px var(--shadow-color);
+}
+
+/* Neon glow effect */
+.neon-effect {
+    box-shadow: var(--neon-glow);
+    transition: box-shadow 0.3s ease;
+}
+
+.neon-effect:hover {
+    box-shadow: 0 0 15px var(--primary-color), 0 0 30px var(--primary-light);
+}
+
+/* Glow text */
+.glow-text {
+    text-shadow: 0 0 10px var(--primary-color), 0 0 20px var(--primary-light);
+}
+
+/* Pulse animation for icons */
+.pulse-icon {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.7;
+        transform: scale(1.05);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Floating animation */
+.floating {
+    animation: floating 3s ease-in-out infinite;
+}
+
+@keyframes floating {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+/* Scale in animation */
+.scale-in {
+    opacity: 0;
+    transform: scale(0.95);
+    animation: scaleIn 0.6s ease forwards;
+}
+
+@keyframes scaleIn {
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Flip in animation */
+.flip-in {
+    opacity: 0;
+    transform: perspective(800px) rotateX(-20deg);
+    transform-origin: top center;
+    animation: flipIn 0.8s ease forwards;
+    animation-delay: var(--delay, 0s);
+}
+
+@keyframes flipIn {
+    to {
+        opacity: 1;
+        transform: perspective(800px) rotateX(0);
+    }
+}
+
+/* Update pulse animation */
+.update-pulse {
+    animation: updatePulse 1s ease;
+}
+
+@keyframes updatePulse {
+    0% {
+        box-shadow: 0 0 0 0 var(--primary-color);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+    }
+}
+
+/* Value change animation */
+.value-change {
+    animation: valueChange 0.4s ease;
+}
+
+@keyframes valueChange {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+    51% {
+        transform: translateY(5px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Rotating animation */
+.rotating {
+    animation: rotating 1s linear;
+}
+
+@keyframes rotating {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Notification animation */
+.notification {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: var(--surface-1);
+    color: var(--text-color);
+    padding: 12px 20px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transform: translateY(100px);
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    z-index: 1000;
+}
+
+.notification.show {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.notification-success {
+    border-left: 4px solid var(--success-color);
+}
+
+.notification-error {
+    border-left: 4px solid var(--error-color);
+}
+
+.notification-success i {
+    color: var(--success-color);
+}
+
+.notification-error i {
+    color: var(--error-color);
+}
