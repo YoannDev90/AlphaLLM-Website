@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mentions Légales - AlphaLLM</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/themes.css">
+    <script defer src="assets/js/main.js"></script>
+    <script defer src="assets/js/i18n.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="dark-theme">
+    <div class="noise-overlay"></div>
+    
+    <header>
+        <nav class="navbar">
+            <div class="logo-title-container">
+                <img src="assets/images/logo.webp" alt="Logo" class="logo animate-pulse">
+                <h1 class="glitch" data-text="AlphaLLM">AlphaLLM</h1>
+            </div>
+            
+            <div class="nav-links">
+                <a href="index.html" data-i18n="nav.home">Accueil</a>
+                <a href="docs.html" data-i18n="nav.docs">Documentation</a>
+                <a href="status.html" data-i18n="nav.status">Statut</a>
+                <a href="support.html" data-i18n="nav.support">Support</a>
+            </div>
+            
+            <div class="buttons">
+                <button id="themeToggle"><i class="fas fa-moon"></i></button>
+                <div class="language-dropdown">
+                    <button class="dropdown-toggle"><i class="fas fa-globe"></i> <span class="current-lang">FR</span></button>
+                    <div class="dropdown-menu">
+                        <button class="lang-btn" data-lang="fr"><img src="https://flagcdn.com/fr.svg" alt="FR" width="20"> Français</button>
+                        <button class="lang-btn" data-lang="en"><img src="https://flagcdn.com/us.svg" alt="EN" width="20"> English</button>
+                        <button class="lang-btn" data-lang="de"><img src="https://flagcdn.com/de.svg" alt="DE" width="20"> Deutsch</button>
+                        <button class="lang-btn" data-lang="es"><img src="https://flagcdn.com/es.svg" alt="ES" width="20"> Español</button>
+                    </div>
+                </div>
+                <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="legals-container">
+        <div class="page-header fade-in">
+            <h1 class="section-title" data-i18n="legals.title">Mentions Légales</h1>
+            <p class="section-subtitle" data-i18n="legals.subtitle">Informations légales et conditions d'utilisation</p>
+        </div>
+
+        <nav class="legals-nav glass-card fade-in">
+            <a href="#terms" class="legals-nav-item active" data-i18n="legals.termsNav">Conditions d'utilisation</a>
+            <a href="#privacy" class="legals-nav-item" data-i18n="legals.privacyNav">Politique de confidentialité</a>
+            <a href="#cookies" class="legals-nav-item" data-i18n="legals.cookiesNav">Politique de cookies</a>
+        </nav>
+
+        <section id="terms" class="legals-section glass-card fade-in">
+            <h2 data-i18n="legals.termsTitle">Conditions d'utilisation</h2>
+            <div class="legals-content">
+                <h3 data-i18n="legals.terms.usage">1. Utilisation du service</h3>
+                <p data-i18n="legals.terms.usageText">En utilisant AlphaLLM, vous acceptez de respecter ces conditions d'utilisation. Le service est fourni "tel quel" et nous nous réservons le droit de le modifier à tout moment.</p>
+
+                <h3 data-i18n="legals.terms.restrictions">2. Restrictions</h3>
+                <p data-i18n="legals.terms.restrictionsText">Il est interdit d'utiliser AlphaLLM pour :</p>
+                <ul>
+                    <li data-i18n="legals.terms.restriction1">Générer du contenu illégal ou nuisible</li>
+                    <li data-i18n="legals.terms.restriction2">Spammer ou harceler d'autres utilisateurs</li>
+                    <li data-i18n="legals.terms.restriction3">Tenter de compromettre la sécurité du service</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="privacy" class="legals-section glass-card fade-in">
+            <h2 data-i18n="legals.privacyTitle">Politique de confidentialité</h2>
+            <div class="legals-content">
+                <h3 data-i18n="legals.privacy.collection">1. Collecte des données</h3>
+                <p data-i18n="legals.privacy.collectionText">Nous collectons uniquement les données nécessaires au fonctionnement du service :</p>
+                <ul>
+                    <li data-i18n="legals.privacy.data1">ID Discord pour l'identification</li>
+                    <li data-i18n="legals.privacy.data2">Préférences de langue et paramètres</li>
+                    <li data-i18n="legals.privacy.data3">Historique des commandes pour améliorer le service</li>
+                </ul>
+
+                <h3 data-i18n="legals.privacy.usage">2. Utilisation des données</h3>
+                <p data-i18n="legals.privacy.usageText">Vos données sont utilisées uniquement pour :</p>
+                <ul>
+                    <li data-i18n="legals.privacy.usage1">Fournir et améliorer nos services</li>
+                    <li data-i18n="legals.privacy.usage2">Personnaliser votre expérience</li>
+                    <li data-i18n="legals.privacy.usage3">Assurer la sécurité du service</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="cookies" class="legals-section glass-card fade-in">
+            <h2 data-i18n="legals.cookiesTitle">Politique de cookies</h2>
+            <div class="legals-content">
+                <h3 data-i18n="legals.cookies.what">1. Qu'est-ce qu'un cookie ?</h3>
+                <p data-i18n="legals.cookies.whatText">Les cookies sont de petits fichiers texte stockés sur votre appareil qui nous aident à améliorer votre expérience sur notre site.</p>
+
+                <h3 data-i18n="legals.cookies.usage">2. Notre utilisation des cookies</h3>
+                <p data-i18n="legals.cookies.usageText">Nous utilisons des cookies pour :</p>
+                <ul>
+                    <li data-i18n="legals.cookies.usage1">Mémoriser vos préférences de thème</li>
+                    <li data-i18n="legals.cookies.usage2">Maintenir votre session connectée</li>
+                    <li data-i18n="legals.cookies.usage3">Analyser l'utilisation du site</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="assets/images/logo.webp" alt="AlphaLLM Logo" class="logo-small">
+                <h3>AlphaLLM</h3>
+            </div>
+            
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h4 data-i18n="footer.product">Produit</h4>
+                    <a href="docs.html" data-i18n="footer.documentation">Documentation</a>
+                    <a href="status.html" data-i18n="footer.status">Statut</a>
+                </div>
+                
+                <div class="footer-column">
+                    <h4 data-i18n="footer.resources">Ressources</h4>
+                    <a href="support.html" data-i18n="footer.support">Support</a>
+                    <a href="https://discord.gg/YOUR_INVITE" target="_blank" data-i18n="footer.discord">Serveur Discord</a>
+                    <a href="dashboard.html" data-i18n="footer.dashboard">Tableau de bord</a>
+                </div>
+                
+                <div class="footer-column">
+                    <h4 data-i18n="footer.legal">Juridique</h4>
+                    <a href="legals.html#terms" data-i18n="footer.terms">Conditions d'utilisation</a>
+                    <a href="legals.html#privacy" data-i18n="footer.privacy">Politique de confidentialité</a>
+                    <a href="legals.html#cookies" data-i18n="footer.cookies">Politique de cookies</a>
+                </div>
+            </div>
+            
+            <div class="footer-social">
+                <a href="https://discord.gg/YOUR_INVITE" target="_blank" aria-label="Discord"><i class="fab fa-discord"></i></a>
+                <a href="https://twitter.com/YOUR_TWITTER" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="https://github.com/YOUR_GITHUB" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>© <span id="current-year">2024</span> AlphaLLM. <span data-i18n="footer.rights">Tous droits réservés.</span></p>
+            <p class="made-with"><span data-i18n="footer.madeWith">Fait avec</span> <i class="fas fa-heart"></i> <span data-i18n="footer.by">par</span> <a href="https://github.com/YOUR_USERNAME" target="_blank">YOUR_NAME</a></p>
+        </div>
+    </footer>
+
+    <button id="back-to-top" aria-label="Retour en haut"><i class="fas fa-arrow-up"></i></button>
+</body>
+</html>

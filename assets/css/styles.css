@@ -1,3 +1,14 @@
+@import 'base.css';
+@import 'layout.css';
+@import 'components.css';
+@import 'animations.css';
+@import 'responsive.css';
+@import 'team.css';
+@import 'docs.css';
+@import 'support.css';
+@import 'legals.css';
+@import 'status.css';
+
 /* Base Styles */
 :root {
     --primary: #7289da;
@@ -476,7 +487,7 @@ header {
 }
 
 .cta-content h2 {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
     margin-bottom: 1.5rem;
 }
 
@@ -1203,6 +1214,74 @@ footer {
     font-family: 'Fira Code', monospace;
 }
 
+/* Legals page styles */
+.legals-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.legals-nav {
+    display: flex;
+    gap: 1rem;
+    margin: 2rem 0;
+    padding: 1rem;
+    border-radius: 0.5rem;
+}
+
+.legals-nav-item {
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    color: var(--text-secondary);
+    transition: all 0.3s ease;
+}
+
+.legals-nav-item:hover,
+.legals-nav-item.active {
+    background: var(--accent-color);
+    color: var(--text-primary);
+}
+
+.legals-section {
+    margin-bottom: 2rem;
+    padding: 2rem;
+    border-radius: 1rem;
+}
+
+.legals-content {
+    margin-top: 1.5rem;
+}
+
+.legals-content h3 {
+    color: var(--text-primary);
+    margin: 1.5rem 0 1rem;
+}
+
+.legals-content p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.legals-content ul {
+    list-style: none;
+    padding-left: 1.5rem;
+}
+
+.legals-content li {
+    color: var(--text-secondary);
+    margin: 0.5rem 0;
+    position: relative;
+}
+
+.legals-content li:before {
+    content: "•";
+    color: var(--accent-color);
+    position: absolute;
+    left: -1.5rem;
+}
+
 @media (max-width: 1024px) {
     .footer-content {
         grid-template-columns: 1fr 2fr;
@@ -1329,4 +1408,163 @@ footer {
         width: 100%;
         position: static;
     }
+}
+
+/* Team Section */
+.team-section {
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.team-card {
+    background: var(--card-bg);
+    border-radius: 1rem;
+    padding: 2rem;
+    transition: transform 0.3s ease;
+}
+
+.team-card:hover {
+    transform: translateY(-5px);
+}
+
+.team-avatar {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 1.5rem;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid var(--accent-color);
+}
+
+.avatar-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.team-name {
+    color: var(--text-primary);
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.team-role {
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+}
+
+.team-social {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.team-social a {
+    color: var(--text-secondary);
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+}
+
+.team-social a:hover {
+    color: var(--accent-color);
+}
+
+/* Bots List */
+.bots-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.bot-item {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    transition: transform 0.2s ease;
+}
+
+.bot-item:hover {
+    transform: translateY(-2px);
+}
+
+.bot-thumbnail {
+    position: relative;
+    width: 48px;
+    height: 48px;
+    margin-right: 1rem;
+}
+
+.bot-thumbnail img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.status-dot {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid var(--card-bg);
+}
+
+.status-dot.online {
+    background-color: #00ff9d;
+}
+
+.status-dot.offline {
+    background-color: #ff4444;
+}
+
+.bot-info {
+    flex: 1;
+}
+
+.bot-info h3 {
+    margin: 0;
+    font-size: 1rem;
+    color: var(--text-primary);
+}
+
+.bot-status {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 0.25rem;
+}
+
+.ping {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.status {
+    font-size: 0.9rem;
+    padding: 0.2rem 0.5rem;
+    border-radius: 1rem;
+}
+
+.status.online {
+    background: rgba(0, 255, 157, 0.1);
+    color: #00ff9d;
+}
+
+.status.offline {
+    background: rgba(255, 68, 68, 0.1);
+    color: #ff4444;
 }

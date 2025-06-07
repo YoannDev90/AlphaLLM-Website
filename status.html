@@ -3,9 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Statut | AlphaLLM</title>
+    <title>Statut - AlphaLLM Bot</title>
+    <icon rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+    <meta name="description" content="Page de statut en temps réel d'AlphaLLM. Consultez la disponibilité et les performances du bot Discord.">
+    <meta name="keywords" content="AlphaLLM, Discord Bot, Status, Uptime, Performance, Monitoring">
+    <meta name="author" content="YoannDev90">
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="assets/css/themes.css">
+    <link rel="stylesheet" href="assets/css/status.css">
     <script defer src="assets/js/main.js"></script>
     <script defer src="assets/js/i18n.js"></script>
     <script defer src="assets/js/status.js"></script>
@@ -67,207 +72,167 @@
                 </div>
             </div>
             
-            <div class="status-grid">
-                <div class="status-item flip-in" style="--delay: 0.1s">
-                    <div class="status-card glass-effect">
-                        <div class="status-icon">
-                            <i class="fas fa-robot pulse-icon"></i>
-                        </div>
-                        <div class="status-info">
-                            <h3 data-i18n="status.bot">Bot Principal</h3>
-                            <div id="main-status" class="status-indicator">
-                                <span class="status-badge online" data-i18n="status.operational">Opérationnel</span>
-                                <div class="ping-time">
-                                    <i class="fas fa-bolt"></i> <span id="main-ping">32</span>ms
-                                </div>
-                            </div>
+            <div class="bots-list">
+                <!-- Répéter pour chaque bot -->
+                <div class="bot-item glass-effect">
+                    <div class="bot-thumbnail">
+                        <img src="assets/images/bots/alphallm.png" alt="AlphaLLM">
+                        <span class="status-dot online"></span>
+                    </div>
+                    <div class="bot-info">
+                        <h3>AlphaLLM</h3>
+                        <div class="bot-status">
+                            <span class="ping"><i class="fas fa-bolt"></i> 32ms</span>
+                            <span class="status online">En ligne</span>
                         </div>
                     </div>
                 </div>
-                
-                <div class="status-item flip-in" style="--delay: 0.2s">
-                    <div class="status-card glass-effect">
-                        <div class="status-icon">
-                            <i class="fas fa-database pulse-icon"></i>
-                        </div>
-                        <div class="status-info">
-                            <h3 data-i18n="status.database">Base de données</h3>
-                            <div id="database-status" class="status-indicator">
-                                <span class="status-badge online" data-i18n="status.operational">Opérationnel</span>
-                                <div class="ping-time">
-                                    <i class="fas fa-bolt"></i> <span id="db-ping">18</span>ms
-                                </div>
-                            </div>
+                <div class="bot-item glass-effect">
+                    <div class="bot-thumbnail">
+                        <img src="assets/images/bots/logger.png" alt="Logger">
+                        <span class="status-dot online"></span>
+                    </div>
+                    <div class="bot-info">
+                        <h3>Logger</h3>
+                        <div class="bot-status">
+                            <span class="ping"><i class="fas fa-bolt"></i> 32ms</span>
+                            <span class="status online">En ligne</span>
                         </div>
                     </div>
                 </div>
-                
-                <div class="status-item flip-in" style="--delay: 0.3s">
-                    <div class="status-card glass-effect">
-                        <div class="status-icon">
-                            <i class="fas fa-brain pulse-icon"></i>
-                        </div>
-                        <div class="status-info">
-                            <h3 data-i18n="status.ai">API Intelligence</h3>
-                            <div id="ai-status" class="status-indicator">
-                                <span class="status-badge online" data-i18n="status.operational">Opérationnel</span>
-                                <div class="ping-time">
-                                    <i class="fas fa-bolt"></i> <span id="ai-ping">78</span>ms
-                                </div>
-                            </div>
+                <div class="bot-item glass-effect">
+                    <div class="bot-thumbnail">
+                        <img src="assets/images/bots/chatgpt.png" alt="ChatGPT">
+                        <span class="status-dot online"></span>
+                    </div>
+                    <div class="bot-info">
+                        <h3>ChatGPT</h3>
+                        <div class="bot-status">
+                            <span class="ping"><i class="fas fa-bolt"></i> 32ms</span>
+                            <span class="status online">En ligne</span>
                         </div>
                     </div>
                 </div>
-                
-                <div class="status-item flip-in" style="--delay: 0.4s">
-                    <div class="status-card glass-effect">
-                        <div class="status-icon">
-                            <i class="fas fa-image pulse-icon"></i>
-                        </div>
-                        <div class="status-info">
-                            <h3 data-i18n="status.imageGen">Génération d'images</h3>
-                            <div id="image-status" class="status-indicator">
-                                <span class="status-badge online" data-i18n="status.operational">Opérationnel</span>
-                                <div class="ping-time">
-                                    <i class="fas fa-bolt"></i> <span id="image-ping">125</span>ms
-                                </div>
-                            </div>
+                <div class="bot-item glass-effect">
+                    <div class="bot-thumbnail">
+                        <img src="assets/images/bots/deepseek.png" alt="DeepSeek">
+                        <span class="status-dot online"></span>
+                    </div>
+                    <div class="bot-info">
+                        <h3>DeepSeek</h3>
+                        <div class="bot-status">
+                            <span class="ping"><i class="fas fa-bolt"></i> 32ms</span>
+                            <span class="status online">En ligne</span>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
-
-        <section class="stats-section glass-card fade-in" style="--delay: 0.5s">
-            <h2 data-i18n="status.performance">Performance</h2>
-            
-            <div class="stats-container">
-                <div class="stat-chart-container slide-in" style="--delay: 0.6s">
-                    <h3 data-i18n="status.uptime">Disponibilité (30 derniers jours)</h3>
-                    <div class="uptime-chart glass-effect">
-                        <div class="chart-canvas-container">
-                            <canvas id="uptimeChart"></canvas>
-                        </div>
-                        <div class="uptime-stats">
-                            <div class="uptime-stat">
-                                <span class="stat-value" id="uptime-percentage">99.98%</span>
-                                <span class="stat-label" data-i18n="status.uptimeTotal">Disponibilité</span>
-                            </div>
-                            <div class="uptime-stat">
-                                <span class="stat-value" id="outage-count">1</span>
-                                <span class="stat-label" data-i18n="status.outages">Interruptions</span>
-                            </div>
-                            <div class="uptime-stat">
-                                <span class="stat-value" id="avg-response">42ms</span>
-                                <span class="stat-label" data-i18n="status.avgResponse">Temps moyen</span>
-                            </div>
+                <div class="bot-item glass-effect">
+                    <div class="bot-thumbnail">
+                        <img src="assets/images/bots/gemini.png" alt="Gemini">
+                        <span class="status-dot online"></span>
+                    </div>
+                    <div class="bot-info">
+                        <h3>Gemini</h3>
+                        <div class="bot-status">
+                            <span class="ping"><i class="fas fa-bolt"></i> 32ms</span>
+                            <span class="status online">En ligne</span>
                         </div>
                     </div>
                 </div>
-
-                <div class="stat-chart-container slide-in" style="--delay: 0.7s">
-                    <h3 data-i18n="status.load">Charge système</h3>
-                    <div class="usage-chart glass-effect">
-                        <div class="resource-usage">
-                            <div class="resource">
-                                <span class="resource-label" data-i18n="status.cpu">CPU</span>
-                                <div class="progress-container">
-                                    <div class="progress-bar" id="cpu-usage" style="width: 45%">
-                                        <span>45%</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="resource">
-                                <span class="resource-label" data-i18n="status.memory">Mémoire</span>
-                                <div class="progress-container">
-                                    <div class="progress-bar" id="memory-usage" style="width: 68%">
-                                        <span>68%</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="resource">
-                                <span class="resource-label" data-i18n="status.network">Réseau</span>
-                                <div class="progress-container">
-                                    <div class="progress-bar" id="network-usage" style="width: 32%">
-                                        <span>32%</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="chart-canvas-container">
-                            <canvas id="loadChart"></canvas>
+                <div class="bot-item glass-effect">
+                    <div class="bot-thumbnail">
+                        <img src="assets/images/bots/grok.png" alt="Grok">
+                        <span class="status-dot online"></span>
+                    </div>
+                    <div class="bot-info">
+                        <h3>Grok</h3>
+                        <div class="bot-status">
+                            <span class="ping"><i class="fas fa-bolt"></i> 32ms</span>
+                            <span class="status online">En ligne</span>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
-        
-        <section class="incident-section glass-card fade-in" style="--delay: 0.8s">
-            <h2 data-i18n="status.incidents">Historique des incidents</h2>
-            
-            <div class="incident-list">
-                <div class="incident-card glass-effect slide-in" style="--delay: 0.9s">
-                    <div class="incident-header">
-                        <div class="incident-badge resolved" data-i18n="status.resolved">Résolu</div>
-                        <span class="incident-date">20 mai 2025</span>
+                <div class="bot-item glass-effect">
+                    <div class="bot-thumbnail">
+                        <img src="assets/images/bots/evilgpt.png" alt="EvilGPT">
+                        <span class="status-dot online"></span>
                     </div>
-                    <h3 class="incident-title" data-i18n="status.incident1Title">Latence élevée sur l'API d'IA</h3>
-                    <p class="incident-desc" data-i18n="status.incident1Desc">Une latence élevée a été détectée sur notre API d'intelligence artificielle. Le problème a été résolu après le redémarrage des services.</p>
-                    <div class="incident-timeline">
-                        <div class="timeline-item">
-                            <span class="timeline-time">14:32</span>
-                            <span class="timeline-text" data-i18n="status.detected">Problème détecté</span>
-                        </div>
-                        <div class="timeline-item">
-                            <span class="timeline-time">14:45</span>
-                            <span class="timeline-text" data-i18n="status.investigating">Investigation en cours</span>
-                        </div>
-                        <div class="timeline-item">
-                            <span class="timeline-time">15:12</span>
-                            <span class="timeline-text" data-i18n="status.resolved">Problème résolu</span>
+                    <div class="bot-info">
+                        <h3>EvilGPT</h3>
+                        <div class="bot-status">
+                            <span class="ping"><i class="fas fa-bolt"></i> 32ms</span>
+                            <span class="status online">En ligne</span>
                         </div>
                     </div>
                 </div>
-                
-                <div class="incident-card glass-effect slide-in" style="--delay: 1.0s">
-                    <div class="incident-header">
-                        <div class="incident-badge resolved" data-i18n="status.resolved">Résolu</div>
-                        <span class="incident-date">5 mai 2025</span>
+                <div class="bot-item glass-effect">
+                    <div class="bot-thumbnail">
+                        <img src="assets/images/bots/llama.png" alt="Llama">
+                        <span class="status-dot online"></span>
                     </div>
-                    <h3 class="incident-title" data-i18n="status.incident2Title">Maintenance planifiée</h3>
-                    <p class="incident-desc" data-i18n="status.incident2Desc">Maintenance planifiée pour la mise à jour du système de base de données. Service interrompu pendant 15 minutes.</p>
-                    <div class="incident-timeline">
-                        <div class="timeline-item">
-                            <span class="timeline-time">03:00</span>
-                            <span class="timeline-text" data-i18n="status.maintenance">Début de la maintenance</span>
+                    <div class="bot-info">
+                        <h3>Llama</h3>
+                        <div class="bot-status">
+                            <span class="ping"><i class="fas fa-bolt"></i> 32ms</span>
+                            <span class="status online">En ligne</span>
                         </div>
-                        <div class="timeline-item">
-                            <span class="timeline-time">03:15</span>
-                            <span class="timeline-text" data-i18n="status.completed">Maintenance terminée</span>
+                    </div>
+                </div>
+                <div class="bot-item glass-effect">
+                    <div class="bot-thumbnail">
+                        <img src="assets/images/bots/mistral.png" alt="Mistral">
+                        <span class="status-dot online"></span>
+                    </div>
+                    <div class="bot-info">
+                        <h3>Mistral</h3>
+                        <div class="bot-status">
+                            <span class="ping"><i class="fas fa-bolt"></i> 32ms</span>
+                            <span class="status online">En ligne</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="bot-item glass-effect">
+                    <div class="bot-thumbnail">
+                        <img src="assets/images/bots/perplexity.png" alt="Perplexity">
+                        <span class="status-dot online"></span>
+                    </div>
+                    <div class="bot-info">
+                        <h3>Perplexity</h3>
+                        <div class="bot-status">
+                            <span class="ping"><i class="fas fa-bolt"></i> 32ms</span>
+                            <span class="status online">En ligne</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="bot-item glass-effect">
+                    <div class="bot-thumbnail">
+                        <img src="assets/images/bots/phi.png" alt="Phi">
+                        <span class="status-dot online"></span>
+                    </div>
+                    <div class="bot-info">
+                        <h3>Phi</h3>
+                        <div class="bot-status">
+                            <span class="ping"><i class="fas fa-bolt"></i> 32ms</span>
+                            <span class="status online">En ligne</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="bot-item glass-effect">
+                    <div class="bot-thumbnail">
+                        <img src="assets/images/bots/qwen.png" alt="Qwen">
+                        <span class="status-dot online"></span>
+                    </div>
+                    <div class="bot-info">
+                        <h3>Qwen</h3>
+                        <div class="bot-status">
+                            <span class="ping"><i class="fas fa-bolt"></i> 32ms</span>
+                            <span class="status online">En ligne</span>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
     </main>
-
-    <section class="newsletter-section text-center fade-in" style="--delay: 1.1s">
-        <div class="container">
-            <div class="newsletter-card glass-card">
-                <h2 data-i18n="status.notifications">Recevez des notifications de statut</h2>
-                <p data-i18n="status.notificationsDesc">Abonnez-vous pour recevoir des alertes immédiates en cas d'interruption de service.</p>
-                
-                <form id="notification-form" class="notification-form">
-                    <div class="form-group">
-                        <input type="email" id="notification-email" class="form-input glass-effect" placeholder="Votre adresse email" data-i18n-placeholder="status.emailPlaceholder" required>
-                        <button type="submit" class="btn btn-primary btn-glow">
-                            <i class="fas fa-bell"></i> <span data-i18n="status.subscribe">S'abonner</span>
-                        </button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </section>
 
     <footer>
         <div class="footer-content">
@@ -299,9 +264,9 @@
             </div>
             
             <div class="footer-social">
-                <a href="https://discord.gg/YOUR_INVITE" target="_blank" aria-label="Discord" class="social-icon"><i class="fab fa-discord"></i></a>
-                <a href="https://twitter.com/YOUR_TWITTER" target="_blank" aria-label="Twitter" class="social-icon"><i class="fab fa-twitter"></i></a>
-                <a href="https://github.com/YOUR_GITHUB" target="_blank" aria-label="GitHub" class="social-icon"><i class="fab fa-github"></i></a>
+                <a href="https://discord.gg/QGvyrUgwdK" target="_blank" aria-label="Discord"><i class="fab fa-discord"></i></a>
+                <a href="https://x.com/AlphaLLM_Bot" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="https://github.com/YoannDev90/AlphaLLM" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
             </div>
         </div>
         

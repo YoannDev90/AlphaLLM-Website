@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Initialiser les graphiques
     initCharts();
+    initPingChart();
     
     // Simuler des données en temps réel (pour la démo)
     simulateRealTimeData();
@@ -75,7 +76,7 @@ function initCharts() {
             },
             scales: {
                 y: {
-                    min: 97,
+                    min: 95,
                     max: 100,
                     grid: {
                         color: 'rgba(255, 255, 255, 0.1)'
@@ -83,76 +84,6 @@ function initCharts() {
                 },
                 x: {
                     display: false
-                }
-            },
-            interaction: {
-                intersect: false,
-                mode: 'index'
-            }
-        }
-    });
-    
-    // Graphique de charge
-    const loadCtx = document.getElementById('loadChart').getContext('2d');
-    
-    new Chart(loadCtx, {
-        type: 'line',
-        data: {
-            labels: ['8h', '10h', '12h', '14h', '16h', '18h', '20h', '22h', '00h', '02h', '04h', '06h'],
-            datasets: [
-                {
-                    label: 'CPU',
-                    data: [25, 32, 48, 35, 40, 52, 75, 65, 38, 30, 22, 45],
-                    borderColor: '#4f46e5',
-                    backgroundColor: 'rgba(79, 70, 229, 0.1)',
-                    borderWidth: 2,
-                    tension: 0.3,
-                    fill: true
-                },
-                {
-                    label: 'Mémoire',
-                    data: [45, 50, 55, 60, 68, 65, 70, 75, 60, 55, 50, 68],
-                    borderColor: '#f97316',
-                    backgroundColor: 'rgba(249, 115, 22, 0.1)',
-                    borderWidth: 2,
-                    tension: 0.3,
-                    fill: true
-                }
-            ]
-        },
-        options: {
-            responsive: true,
-            plugins: {
-                legend: {
-                    position: 'top',
-                    labels: {
-                        boxWidth: 12,
-                        usePointStyle: true
-                    }
-                },
-                tooltip: {
-                    mode: 'index',
-                    intersect: false,
-                    backgroundColor: 'rgba(0, 0, 0, 0.8)'
-                }
-            },
-            scales: {
-                y: {
-                    min: 0,
-                    max: 100,
-                    ticks: {
-                        callback: function(value) {
-                            return value + '%';
-                        }
-                    },
-                    grid: {
-                        color: 'rgba(255, 255, 255, 0.1)'
-                    }
-                },
-                x: {
-                    grid: {
-                        color: 'rgba(255, 255, 255, 0.05)'
-                    }
                 }
             },
             interaction: {
@@ -316,105 +247,62 @@ function showNotification(type, message) {
     }, 5000);
 }
 
-// Valider le format de l'email
-function validateEmail(email) {
-    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return re.test(email);
-}
+let pingChart = null;
 
-document.addEventListener('DOMContentLoaded', function() {
-    // Status dashboard functionality
-    updateStatus();
-    setInterval(updateStatus, 60000); // Update status every minute
+function initPingChart() {
+    const ctx = document.getElementById('pingChart').getContext('2d');
     
-    function updateStatus() {
-        const statusIndicators = document.querySelectorAll('.status-indicator');
-        const latencyElements = document.querySelectorAll('.latency-value');
-        const uptimeElements = document.querySelectorAll('.uptime-value');
-        const lastUpdatedElement = document.getElementById('last-updated');
-        
-        // In a real implementation, you would fetch this data from your API
-        // This is just a simulation
-        const services = [
-            { name: 'main-bot', status: getRandomStatus(), latency: getRandomLatency() },
-            { name: 'api', status: getRandomStatus(0.95), latency: getRandomLatency() },
-            { name: 'database', status: getRandomStatus(0.98), latency: getRandomLatency() },
-            { name: 'website', status: 'operational', latency: getRandomLatency(50) }
-        ];
-        
-        // Update status indicators
-        statusIndicators.forEach((indicator, index) => {
-            if (index < services.length) {
-                const status = services[index].status;
-                indicator.className = 'status-indicator';
-                indicator.classList.add(status);
-                
-                const statusText = indicator.nextElementSibling;
-                if (statusText) {
-                    statusText.textContent = capitalizeFirstLetter(status);
-                    statusText.className = status + '-text';
+    const timeLabels = Array.from({length: 24}, (_, i) => `${i}:00`);
+    const dataset = {
+        label: 'Latence (ms)',
+        data: generatePingData(24),
+        borderColor: '#00ff9d',
+        backgroundColor: createGradient(ctx),
+        fill: true,
+        tension: 0.4
+    };
+
+    new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: timeLabels,
+            datasets: [dataset]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            interaction: {
+                intersect: false,
+                mode: 'index'
+            },
+            plugins: {
+                legend: {
+                    display: false
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    title: {
+                        display: true,
+                        text: 'Ping (ms)'
+                    }
                 }
             }
-        });
-        
-        // Update latency values
-        latencyElements.forEach((element, index) => {
-            if (index < services.length) {
-                element.textContent = services[index].latency + ' ms';
-            }
-        });
-        
-        // Update uptime values (this would be fetched from your server in a real implementation)
-        const uptime = '99.98%';
-        uptimeElements.forEach(element => {
-            element.textContent = uptime;
-        });
-        
-        // Update last updated time
-        if (lastUpdatedElement) {
-            const now = new Date();
-            lastUpdatedElement.textContent = now.toLocaleTimeString();
         }
-    }
-    
-    function getRandomStatus(operationalChance = 0.9) {
-        const random = Math.random();
-        
-        if (random < operationalChance) {
-            return 'operational';
-        } else if (random < operationalChance + 0.08) {
-            return 'degraded';
-        } else {
-            return 'outage';
-        }
-    }
-    
-    function getRandomLatency(max = 200) {
-        return Math.floor(Math.random() * max) + 20;
-    }
-    
-    function capitalizeFirstLetter(string) {
-        return string.charAt(0).toUpperCase() + string.slice(1);
-    }
-    
-    // Incident history toggle
-    const incidentHistoryBtn = document.getElementById('incident-history-btn');
-    const incidentHistory = document.getElementById('incident-history');
-    
-    if (incidentHistoryBtn && incidentHistory) {
-        incidentHistoryBtn.addEventListener('click', function() {
-            incidentHistory.classList.toggle('expanded');
-            
-            const btnText = incidentHistoryBtn.querySelector('span');
-            const btnIcon = incidentHistoryBtn.querySelector('i');
-            
-            if (incidentHistory.classList.contains('expanded')) {
-                btnText.textContent = 'Hide Incident History';
-                btnIcon.className = 'fas fa-chevron-up';
-            } else {
-                btnText.textContent = 'Show Incident History';
-                btnIcon.className = 'fas fa-chevron-down';
-            }
-        });
-    }
-});
+    });
+}
+
+function generatePingData(points) {
+    return Array.from({length: points}, () => Math.floor(Math.random() * 100) + 20);
+}
+
+function createGradient(ctx) {
+    const gradient = ctx.createLinearGradient(0, 0, 0, 300); // Augmenté pour le nouveau height
+    gradient.addColorStop(0, 'rgba(0, 255, 157, 0.2)');
+    gradient.addColorStop(1, 'rgba(0, 255, 157, 0)');
+    return gradient;
+}
+
+// Initialiser le graphique au chargement
+document.addEventListener('DOMContentLoaded', initPingChart);

@@ -115,4 +115,31 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+    
+    // Handle legals navigation
+    const legalsNavItems = document.querySelectorAll('.legals-nav-item');
+    
+    if (legalsNavItems.length > 0) {
+        // Set active nav item based on hash
+        const hash = window.location.hash || '#terms';
+        updateActiveNavItem(hash);
+
+        // Handle nav item clicks
+        legalsNavItems.forEach(item => {
+            item.addEventListener('click', (e) => {
+                const hash = e.target.getAttribute('href');
+                updateActiveNavItem(hash);
+            });
+        });
+    }
 });
+
+function updateActiveNavItem(hash) {
+    const legalsNavItems = document.querySelectorAll('.legals-nav-item');
+    legalsNavItems.forEach(item => {
+        item.classList.remove('active');
+        if (item.getAttribute('href') === hash) {
+            item.classList.add('active');
+        }
+    });
+}
