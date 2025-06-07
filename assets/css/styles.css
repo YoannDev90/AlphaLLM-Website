@@ -1,14 +1,3 @@
-@import 'base.css';
-@import 'layout.css';
-@import 'components.css';
-@import 'animations.css';
-@import 'responsive.css';
-@import 'team.css';
-@import 'docs.css';
-@import 'support.css';
-@import 'legals.css';
-@import 'status.css';
-
 /* Base Styles */
 :root {
     --primary: #7289da;
