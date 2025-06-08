@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support - AlphaLLM Bot</title>
+    
+    <!-- Favicons -->
+    <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+    
+    <!-- Meta SEO -->
+    <meta name="description" content="Centre de support AlphaLLM. Obtenez de l'aide, consultez la FAQ et rejoignez notre communauté Discord.">
+    <meta name="keywords" content="AlphaLLM, Discord Bot, Support, Aide, FAQ, Discord Support">
+    <meta name="author" content="YoannDev90">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://alphallm.tech/support.html">
+    <meta property="og:title" content="Support - AlphaLLM Bot">
+    <meta property="og:description" content="Obtenez de l'aide pour AlphaLLM, consultez notre FAQ et rejoignez la communauté Discord.">
+    <meta property="og:image" content="https://alphallm.tech/assets/images/og-image.jpg">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/support.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" crossorigin="anonymous">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Scripts -->
+    <script defer src="assets/js/main.js"></script>
+    <script defer src="assets/js/i18n.js"></script>
+    <script defer src="assets/js/support.js"></script>
+</head>
+<body class="dark-theme">
+    <!-- Noise overlay for texture -->
+    <div class="noise-overlay"></div>
+    <div class="gradient-bg"></div>
+    
+    <!-- Header navigation -->
+    <header>
+        <nav class="navbar">
+            <div class="logo-title-container">
+                <img src="assets/images/logo.webp" alt="AlphaLLM Logo" class="logo animate-pulse">
+                <h1 class="glitch" data-text="AlphaLLM">AlphaLLM</h1>
+            </div>
+            
+            <div class="nav-links">
+                <a href="index.html" data-i18n="nav.home">Accueil</a>
+                <a href="docs.html" data-i18n="nav.docs">Documentation</a>
+                <a href="status.html" data-i18n="nav.status">Statut</a>
+                <a href="support.html" class="active" data-i18n="nav.support">Support</a>
+            </div>
+            
+            <div class="buttons">
+                <button id="themeToggle" aria-label="Changer de thème"><i class="fas fa-moon"></i></button>
+                <div class="language-dropdown">
+                    <button class="dropdown-toggle"><i class="fas fa-globe"></i> <span class="current-lang">FR</span></button>
+                    <div class="dropdown-menu">
+                        <button class="lang-btn" data-lang="fr"><img src="https://flagcdn.com/fr.svg" alt="FR" width="20"> Français</button>
+                        <button class="lang-btn" data-lang="en"><img src="https://flagcdn.com/us.svg" alt="EN" width="20"> English</button>
+                        <button class="lang-btn" data-lang="de"><img src="https://flagcdn.com/de.svg" alt="DE" width="20"> Deutsch</button>
+                        <button class="lang-btn" data-lang="es"><img src="https://flagcdn.com/es.svg" alt="ES" width="20"> Español</button>
+                    </div>
+                </div>
+                <button class="mobile-menu-btn" aria-label="Menu"><i class="fas fa-bars"></i></button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Page Header -->
+    <div class="page-header fade-in">
+        <div class="container text-center">
+            <h1 class="page-title glow-text" data-i18n="support.title">Centre de Support</h1>
+            <p class="subtitle" data-i18n="support.subtitle">Comment pouvons-nous vous aider aujourd'hui ?</p>
+        </div>
+    </div>
+
+    <main class="container">
+        <!-- Support Options -->
+        <section class="support-options">
+            <div class="options-grid">
+                <div class="support-card glass-card scale-in" style="--delay: 0.1s;">
+                    <div class="support-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <h3 data-i18n="support.docs.title">Documentation</h3>
+                    <p data-i18n="support.docs.description">Consultez notre documentation détaillée pour tout savoir sur l'utilisation d'AlphaLLM.</p>
+                    <a href="docs.html" class="btn btn-secondary" data-i18n="support.docs.button">
+                        <i class="fas fa-external-link-alt"></i> Voir la documentation
+                    </a>
+                </div>
+
+                <div class="support-card glass-card scale-in" style="--delay: 0.2s;">
+                    <div class="support-icon">
+                        <i class="fab fa-discord"></i>
+                    </div>
+                    <h3 data-i18n="support.discord.title">Serveur Discord</h3>
+                    <p data-i18n="support.discord.description">Rejoignez notre communauté Discord pour obtenir de l'aide et discuter avec d'autres utilisateurs.</p>
+                    <a href="https://discord.gg/QGvyrUgwdK" class="btn btn-primary" target="_blank" data-i18n="support.discord.button">
+                        <i class="fab fa-discord"></i> Rejoindre le Discord
+                    </a>
+                </div>
+
+                <div class="support-card glass-card scale-in" style="--delay: 0.3s;">
+                    <div class="support-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3 data-i18n="support.contact.title">Contact Direct</h3>
+                    <p data-i18n="support.contact.description">Une question spécifique ? Contactez directement notre équipe de support.</p>
+                    <a href="mailto:support@alphallm.tech" class="btn btn-secondary" data-i18n="support.contact.button">
+                        <i class="fas fa-paper-plane"></i> Envoyer un email
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-section glass-card fade-in">
+            <h2 class="section-title" data-i18n="support.faq.title">Questions Fréquentes</h2>
+            
+            <div class="faq-container">
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span data-i18n="support.faq.q1">Comment inviter AlphaLLM sur mon serveur ?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p data-i18n="support.faq.a1">Pour inviter AlphaLLM sur votre serveur Discord, cliquez simplement sur le bouton "Inviter" en haut de la page d'accueil. Vous serez redirigé vers Discord où vous pourrez sélectionner le serveur et les permissions nécessaires. Assurez-vous d'avoir les droits d'administrateur sur le serveur où vous souhaitez ajouter le bot.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span data-i18n="support.faq.q2">Le bot est-il entièrement gratuit ?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p data-i18n="support.faq.a2">Oui, AlphaLLM est entièrement gratuit à utiliser avec toutes ses fonctionnalités. Nous ne proposons pas de version premium pour le moment. Notre objectif est de rendre l'IA accessible à tous les utilisateurs Discord sans barrière financière.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span data-i18n="support.faq.q3">Comment configurer le bot sur mon serveur ?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p data-i18n="support.faq.a3">Après avoir invité le bot, utilisez la commande /setup pour accéder au menu de configuration. Vous pourrez définir le canal de discussion par défaut, les permissions, et d'autres paramètres. Pour une configuration plus avancée, vous pouvez également utiliser notre tableau de bord web en vous connectant avec votre compte Discord.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span data-i18n="support.faq.q4">Quels sont les modèles d'IA disponibles ?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p data-i18n="support.faq.a4">AlphaLLM propose plusieurs modèles d'IA avancés, dont ChatGPT, Claude, Gemini, Mistral, LLaMA et d'autres. Vous pouvez choisir votre modèle préféré avec la commande /model ou définir un modèle par défaut pour votre serveur dans les paramètres.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span data-i18n="support.faq.q5">Comment générer des images avec le bot ?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p data-i18n="support.faq.a5">Pour générer des images, utilisez la commande /imagine suivie de votre description. Vous pouvez spécifier différents styles et ratios d'aspect. Par exemple : /imagine une forêt enchantée avec des fées lumineuses, style:fantasy ratio:16:9</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span data-i18n="support.faq.q6">Comment limiter l'accès au bot sur mon serveur ?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p data-i18n="support.faq.a6">Vous pouvez limiter l'accès au bot à certains rôles ou canaux spécifiques via la commande /permissions ou dans les paramètres du tableau de bord. Vous pouvez également définir des quotas d'utilisation pour éviter les abus.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span data-i18n="support.faq.q7">J'ai trouvé un bug, comment le signaler ?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p data-i18n="support.faq.a7">Vous pouvez signaler les bugs sur notre serveur Discord dans le canal #bug-reports ou en contactant directement notre équipe de support par email. Merci de fournir le plus de détails possibles, comme les étapes pour reproduire le problème, des captures d'écran et le contexte.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="assets/images/logo.webp" alt="AlphaLLM Logo" class="logo-small">
+                    <h3>AlphaLLM</h3>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4 data-i18n="footer.product">Produit</h4>
+                        <a href="docs.html" data-i18n="footer.documentation">Documentation</a>
+                        <a href="status.html" data-i18n="footer.status">Statut</a>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4 data-i18n="footer.resources">Ressources</h4>
+                        <a href="support.html" data-i18n="footer.support">Support</a>
+                        <a href="https://discord.gg/QGvyrUgwdK" target="_blank" data-i18n="footer.discord">Serveur Discord</a>
+                        <a href="dashboard.html" data-i18n="footer.dashboard">Tableau de bord</a>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4 data-i18n="footer.legal">Juridique</h4>
+                        <a href="legals.html#terms" data-i18n="footer.terms">Conditions d'utilisation</a>
+                        <a href="legals.html#privacy" data-i18n="footer.privacy">Politique de confidentialité</a>
+                        <a href="legals.html#cookies" data-i18n="footer.cookies">Politique de cookies</a>
+                    </div>
+                </div>
+                
+                <div class="footer-social">
+                    <a href="https://discord.gg/QGvyrUgwdK" target="_blank" aria-label="Discord"><i class="fab fa-discord"></i></a>
+                    <a href="https://x.com/AlphaLLM_Bot" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="https://github.com/YoannDev90/AlphaLLM" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; <span id="current-year">2024</span> AlphaLLM. <span data-i18n="footer.rights">Tous droits réservés.</span></p>
+                <p class="made-with"><span data-i18n="footer.madeWith">Fait avec</span> <i class="fas fa-heart"></i> <span data-i18n="footer.by">par</span> <a href="https://github.com/YoannDev90" target="_blank">Yoann</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to top button -->
+    <button id="back-to-top" aria-label="Retour en haut" class="neon-effect"><i class="fas fa-arrow-up"></i></button>
+
+    <!-- Support script -->
+    <script defer>
+        document.addEventListener('DOMContentLoaded', function() {
+            // FAQ Accordion
+            const faqQuestions = document.querySelectorAll('.faq-question');
+            
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', () => {
+                    const faqItem = question.parentElement;
+                    const answer = question.nextElementSibling;
+                    const isExpanded = question.getAttribute('aria-expanded') === 'true';
+                    
+                    // Close all other answers
+                    faqQuestions.forEach(q => {
+                        if (q !== question) {
+                            q.setAttribute('aria-expanded', 'false');
+                            q.nextElementSibling.style.maxHeight = null;
+                        }
+                    });
+                    
+                    // Toggle current answer
+                    if (isExpanded) {
+                        question.setAttribute('aria-expanded', 'false');
+                        answer.style.maxHeight = null;
+                    } else {
+                        question.setAttribute('aria-expanded', 'true');
+                        answer.style.maxHeight = answer.scrollHeight + 'px';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
