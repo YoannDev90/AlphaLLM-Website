@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Page introuvable | AlphaLLM</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <script src="assets/js/i18n.js"></script>
+    <style>
+        .error-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 2rem;
+            text-align: center;
+            background: var(--background);
+        }
+
+        .error-title {
+            font-size: 8rem;
+            margin: 0;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        .error-subtitle {
+            font-size: 1.5rem;
+            margin: 1rem 0 2rem;
+            color: var(--text-secondary);
+        }
+
+        .btn-home {
+            margin-top: 2rem;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 10px var(--glow-color);
+            }
+            to {
+                text-shadow: 0 0 20px var(--glow-color), 0 0 30px var(--glow-color);
+            }
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="error-container">
+        <h1 class="error-title" data-i18n="404.title">404</h1>
+        <p class="error-subtitle" data-i18n="404.subtitle">Oups ! Cette page a disparu dans le void...</p>
+        <a href="/" class="btn btn-primary btn-home">
+            <i class="fas fa-home"></i> <span data-i18n="404.home">Retour à l'accueil</span>
+        </a>
+    </div>
+
+    <script>
+        // Detect browser language
+        const userLang = navigator.language || navigator.userLanguage;
+        const lang = userLang.split('-')[0];
+        
+        // Set page language
+        document.documentElement.lang = lang;
+        
+        // Translate content
+        document.querySelectorAll('[data-i18n]').forEach(element => {
+            const key = element.getAttribute('data-i18n');
+            if (translations[lang] && translations[lang][key]) {
+                element.textContent = translations[lang][key];
+            }
+        });
+    </script>
+</body>
+</html>

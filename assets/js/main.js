@@ -1,41 +1,4 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Theme toggling
-    const themeToggle = document.getElementById('themeToggle');
-    const themeIcon = themeToggle.querySelector('i');
-    const body = document.body;
-    
-    // Check for saved theme preference or use default
-    const savedTheme = localStorage.getItem('theme') || 'dark-theme';
-    body.className = savedTheme;
-    
-    // Update icon based on current theme
-    updateThemeIcon();
-    
-    themeToggle.addEventListener('click', function() {
-        if (body.classList.contains('dark-theme')) {
-            body.classList.replace('dark-theme', 'light-theme');
-            localStorage.setItem('theme', 'light-theme');
-        } else if (body.classList.contains('light-theme')) {
-            body.classList.replace('light-theme', 'amoled-theme');
-            localStorage.setItem('theme', 'amoled-theme');
-        } else {
-            body.classList.replace('amoled-theme', 'dark-theme');
-            localStorage.setItem('theme', 'dark-theme');
-        }
-        
-        updateThemeIcon();
-    });
-    
-    function updateThemeIcon() {
-        if (body.classList.contains('dark-theme')) {
-            themeIcon.className = 'fas fa-moon';
-        } else if (body.classList.contains('light-theme')) {
-            themeIcon.className = 'fas fa-sun';
-        } else {
-            themeIcon.className = 'fas fa-star';
-        }
-    }
-    
     // Mobile menu toggle
     const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
     const navLinks = document.querySelector('.nav-links');
