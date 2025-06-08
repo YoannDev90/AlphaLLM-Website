@@ -1,228 +1,291 @@
+/**
+ * Système i18n pour charger les traductions depuis des fichiers distincts
+ */
+
+// Attendre que le document soit complètement chargé
 document.addEventListener('DOMContentLoaded', function() {
-    // Default language
-    let currentLang = localStorage.getItem('lang') || 'fr';
-    
-    // Language data - this would be loaded from JSON files in a real implementation
-    const translations = {
-        en: {
-            "nav.home": "Home",
-            "nav.docs": "Documentation",
-            "nav.commands": "Commands",
-            "nav.status": "Status",
-            "nav.support": "Support",
-            "hero.title": "AlphaLLM",
-            "hero.subtitle": "Advanced AI for your Discord server",
-            "hero.invite": "Invite Bot",
-            "hero.learn": "Learn More",
-            "stats.servers": "Servers",
-            "stats.users": "Users",
-            "stats.uptime": "Uptime",
-            "stats.messages": "Messages Processed",
-            "stats.images": "Images Generated",
-            "stats.free": "100% Free",
-            "features.title": "Features",
-            "features.ai.title": "Conversational AI",
-            "features.ai.description": "Chat with an advanced AI capable of understanding context and generating relevant responses.",
-            "features.image.title": "Image Generation",
-            "features.image.description": "Create unique images from simple text descriptions.",
-            "features.search.title": "Search",
-            "features.search.description": "Quickly find information and answers with our integrated AI search engine.",
-            "team.title": "Our Team",
-            "team.Yoann": "Founder & Lead Developer",
-            "team.Lucky": "Web Developer & UI/UX",
-            "team.470M": "Moderator & Support",
-            "cta.title": "Ready to enhance your Discord server?",
-            "cta.description": "Invite AlphaLLM now and discover all its features.",
-            "cta.invite": "Add to Discord",
-            "footer.product": "Product",
-            "footer.documentation": "Documentation",
-            "footer.status": "Status",
-            "footer.commands": "Commands",
-            "footer.resources": "Resources",
-            "footer.support": "Support",
-            "footer.discord": "Discord Server",
-            "footer.legal": "Legal",
-            "footer.terms": "Terms of Service",
-            "footer.privacy": "Privacy Policy",
-            "footer.rights": "All rights reserved.",
-            "footer.by": "by",
-            "404.title": "404",
-            "404.subtitle": "Oops! This page has vanished into the void...",
-            "404.home": "Back to Home"
-        },
-        fr: {
-            "nav.home": "Accueil",
-            "nav.docs": "Documentation",
-            "nav.status": "Statut",
-            "nav.support": "Support",
-            "hero.title": "AlphaLLM",
-            "hero.subtitle": "L'IA avancée pour votre serveur Discord",
-            "hero.invite": "Inviter le bot",
-            "hero.learn": "En savoir plus",
-            "stats.servers": "Serveurs",
-            "stats.users": "Utilisateurs",
-            "stats.uptime": "Disponibilité",
-            "stats.messages": "Messages traités",
-            "stats.images": "Images générées",
-            "stats.free": "100% gratuit",
-            "features.title": "Fonctionnalités",
-            "features.ai.title": "IA Conversationnelle",
-            "features.ai.description": "Discutez avec une IA avancée capable de comprendre le contexte et de générer des réponses pertinentes.",
-            "features.image.title": "Génération d'Images",
-            "features.image.description": "Créez des images uniques à partir de simples descriptions textuelles.",
-            "features.search.title": "Recherche",
-            "features.search.description": "Trouvez rapidement des informations et des réponses grâce à notre moteur de recherche IA intégré.",
-            "team.title": "Notre Équipe",
-            "team.Yoann": "Fondateur & Développeur Principal",
-            "team.Lucky": "Développeur Web & UI/UX",
-            "team.470M": "Modérateur & Support",
-            "cta.title": "Prêt à améliorer votre serveur Discord ?",
-            "cta.description": "Invitez AlphaLLM dès maintenant et découvrez toutes ses fonctionnalités.",
-            "cta.invite": "Ajouter à Discord",
-            "footer.product": "Produit",
-            "footer.documentation": "Documentation",
-            "footer.status": "Statut",
-            "footer.commands": "Commandes",
-            "footer.resources": "Ressources",
-            "footer.support": "Support",
-            "footer.discord": "Serveur Discord",
-            "footer.legal": "Juridique",
-            "footer.terms": "Conditions d'utilisation",
-            "footer.privacy": "Politique de confidentialité",
-            "footer.rights": "Tous droits réservés.",
-            "404.title": "404",
-            "404.subtitle": "Oups ! Cette page a disparu dans le vide...",
-            "404.home": "Retour à l'accueil"
-        },
-        de: {
-            "nav.home": "Startseite",
-            "nav.docs": "Dokumentation",
-            "nav.commands": "Befehle",
-            "nav.status": "Status",
-            "nav.support": "Support",
-            "hero.title": "AlphaLLM",
-            "hero.subtitle": "Fortgeschrittene KI für deinen Discord-Server",
-            "hero.invite": "Bot einladen",
-            "hero.learn": "Mehr erfahren",
-            "stats.servers": "Server",
-            "stats.users": "Benutzer",
-            "stats.uptime": "Betriebszeit",
-            "stats.messages": "Verarbeitete Nachrichten",
-            "stats.images": "Generierte Bilder",
-            "stats.free": "100% kostenlos",
-            "features.title": "Funktionen",
-            "features.ai.title": "Konversations-KI",
-            "features.ai.description": "Chatte mit einer fortschrittlichen KI, die Kontext versteht und relevante Antworten generiert.",
-            "features.image.title": "Bilderzeugung",
-            "features.image.description": "Erstelle einzigartige Bilder aus einfachen Textbeschreibungen.",
-            "features.search.title": "Suche",
-            "features.search.description": "Finde schnell Informationen und Antworten mit unserer integrierten KI-Suchmaschine.",
-            "team.title": "Unser Team",
-            "team.Yoann": "Gründer & Hauptentwickler",
-            "team.Lucky": "Webentwickler & UI/UX",
-            "team.470M": "Moderator & Support",
-            "cta.title": "Bereit, deinen Discord-Server zu verbessern?",
-            "cta.description": "Lade AlphaLLM jetzt ein und entdecke alle Funktionen.",
-            "cta.invite": "Zu Discord hinzufügen",
-            "footer.product": "Produkt",
-            "footer.documentation": "Dokumentation",
-            "footer.status": "Status",
-            "footer.commands": "Befehle",
-            "footer.resources": "Ressourcen",
-            "footer.support": "Support",
-            "footer.discord": "Discord-Server",
-            "footer.dashboard": "Dashboard",
-            "footer.legal": "Rechtliches",
-            "footer.terms": "Nutzungsbedingungen",
-            "footer.privacy": "Datenschutzrichtlinie",
-            "footer.rights": "Alle Rechte vorbehalten.",
-            "footer.by": "von",
-            "404.title": "404",
-            "404.subtitle": "Ups! Diese Seite ist im Nichts verschwunden...",
-            "404.home": "Zurück zur Startseite"
-        },
-        es: {
-            "nav.home": "Inicio",
-            "nav.docs": "Documentación",
-            "nav.commands": "Comandos",
-            "nav.status": "Estado",
-            "nav.support": "Soporte",
-            "hero.title": "AlphaLLM",
-            "hero.subtitle": "IA avanzada para tu servidor de Discord",
-            "hero.invite": "Invitar bot",
-            "hero.learn": "Saber más",
-            "stats.servers": "Servidores",
-            "stats.users": "Usuarios",
-            "stats.uptime": "Tiempo activo",
-            "stats.messages": "Mensajes procesados",
-            "stats.images": "Imágenes generadas",
-            "stats.free": "100% gratis",
-            "features.title": "Características",
-            "features.ai.title": "IA Conversacional",
-            "features.ai.description": "Chatea con una IA avanzada capaz de entender el contexto y generar respuestas relevantes.",
-            "features.image.title": "Generación de imágenes",
-            "features.image.description": "Crea imágenes únicas a partir de simples descripciones textuales.",
-            "features.search.title": "Búsqueda",
-            "features.search.description": "Encuentra rápidamente información y respuestas con nuestro motor de búsqueda de IA integrado.",
-            "team.title": "Nuestro Equipo",
-            "team.Yoann": "Fundador y Desarrollador Principal",
-            "team.Lucky": "Desarrollador Web y UI/UX",
-            "team.470M": "Moderador y Soporte",
-            "cta.title": "¿Listo para mejorar tu servidor de Discord?",
-            "cta.description": "Invita a AlphaLLM ahora y descubre todas sus funciones.",
-            "cta.invite": "Añadir a Discord",
-            "footer.product": "Producto",
-            "footer.documentation": "Documentación",
-            "footer.status": "Estado",
-            "footer.commands": "Comandos",
-            "footer.resources": "Recursos",
-            "footer.support": "Soporte",
-            "footer.discord": "Servidor de Discord",
-            "footer.legal": "Legal",
-            "footer.terms": "Términos de servicio",
-            "footer.privacy": "Política de privacidad",
-            "footer.rights": "Todos los derechos reservados.",
-            "footer.by": "por",
-            "404.title": "404",
-            "404.subtitle": "¡Ups! Esta página se ha desvanecido en el vacío...",
-            "404.home": "Volver al inicio"
+  
+  class I18nManager {
+    constructor() {
+      this.currentLanguage = 'fr'; // Langue par défaut
+      this.translations = {};
+      this.supportedLanguages = ['fr', 'en', 'de', 'es', 'pt', 'nl', 'it'];
+      this.init();
+    }
+
+    async init() {
+      try {
+        // Détecter la langue du navigateur
+        const browserLang = navigator.language.split('-')[0];
+        
+        // Vérifier si la langue du navigateur est supportée
+        if (this.supportedLanguages.includes(browserLang)) {
+          this.currentLanguage = browserLang;
+        } else {
+          this.currentLanguage = 'fr';
         }
-    };
-    
-    // Apply translations on page load
-    applyTranslations();
-    
-    // Update current language display
-    updateCurrentLangDisplay();
-    
-    // Setup language buttons
-    const langButtons = document.querySelectorAll('.lang-btn');
-    langButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            const lang = this.getAttribute('data-lang');
-            localStorage.setItem('lang', lang);
-            currentLang = lang;
-            applyTranslations();
-            updateCurrentLangDisplay();
-        });
-    });
-    
-    // Apply translations to the page
-    function applyTranslations() {
-        const elements = document.querySelectorAll('[data-i18n]');
-        elements.forEach(element => {
-            const key = element.getAttribute('data-i18n');
-            if (translations[currentLang] && translations[currentLang][key]) {
-                element.innerHTML = translations[currentLang][key];
+        
+        // Vérifier si une langue est stockée dans localStorage
+        const storedLang = localStorage.getItem('language');
+        
+        if (storedLang && this.supportedLanguages.includes(storedLang)) {
+          this.currentLanguage = storedLang;
+        }
+        
+        // Charger les traductions pour la langue actuelle
+        const loadSuccess = await this.loadTranslations(this.currentLanguage);
+        
+        // Appliquer les traductions à la page
+        this.updatePageTranslations();
+        
+        // Initialiser les sélecteurs de langue
+        this.initLanguageSelectors();
+        
+      } catch (error) {
+        // Silencieux en production
+      }
+    }
+
+    async loadTranslations(lang) {
+      try {
+        // Essayer d'abord avec un chemin relatif à partir de la racine
+        const url = 'langs/' + lang + '.json';
+        const response = await fetch(url);
+
+        if (!response.ok) {
+          // Essayer avec un autre chemin si le premier échoue
+          const altResponse = await fetch('/langs/' + lang + '.json');
+          
+          if (!altResponse.ok) {
+            throw new Error(`Erreur HTTP: ${response.status}`);
+          }
+          
+          this.translations = await altResponse.json();
+        } else {
+          this.translations = await response.json();
+        }
+        
+        return true;
+      } catch (error) {
+        // Dernier essai avec un chemin relatif au document actuel
+        try {
+          const lastResponse = await fetch('../langs/' + lang + '.json');
+
+          if (!lastResponse.ok) {
+            throw new Error(`Erreur HTTP: ${lastResponse.status}`);
+          }
+          
+          this.translations = await lastResponse.json();
+          return true;
+        } catch (lastError) {
+          // Si la langue demandée n'est pas disponible, charger le français par défaut
+          if (lang !== 'fr') {
+            return this.loadTranslations('fr');
+          }
+          
+          return false;
+        }
+      }
+    }
+
+    async changeLanguage(lang) {
+      if (!this.supportedLanguages.includes(lang)) {
+        return false;
+      }
+      
+      try {
+        const previousLang = this.currentLanguage;
+        
+        const success = await this.loadTranslations(lang);
+        if (success) {
+          this.currentLanguage = lang;
+          localStorage.setItem('language', lang);
+          
+          // Mettre à jour l'attribut lang du document HTML
+          document.documentElement.setAttribute('lang', lang);
+          
+          // Appliquer les traductions
+          this.updatePageTranslations();
+          
+          // Mettre à jour les sélecteurs UI pour refléter la langue actuelle
+          this.updateLanguageSelectors(lang);
+          
+          return true;
+        } else {
+          return false;
+        }
+      } catch (error) {
+        return false;
+      }
+    }
+
+    updatePageTranslations() {
+      // Sélectionner tous les éléments avec l'attribut data-i18n
+      const elements = document.querySelectorAll('[data-i18n]');
+      
+      let translatedCount = 0;
+      let missingCount = 0;
+      
+      elements.forEach((element, index) => {
+        const key = element.getAttribute('data-i18n');
+        
+        // Si la clé contient des points, il s'agit d'une clé imbriquée
+        if (key.includes('.')) {
+          const keyParts = key.split('.');
+          let value = this.translations;
+          
+          // Naviguer dans l'objet de traduction
+          for (const part of keyParts) {
+            if (value && typeof value === 'object' && part in value) {
+              value = value[part];
+            } else {
+              value = null;
+              break;
             }
+          }
+          
+          if (value !== null) {
+            element.innerHTML = value;
+            translatedCount++;
+          } else {
+            missingCount++;
+          }
+        } else if (this.translations[key]) {
+          element.innerHTML = this.translations[key];
+          translatedCount++;
+        } else {
+          missingCount++;
+        }
+        
+        // Gérer les attributs comme placeholder, title, alt, etc.
+        const attributes = element.getAttributeNames().filter(attr => attr.startsWith('data-i18n-attr-'));
+        
+        attributes.forEach(attr => {
+          const attributeName = attr.replace('data-i18n-attr-', '');
+          const translationKey = element.getAttribute(attr);
+          
+          if (this.translations[translationKey]) {
+            element.setAttribute(attributeName, this.translations[translationKey]);
+          }
         });
+      });
     }
     
-    // Update current language display in dropdown
-    function updateCurrentLangDisplay() {
-        const currentLangElement = document.querySelector('.current-lang');
-        if (currentLangElement) {
-            currentLangElement.textContent = currentLang.toUpperCase();
+    updateLanguageSelectors(lang) {
+      // Mettre à jour les sélecteurs UI pour refléter la langue actuelle
+      const langSelectors = document.querySelectorAll('.language-selector');
+      
+      langSelectors.forEach((selector, index) => {
+        if (selector.tagName === 'SELECT') {
+          selector.value = lang;
         }
+      });
+      
+      // Mettre à jour les boutons de langue
+      const langButtons = document.querySelectorAll('[data-lang]');
+      langButtons.forEach(button => {
+        const buttonLang = button.getAttribute('data-lang');
+        if (buttonLang === lang) {
+          button.classList.add('active');
+        } else {
+          button.classList.remove('active');
+        }
+      });
+      
+      // Mise à jour du texte affiché dans le sélecteur de langue (si présent)
+      const currentLangDisplay = document.querySelector('.current-lang');
+      if (currentLangDisplay) {
+        // Map des noms de langues
+        const langNames = {
+          'fr': 'Français',
+          'en': 'English',
+          'de': 'Deutsch',
+          'es': 'Español',
+          'pt': 'Português',
+          'nl': 'Nederlands',
+          'it': 'Italiano'
+        };
+        currentLangDisplay.textContent = langNames[lang] || langNames['fr'];
+      }
     }
+
+    initLanguageSelectors() {
+      // Initialiser les sélecteurs de langue (dropdown, boutons, etc.)
+      const langSelectors = document.querySelectorAll('.language-selector');
+      
+      langSelectors.forEach((selector, index) => {
+        // S'assurer que la valeur actuelle est correctement définie
+        if (selector.tagName === 'SELECT') {
+          // Définir la valeur du select sur la langue actuelle
+          selector.value = this.currentLanguage;
+          
+          // Ajouter l'écouteur d'événement
+          selector.addEventListener('change', (e) => {
+            const selectedLang = e.target.value;
+            this.changeLanguage(selectedLang);
+          });
+        } else if (selector.hasAttribute('data-lang')) {
+          // Pour les boutons avec data-lang
+          const lang = selector.getAttribute('data-lang');
+          
+          // Ajouter la classe active au bouton de la langue actuelle
+          if (lang === this.currentLanguage) {
+            selector.classList.add('active');
+          } else {
+            selector.classList.remove('active');
+          }
+          
+          // Ajouter l'écouteur d'événement
+          selector.addEventListener('click', () => {
+            this.changeLanguage(lang);
+          });
+        }
+      });
+      
+      // Initialiser les boutons de changement de langue (pour la rétrocompatibilité)
+      const langButtons = document.querySelectorAll('[data-lang]:not(.language-selector)');
+      
+      langButtons.forEach((button, index) => {
+        const lang = button.getAttribute('data-lang');
+        
+        // Ajouter la classe active au bouton de la langue actuelle
+        if (lang === this.currentLanguage) {
+          button.classList.add('active');
+        } else {
+          button.classList.remove('active');
+        }
+        
+        // Ajouter l'écouteur d'événement
+        button.addEventListener('click', () => {
+          this.changeLanguage(lang);
+        });
+      });
+    }
+    
+    // Méthode utilitaire pour obtenir une traduction par son code
+    translate(key, defaultText = '') {
+      // Vérifier si la clé contient des points (clé imbriquée)
+      if (key.includes('.')) {
+        const keyParts = key.split('.');
+        let value = this.translations;
+        
+        // Naviguer dans l'objet de traduction
+        for (const part of keyParts) {
+          if (value && typeof value === 'object' && part in value) {
+            value = value[part];
+          } else {
+            return defaultText;
+          }
+        }
+        
+        return value || defaultText;
+      }
+      
+      // Clé simple
+      return this.translations[key] || defaultText;
+    }
+  }
+  
+  // Initialiser l'instance i18n globale
+  window.i18n = new I18nManager();
 });
