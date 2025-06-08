@@ -4,29 +4,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Statut - AlphaLLM Bot</title>
-    <icon rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+    
+    <!-- Favicons -->
+    <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+    
+    <!-- Meta SEO -->
     <meta name="description" content="Page de statut en temps réel d'AlphaLLM. Consultez la disponibilité et les performances du bot Discord.">
     <meta name="keywords" content="AlphaLLM, Discord Bot, Status, Uptime, Performance, Monitoring">
     <meta name="author" content="YoannDev90">
-    <link rel="stylesheet" href="assets/css/styles.css">
-    <link rel="stylesheet" href="assets/css/themes.css">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://alphallm.tech/status.html">
+    <meta property="og:title" content="Statut - AlphaLLM Bot">
+    <meta property="og:description" content="Consultez la disponibilité et les performances du bot Discord AlphaLLM en temps réel.">
+    <meta property="og:image" content="https://alphallm.tech/assets/images/og-image.jpg">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="assets/css/status.css">
-    <script defer src="assets/js/main.js"></script>
-    <script defer src="assets/js/i18n.js"></script>
-    <script defer src="assets/js/status.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" crossorigin="anonymous">
+    
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Scripts -->
+    <script defer src="assets/js/main.js"></script>
+    <script defer src="assets/js/i18n.js"></script>
+    <script defer src="assets/js/status.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
-<body class="amoled-theme">
+<body class="dark-theme">
+    <!-- Noise overlay for texture -->
     <div class="noise-overlay"></div>
     <div class="gradient-bg"></div>
     
+    <!-- Header navigation -->
     <header>
         <nav class="navbar">
             <div class="logo-title-container">
-                <img src="assets/images/logo.webp" alt="Logo" class="logo animate-pulse">
+                <img src="assets/images/logo.webp" alt="AlphaLLM Logo" class="logo animate-pulse">
                 <h1 class="glitch" data-text="AlphaLLM">AlphaLLM</h1>
             </div>
             
@@ -38,7 +57,7 @@
             </div>
             
             <div class="buttons">
-                <button id="themeToggle"><i class="fas fa-moon"></i></button>
+                <button id="themeToggle" aria-label="Changer de thème"><i class="fas fa-moon"></i></button>
                 <div class="language-dropdown">
                     <button class="dropdown-toggle"><i class="fas fa-globe"></i> <span class="current-lang">FR</span></button>
                     <div class="dropdown-menu">
@@ -48,11 +67,12 @@
                         <button class="lang-btn" data-lang="es"><img src="https://flagcdn.com/es.svg" alt="ES" width="20"> Español</button>
                     </div>
                 </div>
-                <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
+                <button class="mobile-menu-btn" aria-label="Menu"><i class="fas fa-bars"></i></button>
             </div>
         </nav>
     </header>
 
+    <!-- Page Header -->
     <div class="page-header fade-in">
         <div class="container text-center">
             <h1 class="page-title glow-text" data-i18n="status.title">Statut du Bot</h1>
@@ -66,14 +86,15 @@
                 <h2 data-i18n="status.overview">Vue d'ensemble</h2>
                 <div id="refresh-container">
                     <span id="last-updated" data-i18n="status.lastUpdated">Dernière mise à jour: </span>
-                    <button id="refresh-status" class="btn btn-icon pulse-effect" aria-label="Actualiser">
+                    <span id="update-time">9 juin 2025, 14:32</span>
+                    <button id="refresh-status" class="btn-icon pulse-effect" aria-label="Actualiser">
                         <i class="fas fa-sync-alt"></i>
                     </button>
                 </div>
             </div>
             
             <div class="bots-list">
-                <!-- Répéter pour chaque bot -->
+                <!-- Bots -->
                 <div class="bot-item glass-effect">
                     <div class="bot-thumbnail">
                         <img src="assets/images/bots/alphallm.png" alt="AlphaLLM">
@@ -83,10 +104,11 @@
                         <h3>AlphaLLM</h3>
                         <div class="bot-status">
                             <span class="ping"><i class="fas fa-bolt"></i> 32ms</span>
-                            <span class="status online">En ligne</span>
+                            <span class="status online" data-i18n="status.online">En ligne</span>
                         </div>
                     </div>
                 </div>
+                
                 <div class="bot-item glass-effect">
                     <div class="bot-thumbnail">
                         <img src="assets/images/bots/logger.png" alt="Logger">
@@ -95,11 +117,12 @@
                     <div class="bot-info">
                         <h3>Logger</h3>
                         <div class="bot-status">
-                            <span class="ping"><i class="fas fa-bolt"></i> 32ms</span>
-                            <span class="status online">En ligne</span>
+                            <span class="ping"><i class="fas fa-bolt"></i> 28ms</span>
+                            <span class="status online" data-i18n="status.online">En ligne</span>
                         </div>
                     </div>
                 </div>
+                
                 <div class="bot-item glass-effect">
                     <div class="bot-thumbnail">
                         <img src="assets/images/bots/chatgpt.png" alt="ChatGPT">
@@ -108,11 +131,12 @@
                     <div class="bot-info">
                         <h3>ChatGPT</h3>
                         <div class="bot-status">
-                            <span class="ping"><i class="fas fa-bolt"></i> 32ms</span>
-                            <span class="status online">En ligne</span>
+                            <span class="ping"><i class="fas fa-bolt"></i> 45ms</span>
+                            <span class="status online" data-i18n="status.online">En ligne</span>
                         </div>
                     </div>
                 </div>
+                
                 <div class="bot-item glass-effect">
                     <div class="bot-thumbnail">
                         <img src="assets/images/bots/deepseek.png" alt="DeepSeek">
@@ -121,24 +145,26 @@
                     <div class="bot-info">
                         <h3>DeepSeek</h3>
                         <div class="bot-status">
-                            <span class="ping"><i class="fas fa-bolt"></i> 32ms</span>
-                            <span class="status online">En ligne</span>
+                            <span class="ping"><i class="fas fa-bolt"></i> 38ms</span>
+                            <span class="status online" data-i18n="status.online">En ligne</span>
                         </div>
                     </div>
                 </div>
+                
                 <div class="bot-item glass-effect">
                     <div class="bot-thumbnail">
                         <img src="assets/images/bots/gemini.png" alt="Gemini">
-                        <span class="status-dot online"></span>
+                        <span class="status-dot degraded"></span>
                     </div>
                     <div class="bot-info">
                         <h3>Gemini</h3>
                         <div class="bot-status">
-                            <span class="ping"><i class="fas fa-bolt"></i> 32ms</span>
-                            <span class="status online">En ligne</span>
+                            <span class="ping"><i class="fas fa-bolt"></i> 120ms</span>
+                            <span class="status degraded" data-i18n="status.degraded">Dégradé</span>
                         </div>
                     </div>
                 </div>
+                
                 <div class="bot-item glass-effect">
                     <div class="bot-thumbnail">
                         <img src="assets/images/bots/grok.png" alt="Grok">
@@ -147,11 +173,12 @@
                     <div class="bot-info">
                         <h3>Grok</h3>
                         <div class="bot-status">
-                            <span class="ping"><i class="fas fa-bolt"></i> 32ms</span>
-                            <span class="status online">En ligne</span>
+                            <span class="ping"><i class="fas fa-bolt"></i> 40ms</span>
+                            <span class="status online" data-i18n="status.online">En ligne</span>
                         </div>
                     </div>
                 </div>
+                
                 <div class="bot-item glass-effect">
                     <div class="bot-thumbnail">
                         <img src="assets/images/bots/evilgpt.png" alt="EvilGPT">
@@ -160,11 +187,12 @@
                     <div class="bot-info">
                         <h3>EvilGPT</h3>
                         <div class="bot-status">
-                            <span class="ping"><i class="fas fa-bolt"></i> 32ms</span>
-                            <span class="status online">En ligne</span>
+                            <span class="ping"><i class="fas fa-bolt"></i> 42ms</span>
+                            <span class="status online" data-i18n="status.online">En ligne</span>
                         </div>
                     </div>
                 </div>
+                
                 <div class="bot-item glass-effect">
                     <div class="bot-thumbnail">
                         <img src="assets/images/bots/llama.png" alt="Llama">
@@ -173,11 +201,12 @@
                     <div class="bot-info">
                         <h3>Llama</h3>
                         <div class="bot-status">
-                            <span class="ping"><i class="fas fa-bolt"></i> 32ms</span>
-                            <span class="status online">En ligne</span>
+                            <span class="ping"><i class="fas fa-bolt"></i> 36ms</span>
+                            <span class="status online" data-i18n="status.online">En ligne</span>
                         </div>
                     </div>
                 </div>
+                
                 <div class="bot-item glass-effect">
                     <div class="bot-thumbnail">
                         <img src="assets/images/bots/mistral.png" alt="Mistral">
@@ -186,24 +215,26 @@
                     <div class="bot-info">
                         <h3>Mistral</h3>
                         <div class="bot-status">
-                            <span class="ping"><i class="fas fa-bolt"></i> 32ms</span>
-                            <span class="status online">En ligne</span>
+                            <span class="ping"><i class="fas fa-bolt"></i> 39ms</span>
+                            <span class="status online" data-i18n="status.online">En ligne</span>
                         </div>
                     </div>
                 </div>
+                
                 <div class="bot-item glass-effect">
                     <div class="bot-thumbnail">
                         <img src="assets/images/bots/perplexity.png" alt="Perplexity">
-                        <span class="status-dot online"></span>
+                        <span class="status-dot offline"></span>
                     </div>
                     <div class="bot-info">
                         <h3>Perplexity</h3>
                         <div class="bot-status">
-                            <span class="ping"><i class="fas fa-bolt"></i> 32ms</span>
-                            <span class="status online">En ligne</span>
+                            <span class="ping"><i class="fas fa-bolt"></i> --</span>
+                            <span class="status offline" data-i18n="status.offline">Hors ligne</span>
                         </div>
                     </div>
                 </div>
+                
                 <div class="bot-item glass-effect">
                     <div class="bot-thumbnail">
                         <img src="assets/images/bots/phi.png" alt="Phi">
@@ -212,11 +243,12 @@
                     <div class="bot-info">
                         <h3>Phi</h3>
                         <div class="bot-status">
-                            <span class="ping"><i class="fas fa-bolt"></i> 32ms</span>
-                            <span class="status online">En ligne</span>
+                            <span class="ping"><i class="fas fa-bolt"></i> 35ms</span>
+                            <span class="status online" data-i18n="status.online">En ligne</span>
                         </div>
                     </div>
                 </div>
+                
                 <div class="bot-item glass-effect">
                     <div class="bot-thumbnail">
                         <img src="assets/images/bots/qwen.png" alt="Qwen">
@@ -225,8 +257,8 @@
                     <div class="bot-info">
                         <h3>Qwen</h3>
                         <div class="bot-status">
-                            <span class="ping"><i class="fas fa-bolt"></i> 32ms</span>
-                            <span class="status online">En ligne</span>
+                            <span class="ping"><i class="fas fa-bolt"></i> 41ms</span>
+                            <span class="status online" data-i18n="status.online">En ligne</span>
                         </div>
                     </div>
                 </div>
@@ -234,51 +266,52 @@
         </section>
     </main>
 
+    <!-- Footer -->
     <footer>
-        <div class="footer-content">
-            <div class="footer-logo">
-                <img src="assets/images/logo.webp" alt="AlphaLLM Logo" class="logo-small">
-                <h3>AlphaLLM</h3>
-            </div>
-            
-            <div class="footer-links">
-                <div class="footer-column">
-                    <h4 data-i18n="footer.product">Produit</h4>
-                    <a href="docs.html" data-i18n="footer.documentation">Documentation</a>
-                    <a href="status.html" data-i18n="footer.status">Statut</a>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="assets/images/logo.webp" alt="AlphaLLM Logo" class="logo-small">
+                    <h3>AlphaLLM</h3>
                 </div>
                 
-                <div class="footer-column">
-                    <h4 data-i18n="footer.resources">Ressources</h4>
-                    <a href="support.html" data-i18n="footer.support">Support</a>
-                    <a href="https://discord.gg/YOUR_INVITE" target="_blank" data-i18n="footer.discord">Serveur Discord</a>
-                    <a href="dashboard.html" data-i18n="footer.dashboard">Tableau de bord</a>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4 data-i18n="footer.product">Produit</h4>
+                        <a href="docs.html" data-i18n="footer.documentation">Documentation</a>
+                        <a href="status.html" data-i18n="footer.status">Statut</a>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4 data-i18n="footer.resources">Ressources</h4>
+                        <a href="support.html" data-i18n="footer.support">Support</a>
+                        <a href="https://discord.gg/QGvyrUgwdK" target="_blank" data-i18n="footer.discord">Serveur Discord</a>
+                        <a href="dashboard.html" data-i18n="footer.dashboard">Tableau de bord</a>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4 data-i18n="footer.legal">Juridique</h4>
+                        <a href="legals.html#terms" data-i18n="footer.terms">Conditions d'utilisation</a>
+                        <a href="legals.html#privacy" data-i18n="footer.privacy">Politique de confidentialité</a>
+                        <a href="legals.html#cookies" data-i18n="footer.cookies">Politique de cookies</a>
+                    </div>
                 </div>
                 
-                <div class="footer-column">
-                    <h4 data-i18n="footer.legal">Juridique</h4>
-                    <a href="legals.html#terms" data-i18n="footer.terms">Conditions d'utilisation</a>
-                    <a href="legals.html#privacy" data-i18n="footer.privacy">Politique de confidentialité</a>
-                    <a href="legals.html#cookies" data-i18n="footer.cookies">Politique de cookies</a>
+                <div class="footer-social">
+                    <a href="https://discord.gg/QGvyrUgwdK" target="_blank" aria-label="Discord"><i class="fab fa-discord"></i></a>
+                    <a href="https://x.com/AlphaLLM_Bot" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="https://github.com/YoannDev90/AlphaLLM" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
                 </div>
             </div>
             
-            <div class="footer-social">
-                <a href="https://discord.gg/QGvyrUgwdK" target="_blank" aria-label="Discord"><i class="fab fa-discord"></i></a>
-                <a href="https://x.com/AlphaLLM_Bot" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                <a href="https://github.com/YoannDev90/AlphaLLM" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <div class="footer-bottom">
+                <p>© <span id="current-year">2024</span> AlphaLLM. <span data-i18n="footer.rights">Tous droits réservés.</span></p>
+                <p class="made-with"><span data-i18n="footer.madeWith">Fait avec</span> <i class="fas fa-heart"></i> <span data-i18n="footer.by">par</span> <a href="https://github.com/YoannDev90" target="_blank">Yoann</a></p>
             </div>
-        </div>
-        
-        <div class="footer-bottom">
-            <p>© <span id="current-year">2024</span> AlphaLLM. <span data-i18n="footer.rights">Tous droits réservés.</span></p>
-            <p class="made-with"><span data-i18n="footer.madeWith">Fait avec</span> <i class="fas fa-heart"></i> <span data-i18n="footer.by">par</span> <a href="https://github.com/YOUR_USERNAME" target="_blank">YOUR_NAME</a></p>
         </div>
     </footer>
 
+    <!-- Back to top button -->
     <button id="back-to-top" aria-label="Retour en haut" class="neon-effect"><i class="fas fa-arrow-up"></i></button>
-
-    <!-- Chart.js pour les graphiques -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </body>
 </html>

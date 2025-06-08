@@ -669,415 +669,118 @@ footer {
 }
 
 /* === Status Page Styles === */
-.page-header {
-    text-align: center;
-    padding: 3rem 1rem;
-}
-
-.page-title {
-    font-size: 2.5rem;
-    margin-bottom: 0.5rem;
-    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    display: inline-block;
-}
-
-.subtitle {
-    color: var(--text-muted);
-    font-size: 1.2rem;
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 1.5rem;
-}
-
-.text-center {
-    text-align: center;
+.status-page {
+    padding: 4rem 2rem;
 }
 
 .status-overview {
-    margin-bottom: 2.5rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-bottom: 4rem;
+}
+
+.status-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    transition: all var(--transition-speed) ease;
+}
+
+.status-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary);
+    box-shadow: var(--shadow-md);
 }
 
 .status-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 1.5rem;
-}
-
-#refresh-container {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-#last-updated {
-    color: var(--text-muted);
-    font-size: 0.9rem;
-}
-
-.btn-icon {
-    background: transparent;
-    border: none;
-    color: var(--text-color);
-    font-size: 1rem;
-    cursor: pointer;
-    padding: 0.5rem;
-    border-radius: 50%;
-    transition: transform 0.2s ease;
-}
-
-.btn-icon:hover {
-    transform: rotate(90deg);
-}
-
-.pulse-effect {
-    position: relative;
-}
-
-.pulse-effect:after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    background: var(--primary-color);
-    opacity: 0.5;
-    z-index: -1;
-    transform: scale(0);
-    animation: pulseButton 2s infinite;
-}
-
-@keyframes pulseButton {
-    0% {
-        transform: scale(0);
-        opacity: 0.5;
-    }
-    100% {
-        transform: scale(2);
-        opacity: 0;
-    }
-}
-
-.status-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 1.5rem;
-    margin-top: 1.5rem;
-}
-
-.status-item {
-    height: 100%;
-}
-
-.status-card {
-    height: 100%;
-    padding: 1.5rem;
-    border-radius: 12px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.status-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 30px var(--shadow-color);
-}
-
-.status-icon {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-    color: var(--primary-color);
-    text-align: center;
-}
-
-.status-info h3 {
-    margin-bottom: 1rem;
-    text-align: center;
-}
-
-.status-indicator {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
+    margin-bottom: 2rem;
 }
 
 .status-badge {
-    padding: 0.25rem 1rem;
-    border-radius: 50px;
-    font-size: 0.875rem;
-    font-weight: 600;
-}
-
-.online {
-    background-color: rgba(16, 185, 129, 0.2);
-    color: var(--success-color);
-}
-
-.degraded {
-    background-color: rgba(245, 158, 11, 0.2);
-    color: var(--warning-color);
-}
-
-.offline {
-    background-color: rgba(239, 68, 68, 0.2);
-    color: var(--error-color);
-}
-
-.ping-time {
-    font-size: 0.875rem;
-    color: var(--text-muted);
-    display: flex;
-    align-items: center;
-    gap: 0.25rem;
-}
-
-.stats-section {
-    margin-bottom: 2.5rem;
-}
-
-.stats-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    gap: 1.5rem;
-    margin-top: 1.5rem;
-}
-
-.stat-chart-container {
-    padding: 1rem;
-    border-radius: 8px;
-    background: var(--background-lighter);
-    margin-bottom: 1rem;
-}
-
-.stat-chart-container h3 {
-    margin-bottom: 1rem;
-    font-size: 1.1rem;
-}
-
-.uptime-chart, .usage-chart {
-    border-radius: 8px;
-    padding: 1.5rem;
-    height: 250px;
-}
-
-.chart-canvas-container {
-    position: relative;
-    height: 180px;
-    margin-bottom: 1rem;
-}
-
-.uptime-stats {
-    display: flex;
-    justify-content: space-around;
-    margin-top: 1.5rem;
-    text-align: center;
-}
-
-.uptime-stat {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.stat-value {
-    font-size: 1.25rem;
-    font-weight: 600;
-    color: var(--primary-color);
-}
-
-.stat-label {
-    font-size: 0.875rem;
-    color: var(--text-muted);
-}
-
-.resource-usage {
-    margin-bottom: 1.5rem;
-}
-
-.resource {
-    margin-bottom: 0.75rem;
-}
-
-.resource-label {
-    display: block;
-    margin-bottom: 0.25rem;
-    font-size: 0.875rem;
-}
-
-.progress-container {
-    height: 8px;
-    background: var(--background-color);
-    border-radius: 4px;
-    overflow: hidden;
-}
-
-.progress-bar {
-    height: 100%;
-    background: var(--primary-color);
-    border-radius: 4px;
-    transition: width 1s ease;
-    position: relative;
-}
-
-.progress-bar span {
-    position: absolute;
-    right: 0;
-    top: -20px;
-    font-size: 0.75rem;
-}
-
-.incident-section {
-    margin-bottom: 2.5rem;
-}
-
-.incident-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 1.5rem;
-    margin-top: 1.5rem;
-}
-
-.incident-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
-    transition: all var(--transition-speed) ease;
-}
-
-.incident-card:hover {
-    transform: translateY(-5px);
-    border-color: var(--primary);
-    box-shadow: var(--shadow-md);
-}
-
-.incident-badge {
-    padding: 0.25rem 0.75rem;
+    padding: 0.5rem 1rem;
     border-radius: var(--radius-round);
-    font-size: 0.75rem;
+    font-size: 0.875rem;
     font-weight: 600;
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
 }
 
-.incident-badge i {
-    font-size: 0.875rem;
-}
-
-.resolved {
+.status-badge.operational {
     background: rgba(0, 255, 157, 0.1);
     color: var(--success);
 }
 
-.ongoing {
+.status-badge.degraded {
     background: rgba(255, 167, 38, 0.1);
     color: var(--warning);
 }
 
-.incident-date {
-    font-size: 0.875rem;
-    color: var(--text-muted);
+.status-badge.down {
+    background: rgba(255, 68, 68, 0.1);
+    color: var(--danger);
+}
+
+.status-info {
+    margin-top: 1rem;
+}
+
+.status-metric {
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    margin-bottom: 0.5rem;
 }
 
-.incident-title {
-    font-size: 1.1rem;
-    color: var(--text-primary);
-    margin-bottom: 0.75rem;
-    font-weight: 600;
-}
-
-.incident-desc {
+.metric-label {
     color: var(--text-secondary);
     font-size: 0.9rem;
-    line-height: 1.6;
-    margin-bottom: 1.25rem;
 }
 
-.incident-timeline {
-    border-left: 2px solid var(--border);
-    padding-left: 1rem;
-    margin-left: 0.5rem;
-}
-
-.timeline-item {
-    position: relative;
-    padding-bottom: 1rem;
-    &:last-child {
-        padding-bottom: 0;
-    }
-}
-
-.timeline-item::before {
-    content: '';
-    position: absolute;
-    left: -1.25rem;
-    top: 0.25rem;
-    width: 0.5rem;
-    height: 0.5rem;
-    border-radius: var(--radius-round);
-    background: var(--primary);
-    border: 2px solid var(--surface);
-}
-
-.timeline-time {
-    font-size: 0.75rem;
-    color: var(--primary);
+.metric-value {
+    color: var(--text-primary);
     font-weight: 600;
-    margin-right: 0.5rem;
 }
 
-.timeline-text {
-    font-size: 0.875rem;
-    color: var(--text-secondary);
-    line-height: 1.6;
-}
-
-/* Team Section */
-.team-section {
-    padding: 6rem 2rem;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-    background: var(--surface);
-}
-
-.team-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 3rem;
+.incidents-section {
     margin-top: 4rem;
-    max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 0 1rem;
 }
 
-.team-card {
-    background: var(--surface-2);
-    border-radius: var(--radius-lg);
-    padding: 2.5rem;
-    transition: all var(--transition-speed) ease;
+.incident-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+/* === Support Page Styles === */
+.support-page {
+    padding: 4rem 2rem;
+}
+
+.support-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.support-card {
+    background: var(--surface);
     border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    text-align: center;
+    transition: all var(--transition-speed) ease;
     position: relative;
     overflow: hidden;
 }
 
-.team-card::before {
+.support-card::before {
     content: '';
     position: absolute;
     inset: 0;
@@ -1086,106 +789,109 @@ footer {
     transition: opacity var(--transition-speed) ease;
 }
 
-.team-card:hover {
-    transform: translateY(-8px);
+.support-card:hover {
+    transform: translateY(-5px);
     border-color: var(--primary);
     box-shadow: var(--shadow-md);
 }
 
-.team-card:hover::before {
+.support-card:hover::before {
     opacity: 0.1;
 }
 
-.team-avatar {
-    width: 160px;
-    height: 160px;
-    margin: 0 auto 2rem;
+.support-icon {
+    width: 80px;
+    height: 80px;
+    background: var(--surface-2);
     border-radius: var(--radius-round);
-    overflow: hidden;
-    border: 3px solid var(--primary);
-    position: relative;
-    z-index: 1;
-    box-shadow: 0 0 20px var(--glow-color);
-}
-
-.avatar-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform var(--transition-speed) ease;
-}
-
-.team-card:hover .avatar-image {
-    transform: scale(1.1);
-}
-
-.team-name {
-    color: var(--text-primary);
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
-    position: relative;
-    z-index: 1;
-}
-
-.team-role {
-    color: var(--text-secondary);
-    margin-bottom: 1.5rem;
-    position: relative;
-    z-index: 1;
-    font-size: 0.9rem;
-}
-
-.team-social {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    position: relative;
-    z-index: 1;
-}
-
-.team-social a {
-    color: var(--text-secondary);
-    font-size: 1.4rem;
-    transition: all var(--transition-speed) ease;
-    width: 40px;
-    height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: var(--radius-round);
-    background: var(--surface);
+    margin: 0 auto 1.5rem;
 }
 
-.team-social a:hover {
+.support-icon i {
+    font-size: 2rem;
     color: var(--primary);
-    transform: translateY(-3px);
+}
+
+.support-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+}
+
+.support-description {
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.faq-section {
+    margin-top: 4rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.faq-item {
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    margin-bottom: 1rem;
+    overflow: hidden;
+}
+
+.faq-question {
+    padding: 1.5rem;
+    background: var(--surface);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background var(--transition-speed) ease;
+}
+
+.faq-question:hover {
     background: var(--surface-2);
 }
 
-@media (max-width: 768px) {
-    .team-grid {
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 2rem;
-        padding: 0;
-    }
-    
-    .team-card {
-        padding: 2rem;
-    }
-    
-    .team-avatar {
-        width: 140px;
-        height: 140px;
-    }
+.faq-answer {
+    padding: 0 1.5rem;
+    max-height: 0;
+    overflow: hidden;
+    transition: all var(--transition-speed) ease;
+    background: var(--surface-2);
 }
 
-@media (max-width: 480px) {
-    .team-section {
-        padding: 4rem 1rem;
+.faq-item.active .faq-answer {
+    padding: 1.5rem;
+    max-height: 500px;
+}
+
+.contact-section {
+    margin-top: 4rem;
+    text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .status-page {
+        padding: 2rem 1rem;
     }
     
-    .team-avatar {
-        width: 120px;
-        height: 120px;
+    .status-overview {
+        grid-template-columns: 1fr;
+    }
+    
+    .support-page {
+        padding: 2rem 1rem;
+    }
+    
+    .support-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .faq-question {
+        padding: 1rem;
     }
 }

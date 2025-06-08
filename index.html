@@ -3,36 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AlphaLLM - Discord Bot</title>
-    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon-16x16.png">
-    <link rel="manifest" href="/assets/images/site.webmanifest">
-    <meta name="description" content="AlphaLLM est un bot Discord IA avancé offrant des fonctionnalités de traduction, génération d'images et chat conversationnel.">
-    <meta name="keywords" content="AlphaLLM, Discord Bot, AI, Chat Bot, Image Generation, Translation">
-    <meta name="author" content="YoannDev90">
-    <meta property="og:title" content="AlphaLLM - Discord Bot">
-    <meta property="og:description" content="Bot Discord IA avancé avec traduction, génération d'images et chat">
-    <meta property="og:image" content="assets/images/logo.webp">
+    <title>AlphaLLM - Bot Discord IA Avancé | Chat, Images & Plus</title>
     
-    <!-- CSS Imports -->
-    <link rel="stylesheet" href="assets/css/styles.css">
+    <!-- Favicons -->
+    <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+    
+    <!-- Meta SEO -->
+    <meta name="description" content="AlphaLLM est un bot Discord IA gratuit offrant des fonctionnalités avancées : chat intelligent, génération d'images, traduction en temps réel. Améliorez votre serveur Discord dès maintenant !">
+    <meta name="keywords" content="AlphaLLM, Discord Bot, IA Discord, Chat Bot, Génération d'Images, Bot Discord Gratuit, Bot IA OpenSource">
+    <meta name="author" content="YoannDev90">
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://alphallm.tech/">
+    <meta property="og:title" content="AlphaLLM - Bot Discord IA Avancé">
+    <meta property="og:description" content="Bot Discord IA gratuit avec chat intelligent, génération d'images et traduction en temps réel. Optimisez votre serveur Discord !">
+    <meta property="og:image" content="https://alphallm.tech/assets/images/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/jpeg">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@AlphaLLM_Bot">
+    <meta name="twitter:title" content="AlphaLLM - Bot Discord IA Avancé">
+    <meta name="twitter:description" content="Bot Discord IA gratuit avec chat intelligent, génération d'images et traduction en temps réel. Optimisez votre serveur Discord !">
+    <meta name="twitter:image" content="https://alphallm.tech/assets/images/twitter-card.jpg">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://alphallm.tech/">
+
+    <!-- Performance Optimizations -->
+    <link rel="preload" href="assets/css/main.css" as="style">
+    <link rel="preload" href="assets/css/index.css" as="style">
+    <link rel="preload" href="assets/js/main.js" as="script">
+    <link rel="preload" href="assets/images/logo.webp" as="image">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/index.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
-    <!-- JavaScript -->
+    <!-- Scripts -->
     <script defer src="assets/js/main.js"></script>
     <script defer src="assets/js/i18n.js"></script>
 </head>
 <body class="dark-theme">
+    <!-- Noise overlay for texture -->
     <div class="noise-overlay"></div>
     
+    <!-- Header navigation -->
     <header>
         <nav class="navbar">
             <div class="logo-title-container">
-                <img src="assets/images/logo.webp" alt="Logo" class="logo animate-pulse">
+                <img src="assets/images/logo.webp" alt="AlphaLLM Logo" class="logo animate-pulse">
                 <h1 class="glitch" data-text="AlphaLLM">AlphaLLM</h1>
             </div>
             
@@ -53,176 +84,198 @@
                         <button class="lang-btn" data-lang="es"><img src="https://flagcdn.com/es.svg" alt="ES" width="20"> Español</button>
                     </div>
                 </div>
-                <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
+                <button class="mobile-menu-btn" aria-label="Menu"><i class="fas fa-bars"></i></button>
             </div>
         </nav>
     </header>
 
-    <div class="hero-section">
-        <div class="hero-content fade-in">
-            <h1 class="hero-title" data-i18n="hero.title">AlphaLLM</h1>
-            <p class="hero-subtitle" data-i18n="hero.subtitle">L'IA avancée pour votre serveur Discord</p>
-            <div class="hero-buttons">
-                <a href="https://discord.com/api/oauth2/authorize?client_id=YOUR_CLIENT_ID&permissions=8&scope=bot" class="btn btn-primary" data-i18n="hero.invite">
-                    <i class="fas fa-plus"></i> Inviter
-                </a>
-                <a href="#features" class="btn btn-secondary" data-i18n="hero.learn">
-                    <i class="fas fa-info-circle"></i> En savoir plus
-                </a>
-            </div>
-        </div>
-        <div class="hero-stats">
-            <div class="stat-box fade-in" style="animation-delay: 0.2s;">
-                <i class="fas fa-server"></i>
-                <span class="stat-number">100+</span>
-                <span class="stat-label" data-i18n="stats.servers">Serveurs</span>
-            </div>
-            <div class="stat-box fade-in" style="animation-delay: 0.4s;">
-                <i class="fas fa-users"></i>
-                <span class="stat-number">1K+</span>
-                <span class="stat-label" data-i18n="stats.users">Utilisateurs</span>
-            </div>
-            <div class="stat-box fade-in" style="animation-delay: 0.6s;">
-                <i class="fas fa-bolt"></i>
-                <span class="stat-number">98.5%</span>
-                <span class="stat-label" data-i18n="stats.uptime">Disponibilité</span>
-            </div>
-            <div class="stat-box fade-in" style="animation-delay: 0.8s;">
-                <i class="fas fa-comments"></i>
-                <span class="stat-number">10K+</span>
-                <span class="stat-label" data-i18n="stats.messages">Messages traités</span>
-            </div>
-            <div class="stat-box fade-in" style="animation-delay: 1s;">
-                <i class="fas fa-image"></i>
-                <span class="stat-number">5K+</span>
-                <span class="stat-label" data-i18n="stats.images">Images générées</span>
-            </div>
-            <div class="stat-box fade-in" style="animation-delay: 1.2s;">
-                <i class="fas fa-dollar-sign"></i>
-                <span class="stat-number">100%</span>
-                <span class="stat-label" data-i18n="stats.free">Gratuit</span>
-            </div>
-        </div>
-    </div>
-
     <main>
-        <section id="features" class="features-section">
-            <h2 class="section-title slide-in" data-i18n="features.title">Fonctionnalités</h2>
-            
-            <div class="grid-container">
-                <div class="feature-card slide-in" style="animation-delay: 0.1s;">
-                    <div class="feature-icon">
-                        <i class="fas fa-robot"></i>
+        <!-- Hero section -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title" data-i18n="hero.title">AlphaLLM</h1>
+                    <p class="hero-subtitle" data-i18n="hero.subtitle">L'IA avancée pour votre serveur Discord</p>
+                    <div class="hero-buttons">
+                        <a href="https://discord.com/api/oauth2/authorize?client_id=1286951908786962442&permissions=8&scope=bot" class="btn btn-primary" data-i18n="hero.invite">
+                            <i class="fas fa-plus"></i> Inviter
+                        </a>
+                        <a href="#features" class="btn btn-secondary" data-i18n="hero.learn">
+                            <i class="fas fa-info-circle"></i> En savoir plus
+                        </a>
                     </div>
-                    <h3 data-i18n="features.ai.title">IA Conversationnelle</h3>
-                    <p data-i18n="features.ai.description">Discutez avec une IA avancée capable de comprendre le contexte et de générer des réponses pertinentes.</p>
                 </div>
-                
-                <div class="feature-card slide-in" style="animation-delay: 0.2s;">
-                    <div class="feature-icon">
+                <div class="hero-image">
+                    <img src="assets/images/logo.webp" style="border-radius: 50px;" alt="AlphaLLM Bot" class="float">
+                </div>
+                <div class="hero-bg-glow"></div>
+            </div>
+        </section>
+
+        <!-- Stats section -->
+        <section class="stats-section">
+            <div class="container">
+                <div class="stats-container">
+                    <div class="stat-item">
+                        <i class="fas fa-server"></i>
+                        <h3 class="stat-number">100+</h3>
+                        <p class="stat-label" data-i18n="stats.servers">Serveurs</p>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fas fa-users"></i>
+                        <h3 class="stat-number">1K+</h3>
+                        <p class="stat-label" data-i18n="stats.users">Utilisateurs</p>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fas fa-bolt"></i>
+                        <h3 class="stat-number">98.5%</h3>
+                        <p class="stat-label" data-i18n="stats.uptime">Disponibilité</p>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fas fa-comments"></i>
+                        <h3 class="stat-number">10K+</h3>
+                        <p class="stat-label" data-i18n="stats.messages">Messages traités</p>
+                    </div>
+                    <div class="stat-item">
                         <i class="fas fa-image"></i>
+                        <h3 class="stat-number">5K+</h3>
+                        <p class="stat-label" data-i18n="stats.images">Images générées</p>
                     </div>
-                    <h3 data-i18n="features.image.title">Génération d'Images</h3>
-                    <p data-i18n="features.image.description">Créez des images uniques à partir de simples descriptions textuelles.</p>
-                </div>
-
-                <div class="feature-card slide-in" style="animation-delay: 0.4s;">
-                    <div class="feature-icon">
-                        <i class="fas fa-search"></i>
-                    </div>
-                    <h3 data-i18n="features.search.title">Recherche IA</h3>
-                    <p data-i18n="features.search.description">Trouvez rapidement des informations et des réponses grâce à notre moteur de recherche IA intégré.</p>
                 </div>
             </div>
         </section>
-        
-        <section class="team-section">
-            <h2 class="section-title slide-in" data-i18n="team.title">Notre Équipe</h2>
-            
-            <div class="team-grid">
-                <div class="team-card slide-in" style="animation-delay: 0.1s;">
-                    <div class="team-avatar">
-                        <img src="assets/images/team/Yoann.png" alt="Yoann" class="avatar-image">
-                    </div>
-                    <h3 class="team-name">Yoann</h3>
-                    <p class="team-role" data-i18n="team.Yoann">Fondateur & Développeur Python</p>
-                    <div class="team-social">
-                        <a href="https://github.com/YoannDev90" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                    </div>
-                </div>
 
-                <div class="team-card slide-in" style="animation-delay: 0.1s;">
-                    <div class="team-avatar">
-                        <img src="assets/images/team/Lucky.png" alt="Lucky" class="avatar-image">
+        <!-- Features section -->
+        <section id="features" class="features-section">
+            <div class="container">
+                <h2 class="section-title" data-i18n="features.title">Fonctionnalités</h2>
+                
+                <div class="features-grid">
+                    <div class="feature-card card">
+                        <div class="feature-icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <h3 class="feature-title" data-i18n="features.ai.title">IA Conversationnelle</h3>
+                        <p class="feature-description" data-i18n="features.ai.description">Discutez avec une IA avancée capable de comprendre le contexte et de générer des réponses pertinentes.</p>
                     </div>
-                    <h3 class="team-name">Lucky</h3>
-                    <p class="team-role" data-i18n="team.Lucky">Développeur Web & UI/UX</p>
-                    <div class="team-social">
-                        <a href="https://github.com/LuckyTheCookie" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    
+                    <div class="feature-card card">
+                        <div class="feature-icon">
+                            <i class="fas fa-image"></i>
+                        </div>
+                        <h3 class="feature-title" data-i18n="features.image.title">Génération d'Images</h3>
+                        <p class="feature-description" data-i18n="features.image.description">Créez des images uniques à partir de simples descriptions textuelles.</p>
                     </div>
-                </div>
 
-                <div class="team-card slide-in" style="animation-delay: 0.1s;">
-                    <div class="team-avatar">
-                        <img src="assets/images/team/470M.png" alt="470M" class="avatar-image">
+                    <div class="feature-card card">
+                        <div class="feature-icon">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <h3 class="feature-title" data-i18n="features.search.title">Recherche IA</h3>
+                        <p class="feature-description" data-i18n="features.search.description">Trouvez rapidement des informations et des réponses grâce à notre moteur de recherche IA intégré.</p>
                     </div>
-                    <h3 class="team-name">470M</h3>
-                    <p class="team-role" data-i18n="team.470M">Modérateur & Support</p>
                 </div>
                 
+                <div class="features-bg-glow"></div>
             </div>
         </section>
         
+        <!-- Team section -->
+        <section class="team-section">
+            <div class="container">
+                <h2 class="section-title" data-i18n="team.title">Notre Équipe</h2>
+                
+                <div class="team-grid">
+                    <div class="team-card card">
+                        <div class="team-avatar">
+                            <img src="assets/images/team/Yoann.png" alt="Yoann" class="avatar-image">
+                        </div>
+                        <h3 class="team-name">Yoann</h3>
+                        <p class="team-role" data-i18n="team.Yoann">Fondateur & Développeur Principal</p>
+                        <div class="team-social">
+                            <a href="https://github.com/YoannDev90" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="team-card card">
+                        <div class="team-avatar">
+                            <img src="assets/images/team/Lucky.png" alt="Lucky" class="avatar-image">
+                        </div>
+                        <h3 class="team-name">Lucky</h3>
+                        <p class="team-role" data-i18n="team.Lucky">Développeur Web & UI/UX</p>
+                        <div class="team-social">
+                            <a href="https://github.com/LuckyTheCookie" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="team-card card">
+                        <div class="team-avatar">
+                            <img src="assets/images/team/470M.png" alt="470M" class="avatar-image">
+                        </div>
+                        <h3 class="team-name">470M</h3>
+                        <p class="team-role" data-i18n="team.470M">Modérateur & Support</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- CTA section -->
         <section class="cta-section">
-            <div class="cta-content fade-in">
-                <h2 data-i18n="cta.title">Prêt à améliorer votre serveur Discord ?</h2>
-                <p data-i18n="cta.description">Invitez AlphaLLM dès maintenant et découvrez toutes ses fonctionnalités.</p>
-                <a href="https://discord.com/oauth2/authorize?client_id=1286951908786962442" class="btn btn-glow" data-i18n="cta.invite">
-                    <i class="fab fa-discord"></i> Ajouter à Discord
-                </a>
+            <div class="container">
+                <div class="cta-content">
+                    <h2 data-i18n="cta.title">Prêt à améliorer votre serveur Discord ?</h2>
+                    <p data-i18n="cta.description">Invitez AlphaLLM dès maintenant et découvrez toutes ses fonctionnalités.</p>
+                    <a href="https://discord.com/oauth2/authorize?client_id=1286951908786962442" class="btn btn-glow" data-i18n="cta.invite">
+                        <i class="fab fa-discord"></i> Ajouter à Discord
+                    </a>
+                </div>
             </div>
         </section>
     </main>
 
+    <!-- Footer -->
     <footer>
-        <div class="footer-content">
-            <div class="footer-logo">
-                <img src="assets/images/logo-small.webp" alt="AlphaLLM Logo" class="logo-small">
-                <h3>AlphaLLM</h3>
-            </div>
-            
-            <div class="footer-links">
-                <div class="footer-column">
-                    <h4 data-i18n="footer.product">Produit</h4>
-                    <a href="docs.html" data-i18n="footer.documentation">Documentation</a>
-                    <a href="status.html" data-i18n="footer.status">Statut</a>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="assets/images/logo.webp" alt="AlphaLLM Logo" class="logo-small">
+                    <h3>AlphaLLM</h3>
                 </div>
                 
-                <div class="footer-column">
-                    <h4 data-i18n="footer.resources">Ressources</h4>
-                    <a href="support.html" data-i18n="footer.support">Support</a>
-                    <a href="https://discord.gg/QGvyrUgwdK" target="_blank" data-i18n="footer.discord">Serveur Discord</a>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4 data-i18n="footer.product">Produit</h4>
+                        <a href="docs.html" data-i18n="footer.documentation">Documentation</a>
+                        <a href="status.html" data-i18n="footer.status">Statut</a>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4 data-i18n="footer.resources">Ressources</h4>
+                        <a href="support.html" data-i18n="footer.support">Support</a>
+                        <a href="https://discord.gg/QGvyrUgwdK" target="_blank" data-i18n="footer.discord">Serveur Discord</a>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4 data-i18n="footer.legal">Juridique</h4>
+                        <a href="legals.html#terms" data-i18n="footer.terms">Conditions d'utilisation</a>
+                        <a href="legals.html#privacy" data-i18n="footer.privacy">Politique de confidentialité</a>
+                    </div>
                 </div>
                 
-                <div class="footer-column">
-                    <h4 data-i18n="footer.legal">Juridique</h4>
-                    <a href="legals.html#terms" data-i18n="footer.terms">Conditions d'utilisation</a>
-                    <a href="legals.html#privacy" data-i18n="footer.privacy">Politique de confidentialité</a>
+                <div class="footer-social">
+                    <a href="https://discord.gg/QGvyrUgwdK" target="_blank" aria-label="Discord"><i class="fab fa-discord"></i></a>
+                    <a href="https://x.com/AlphaLLM_Bot" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="https://github.com/YoannDev90/AlphaLLM" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
                 </div>
             </div>
             
-            <div class="footer-social">
-                <a href="https://discord.gg/QGvyrUgwdK" target="_blank" aria-label="Discord"><i class="fab fa-discord"></i></a>
-                <a href="https://x.com/AlphaLLM_Bot" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                <a href="https://github.com/YoannDev90/AlphaLLM" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <div class="footer-bottom">
+                <p>&copy; <span id="current-year">2024</span> AlphaLLM. <span data-i18n="footer.rights">Tous droits réservés.</span></p>
             </div>
-        </div>
-        
-        <div class="footer-bottom">
-            <p>&copy; <span id="current-year"> 2024</span> AlphaLLM. <span data-i18n="footer.rights">Tous droits réservés.</span></p>
         </div>
     </footer>
 
-    <button id="back-to-top" aria-label="Retour en haut"><i class="fas fa-arrow-up"></i></button>
+    <!-- Back to top button -->
+    <button id="back-to-top" class="visible" aria-label="Retour en haut"><i class="fas fa-arrow-up"></i></button>
 </body>
 </html>
