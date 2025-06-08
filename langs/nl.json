@@ -1,0 +1,190 @@
+{
+  "global": {
+    "siteName": "AlphaLLM",
+    "siteDescription": "Conversationele multi-model AI Discord-bot met beeldgeneratie",
+    "navigation": {
+      "home": "Home",
+      "docs": "Documentatie",
+      "status": "Status",
+      "support": "Ondersteuning",
+      "dashboard": "Dashboard",
+      "login": "Inloggen",
+      "logout": "Uitloggen"
+    },
+    "buttons": {
+      "learnMore": "Meer informatie",
+      "getStarted": "Aan de slag",
+      "addToDiscord": "Toevoegen aan Discord",
+      "submit": "Verzenden",
+      "close": "Sluiten",
+      "cancel": "Annuleren",
+      "confirm": "Bevestigen",
+      "back": "Terug",
+      "next": "Volgende"
+    },
+    "footer": {
+      "product": "Product",
+      "documentation": "Documentatie",
+      "status": "Status",
+      "resources": "Bronnen",
+      "support": "Ondersteuning",
+      "discord": "Discord Server",
+      "legal": "Juridisch",
+      "termsOfService": "Gebruiksvoorwaarden",
+      "privacyPolicy": "Privacybeleid",
+      "copyright": "Alle rechten voorbehouden."
+    }
+  },
+  "homePage": {
+    "hero": {
+      "title": "AlphaLLM",
+      "subtitle": "Geavanceerde AI voor je Discord-server",
+      "cta": "Uitnodigen"
+    },
+    "stats": {
+      "servers": "Servers",
+      "users": "Gebruikers",
+      "uptime": "Beschikbaarheid",
+      "messages": "Berichten verwerkt",
+      "images": "Afbeeldingen gegenereerd"
+    },
+    "features": {
+      "title": "Functies",
+      "multiModels": {
+        "title": "Conversationele AI",
+        "description": "Chat met een geavanceerde AI die context begrijpt en relevante antwoorden genereert."
+      },
+      "imageGeneration": {
+        "title": "Beeldgeneratie",
+        "description": "Creëer unieke afbeeldingen op basis van eenvoudige tekstbeschrijvingen."
+      },
+      "searchAI": {
+        "title": "AI-zoeken",
+        "description": "Vind snel informatie en antwoorden met onze geïntegreerde AI-zoekmachine."
+      }
+    },
+    "team": {
+      "title": "Ons Team",
+      "yoann": "Oprichter & Hoofdontwikkelaar",
+      "lucky": "Webontwikkelaar & UI/UX",
+      "470m": "Moderator & Ondersteuning"
+    },
+    "cta": {
+      "title": "Klaar om je Discord-server te verbeteren?",
+      "description": "Nodig AlphaLLM nu uit en ontdek alle functies.",
+      "button": "Toevoegen aan Discord"
+    }
+  },
+  "statusPage": {
+    "title": "Systeemstatus",
+    "subtitle": "Bekijk de operationele status van onze diensten in real-time",
+    "overallStatus": {
+      "operational": "Alle systemen operationeel",
+      "partialOutage": "Gedeeltelijke storing",
+      "majorOutage": "Grote storing",
+      "maintenance": "Onderhoud in uitvoering"
+    },
+    "services": {
+      "title": "Diensten",
+      "discordBot": "Discord-bot",
+      "api": "API",
+      "database": "Database",
+      "website": "Website",
+      "dashboard": "Dashboard",
+      "imageGeneration": "Beeldgeneratie",
+      "status": {
+        "operational": "Operationeel",
+        "degraded": "Verminderde prestaties",
+        "outage": "Storing",
+        "maintenance": "Onderhoud"
+      }
+    },
+    "incidents": {
+      "title": "Recente incidenten",
+      "noIncidents": "Geen recente incidenten te melden",
+      "viewAll": "Bekijk volledige geschiedenis",
+      "date": "Datum",
+      "service": "Dienst",
+      "status": "Status",
+      "description": "Beschrijving"
+    },
+    "uptime": {
+      "title": "Uptime",
+      "last24h": "Laatste 24 uur",
+      "last7d": "Laatste 7 dagen",
+      "last30d": "Laatste 30 dagen"
+    }
+  },
+  "supportPage": {
+    "title": "Ondersteuning & Hulp",
+    "subtitle": "We zijn er om je te helpen",
+    "searchPlaceholder": "Zoeken in de kennisbank...",
+    "categories": {
+      "title": "Categorieën",
+      "gettingStarted": "Aan de slag",
+      "account": "Account & Profiel",
+      "commands": "Commando's",
+      "billing": "Facturering",
+      "troubleshooting": "Probleemoplossing",
+      "api": "API"
+    },
+    "faq": {
+      "title": "Veelgestelde vragen",
+      "q1": "Hoe voeg ik AlphaLLM toe aan mijn Discord-server?",
+      "a1": "Klik op de knop \"Toevoegen aan Discord\" op onze homepage en volg de instructies.",
+      "q2": "Wat zijn de basis commando's?",
+      "a2": "De belangrijkste commando's zijn /chat voor gesprekken, /image voor het genereren van afbeeldingen en /help voor assistentie.",
+      "q3": "Is de bot gratis te gebruiken?",
+      "a3": "Ja, AlphaLLM biedt een gratis abonnement met basisfuncties. Premium abonnementen zijn beschikbaar voor meer functies.",
+      "q4": "Hoe verander ik de taal van de bot?",
+      "a4": "Gebruik het commando /settings language om de taal van de bot in je server te wijzigen."
+    },
+    "contact": {
+      "title": "Neem contact op",
+      "description": "Niet gevonden wat je zocht? Stuur ons een bericht.",
+      "discord": "Word lid van onze Discord",
+      "email": "Neem contact op via e-mail",
+      "form": {
+        "name": "Naam",
+        "email": "E-mail",
+        "subject": "Onderwerp",
+        "message": "Bericht",
+        "submit": "Verzenden"
+      }
+    }
+  },
+  "legalsPage": {
+    "title": "Juridische kennisgevingen",
+    "subtitle": "Laatst bijgewerkt: 1 mei 2024",
+    "terms": {
+      "title": "Gebruiksvoorwaarden",
+      "intro": "Door AlphaLLM te gebruiken, ga je akkoord met de volgende voorwaarden:",
+      "usage": "Gebruik van de dienst",
+      "usageText": "AlphaLLM wordt \"as is\" geleverd zonder enige garantie. We behouden ons het recht voor om de dienst op elk moment te wijzigen of te beëindigen.",
+      "content": "Gebruikersinhoud",
+      "contentText": "Je bent verantwoordelijk voor de inhoud die je deelt via AlphaLLM. Illegale, beledigende of misbruikende inhoud is verboden."
+    },
+    "privacy": {
+      "title": "Privacybeleid",
+      "intro": "Bescherming van je persoonlijke gegevens:",
+      "collect": "Gegevensverzameling",
+      "collectText": "We verzamelen bepaalde informatie om onze diensten te verbeteren, inclusief berichten voor modeltraining.",
+      "use": "Gebruik van gegevens",
+      "useText": "Verzamelde gegevens worden gebruikt om onze dienst te verbeteren, technische problemen op te lossen en de gebruikerservaring te personaliseren."
+    },
+    "cookies": {
+      "title": "Cookiebeleid",
+      "text": "Onze website gebruikt cookies om je ervaring te verbeteren. Je kunt je browser configureren om cookies te weigeren."
+    },
+    "contact": {
+      "title": "Juridisch contact",
+      "text": "Voor juridische vragen, neem contact met ons op via: legal@alphallm.tech"
+    }
+  },
+  "errorPage": {
+    "title": "Fout 404",
+    "subtitle": "Pagina niet gevonden",
+    "message": "De pagina die je zoekt bestaat niet of is verplaatst.",
+    "back": "Terug naar home"
+  }
+}

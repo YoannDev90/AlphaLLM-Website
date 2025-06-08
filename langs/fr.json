@@ -1,0 +1,190 @@
+{
+  "global": {
+    "siteName": "AlphaLLM",
+    "siteDescription": "Bot Discord conversationnel multimodèle IA avec génération d'images",
+    "navigation": {
+      "home": "Accueil",
+      "docs": "Documentation",
+      "status": "Statut",
+      "support": "Support",
+      "dashboard": "Tableau de bord",
+      "login": "Connexion",
+      "logout": "Déconnexion"
+    },
+    "buttons": {
+      "learnMore": "En savoir plus",
+      "getStarted": "Commencer",
+      "addToDiscord": "Ajouter à Discord",
+      "submit": "Envoyer",
+      "close": "Fermer",
+      "cancel": "Annuler",
+      "confirm": "Confirmer",
+      "back": "Retour",
+      "next": "Suivant"
+    },
+    "footer": {
+      "product": "Produit",
+      "documentation": "Documentation",
+      "status": "Statut",
+      "resources": "Ressources",
+      "support": "Support",
+      "discord": "Serveur Discord",
+      "legal": "Juridique",
+      "termsOfService": "Conditions d'utilisation",
+      "privacyPolicy": "Politique de confidentialité",
+      "copyright": "Tous droits réservés."
+    }
+  },
+  "homePage": {
+    "hero": {
+      "title": "AlphaLLM",
+      "subtitle": "L'IA avancée pour votre serveur Discord",
+      "cta": "Inviter"
+    },
+    "stats": {
+      "servers": "Serveurs",
+      "users": "Utilisateurs",
+      "uptime": "Disponibilité",
+      "messages": "Messages traités",
+      "images": "Images générées"
+    },
+    "features": {
+      "title": "Fonctionnalités",
+      "multiModels": {
+        "title": "IA Conversationnelle",
+        "description": "Discutez avec une IA avancée capable de comprendre le contexte et de générer des réponses pertinentes."
+      },
+      "imageGeneration": {
+        "title": "Génération d'Images",
+        "description": "Créez des images uniques à partir de simples descriptions textuelles."
+      },
+      "searchAI": {
+        "title": "Recherche IA",
+        "description": "Trouvez rapidement des informations et des réponses grâce à notre moteur de recherche IA intégré."
+      }
+    },
+    "team": {
+      "title": "Notre Équipe",
+      "yoann": "Fondateur & Développeur Principal",
+      "lucky": "Développeur Web & UI/UX",
+      "470m": "Modérateur & Support"
+    },
+    "cta": {
+      "title": "Prêt à améliorer votre serveur Discord ?",
+      "description": "Invitez AlphaLLM dès maintenant et découvrez toutes ses fonctionnalités.",
+      "button": "Ajouter à Discord"
+    }
+  },
+  "statusPage": {
+    "title": "Statut du système",
+    "subtitle": "Vérifiez l'état de fonctionnement en temps réel de nos services",
+    "overallStatus": {
+      "operational": "Tous les systèmes opérationnels",
+      "partialOutage": "Panne partielle",
+      "majorOutage": "Panne majeure",
+      "maintenance": "Maintenance en cours"
+    },
+    "services": {
+      "title": "Services",
+      "discordBot": "Bot Discord",
+      "api": "API",
+      "database": "Base de données",
+      "website": "Site web",
+      "dashboard": "Tableau de bord",
+      "imageGeneration": "Génération d'images",
+      "status": {
+        "operational": "Opérationnel",
+        "degraded": "Performance dégradée",
+        "outage": "Hors service",
+        "maintenance": "En maintenance"
+      }
+    },
+    "incidents": {
+      "title": "Incidents récents",
+      "noIncidents": "Aucun incident récent à signaler",
+      "viewAll": "Voir tout l'historique",
+      "date": "Date",
+      "service": "Service",
+      "status": "Statut",
+      "description": "Description"
+    },
+    "uptime": {
+      "title": "Disponibilité",
+      "last24h": "24 dernières heures",
+      "last7d": "7 derniers jours",
+      "last30d": "30 derniers jours"
+    }
+  },
+  "supportPage": {
+    "title": "Support et aide",
+    "subtitle": "Nous sommes là pour vous aider",
+    "searchPlaceholder": "Rechercher dans la base de connaissances...",
+    "categories": {
+      "title": "Catégories",
+      "gettingStarted": "Premiers pas",
+      "account": "Compte et profil",
+      "commands": "Commandes",
+      "billing": "Facturation",
+      "troubleshooting": "Dépannage",
+      "api": "API"
+    },
+    "faq": {
+      "title": "Questions fréquemment posées",
+      "q1": "Comment ajouter AlphaLLM à mon serveur Discord ?",
+      "a1": "Cliquez sur le bouton \"Ajouter à Discord\" sur notre page d'accueil et suivez les instructions.",
+      "q2": "Quelles sont les commandes de base ?",
+      "a2": "Les commandes principales sont /chat pour discuter, /image pour générer des images, et /help pour obtenir de l'aide.",
+      "q3": "Est-ce que le bot est gratuit ?",
+      "a3": "Oui, AlphaLLM propose un plan gratuit avec des fonctionnalités de base. Des plans premium sont disponibles pour plus de fonctionnalités.",
+      "q4": "Comment changer la langue du bot ?",
+      "a4": "Utilisez la commande /settings language pour changer la langue du bot dans votre serveur."
+    },
+    "contact": {
+      "title": "Contactez-nous",
+      "description": "Vous n'avez pas trouvé ce que vous cherchiez ? Envoyez-nous un message.",
+      "discord": "Rejoindre notre Discord",
+      "email": "Nous contacter par email",
+      "form": {
+        "name": "Nom",
+        "email": "Email",
+        "subject": "Sujet",
+        "message": "Message",
+        "submit": "Envoyer"
+      }
+    }
+  },
+  "legalsPage": {
+    "title": "Mentions légales",
+    "subtitle": "Dernière mise à jour: 1 mai 2024",
+    "terms": {
+      "title": "Conditions d'utilisation",
+      "intro": "En utilisant AlphaLLM, vous acceptez les conditions suivantes :",
+      "usage": "Utilisation du service",
+      "usageText": "AlphaLLM est fourni \"tel quel\" sans garantie d'aucune sorte. Nous nous réservons le droit de modifier ou d'interrompre le service à tout moment.",
+      "content": "Contenu utilisateur",
+      "contentText": "Vous êtes responsable du contenu que vous partagez via AlphaLLM. Le contenu illégal, offensant ou abusif est interdit."
+    },
+    "privacy": {
+      "title": "Politique de confidentialité",
+      "intro": "Protection de vos données personnelles :",
+      "collect": "Données collectées",
+      "collectText": "Nous collectons certaines informations pour améliorer nos services, incluant des messages pour l'entraînement des modèles.",
+      "use": "Utilisation des données",
+      "useText": "Les données collectées sont utilisées pour améliorer notre service, résoudre les problèmes techniques et personnaliser l'expérience utilisateur."
+    },
+    "cookies": {
+      "title": "Politique de cookies",
+      "text": "Notre site web utilise des cookies pour améliorer votre expérience. Vous pouvez configurer votre navigateur pour refuser les cookies."
+    },
+    "contact": {
+      "title": "Contact légal",
+      "text": "Pour toute question juridique, contactez-nous à: legal@alphallm.tech"
+    }
+  },
+  "errorPage": {
+    "title": "Erreur 404",
+    "subtitle": "Page non trouvée",
+    "message": "La page que vous recherchez n'existe pas ou a été déplacée.",
+    "back": "Retourner à l'accueil"
+  }
+}

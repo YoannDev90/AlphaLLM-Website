@@ -58,7 +58,7 @@ AlphaLLM-Website/
 │ │ │ ├── Yoann.png
 │ │ ├── logo.webp 
 │ │ ├── favicon.ico 
-│ └── i18n/ 
+├── langs/ 
 │ ├── fr.json 
 │ ├── en.json 
 │ ├── de.json 
