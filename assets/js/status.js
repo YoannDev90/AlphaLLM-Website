@@ -4,7 +4,7 @@
  */
 
 // Configuration de l'API
-const API_ENDPOINT = 'de5.azurhosts.com:25692/status';
+const API_ENDPOINT = 'api.alphallm.tech:25692/status';
 
 document.addEventListener('DOMContentLoaded', function() {
     // Initialisation
