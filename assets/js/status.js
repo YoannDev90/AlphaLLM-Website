@@ -64,7 +64,7 @@ function updateStatusTime() {
  */
 async function fetchStatusData() {
     try {
-        const response = await fetch(`http://${API_ENDPOINT}`);
+        const response = await fetch(`https://${API_ENDPOINT}`);
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
@@ -77,9 +77,16 @@ async function fetchStatusData() {
         };
     } catch (error) {
         console.error('Erreur lors de la récupération des données:', error);
+        
+        // Gestion spécifique pour les erreurs de mixed content
+        let errorMessage = error.message;
+        if (error.message.includes('NetworkError') || error.message.includes('Mixed Content')) {
+            errorMessage = 'Impossible de charger les données: problème de sécurité HTTPS/HTTP. Vérifiez que l\'API supporte HTTPS.';
+        }
+        
         return {
             status: 'error',
-            error: error.message,
+            error: errorMessage,
             timestamp: new Date().toISOString(),
             bots: null
         };
