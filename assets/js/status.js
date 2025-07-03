@@ -4,7 +4,7 @@
  */
 
 // Configuration de l'API
-const API_ENDPOINT = 'api.alphallm.tech:25692/status';
+const API_ENDPOINT = 'https://alphallm-api.onrender.com/status';
 
 document.addEventListener('DOMContentLoaded', function() {
     // Initialisation
@@ -81,7 +81,7 @@ async function fetchStatusData() {
         // Gestion spécifique pour les erreurs de mixed content
         let errorMessage = error.message;
         if (error.message.includes('NetworkError') || error.message.includes('Mixed Content')) {
-            errorMessage = 'Impossible de charger les données: problème de sécurité HTTPS/HTTP. Vérifiez que l\'API supporte HTTPS.';
+            errorMessage = 'Impossible de charger les données: problème de sécurité HTTPS/HTTP.';
         }
         
         return {
