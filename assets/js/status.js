@@ -4,7 +4,7 @@
  */
 
 // Configuration de l'API
-const API_ENDPOINT = 'https://alphallm-api.onrender.com/status';
+const API_ENDPOINT = 'alphallm-api.onrender.com/status';
 
 document.addEventListener('DOMContentLoaded', function() {
     // Initialisation
