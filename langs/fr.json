@@ -63,6 +63,26 @@
         "description": "Trouvez rapidement des informations et des réponses grâce à notre moteur de recherche IA intégré."
       }
     },
+    "models": {
+      "title": "Modèles Disponibles",
+      "subtitle": "Choisissez parmi une large gamme de modèles IA avancés",
+      "table": {
+        "icon": "Icône",
+        "name": "Nom",
+        "provider": "Fournisseur",
+        "editor": "Editeur",
+        "bot": "Bot"
+      },
+      "alphallm": "Notre modèle principal, optimisé pour les conversations Discord",
+      "chatgpt": "Le modèle GPT d'OpenAI pour des réponses polyvalentes",
+      "claude": "IA d'Anthropic spécialisée dans les conversations sûres",
+      "gemini": "Le modèle multimodal avancé de Google",
+      "llama": "Modèle open-source performant de Meta",
+      "deepseek": "IA spécialisée dans le raisonnement complexe"
+    },
+    "providers": {
+      "title": "Fournisseurs"
+    },
     "team": {
       "title": "Notre Équipe",
       "yoann": "Fondateur & Développeur Principal",

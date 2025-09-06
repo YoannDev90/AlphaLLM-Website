@@ -130,6 +130,12 @@
     box-shadow: 0 0 8px rgba(231, 76, 60, 0.6);
 }
 
+.status-dot.getting {
+    background-color: #3498db;
+    box-shadow: 0 0 8px rgba(52, 152, 219, 0.6);
+    animation: pulse-dot 2s infinite;
+}
+
 .bot-info {
     flex: 1;
 }
@@ -179,6 +185,11 @@
 .status.offline {
     background-color: rgba(231, 76, 60, 0.15);
     color: #e74c3c;
+}
+
+.status.getting {
+    background-color: rgba(52, 152, 219, 0.15);
+    color: #3498db;
 }
 
 /* Glass Card Effect */
@@ -233,6 +244,21 @@
 @keyframes glow {
     0% { text-shadow: 0 0 5px rgba(var(--color-primary-rgb), 0.3); }
     100% { text-shadow: 0 0 15px rgba(var(--color-primary-rgb), 0.7); }
+}
+
+@keyframes pulse-dot {
+    0% { 
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% { 
+        opacity: 0.6;
+        transform: scale(1.1);
+    }
+    100% { 
+        opacity: 1;
+        transform: scale(1);
+    }
 }
 
 /* Responsive Design */

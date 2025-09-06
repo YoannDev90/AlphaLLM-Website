@@ -68,6 +68,26 @@
         "description": "Quickly find information and answers with our integrated AI search engine."
       }
     },
+    "models": {
+      "title": "Available Models",
+      "subtitle": "Choose from a wide range of advanced AI models",
+      "table": {
+        "icon": "Icon",
+        "name": "Name",
+        "provider": "Provider",
+        "editor": "Editor",
+        "bot": "Bot"
+      },
+      "alphallm": "Our main model, optimized for Discord conversations",
+      "chatgpt": "OpenAI's GPT model for versatile responses",
+      "claude": "Anthropic's AI specialized in safe conversations",
+      "gemini": "Google's advanced multimodal model",
+      "llama": "Meta's high-performance open-source model",
+      "deepseek": "AI specialized in complex reasoning"
+    },
+    "providers": {
+      "title": "Providers"
+    },
     "team": {
       "title": "Our Team",
       "yoann": "Founder & Lead Developer",
