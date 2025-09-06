@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AlphaLLM - Bot Discord IA Avancé | Chat, Images & Plus</title>
+    <title>AlphaLLM</title>
     
     <!-- Favicons -->
     <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
@@ -20,7 +20,7 @@
     <meta property="og:url" content="https://alphallm.tech/">
     <meta property="og:title" content="AlphaLLM - Bot Discord IA Avancé">
     <meta property="og:description" content="Bot Discord IA gratuit avec chat intelligent, génération d'images et traduction en temps réel. Optimisez votre serveur Discord !">
-    <meta property="og:image" content="https://alphallm.tech/assets/images/og-image.jpg">
+    <meta property="og:image" content="assets/images/banner.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:image:type" content="image/jpeg">
@@ -30,7 +30,7 @@
     <meta name="twitter:site" content="@AlphaLLM_Bot">
     <meta name="twitter:title" content="AlphaLLM - Bot Discord IA Avancé">
     <meta name="twitter:description" content="Bot Discord IA gratuit avec chat intelligent, génération d'images et traduction en temps réel. Optimisez votre serveur Discord !">
-    <meta name="twitter:image" content="https://alphallm.tech/assets/images/twitter-card.jpg">
+    <meta name="twitter:image" content="assets/images/banner.jpg">
     
     <!-- Canonical URL -->
     <link rel="canonical" href="https://alphallm.tech/">
@@ -122,17 +122,17 @@
                 <div class="stats-container">
                     <div class="stat-item">
                         <i class="fas fa-server"></i>
-                        <h3 class="stat-number">100+</h3>
+                        <h3 class="stat-number">120+</h3>
                         <p class="stat-label" data-i18n="homePage.stats.servers">Serveurs</p>
                     </div>
                     <div class="stat-item">
                         <i class="fas fa-users"></i>
-                        <h3 class="stat-number">1K+</h3>
+                        <h3 class="stat-number">7K+</h3>
                         <p class="stat-label" data-i18n="homePage.stats.users">Utilisateurs</p>
                     </div>
                     <div class="stat-item">
                         <i class="fas fa-bolt"></i>
-                        <h3 class="stat-number">98.5%</h3>
+                        <h3 class="stat-number">99.5%</h3>
                         <p class="stat-label" data-i18n="homePage.stats.uptime">Disponibilité</p>
                     </div>
                     <div class="stat-item">
@@ -183,41 +183,152 @@
                 <div class="features-bg-glow"></div>
             </div>
         </section>
-        
-        <!-- Team section -->
-        <section class="team-section">
+
+        <!-- Models section -->
+        <section class="models-section">
             <div class="container">
-                <h2 class="section-title" data-i18n="homePage.team.title">Notre Équipe</h2>
+                <h2 class="section-title" data-i18n="homePage.models.title">Modèles Disponibles</h2>
+                <p class="section-subtitle" data-i18n="homePage.models.subtitle">Choisissez parmi une large gamme de modèles IA avancés</p>
                 
-                <div class="team-grid">
-                    <div class="team-card card">
-                        <div class="team-avatar">
-                            <img src="assets/images/team/Yoann.png" alt="Yoann" class="avatar-image">
+                <div class="models-grid">
+                    <div class="model-card card">
+                        <div class="model-icon">
+                            <img src="assets/images/bots/alphallm.webp" alt="AlphaLLM">
                         </div>
-                        <h3 class="team-name">Yoann</h3>
-                        <p class="team-role" data-i18n="homePage.team.yoann">Fondateur & Développeur Principal</p>
-                        <div class="team-social">
-                            <a href="https://github.com/YoannDev90" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                        <h3 class="model-name">AlphaLLM</h3>
+                        <p class="model-description" data-i18n="homePage.models.alphallm">Notre modèle principal, optimisé pour les conversations Discord</p>
+                    </div>
+                    
+                    <div class="model-card card">
+                        <div class="model-icon">
+                            <img src="assets/images/bots/chatgpt.webp" alt="ChatGPT">
                         </div>
+                        <h3 class="model-name">ChatGPT</h3>
+                        <p class="model-description" data-i18n="homePage.models.chatgpt">Le modèle GPT d'OpenAI pour des réponses polyvalentes</p>
                     </div>
 
-                    <div class="team-card card">
-                        <div class="team-avatar">
-                            <img src="assets/images/team/Lucky.png" alt="Lucky" class="avatar-image">
+                    <div class="model-card card">
+                        <div class="model-icon">
+                            <img src="assets/images/bots/claude.webp" alt="Claude">
                         </div>
-                        <h3 class="team-name">Lucky</h3>
-                        <p class="team-role" data-i18n="homePage.team.lucky">Développeur Web & UI/UX</p>
-                        <div class="team-social">
-                            <a href="https://github.com/LuckyTheCookie" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                        </div>
+                        <h3 class="model-name">Claude</h3>
+                        <p class="model-description" data-i18n="homePage.models.claude">IA d'Anthropic spécialisée dans les conversations sûres</p>
                     </div>
 
-                    <div class="team-card card">
-                        <div class="team-avatar">
-                            <img src="assets/images/team/470M.png" alt="470M" class="avatar-image">
+                    <div class="model-card card">
+                        <div class="model-icon">
+                            <img src="assets/images/bots/gemini.webp" alt="Gemini">
                         </div>
-                        <h3 class="team-name">470M</h3>
-                        <p class="team-role" data-i18n="homePage.team.470m">Modérateur & Support</p>
+                        <h3 class="model-name">Gemini</h3>
+                        <p class="model-description" data-i18n="homePage.models.gemini">Le modèle multimodal avancé de Google</p>
+                    </div>
+
+                    <div class="model-card card">
+                        <div class="model-icon">
+                            <img src="assets/images/bots/llama.webp" alt="Llama">
+                        </div>
+                        <h3 class="model-name">Llama</h3>
+                        <p class="model-description" data-i18n="homePage.models.llama">Modèle open-source performant de Meta</p>
+                    </div>
+
+                    <div class="model-card card">
+                        <div class="model-icon">
+                            <img src="assets/images/bots/deepseek.webp" alt="DeepSeek">
+                        </div>
+                        <h3 class="model-name">DeepSeek</h3>
+                        <p class="model-description" data-i18n="homePage.models.deepseek">IA spécialisée dans le raisonnement complexe</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Providers section -->
+        <section class="providers-section">
+            <div class="container">
+                <h2 class="section-title" data-i18n="homePage.providers.title">Fournisseurs</h2>                
+                <div class="providers-grid">
+                    <div class="provider-card card">
+                        <div class="provider-logo">
+                            <img src="assets/images/providers/pollinations.webp" alt="Pollinations">
+                        </div>
+                        <h3 class="provider-name">Pollinations</h3>
+                    </div>
+
+                    <div class="provider-card card">
+                        <div class="provider-logo">
+                            <img src="assets/images/providers/cerebras.webp" alt="Cerebras">
+                        </div>
+                        <h3 class="provider-name">Cerebras</h3>
+                    </div>
+
+                    <div class="provider-card card">
+                        <div class="provider-logo">
+                            <img src="assets/images/providers/google_ai.webp" alt="Google AI">
+                        </div>
+                        <h3 class="provider-name">Google AI</h3>
+                    </div>
+
+                    <div class="provider-card card">
+                        <div class="provider-logo">
+                            <img src="assets/images/providers/mistral.webp" alt="Mistral AI">
+                        </div>
+                        <h3 class="provider-name">Mistral AI</h3>
+                    </div>
+
+                    <div class="provider-card card">
+                        <div class="provider-logo">
+                            <img src="assets/images/providers/api_navy.webp" alt="Navy AI">
+                        </div>
+                        <h3 class="provider-name">Navy AI</h3>
+                    </div>
+
+                    <div class="provider-card card">
+                        <div class="provider-logo">
+                            <img src="assets/images/providers/cohere.webp" alt="Cohere">
+                        </div>
+                        <h3 class="provider-name">Cohere</h3>
+                    </div>
+
+                    <div class="provider-card card">
+                        <div class="provider-logo">
+                            <img src="assets/images/providers/void_ai.webp" alt="Void AI">
+                        </div>
+                        <h3 class="provider-name">Void AI</h3>
+                    </div>
+
+                    <div class="provider-card card">
+                        <div class="provider-logo">
+                            <img src="assets/images/providers/cloudinary.webp" alt="Cloudinary">
+                        </div>
+                        <h3 class="provider-name">Cloudinary</h3>
+                    </div>
+
+                    <div class="provider-card card">
+                        <div class="provider-logo">
+                            <img src="assets/images/providers/groq.webp" alt="Groq">
+                        </div>
+                        <h3 class="provider-name">Groq</h3>
+                    </div>
+
+                    <div class="provider-card card">
+                        <div class="provider-logo">
+                            <img src="assets/images/providers/cloudflare.webp" alt="Cloudflare">
+                        </div>
+                        <h3 class="provider-name">Cloudflare</h3>
+                    </div>
+
+                    <div class="provider-card card">
+                        <div class="provider-logo">
+                            <img src="assets/images/providers/ai_ml.webp" alt="AI-ML">
+                        </div>
+                        <h3 class="provider-name">AI-ML</h3>
+                    </div>
+
+                    <div class="provider-card card">
+                        <div class="provider-logo">
+                            <img src="assets/images/providers/bytez.webp" alt="Bytez">
+                        </div>
+                        <h3 class="provider-name">Bytez</h3>
                     </div>
                 </div>
             </div>
