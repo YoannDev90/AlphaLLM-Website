@@ -190,54 +190,146 @@
                 <h2 class="section-title" data-i18n="homePage.models.title">Modèles Disponibles</h2>
                 <p class="section-subtitle" data-i18n="homePage.models.subtitle">Choisissez parmi une large gamme de modèles IA avancés</p>
                 
-                <div class="models-grid">
-                    <div class="model-card card">
-                        <div class="model-icon">
-                            <img src="assets/images/bots/alphallm.webp" alt="AlphaLLM">
-                        </div>
-                        <h3 class="model-name">AlphaLLM</h3>
-                        <p class="model-description" data-i18n="homePage.models.alphallm">Notre modèle principal, optimisé pour les conversations Discord</p>
-                    </div>
-                    
-                    <div class="model-card card">
-                        <div class="model-icon">
-                            <img src="assets/images/bots/chatgpt.webp" alt="ChatGPT">
-                        </div>
-                        <h3 class="model-name">ChatGPT</h3>
-                        <p class="model-description" data-i18n="homePage.models.chatgpt">Le modèle GPT d'OpenAI pour des réponses polyvalentes</p>
-                    </div>
-
-                    <div class="model-card card">
-                        <div class="model-icon">
-                            <img src="assets/images/bots/claude.webp" alt="Claude">
-                        </div>
-                        <h3 class="model-name">Claude</h3>
-                        <p class="model-description" data-i18n="homePage.models.claude">IA d'Anthropic spécialisée dans les conversations sûres</p>
-                    </div>
-
-                    <div class="model-card card">
-                        <div class="model-icon">
-                            <img src="assets/images/bots/gemini.webp" alt="Gemini">
-                        </div>
-                        <h3 class="model-name">Gemini</h3>
-                        <p class="model-description" data-i18n="homePage.models.gemini">Le modèle multimodal avancé de Google</p>
-                    </div>
-
-                    <div class="model-card card">
-                        <div class="model-icon">
-                            <img src="assets/images/bots/llama.webp" alt="Llama">
-                        </div>
-                        <h3 class="model-name">Llama</h3>
-                        <p class="model-description" data-i18n="homePage.models.llama">Modèle open-source performant de Meta</p>
-                    </div>
-
-                    <div class="model-card card">
-                        <div class="model-icon">
-                            <img src="assets/images/bots/deepseek.webp" alt="DeepSeek">
-                        </div>
-                        <h3 class="model-name">DeepSeek</h3>
-                        <p class="model-description" data-i18n="homePage.models.deepseek">IA spécialisée dans le raisonnement complexe</p>
-                    </div>
+                <div class="models-table-container">
+                    <table class="models-table">
+                        <thead>
+                            <tr>
+                                <th data-i18n="homePage.models.table.icon">Icône</th>
+                                <th data-i18n="homePage.models.table.name">Nom</th>
+                                <th data-i18n="homePage.models.table.provider">Fournisseur</th>
+                                <th data-i18n="homePage.models.table.editor">Editeur</th>
+                                <th data-i18n="homePage.models.table.bot">Bot</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <img src="assets/images/bots/chatgpt.webp" alt="ChatGPT" class="model-icon-table">
+                                </td>
+                                <td class="model-name-table">ChatGPT</td>
+                                <td class="model-provider-table">Navy AI</td>
+                                <td class="model-editor-table">OpenAI</td>
+                                <td class="model-bot-table">@ChatGPT</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <img src="assets/images/bots/claude.webp" alt="Claude" class="model-icon-table">
+                                </td>
+                                <td class="model-name-table">Claude</td>
+                                <td class="model-provider-table">Void AI</td>
+                                <td class="model-editor-table">Anthropic</td>
+                                <td class="model-bot-table">@Claude</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <img src="assets/images/bots/gemini.webp" alt="Gemini" class="model-icon-table">
+                                </td>
+                                <td class="model-name-table">Gemini</td>
+                                <td class="model-provider-table">Google AI</td>
+                                <td class="model-editor-table">Google AI</td>
+                                <td class="model-bot-table">@Gemini</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <img src="assets/images/bots/llama.webp" alt="Llama" class="model-icon-table">
+                                </td>
+                                <td class="model-name-table">Llama</td>
+                                <td class="model-provider-table">Cerebras</td>
+                                <td class="model-editor-table">Meta</td>
+                                <td class="model-bot-table">@Llama</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <img src="assets/images/bots/deepseek.webp" alt="DeepSeek" class="model-icon-table">
+                                </td>
+                                <td class="model-name-table">DeepSeek</td>
+                                <td class="model-provider-table">Void AI</td>
+                                <td class="model-editor-table">DeepSeek AI</td>
+                                <td class="model-bot-table">@DeepSeek</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <img src="assets/images/bots/mistral.webp" alt="Mistral" class="model-icon-table">
+                                </td>
+                                <td class="model-name-table">Mistral</td>
+                                <td class="model-provider-table">Mistral AI</td>
+                                <td class="model-editor-table">Mistral AI</td>
+                                <td class="model-bot-table">@Mistral</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <img src="assets/images/bots/grok.webp" alt="Grok" class="model-icon-table">
+                                </td>
+                                <td class="model-name-table">Grok</td>
+                                <td class="model-provider-table">Navy AI</td>
+                                <td class="model-editor-table">xAI</td>
+                                <td class="model-bot-table">@Grok</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <img src="assets/images/bots/perplexity.webp" alt="Perplexity" class="model-icon-table">
+                                </td>
+                                <td class="model-name-table">Perplexity</td>
+                                <td class="model-provider-table">Navy AI</td>
+                                <td class="model-editor-table">Perplexity AI</td>
+                                <td class="model-bot-table">@Perplexity</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <img src="assets/images/bots/qwen.webp" alt="Qwen" class="model-icon-table">
+                                </td>
+                                <td class="model-name-table">Qwen</td>
+                                <td class="model-provider-table">Cerebras</td>
+                                <td class="model-editor-table">Alibaba</td>
+                                <td class="model-bot-table">@Qwen</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <img src="assets/images/bots/phi.webp" alt="Phi" class="model-icon-table">
+                                </td>
+                                <td class="model-name-table">Phi</td>
+                                <td class="model-provider-table">Navy AI</td>
+                                <td class="model-editor-table">Microsoft</td>
+                                <td class="model-bot-table">@Phi</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <img src="assets/images/bots/glm.webp" alt="GLM" class="model-icon-table">
+                                </td>
+                                <td class="model-name-table">GLM</td>
+                                <td class="model-provider-table">Navy AI</td>
+                                <td class="model-editor-table">zAI</td>
+                                <td class="model-bot-table">@GLM</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <img src="assets/images/bots/moonshot.webp" alt="Kimi" class="model-icon-table">
+                                </td>
+                                <td class="model-name-table">Kimi</td>
+                                <td class="model-provider-table">Void AI</td>
+                                <td class="model-editor-table">Moonshot</td>
+                                <td class="model-bot-table">@Kimi</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <img src="assets/images/bots/evilgpt.webp" alt="EvilGPT" class="model-icon-table">
+                                </td>
+                                <td class="model-name-table">EvilGPT</td>
+                                <td class="model-provider-table">Pollinations</td>
+                                <td class="model-editor-table">Github</td>
+                                <td class="model-bot-table">@EvilGPT</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <img src="assets/images/bots/cohere.webp" alt="Cohere" class="model-icon-table">
+                                </td>
+                                <td class="model-name-table">Cohere</td>
+                                <td class="model-provider-table">Cohere</td>
+                                <td class="model-editor-table">Cohere</td>
+                                <td class="model-bot-table">@Command</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </section>
