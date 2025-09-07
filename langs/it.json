@@ -154,31 +154,152 @@
     }
   },
   "legalsPage": {
-    "title": "Note legali",
-    "subtitle": "Ultimo aggiornamento: 1 maggio 2024",
+    "title": "Note Legali",
+    "subtitle": "Termini di servizio e informazioni legali per AlphaLLM",
+    "tabs": {
+      "legalNotice": "Note Legali",
+      "terms": "Termini di Servizio",
+      "privacy": "Informativa sulla Privacy"
+    },
+    "lastUpdated": "Ultimo aggiornamento:",
+    "lastUpdatedDate": "7 settembre 2025",
+    "legalNotice": {
+      "title": "Note Legali",
+      "projectManager": {
+        "title": "Responsabile del progetto",
+        "name": "Dumont Yoann / Yerminator",
+        "contact": "Contatto:",
+        "email": "yoanndev@outlook.fr",
+        "discord": "@the_yerminator (Discord)"
+      },
+      "hosting": {
+        "title": "Hosting",
+        "platform": "Piattaforma di hosting:",
+        "name": "AzurHosts"
+      },
+      "liability": {
+        "title": "Limitazione di responsabilità",
+        "content": "Il responsabile fa del suo meglio per garantire il corretto funzionamento del bot, ma non può essere ritenuto responsabile per uso improprio, malfunzionamento o perdita di dati."
+      }
+    },
     "terms": {
-      "title": "Termini di servizio",
-      "intro": "Utilizzando AlphaLLM, accetti i seguenti termini:",
-      "usage": "Utilizzo del servizio",
-      "usageText": "AlphaLLM è fornito \"così com'è\" senza alcun tipo di garanzia. Ci riserviamo il diritto di modificare o interrompere il servizio in qualsiasi momento.",
-      "content": "Contenuto dell'utente",
-      "contentText": "Sei responsabile del contenuto che condividi tramite AlphaLLM. I contenuti illegali, offensivi o abusivi sono proibiti."
+      "title": "Termini di Servizio",
+      "acceptance": {
+        "title": "Accettazione dei termini",
+        "content": "Utilizzando il bot Discord AlphaLLM, accetti di rispettare questi termini di servizio e tutte le leggi applicabili. Se non accetti questi termini, non devi utilizzare il bot."
+      },
+      "purpose": {
+        "title": "Scopo",
+        "content": "Il bot offre funzionalità relative all'intelligenza artificiale, inclusa conversazione testuale, generazione di immagini e altri servizi associati."
+      },
+      "usage": {
+        "title": "Uso accettabile",
+        "intro": "Ti impegni a non utilizzare il bot per:",
+        "item1": "Attività illegali o fraudolente",
+        "item2": "Molestare, abusare o danneggiare altri",
+        "item3": "Diffondere contenuti dannosi o diffamatori",
+        "item4": "Violare diritti d'autore o proprietà intellettuale",
+        "item5": "Manipolare o eludere le limitazioni del servizio",
+        "item6": "Sovraccaricare deliberatamente il bot o i server"
+      },
+      "content": {
+        "title": "Contenuto generato",
+        "description": "Il contenuto generato dal bot può contenere errori o bias. L'utente è responsabile dell'uso del contenuto. Il responsabile può sospendere l'accesso in caso di uso abusivo."
+      },
+      "modifications": {
+        "title": "Modifiche del servizio",
+        "content": "Il responsabile può modificare, sospendere o terminare i servizi in qualsiasi momento senza preavviso."
+      },
+      "termination": {
+        "title": "Terminazione",
+        "content": "Il responsabile può terminare o sospendere l'accesso in caso di violazione dei termini o uso abusivo."
+      }
     },
     "privacy": {
-      "title": "Politica sulla privacy",
-      "intro": "Protezione dei tuoi dati personali:",
-      "collect": "Raccolta dati",
-      "collectText": "Raccogliamo determinate informazioni per migliorare i nostri servizi, inclusi messaggi per l'addestramento dei modelli.",
-      "use": "Utilizzo dei dati",
-      "useText": "I dati raccolti vengono utilizzati per migliorare il nostro servizio, risolvere problemi tecnici e personalizzare l'esperienza dell'utente."
+      "title": "Informativa sulla Privacy",
+      "collection": {
+        "title": "Raccolta di informazioni",
+        "intro": "Il bot raccoglie i seguenti dati:",
+        "item1": "ID utente e nome utente Discord",
+        "item2": "ID server, nome server, nome utente proprietario",
+        "item3": "Messaggi contenenti una menzione del bot",
+        "item4": "Risultati di sondaggi opzionali presentati all'utente"
+      },
+      "usage": {
+        "title": "Uso dei dati",
+        "content": "Questi dati vengono utilizzati per statistiche, miglioramento tecnico del bot e supporto."
+      },
+      "legalBasis": {
+        "title": "Base legale",
+        "content": "Consenso implicito attraverso l'uso del bot."
+      },
+      "retention": {
+        "title": "Conservazione",
+        "content": "I log e i messaggi inviati al bot vengono conservati per circa 1 mese."
+      },
+      "userRights": {
+        "title": "Diritti degli utenti",
+        "content": "Gli utenti possono richiedere l'accesso, la modifica o la cancellazione dei propri dati attraverso il contatto indicato nelle note legali."
+      },
+      "dataTransmission": {
+        "title": "Trasmissione dei dati",
+        "content": "Nessun dato viene trasmesso a terzi."
+      },
+      "complaint": {
+        "title": "Reclamo",
+        "content": "In caso di disaccordo, l'utente può contattare la CNIL (www.cnil.fr)."
+      },
+      "exceptions": {
+        "title": "Eccezioni",
+        "content": "Queste disposizioni si applicano salvo eccezione legale o richiesta delle autorità competenti."
+      }
+    }
+  },
+  "docsPage": {
+    "hero": {
+      "title": "Documentazione AlphaLLM",
+      "subtitle": "Guida completa per padroneggiare il bot AI di Discord"
     },
-    "cookies": {
-      "title": "Politica dei cookie",
-      "text": "Il nostro sito web utilizza i cookie per migliorare la tua esperienza. Puoi configurare il tuo browser per rifiutare i cookie."
+    "installation": {
+      "title": "Installazione e Configurazione",
+      "content": "Per aggiungere AlphaLLM al tuo server Discord, clicca sul pulsante \"Invita\" dalla pagina iniziale. Concedi i permessi necessari affinché il bot funzioni correttamente.",
+      "permissions": {
+        "title": "Permessi Richiesti",
+        "item1": "Leggere i messaggi",
+        "item2": "Inviare messaggi",
+        "item3": "Usare comandi slash",
+        "item4": "Gestire messaggi (opzionale per moderazione)"
+      }
     },
-    "contact": {
-      "title": "Contatto legale",
-      "text": "Per qualsiasi domanda legale, contattaci a: legal@alphallm.tech"
+    "commands": {
+      "title": "Comandi Principali",
+      "chat": {
+        "title": "/chat",
+        "description": "Avvia una conversazione con l'AI. Esempio: /chat message=\"Ciao, come stai?\""
+      },
+      "image": {
+        "title": "/image",
+        "description": "Genera immagini da una descrizione. Esempio: /image prompt=\"Un gatto nello spazio\""
+      },
+      "search": {
+        "title": "/search",
+        "description": "Cerca informazioni tramite AI. Esempio: /search query=\"Cos'è l'AI?\""
+      }
+    },
+    "models": {
+      "title": "Modelli Disponibili",
+      "content": "AlphaLLM supporta molteplici modelli AI. Consulta la pagina iniziale per l'elenco completo."
+    },
+    "faq": {
+      "title": "FAQ",
+      "q1": {
+        "question": "Il bot non risponde?",
+        "answer": "Verifica i permessi e assicurati che il bot sia online (vedi pagina Stato)."
+      },
+      "q2": {
+        "question": "Come cambiare modello?",
+        "answer": "Usa il comando /model per selezionare un modello specifico."
+      }
     }
   },
   "errorPage": {

@@ -154,31 +154,152 @@
     }
   },
   "legalsPage": {
-    "title": "Juridische kennisgevingen",
-    "subtitle": "Laatst bijgewerkt: 1 mei 2024",
+    "title": "Juridische Kennisgevingen",
+    "subtitle": "Servicevoorwaarden en juridische informatie voor AlphaLLM",
+    "tabs": {
+      "legalNotice": "Juridische Kennisgeving",
+      "terms": "Servicevoorwaarden",
+      "privacy": "Privacybeleid"
+    },
+    "lastUpdated": "Laatste update:",
+    "lastUpdatedDate": "7 september 2025",
+    "legalNotice": {
+      "title": "Juridische Kennisgeving",
+      "projectManager": {
+        "title": "Projectverantwoordelijke",
+        "name": "Dumont Yoann / Yerminator",
+        "contact": "Contact:",
+        "email": "yoanndev@outlook.fr",
+        "discord": "@the_yerminator (Discord)"
+      },
+      "hosting": {
+        "title": "Hosting",
+        "platform": "Hostingplatform:",
+        "name": "AzurHosts"
+      },
+      "liability": {
+        "title": "Aansprakelijkheidsbeperking",
+        "content": "De verantwoordelijke doet alles wat mogelijk is om de goede werking van de bot te garanderen, maar kan niet verantwoordelijk worden gehouden voor ongepast gebruik, storing of gegevensverlies."
+      }
+    },
     "terms": {
-      "title": "Gebruiksvoorwaarden",
-      "intro": "Door AlphaLLM te gebruiken, ga je akkoord met de volgende voorwaarden:",
-      "usage": "Gebruik van de dienst",
-      "usageText": "AlphaLLM wordt \"as is\" geleverd zonder enige garantie. We behouden ons het recht voor om de dienst op elk moment te wijzigen of te beëindigen.",
-      "content": "Gebruikersinhoud",
-      "contentText": "Je bent verantwoordelijk voor de inhoud die je deelt via AlphaLLM. Illegale, beledigende of misbruikende inhoud is verboden."
+      "title": "Servicevoorwaarden",
+      "acceptance": {
+        "title": "Aanvaarding van de voorwaarden",
+        "content": "Door de AlphaLLM Discord-bot te gebruiken, ga je ermee akkoord deze servicevoorwaarden en alle toepasselijke wetten na te leven. Als je niet akkoord gaat met deze voorwaarden, mag je de bot niet gebruiken."
+      },
+      "purpose": {
+        "title": "Doel",
+        "content": "De bot biedt functies gerelateerd aan kunstmatige intelligentie, inclusief tekstconversatie, beeldgeneratie en andere bijbehorende diensten."
+      },
+      "usage": {
+        "title": "Aanvaardbaar gebruik",
+        "intro": "Je verbindt je ertoe de bot niet te gebruiken voor:",
+        "item1": "Illegale of frauduleuze activiteiten",
+        "item2": "Anderen lastigvallen, misbruiken of schaden",
+        "item3": "Schadelijke of lasterlijke inhoud verspreiden",
+        "item4": "Auteursrechten of intellectuele eigendom schenden",
+        "item5": "Servicebeperkingen manipuleren of omzeilen",
+        "item6": "De bot of servers opzettelijk overbelasten"
+      },
+      "content": {
+        "title": "Gegenereerde inhoud",
+        "description": "Door de bot gegenereerde inhoud kan fouten of vooroordelen bevatten. De gebruiker is verantwoordelijk voor het gebruik van de inhoud. De verantwoordelijke kan de toegang opschorten bij misbruik."
+      },
+      "modifications": {
+        "title": "Servicewijzigingen",
+        "content": "De verantwoordelijke kan de diensten op elk moment zonder voorafgaande kennisgeving wijzigen, opschorten of beëindigen."
+      },
+      "termination": {
+        "title": "Beëindiging",
+        "content": "De verantwoordelijke kan de toegang beëindigen of opschorten bij schending van de voorwaarden of misbruik."
+      }
     },
     "privacy": {
       "title": "Privacybeleid",
-      "intro": "Bescherming van je persoonlijke gegevens:",
-      "collect": "Gegevensverzameling",
-      "collectText": "We verzamelen bepaalde informatie om onze diensten te verbeteren, inclusief berichten voor modeltraining.",
-      "use": "Gebruik van gegevens",
-      "useText": "Verzamelde gegevens worden gebruikt om onze dienst te verbeteren, technische problemen op te lossen en de gebruikerservaring te personaliseren."
+      "collection": {
+        "title": "Informatieverzameling",
+        "intro": "De bot verzamelt de volgende gegevens:",
+        "item1": "Gebruikers-ID en Discord-gebruikersnaam",
+        "item2": "Server-ID, servernaam, eigenaar-gebruikersnaam",
+        "item3": "Berichten met een vermelding van de bot",
+        "item4": "Resultaten van optionele enquêtes die aan de gebruiker worden voorgelegd"
+      },
+      "usage": {
+        "title": "Gegevensgebruik",
+        "content": "Deze gegevens worden gebruikt voor statistieken, technische verbetering van de bot en ondersteuning."
+      },
+      "legalBasis": {
+        "title": "Juridische basis",
+        "content": "Impliciete toestemming door gebruik van de bot."
+      },
+      "retention": {
+        "title": "Bewaring",
+        "content": "Logs en berichten die naar de bot worden gestuurd, worden ongeveer 1 maand bewaard."
+      },
+      "userRights": {
+        "title": "Gebruikersrechten",
+        "content": "Gebruikers kunnen toegang, wijziging of verwijdering van hun gegevens aanvragen via het contact dat in de juridische kennisgevingen is vermeld."
+      },
+      "dataTransmission": {
+        "title": "Gegevenstransmissie",
+        "content": "Geen gegevens worden doorgegeven aan derden."
+      },
+      "complaint": {
+        "title": "Klacht",
+        "content": "In geval van onenigheid kan de gebruiker contact opnemen met de CNIL (www.cnil.fr)."
+      },
+      "exceptions": {
+        "title": "Uitzonderingen",
+        "content": "Deze bepalingen zijn van toepassing behoudens wettelijke uitzondering of verzoek van bevoegde autoriteiten."
+      }
+    }
+  },
+  "docsPage": {
+    "hero": {
+      "title": "AlphaLLM Documentatie",
+      "subtitle": "Complete gids om de Discord AI-bot te beheersen"
     },
-    "cookies": {
-      "title": "Cookiebeleid",
-      "text": "Onze website gebruikt cookies om je ervaring te verbeteren. Je kunt je browser configureren om cookies te weigeren."
+    "installation": {
+      "title": "Installatie en Configuratie",
+      "content": "Om AlphaLLM toe te voegen aan uw Discord-server, klik op de \"Uitnodigen\" knop vanaf de startpagina. Verleen de benodigde machtigingen zodat de bot correct functioneert.",
+      "permissions": {
+        "title": "Vereiste Machtiging",
+        "item1": "Berichten lezen",
+        "item2": "Berichten verzenden",
+        "item3": "Slash-opdrachten gebruiken",
+        "item4": "Berichten beheren (optioneel voor moderatie)"
+      }
     },
-    "contact": {
-      "title": "Juridisch contact",
-      "text": "Voor juridische vragen, neem contact met ons op via: legal@alphallm.tech"
+    "commands": {
+      "title": "Hoofdopdrachten",
+      "chat": {
+        "title": "/chat",
+        "description": "Start een gesprek met de AI. Voorbeeld: /chat message=\"Hallo, hoe gaat het?\""
+      },
+      "image": {
+        "title": "/image",
+        "description": "Genereer beelden vanuit een beschrijving. Voorbeeld: /image prompt=\"Een kat in de ruimte\""
+      },
+      "search": {
+        "title": "/search",
+        "description": "Zoek naar informatie via AI. Voorbeeld: /search query=\"Wat is AI?\""
+      }
+    },
+    "models": {
+      "title": "Beschikbare Modellen",
+      "content": "AlphaLLM ondersteunt meerdere AI-modellen. Bekijk de startpagina voor de volledige lijst."
+    },
+    "faq": {
+      "title": "FAQ",
+      "q1": {
+        "question": "Reageert de bot niet?",
+        "answer": "Controleer de machtigingen en zorg ervoor dat de bot online is (zie Status pagina)."
+      },
+      "q2": {
+        "question": "Hoe verander je van model?",
+        "answer": "Gebruik de /model opdracht om een specifiek model te selecteren."
+      }
     }
   },
   "errorPage": {

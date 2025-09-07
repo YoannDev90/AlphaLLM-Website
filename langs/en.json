@@ -40,6 +40,43 @@
       "by": "by"
     }
   },
+  "nav": {
+    "home": "Home",
+    "docs": "Documentation", 
+    "status": "Status",
+    "support": "Support"
+  },
+  "status": {
+    "title": "Bot Status",
+    "subtitle": "Monitor the real-time performance of the AlphaLLM bot",
+    "overview": "Overview",
+    "lastUpdated": "Last updated: ",
+    "refreshing": "Refreshing...",
+    "getting": "Loading...",
+    "online": "Online",
+    "offline": "Offline",
+    "degraded": "Degraded",
+    "unknown": "Unknown",
+    "error": {
+      "loadingFailed": "Error loading bot statuses"
+    }
+  },
+  "footer": {
+    "product": "Product",
+    "documentation": "Documentation",
+    "status": "Status",
+    "resources": "Resources",
+    "support": "Support",
+    "discord": "Discord Server",
+    "dashboard": "Dashboard",
+    "legal": "Legal",
+    "terms": "Terms of Service",
+    "privacy": "Privacy Policy",
+    "cookies": "Cookie Policy",
+    "rights": "All rights reserved.",
+    "madeWith": "Made with",
+    "by": "by"
+  },
   "homePage": {
     "hero": {
       "title": "AlphaLLM",
@@ -181,142 +218,102 @@
   "legalsPage": {
     "title": "Legal Notices",
     "subtitle": "Terms of service and legal information for AlphaLLM",
-    "lastUpdated": "Last updated:",
     "tabs": {
       "legalNotice": "Legal Notice",
       "terms": "Terms of Service",
       "privacy": "Privacy Policy"
     },
+    "lastUpdated": "Last updated:",
+    "lastUpdatedDate": "September 7, 2025",
     "legalNotice": {
       "title": "Legal Notice",
-      "publisher": {
-        "title": "Site publisher",
-        "content": "The website alphallm.tech is published by YoannDev90, as an independent developer.<br>Contact: yoanndev@outlook.fr"
+      "projectManager": {
+        "title": "Project Manager",
+        "name": "Dumont Yoann / Yerminator",
+        "contact": "Contact:",
+        "email": "yoanndev@outlook.fr",
+        "discord": "@the_yerminator (Discord)"
       },
       "hosting": {
         "title": "Hosting",
-        "content": "This website is hosted by GitHub Pages, a service provided by GitHub Inc.<br>GitHub Inc.<br>88 Colin P. Kelly Jr. Street<br>San Francisco, CA 94107<br>United States"
-      },
-      "intellectual": {
-        "title": "Intellectual property",
-        "content": "All content on the alphallm.tech site (images, texts, logos, icons, source code, etc.) is the exclusive property of YoannDev90 and is protected by French and international intellectual property laws."
+        "platform": "Hosting platform:",
+        "name": "AzurHosts"
       },
       "liability": {
-        "title": "Limitation of liability",
-        "content": "YoannDev90 strives to ensure as best as possible the accuracy and updating of information published on this site, and reserves the right to correct the content at any time and without notice. However, YoannDev90 cannot guarantee the accuracy, precision, or exhaustiveness of the information made available on this site. Consequently, YoannDev90 declines all responsibility:",
-        "list": {
-          "item1": "for any inaccuracy, inexactitude or omission regarding information available on the site;",
-          "item2": "for any damage resulting from a fraudulent intrusion by a third party leading to a modification of information made available on the site;",
-          "item3": "and more generally, for any direct or indirect damages, whatever their causes, origins, nature or consequences, caused by anyone's access to the site or the impossibility of accessing it."
-        }
+        "title": "Liability Limitation",
+        "content": "The manager makes every effort to ensure the proper functioning of the bot, but cannot be held responsible for inappropriate use, malfunction, or data loss."
       }
     },
     "terms": {
       "title": "Terms of Service",
       "acceptance": {
-        "title": "Acceptance of terms",
-        "content": "By using the AlphaLLM Discord bot, you agree to be bound by these terms of service. If you do not agree to these terms, please do not use our services."
+        "title": "Acceptance of Terms",
+        "content": "By using the AlphaLLM Discord bot, you agree to comply with these terms of service and all applicable laws. If you do not agree to these terms, you must not use the bot."
       },
-      "services": {
-        "title": "Description of services",
-        "content": "AlphaLLM is a Discord bot with functionalities including but not limited to conversational AI, image generation, and various utility commands. The services may be updated, modified, or enhanced at any time."
+      "purpose": {
+        "title": "Purpose",
+        "content": "The bot offers features related to artificial intelligence, including text conversation, image generation, and other associated services."
       },
       "usage": {
-        "title": "Acceptable usage",
-        "content": "You agree not to use AlphaLLM for :",
-        "list": {
-          "item1": "Any illegal or fraudulent activity",
-          "item2": "Harass, abuse or harm other people",
-          "item3": "Spread harmful, defamatory, obscene or otherwise objectionable content",
-          "item4": "Generate or distribute content that infringes copyright or intellectual property",
-          "item5": "Attempt to manipulate or circumvent service limitations",
-          "item6": "Deliberately overload the bot or server"
-        }
+        "title": "Acceptable Use",
+        "intro": "You agree not to use the bot for:",
+        "item1": "Illegal or fraudulent activities",
+        "item2": "Harassing, abusing, or harming others",
+        "item3": "Distributing harmful or defamatory content",
+        "item4": "Violating copyright or intellectual property rights",
+        "item5": "Manipulating or circumventing service limitations",
+        "item6": "Deliberately overloading the bot or servers"
       },
       "content": {
-        "title": "Generated content",
-        "content": "All text and images generated by AlphaLLM are provided 'as is' without any warranties. While we strive to prevent the generation of harmful or offensive content, we cannot guarantee that all generated content will be appropriate or accurate. You retain responsibility for reviewing and moderating AI-generated content used in your Discord server.",
-      
+        "title": "Generated Content",
+        "description": "Content generated by the bot may contain errors or biases. The user is responsible for the use of the content. The manager may suspend access in case of abusive use."
+      },
       "modifications": {
-        "title": "Modifications to services",
-        "content": "YoannDev90 reserves the right, at any time and without notice, to modify, suspend or discontinue, temporarily or permanently, the services (or any part thereof). You agree that YoannDev90 shall not be liable to you or to any third party for any modification, suspension or discontinuance of the services."
+        "title": "Service Modifications",
+        "content": "The manager may modify, suspend, or terminate services at any time without notice."
       },
       "termination": {
         "title": "Termination",
-        "content": "YoannDev90 may, at its sole discretion, terminate your access to the AlphaLLM bot for violations of these terms, abusive behavior, or for any other reason deemed appropriate. Upon termination, your right to use the service will immediately cease."
+        "content": "The manager may terminate or suspend access in case of violation of terms or abusive use."
       }
     },
     "privacy": {
       "title": "Privacy Policy",
       "collection": {
-        "title": "Information collection",
-        "content": "AlphaLLM collects and processes the following types of information...",
-        "label": {
-          "discord": "Discord Usage Data",
-          "history": "Conversation History",
-          "config": "Configuration Data",
-          "technical": "Technical Data"
-        },
-        "list": {
-          "item1": "Discord Usage Data: Server ID, user ID, username, content of messages sent to the bot",
-          "item2": "Conversation History: Messages sent to the bot and generated responses",
-          "item3": "Configuration Data: Bot configuration preferences set by server administrators",
-          "item4": "Technical Data: Browser type, pages visited"
-        }
+        "title": "Information Collection",
+        "intro": "The bot collects the following data:",
+        "item1": "User ID and Discord username",
+        "item2": "Server ID, server name, owner username",
+        "item3": "Messages containing a mention of the bot",
+        "item4": "Results of optional surveys submitted to the user"
       },
       "usage": {
-        "title": "Use of information",
-        "content": "We use the collected information to...",
-        "list": {
-          "item1": "Provide and improve our services",
-          "item2": "Personalize the user experience",
-          "item3": "Resolve technical issues",
-          "item4": "Prevent fraudulent or abusive activities",
-          "item5": "Analyze bot usage and improve its performance"
-        }
+        "title": "Data Usage",
+        "content": "This data is used for statistics, technical improvement of the bot, and support."
       },
-      "sharing": {
-        "title": "Information sharing",
-        "content": "AlphaLLM does not sell, trade, or transfer your personal information...",
-        "list": {
-          "item1": "With your explicit consent",
-          "item2": "To process your request (for example, when integrating with other services)",
-          "item3": "To comply with the law, regulations or legal proceedings",
-          "item4": "To protect our rights, property or safety",
-          "item5": "With service providers who help us operate our service (under strict confidentiality obligations)"
-        }
+      "legalBasis": {
+        "title": "Legal Basis",
+        "content": "Implied consent through use of the bot."
       },
       "retention": {
-        "title": "Data retention",
-        "content": "We retain your personal data for as long as necessary...",
-        "list": {
-          "item1": "to provide you with our services",
-          "item2": "to comply with our legal obligations",
-          "item3": "to resolve disputes",
-          "item4": "to enforce our agreements",
-          "item5": "Conversation history may be retained for up to 30 days unless explicitly deleted by server administrators."
-        }
+        "title": "Retention",
+        "content": "Logs and messages submitted to the bot are retained for approximately 1 month."
       },
-      "security": {
-        "title": "Data security",
-        "content": "We implement technical and organizational security measures...",
-        "list": {
-          "item1": "to protect your data against unauthorized access, loss, or alteration",
-          "item2": "Despite our efforts, no internet transmission or electronic storage method is 100% secure, and we cannot guarantee absolute security."
-        }
+      "userRights": {
+        "title": "User Rights",
+        "content": "Users can request access, modification, or deletion of their data via the contact indicated in the legal notices."
       },
-      "rights": {
-        "title": "Your rights",
-        "content": "In accordance with applicable data protection laws...",
-        "list": {
-          "item1": "Right to access your data",
-          "item2": "Right to rectify inaccurate data",
-          "item3": "Right to erase your data",
-          "item4": "Right to restriction of processing",
-          "item5": "Right to data portability",
-          "item6": "Right to object to processing"
-        },
-        "contact": "To exercise these rights, please contact us at: yoanndev@outlook.fr"
+      "dataTransmission": {
+        "title": "Data Transmission",
+        "content": "No data is transmitted to third parties."
+      },
+      "complaint": {
+        "title": "Complaint",
+        "content": "In case of disagreement, the user can contact the CNIL (www.cnil.fr)."
+      },
+      "exceptions": {
+        "title": "Exceptions",
+        "content": "These provisions apply except for legal exceptions or requests from competent authorities."
       }
     }
   },
@@ -325,5 +322,102 @@
     "subtitle": "Page not found",
     "message": "The page you're looking for doesn't exist or has been moved.",
     "back": "Back to home"
+  },
+  "support": {
+    "title": "Support Center",
+    "subtitle": "How can we help you today?",
+    "docs": {
+      "title": "Documentation",
+      "description": "Check out our detailed documentation to learn everything about using AlphaLLM.",
+      "button": "View Documentation"
+    },
+    "discord": {
+      "title": "Discord Server",
+      "description": "Join our Discord community for help and to chat with other users.",
+      "button": "Join Discord"
+    },
+    "contact": {
+      "title": "Direct Contact",
+      "description": "Have a specific question? Contact our support team directly.",
+      "button": "Contact Us"
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "q1": "How do I invite AlphaLLM to my server?",
+      "a1": "To invite AlphaLLM to your Discord server, simply click the \"Invite\" button at the top of the homepage. You'll be redirected to Discord where you can select the server and necessary permissions. Make sure you have administrator rights on the server where you want to add the bot.",
+      "q2": "Is the bot completely free?",
+      "a2": "Yes, AlphaLLM is completely free to use with all its features. We don't offer a premium version at the moment. Our goal is to make AI accessible to all Discord users without financial barriers.",
+      "q3": "How do I configure the bot on my server?",
+      "a3": "After inviting the bot, use the /setup command to access the configuration menu. You can set the default chat channel, permissions, and other settings. For more advanced configuration, you can also use our web dashboard by logging in with your Discord account.",
+      "q4": "What AI models are available?",
+      "a4": "AlphaLLM offers several advanced AI models, including ChatGPT, Claude, Gemini, Mistral, LLaMA, and others. You can choose your preferred model with the /model command or set a default model for your server in the settings.",
+      "q5": "How do I generate images with the bot?",
+      "a5": "To generate images, use the /imagine command followed by your description. You can specify different styles and aspect ratios. For example: /imagine an enchanted forest with glowing fairies, style:fantasy ratio:16:9",
+      "q6": "How do I limit bot access on my server?",
+      "a6": "You can limit bot access to specific roles or channels via the /permissions command or in the dashboard settings. You can also set usage quotas to prevent abuse.",
+      "q7": "I found a bug, how do I report it?",
+      "a7": "You can report bugs on our Discord server in the #bug-reports channel or by contacting our support team directly via email. Please provide as much detail as possible, such as steps to reproduce the issue, screenshots, and context."
+    }
+  },
+  "docsPage": {
+    "hero": {
+      "title": "AlphaLLM Documentation",
+      "subtitle": "Complete guide to master the Discord AI bot"
+    },
+    "installation": {
+      "title": "Installation and Configuration",
+      "content": "To add AlphaLLM to your Discord server, click the \"Invite\" button from the homepage. Grant the necessary permissions for the bot to function properly.",
+      "permissions": {
+        "title": "Required Permissions",
+        "item1": "Read messages",
+        "item2": "Send messages",
+        "item3": "Use slash commands",
+        "item4": "Manage messages (optional for moderation)"
+      }
+    },
+    "commands": {
+      "title": "Main Commands",
+      "chat": {
+        "title": "/chat",
+        "description": "Start a conversation with the AI. Example: /chat message=\"Hello, how are you?\""
+      },
+      "image": {
+        "title": "/image",
+        "description": "Generate images from a description. Example: /image prompt=\"A cat in space\""
+      },
+      "search": {
+        "title": "/search",
+        "description": "Search for information via AI. Example: /search query=\"What is AI?\""
+      }
+    },
+    "models": {
+      "title": "Available Models",
+      "content": "AlphaLLM supports multiple AI models. Check the homepage for the complete list."
+    },
+    "faq": {
+      "title": "FAQ",
+      "q1": {
+        "question": "The bot isn't responding?",
+        "answer": "Check permissions and ensure the bot is online (see Status page)."
+      },
+      "q2": {
+        "question": "How to change model?",
+        "answer": "Use the /model command to select a specific model."
+      }
+    }
+  },
+  "redirectPages": {
+    "github": {
+      "title": "Redirecting to GitHub",
+      "message": "If you are not redirected automatically, <a href=\"https://github.com/YoannDev90/AlphaLLM\">click here</a>."
+    },
+    "invite": {
+      "title": "Redirecting to bot invitation",
+      "message": "If you are not redirected automatically, <a href=\"https://discord.com/oauth2/authorize?client_id=1286951908786962442\">click here</a>."
+    },
+    "support": {
+      "title": "Redirecting to Discord",
+      "message": "If you are not redirected automatically, <a href=\"https://discord.gg/QGvyrUgwdK\">click here</a>."
+    }
   }
-}}
+}

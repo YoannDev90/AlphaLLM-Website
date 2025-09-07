@@ -155,30 +155,151 @@
   },
   "legalsPage": {
     "title": "Avisos Legais",
-    "subtitle": "Última atualização: 1 de maio de 2024",
+    "subtitle": "Termos de serviço e informações legais para AlphaLLM",
+    "tabs": {
+      "legalNotice": "Aviso Legal",
+      "terms": "Termos de Serviço",
+      "privacy": "Política de Privacidade"
+    },
+    "lastUpdated": "Última atualização:",
+    "lastUpdatedDate": "7 de setembro de 2025",
+    "legalNotice": {
+      "title": "Aviso Legal",
+      "projectManager": {
+        "title": "Responsável pelo projeto",
+        "name": "Dumont Yoann / Yerminator",
+        "contact": "Contato:",
+        "email": "yoanndev@outlook.fr",
+        "discord": "@the_yerminator (Discord)"
+      },
+      "hosting": {
+        "title": "Hospedagem",
+        "platform": "Plataforma de hospedagem:",
+        "name": "AzurHosts"
+      },
+      "liability": {
+        "title": "Limitação de responsabilidade",
+        "content": "O responsável faz todo o possível para garantir o bom funcionamento do bot, mas não pode ser considerado responsável por uso inadequado, mau funcionamento ou perda de dados."
+      }
+    },
     "terms": {
       "title": "Termos de Serviço",
-      "intro": "Ao usar AlphaLLM, você concorda com os seguintes termos:",
-      "usage": "Uso do Serviço",
-      "usageText": "AlphaLLM é fornecido \"como está\" sem qualquer tipo de garantia. Nos reservamos o direito de modificar ou descontinuar o serviço a qualquer momento.",
-      "content": "Conteúdo do Usuário",
-      "contentText": "Você é responsável pelo conteúdo que compartilha através do AlphaLLM. Conteúdo ilegal, ofensivo ou abusivo é proibido."
+      "acceptance": {
+        "title": "Aceitação dos termos",
+        "content": "Ao usar o bot Discord AlphaLLM, você concorda em cumprir estes termos de serviço e todas as leis aplicáveis. Se você não concordar com estes termos, não deve usar o bot."
+      },
+      "purpose": {
+        "title": "Propósito",
+        "content": "O bot oferece funcionalidades relacionadas à inteligência artificial, incluindo conversa textual, geração de imagens e outros serviços associados."
+      },
+      "usage": {
+        "title": "Uso aceitável",
+        "intro": "Você se compromete a não usar o bot para:",
+        "item1": "Atividades ilegais ou fraudulentas",
+        "item2": "Assediar, abusar ou prejudicar outros",
+        "item3": "Difundir conteúdo prejudicial ou difamatório",
+        "item4": "Violar direitos autorais ou propriedade intelectual",
+        "item5": "Manipular ou contornar as limitações do serviço",
+        "item6": "Sobrecarregar deliberadamente o bot ou os servidores"
+      },
+      "content": {
+        "title": "Conteúdo gerado",
+        "description": "O conteúdo gerado pelo bot pode conter erros ou vieses. O usuário é responsável pelo uso do conteúdo. O responsável pode suspender o acesso em caso de uso abusivo."
+      },
+      "modifications": {
+        "title": "Modificações do serviço",
+        "content": "O responsável pode modificar, suspender ou encerrar os serviços a qualquer momento sem aviso prévio."
+      },
+      "termination": {
+        "title": "Terminação",
+        "content": "O responsável pode encerrar ou suspender o acesso em caso de violação dos termos ou uso abusivo."
+      }
     },
     "privacy": {
       "title": "Política de Privacidade",
-      "intro": "Proteção de seus dados pessoais:",
-      "collect": "Coleta de Dados",
-      "collectText": "Coletamos certas informações para melhorar nossos serviços, incluindo mensagens para treinamento de modelos.",
-      "use": "Uso de Dados",
-      "useText": "Os dados coletados são usados para melhorar nosso serviço, resolver problemas técnicos e personalizar a experiência do usuário."
+      "collection": {
+        "title": "Coleta de informações",
+        "intro": "O bot coleta os seguintes dados:",
+        "item1": "ID do usuário e nome de usuário do Discord",
+        "item2": "ID do servidor, nome do servidor, nome de usuário do proprietário",
+        "item3": "Mensagens contendo uma menção ao bot",
+        "item4": "Resultados de pesquisas opcionais apresentadas ao usuário"
+      },
+      "usage": {
+        "title": "Uso de dados",
+        "content": "Estes dados são usados para estatísticas, melhoria técnica do bot e suporte."
+      },
+      "legalBasis": {
+        "title": "Base legal",
+        "content": "Consentimento implícito pelo uso do bot."
+      },
+      "retention": {
+        "title": "Retenção",
+        "content": "Os logs e mensagens enviadas ao bot são retidos por aproximadamente 1 mês."
+      },
+      "userRights": {
+        "title": "Direitos dos usuários",
+        "content": "Os usuários podem solicitar o acesso, modificação ou exclusão de seus dados através do contato indicado nos avisos legais."
+      },
+      "dataTransmission": {
+        "title": "Transmissão de dados",
+        "content": "Nenhum dado é transmitido a terceiros."
+      },
+      "complaint": {
+        "title": "Reclamação",
+        "content": "Em caso de desacordo, o usuário pode contactar a CNIL (www.cnil.fr)."
+      },
+      "exceptions": {
+        "title": "Exceções",
+        "content": "Estas disposições aplicam-se salvo exceção legal ou pedido das autoridades competentes."
+      }
+    }
+  },
+  "docsPage": {
+    "hero": {
+      "title": "Documentação AlphaLLM",
+      "subtitle": "Guia completo para dominar o bot de IA do Discord"
     },
-    "cookies": {
-      "title": "Política de Cookies",
-      "text": "Nosso site usa cookies para melhorar sua experiência. Você pode configurar seu navegador para recusar cookies."
+    "installation": {
+      "title": "Instalação e Configuração",
+      "content": "Para adicionar AlphaLLM ao seu servidor Discord, clique no botão \"Convidar\" na página inicial. Conceda as permissões necessárias para que o bot funcione corretamente.",
+      "permissions": {
+        "title": "Permissões Necessárias",
+        "item1": "Ler mensagens",
+        "item2": "Enviar mensagens",
+        "item3": "Usar comandos slash",
+        "item4": "Gerenciar mensagens (opcional para moderação)"
+      }
     },
-    "contact": {
-      "title": "Contato Legal",
-      "text": "Para qualquer questão legal, contate-nos em: legal@alphallm.tech"
+    "commands": {
+      "title": "Comandos Principais",
+      "chat": {
+        "title": "/chat",
+        "description": "Inicie uma conversa com a IA. Exemplo: /chat message=\"Olá, como você está?\""
+      },
+      "image": {
+        "title": "/image",
+        "description": "Gere imagens a partir de uma descrição. Exemplo: /image prompt=\"Um gato no espaço\""
+      },
+      "search": {
+        "title": "/search",
+        "description": "Pesquise informações via IA. Exemplo: /search query=\"O que é IA?\""
+      }
+    },
+    "models": {
+      "title": "Modelos Disponíveis",
+      "content": "AlphaLLM suporta vários modelos de IA. Consulte a página inicial para a lista completa."
+    },
+    "faq": {
+      "title": "FAQ",
+      "q1": {
+        "question": "O bot não responde?",
+        "answer": "Verifique as permissões e certifique-se de que o bot está online (veja a página Status)."
+      },
+      "q2": {
+        "question": "Como mudar de modelo?",
+        "answer": "Use o comando /model para selecionar um modelo específico."
+      }
     }
   },
   "errorPage": {

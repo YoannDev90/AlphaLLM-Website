@@ -1,7 +1,7 @@
 {
   "global": {
     "siteName": "AlphaLLM",
-    "siteDescription": "Bot Discord conversationnel multimodèle IA avec génération d'images",
+    "siteDescription": "Bot Discord conversationnel multimodèle avec génération d'images",
     "navigation": {
       "home": "Accueil",
       "docs": "Documentation",
@@ -20,8 +20,11 @@
       "cancel": "Annuler",
       "confirm": "Confirmer",
       "back": "Retour",
-      "next": "Suivant"
+      "next": "Suivant",
+      "backToTop": "Retour en haut",
+      "menu": "Menu"
     },
+    "logoAlt": "Logo AlphaLLM",
     "footer": {
       "product": "Produit",
       "documentation": "Documentation",
@@ -32,8 +35,47 @@
       "legal": "Juridique",
       "termsOfService": "Conditions d'utilisation",
       "privacyPolicy": "Politique de confidentialité",
-      "copyright": "Tous droits réservés."
+      "copyright": "Tous droits réservés.",
+      "madeWith": "Fait avec",
+      "by": "par"
     }
+  },
+  "nav": {
+    "home": "Accueil",
+    "docs": "Documentation", 
+    "status": "Statut",
+    "support": "Support"
+  },
+  "status": {
+    "title": "Statut du Bot",
+    "subtitle": "Surveillez en temps réel les performances du bot AlphaLLM",
+    "overview": "Vue d'ensemble",
+    "lastUpdated": "Dernière mise à jour: ",
+    "refreshing": "Actualisation...",
+    "getting": "Chargement...",
+    "online": "En ligne",
+    "offline": "Hors ligne", 
+    "degraded": "Dégradé",
+    "unknown": "Inconnu",
+    "error": {
+      "loadingFailed": "Erreur lors du chargement des statuts"
+    }
+  },
+  "footer": {
+    "product": "Produit",
+    "documentation": "Documentation",
+    "status": "Statut",
+    "resources": "Ressources",
+    "support": "Support",
+    "discord": "Serveur Discord",
+    "dashboard": "Tableau de bord",
+    "legal": "Juridique",
+    "terms": "Conditions d'utilisation",
+    "privacy": "Politique de confidentialité",
+    "cookies": "Politique de cookies",
+    "rights": "Tous droits réservés.",
+    "madeWith": "Fait avec",
+    "by": "par"
   },
   "homePage": {
     "hero": {
@@ -84,8 +126,8 @@
       "title": "Fournisseurs"
     },
     "team": {
-      "title": "Notre Équipe",
-      "yoann": "Fondateur & Développeur Principal",
+      "title": "Notre équipe",
+      "yoann": "Fondateur & Développeur principal",
       "lucky": "Développeur Web & UI/UX",
       "470m": "Modérateur & Support"
     },
@@ -174,31 +216,105 @@
     }
   },
   "legalsPage": {
-    "title": "Mentions légales",
-    "subtitle": "Dernière mise à jour: 1 mai 2024",
+    "title": "Mentions Légales",
+    "subtitle": "Conditions d'utilisation et informations légales d'AlphaLLM",
+    "tabs": {
+      "legalNotice": "Mentions Légales",
+      "terms": "Conditions d'Utilisation", 
+      "privacy": "Politique de Confidentialité"
+    },
+    "lastUpdated": "Dernière mise à jour:",
+    "lastUpdatedDate": "7 septembre 2025",
+    "legalNotice": {
+      "title": "Mentions Légales",
+      "projectManager": {
+        "title": "Responsable du projet",
+        "name": "Dumont Yoann / Yerminator",
+        "contact": "Contact :",
+        "email": "yoanndev@outlook.fr",
+        "discord": "@the_yerminator (Discord)"
+      },
+      "hosting": {
+        "title": "Hébergement",
+        "platform": "Plateforme d'hébergement :",
+        "name": "AzurHosts"
+      },
+      "liability": {
+        "title": "Limite de responsabilité",
+        "content": "Le responsable met tout en œuvre pour assurer le bon fonctionnement du bot, mais ne peut être tenu responsable d'un usage inapproprié, d'un dysfonctionnement ou d'une perte de données."
+      }
+    },
     "terms": {
-      "title": "Conditions d'utilisation",
-      "intro": "En utilisant AlphaLLM, vous acceptez les conditions suivantes :",
-      "usage": "Utilisation du service",
-      "usageText": "AlphaLLM est fourni \"tel quel\" sans garantie d'aucune sorte. Nous nous réservons le droit de modifier ou d'interrompre le service à tout moment.",
-      "content": "Contenu utilisateur",
-      "contentText": "Vous êtes responsable du contenu que vous partagez via AlphaLLM. Le contenu illégal, offensant ou abusif est interdit."
+      "title": "Conditions d'Utilisation",
+      "acceptance": {
+        "title": "Acceptation des conditions",
+        "content": "En utilisant le bot Discord AlphaLLM, vous acceptez de vous conformer aux présentes conditions d'utilisation et à toutes les lois applicables. Si vous n'acceptez pas ces conditions, vous ne devez pas utiliser le bot."
+      },
+      "purpose": {
+        "title": "Objet",
+        "content": "Le bot propose des fonctionnalités liées à l'intelligence artificielle, notamment la conversation textuelle, la génération d'images et autres services associés."
+      },
+      "usage": {
+        "title": "Utilisation acceptable",
+        "intro": "Vous vous engagez à ne pas utiliser le bot pour :",
+        "item1": "Activités illégales ou frauduleuses",
+        "item2": "Harceler, abuser ou nuire à autrui",
+        "item3": "Diffuser du contenu préjudiciable ou diffamatoire",
+        "item4": "Violer des droits d'auteur ou propriété intellectuelle",
+        "item5": "Manipuler ou contourner les limitations du service",
+        "item6": "Surcharger délibérément le bot ou les serveurs"
+      },
+      "content": {
+        "title": "Contenu généré",
+        "description": "Le contenu généré par le bot peut comporter des erreurs ou biais. L'utilisateur est responsable de l'utilisation du contenu. Le responsable peut suspendre l'accès en cas d'usage abusif."
+      },
+      "modifications": {
+        "title": "Modifications des services",
+        "content": "Le responsable peut modifier, suspendre ou arrêter les services à tout moment sans préavis."
+      },
+      "termination": {
+        "title": "Résiliation",
+        "content": "Le responsable peut résilier ou suspendre l'accès en cas de violation des conditions ou usage abusif."
+      }
     },
     "privacy": {
-      "title": "Politique de confidentialité",
-      "intro": "Protection de vos données personnelles :",
-      "collect": "Données collectées",
-      "collectText": "Nous collectons certaines informations pour améliorer nos services, incluant des messages pour l'entraînement des modèles.",
-      "use": "Utilisation des données",
-      "useText": "Les données collectées sont utilisées pour améliorer notre service, résoudre les problèmes techniques et personnaliser l'expérience utilisateur."
-    },
-    "cookies": {
-      "title": "Politique de cookies",
-      "text": "Notre site web utilise des cookies pour améliorer votre expérience. Vous pouvez configurer votre navigateur pour refuser les cookies."
-    },
-    "contact": {
-      "title": "Contact légal",
-      "text": "Pour toute question juridique, contactez-nous à: legal@alphallm.tech"
+      "title": "Politique de Confidentialité",
+      "collection": {
+        "title": "Collecte d'informations",
+        "intro": "Le bot collecte les données suivantes :",
+        "item1": "ID utilisateur et pseudo Discord",
+        "item2": "ID serveur, nom serveur, pseudo propriétaire",
+        "item3": "Messages contenant une mention du bot",
+        "item4": "Résultats de sondages optionnels soumis à l'utilisateur"
+      },
+      "usage": {
+        "title": "Utilisation des données",
+        "content": "Ces données sont utilisées pour les statistiques, l'amélioration technique du bot, et le support."
+      },
+      "legalBasis": {
+        "title": "Base légale",
+        "content": "Consentement implicite par l'utilisation du bot."
+      },
+      "retention": {
+        "title": "Conservation",
+        "content": "Les logs et messages soumis au bot sont conservés environ 1 mois."
+      },
+      "userRights": {
+        "title": "Droits des utilisateurs",
+        "content": "Les utilisateurs peuvent demander l'accès, la modification ou la suppression de leurs données via le contact indiqué dans les mentions légales."
+      },
+      "dataTransmission": {
+        "title": "Transmission des données",
+        "content": "Aucune donnée n'est transmise à des tiers."
+      },
+      "complaint": {
+        "title": "Réclamation",
+        "content": "En cas de désaccord, l'utilisateur peut saisir la CNIL (www.cnil.fr)."
+      },
+      "exceptions": {
+        "title": "Exceptions",
+        "content": "Ces dispositions s'appliquent sauf exception légale ou demande des autorités compétentes."
+      }
     }
   },
   "errorPage": {
@@ -206,5 +322,102 @@
     "subtitle": "Page non trouvée",
     "message": "La page que vous recherchez n'existe pas ou a été déplacée.",
     "back": "Retourner à l'accueil"
+  },
+  "support": {
+    "title": "Centre de Support",
+    "subtitle": "Comment pouvons-nous vous aider aujourd'hui ?",
+    "docs": {
+      "title": "Documentation",
+      "description": "Consultez notre documentation détaillée pour tout savoir sur l'utilisation d'AlphaLLM.",
+      "button": "Voir la Documentation [en construction]"
+    },
+    "discord": {
+      "title": "Serveur Discord",
+      "description": "Rejoignez notre communauté Discord pour obtenir de l'aide et discuter avec d'autres utilisateurs.",
+      "button": "Rejoindre Discord"
+    },
+    "contact": {
+      "title": "Contact Direct",
+      "description": "Une question spécifique ? Contactez directement notre équipe de support.",
+      "button": "Nous contacter"
+    },
+    "faq": {
+      "title": "Questions Fréquentes",
+      "q1": "Comment inviter AlphaLLM sur mon serveur ?",
+      "a1": "Pour inviter AlphaLLM sur votre serveur Discord, cliquez simplement sur le bouton \"Inviter\" en haut de la page d'accueil. Vous serez redirigé vers Discord où vous pourrez sélectionner le serveur et les permissions nécessaires. Assurez-vous d'avoir les droits d'administrateur sur le serveur où vous souhaitez ajouter le bot.",
+      "q2": "Le bot est-il entièrement gratuit ?",
+      "a2": "Oui, AlphaLLM est entièrement gratuit à utiliser avec toutes ses fonctionnalités. Nous ne proposons pas de version premium pour le moment. Notre objectif est de rendre l'IA accessible à tous les utilisateurs Discord sans barrière financière.",
+      "q3": "Comment configurer le bot sur mon serveur ?",
+      "a3": "Après avoir invité le bot, utilisez la commande /guild-config pour paramétrer le bot. Vous pourrez définir le canal d'annonces, la langue, les permissions de vos membres, et d'autres paramètres de personnalisation.",
+      "q4": "Quels sont les modèles d'IA disponibles ?",
+      "a4": "AlphaLLM propose plusieurs modèles d'IA avancés, dont ChatGPT 5, Claude Haïku, Gemini 2.5, Mistral, LLaMA 3.3, Qwen 3, Kimi-K2, GLM 4.5, Sonar, EvilGPT et d'autres. Vous pouvez choisir votre modèle préféré avec la commande /user-config",
+      "q5": "Comment générer des images avec le bot ?",
+      "a5": "Pour générer des images, utilisez la commande /image suivie de votre description. Vous pouvez spécifier la taille, ainsi que le nombre d'images à générer. Par exemple : /image prompt=\"une forêt enchantée avec des fées lumineuses\" size=2048x2048 n=4",
+      "q6": "Comment limiter l'accès au bot sur mon serveur ?",
+      "a6": "Vous pouvez limiter l'accès au bot à certains rôles ou canaux spécifiques via la commande /guild-config.",
+      "q7": "J'ai trouvé un bug, comment le signaler ?",
+      "a7": "Vous pouvez signaler les bugs sur notre serveur Discord (accessible par la commande /support) ou en contactant directement notre équipe de support par la commande /contact-dev, ou encore en ouvrant une issue sur le repo Github. Merci de fournir le plus de détails possibles, comme les étapes pour reproduire le problème, des captures d'écran et le contexte."
+    }
+  },
+  "docsPage": {
+    "hero": {
+      "title": "Documentation AlphaLLM",
+      "subtitle": "Guide complet pour maîtriser le bot Discord IA"
+    },
+    "installation": {
+      "title": "Installation et Configuration",
+      "content": "Pour ajouter AlphaLLM à votre serveur Discord, cliquez sur le bouton \"Inviter\" depuis la page d'accueil. Accordez les permissions nécessaires pour que le bot fonctionne correctement.",
+      "permissions": {
+        "title": "Permissions Requises",
+        "item1": "Lire les messages",
+        "item2": "Envoyer des messages",
+        "item3": "Utiliser des commandes slash",
+        "item4": "Gérer les messages (optionnel pour la modération)"
+      }
+    },
+    "commands": {
+      "title": "Commandes Principales",
+      "chat": {
+        "title": "/chat",
+        "description": "Démarrez une conversation avec l'IA. Exemple : /chat message=\"Bonjour, comment ça va ?\""
+      },
+      "image": {
+        "title": "/image",
+        "description": "Générez des images à partir d'une description. Exemple : /image prompt=\"Un chat dans l'espace\""
+      },
+      "search": {
+        "title": "/search",
+        "description": "Recherchez des informations via l'IA. Exemple : /search query=\"Qu'est-ce que l'IA ?\""
+      }
+    },
+    "models": {
+      "title": "Modèles Disponibles",
+      "content": "AlphaLLM supporte plusieurs modèles IA. Consultez la page d'accueil pour la liste complète."
+    },
+    "faq": {
+      "title": "FAQ",
+      "q1": {
+        "question": "Le bot ne répond pas ?",
+        "answer": "Vérifiez les permissions et assurez-vous que le bot est en ligne (voir la page Statut)."
+      },
+      "q2": {
+        "question": "Comment changer de modèle ?",
+        "answer": "Utilisez la commande /model pour sélectionner un modèle spécifique."
+      }
+    }
+  },
+  "redirectPages": {
+    "github": {
+      "title": "Redirection vers GitHub",
+      "message": "Si vous n'êtes pas redirigé automatiquement, <a href=\"https://github.com/YoannDev90/AlphaLLM\">cliquez ici</a>."
+    },
+    "invite": {
+      "title": "Redirection vers l'invitation du bot",
+      "message": "Si vous n'êtes pas redirigé automatiquement, <a href=\"https://discord.com/oauth2/authorize?client_id=1286951908786962442\">cliquez ici</a>."
+    },
+    "support": {
+      "title": "Redirection vers Discord",
+      "message": "Si vous n'êtes pas redirigé automatiquement, <a href=\"https://discord.gg/QGvyrUgwdK\">cliquez ici</a>."
+    }
   }
 }

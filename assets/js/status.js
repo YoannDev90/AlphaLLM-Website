@@ -13,14 +13,10 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Événement pour le bouton de rafraîchissement
     document.getElementById('refresh-status').addEventListener('click', function() {
-        this.classList.add('rotating');
+        this.disabled = true;
+        this.classList.add('refreshing');
         updateStatusTime();
         fetchAndUpdateBotsStatus();
-        
-        // Retirer la classe après l'animation
-        setTimeout(() => {
-            this.classList.remove('rotating');
-        }, 1000);
     });
     
     // Événement pour le bouton de retour en haut
@@ -60,14 +56,24 @@ function updateStatusTime() {
 }
 
 /**
- * Récupère les données de statut depuis l'API
+ * Récupère les données de statut depuis l'API avec un timeout de 5 secondes
  */
 async function fetchStatusData() {
     try {
-        const response = await fetch(`https://${API_ENDPOINT}`);
+        // Créer une promesse de timeout de 5 secondes
+        const timeoutPromise = new Promise((_, reject) => {
+            setTimeout(() => reject(new Error('Timeout: La requête a pris trop de temps')), 5000);
+        });
+
+        // Faire la requête avec le timeout
+        const fetchPromise = fetch(`https://${API_ENDPOINT}`);
+        
+        const response = await Promise.race([fetchPromise, timeoutPromise]);
+        
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
+        
         const data = await response.json();
         console.log(data)
         return {
@@ -78,10 +84,12 @@ async function fetchStatusData() {
     } catch (error) {
         console.error('Erreur lors de la récupération des données:', error);
         
-        // Gestion spécifique pour les erreurs de mixed content
+        // Gestion spécifique pour les erreurs de mixed content et timeout
         let errorMessage = error.message;
         if (error.message.includes('NetworkError') || error.message.includes('Mixed Content')) {
             errorMessage = 'Impossible de charger les données: problème de sécurité HTTPS/HTTP.';
+        } else if (error.message.includes('Timeout')) {
+            errorMessage = 'Délai d\'attente dépassé: les services semblent indisponibles.';
         }
         
         return {
@@ -133,37 +141,40 @@ function updateBotsStatusFromAPI(apiData) {
         const botName = botNameElement.textContent.trim();
         const botData = apiData[botName];
         
+        let statusClass, statusI18nKey, latency;
+        
+        // Si aucune donnée n'est disponible pour ce bot, il est considéré comme offline
         if (!botData) {
-            console.warn(`Données non trouvées pour le bot: ${botName}`);
-            return;
-        }
-        
-        let statusClass, statusText, latency;
-        
-        // Déterminer le statut et la classe CSS
-        switch (botData.status.toLowerCase()) {
-            case 'online':
-                statusClass = 'online';
-                statusText = document.documentElement.lang === 'en' ? 'Online' : 'En ligne';
-                break;
-            case 'degraded':
-                statusClass = 'degraded';
-                statusText = document.documentElement.lang === 'en' ? 'Degraded' : 'Dégradé';
-                break;
-            case 'offline':
-                statusClass = 'offline';
-                statusText = document.documentElement.lang === 'en' ? 'Offline' : 'Hors ligne';
-                break;
-            default:
-                statusClass = 'offline';
-                statusText = document.documentElement.lang === 'en' ? 'Unknown' : 'Inconnu';
-        }
-        
-        // Formater la latence
-        if (botData.ping === 0 || botData.status.toLowerCase() === 'offline') {
+            console.warn(`Aucune donnée disponible pour le bot: ${botName} - considéré comme offline`);
+            statusClass = 'offline';
+            statusI18nKey = 'status.offline';
             latency = '--';
         } else {
-            latency = Math.round(botData.ping);
+            // Déterminer le statut et la classe CSS
+            switch (botData.status.toLowerCase()) {
+                case 'online':
+                    statusClass = 'online';
+                    statusI18nKey = 'status.online';
+                    break;
+                case 'degraded':
+                    statusClass = 'degraded';
+                    statusI18nKey = 'status.degraded';
+                    break;
+                case 'offline':
+                    statusClass = 'offline';
+                    statusI18nKey = 'status.offline';
+                    break;
+                default:
+                    statusClass = 'offline';
+                    statusI18nKey = 'status.unknown';
+            }
+            
+            // Formater la latence
+            if (botData.ping === 0 || botData.status.toLowerCase() === 'offline') {
+                latency = '--';
+            } else {
+                latency = Math.round(botData.ping);
+            }
         }
         
         // Mettre à jour le statut du bot
@@ -172,19 +183,27 @@ function updateBotsStatusFromAPI(apiData) {
             statusDot.className = 'status-dot ' + statusClass;
         }
         
-        // Mettre à jour le texte de statut
+        // Mettre à jour le texte de statut avec le système i18n
         const statusElement = bot.querySelector('.status');
         if (statusElement) {
             statusElement.className = 'status ' + statusClass;
-            statusElement.textContent = statusText;
+            statusElement.setAttribute('data-i18n', statusI18nKey);
             
-            // Mise à jour des attributs i18n si nécessaire
-            if (statusClass === 'online') {
-                statusElement.setAttribute('data-i18n', 'status.online');
-            } else if (statusClass === 'degraded') {
-                statusElement.setAttribute('data-i18n', 'status.degraded');
+            // Utiliser le système i18n pour obtenir la traduction
+            if (window.i18n && typeof window.i18n.translate === 'function') {
+                const translatedText = window.i18n.translate(statusI18nKey);
+                statusElement.textContent = translatedText;
             } else {
-                statusElement.setAttribute('data-i18n', 'status.offline');
+                // Fallback si i18n n'est pas encore chargé
+                const fallbackTexts = {
+                    'status.online': { fr: 'En ligne', en: 'Online', de: 'Online', es: 'En línea', pt: 'Online', nl: 'Online', it: 'Online' },
+                    'status.offline': { fr: 'Hors ligne', en: 'Offline', de: 'Offline', es: 'Fuera de línea', pt: 'Offline', nl: 'Offline', it: 'Offline' },
+                    'status.degraded': { fr: 'Dégradé', en: 'Degraded', de: 'Beeinträchtigt', es: 'Degradado', pt: 'Degradado', nl: 'Verslechterd', it: 'Degradato' },
+                    'status.unknown': { fr: 'Inconnu', en: 'Unknown', de: 'Unbekannt', es: 'Desconocido', pt: 'Desconhecido', nl: 'Onbekend', it: 'Sconosciuto' }
+                };
+                const currentLang = document.documentElement.lang || 'fr';
+                const fallbackText = fallbackTexts[statusI18nKey];
+                statusElement.textContent = (fallbackText && fallbackText[currentLang]) || fallbackText?.fr || 'Unknown';
             }
         }
         
@@ -207,21 +226,32 @@ function updateBotsStatusFromAPI(apiData) {
     });
     
     // Mettre à jour la traduction après avoir changé les statuts
-    if (typeof updateTranslations === 'function') {
-        updateTranslations();
+    if (window.i18n && typeof window.i18n.updatePageTranslations === 'function') {
+        window.i18n.updatePageTranslations();
     }
 }
 
-// Ajouter une classe CSS pour l'animation de rotation
+// Ajouter une classe CSS pour l'effet de chargement
 document.head.insertAdjacentHTML('beforeend', `
 <style>
-.rotating {
-    animation: rotate 1s linear;
+.refreshing {
+    opacity: 0.6;
+    cursor: not-allowed !important;
 }
 
-@keyframes rotate {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
+.refreshing::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, transparent 30%, rgba(var(--color-primary-rgb), 0.3) 50%, transparent 70%);
+    animation: shimmer 1.5s infinite;
+    border-radius: inherit;
+}
+
+@keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
 }
 
 .updating {
@@ -263,6 +293,24 @@ document.head.insertAdjacentHTML('beforeend', `
 @keyframes spin {
     to { transform: rotate(360deg); }
 }
+
+/* Indicateur de chargement pour le bouton refresh */
+.refresh-loading {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.refresh-loading::after {
+    content: '';
+    width: 12px;
+    height: 12px;
+    border: 2px solid transparent;
+    border-top-color: var(--color-primary);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
 </style>
 `);
 
@@ -270,29 +318,40 @@ document.head.insertAdjacentHTML('beforeend', `
  * Affiche un indicateur de chargement
  */
 function showLoadingIndicator() {
-    let loadingIndicator = document.getElementById('loading-indicator');
-    if (!loadingIndicator) {
-        loadingIndicator = document.createElement('div');
-        loadingIndicator.id = 'loading-indicator';
-        loadingIndicator.className = 'loading-indicator';
-        loadingIndicator.innerHTML = '<div class="loading-spinner"></div>';
-        
-        // Insérer l'indicateur après le bouton de rafraîchissement
-        const refreshButton = document.getElementById('refresh-status');
-        if (refreshButton && refreshButton.parentNode) {
-            refreshButton.parentNode.insertBefore(loadingIndicator, refreshButton.nextSibling);
-        }
+    // Afficher le texte d'actualisation
+    const refreshText = document.getElementById('refresh-status-text');
+    if (refreshText) {
+        refreshText.style.display = 'inline';
     }
-    loadingIndicator.style.display = 'flex';
+    
+    // Masquer l'horodatage pendant l'actualisation
+    const updateTime = document.getElementById('update-time');
+    if (updateTime) {
+        updateTime.style.opacity = '0.5';
+    }
 }
 
 /**
  * Cache l'indicateur de chargement
  */
 function hideLoadingIndicator() {
-    const loadingIndicator = document.getElementById('loading-indicator');
-    if (loadingIndicator) {
-        loadingIndicator.style.display = 'none';
+    // Masquer le texte d'actualisation
+    const refreshText = document.getElementById('refresh-status-text');
+    if (refreshText) {
+        refreshText.style.display = 'none';
+    }
+    
+    // Restaurer l'opacité de l'horodatage
+    const updateTime = document.getElementById('update-time');
+    if (updateTime) {
+        updateTime.style.opacity = '1';
+    }
+    
+    // Réactiver le bouton de refresh
+    const refreshButton = document.getElementById('refresh-status');
+    if (refreshButton) {
+        refreshButton.disabled = false;
+        refreshButton.classList.remove('refreshing');
     }
 }
 
@@ -316,10 +375,26 @@ function showErrorMessage(message) {
         }
     }
     
-    const currentLang = document.documentElement.lang || 'fr';
-    const errorText = currentLang === 'en' 
-        ? `Error loading bot statuses: ${message}` 
-        : `Erreur lors du chargement des statuts: ${message}`;
+    // Utiliser le système i18n pour le message d'erreur
+    let errorText;
+    if (window.i18n && typeof window.i18n.translate === 'function') {
+        const errorPrefix = window.i18n.translate('status.error.loadingFailed');
+        errorText = `${errorPrefix}: ${message}`;
+    } else {
+        // Fallback avec traductions intégrées
+        const currentLang = document.documentElement.lang || 'fr';
+        const errorPrefixFallback = {
+            fr: 'Erreur lors du chargement des statuts',
+            en: 'Error loading bot statuses',
+            de: 'Fehler beim Laden der Bot-Status',
+            es: 'Error cargando estados de bots',
+            pt: 'Erro ao carregar status dos bots',
+            nl: 'Fout bij laden bot statussen',
+            it: 'Errore caricamento stati bot'
+        };
+        const prefix = errorPrefixFallback[currentLang] || errorPrefixFallback.fr;
+        errorText = `${prefix}: ${message}`;
+    }
     
     errorElement.textContent = errorText;
     errorElement.style.display = 'block';
@@ -336,7 +411,7 @@ function hideErrorMessage() {
 }
 
 /**
- * Met tous les bots en état d'erreur en cas de problème avec l'API
+ * Met tous les bots en état offline en cas de problème avec l'API
  */
 function setAllBotsToError() {
     const botItems = document.querySelectorAll('.bot-item');
@@ -349,9 +424,27 @@ function setAllBotsToError() {
         
         const statusElement = bot.querySelector('.status');
         if (statusElement) {
-            const errorText = document.documentElement.lang === 'en' ? 'Error' : 'Erreur';
             statusElement.className = 'status offline';
-            statusElement.textContent = errorText;
+            statusElement.setAttribute('data-i18n', 'status.offline');
+            
+            // Utiliser le système i18n pour obtenir la traduction
+            if (window.i18n && typeof window.i18n.translate === 'function') {
+                const translatedText = window.i18n.translate('status.offline');
+                statusElement.textContent = translatedText;
+            } else {
+                // Fallback
+                const currentLang = document.documentElement.lang || 'fr';
+                const fallbackTexts = {
+                    fr: 'Hors ligne',
+                    en: 'Offline',
+                    de: 'Offline',
+                    es: 'Fuera de línea',
+                    pt: 'Offline',
+                    nl: 'Offline',
+                    it: 'Offline'
+                };
+                statusElement.textContent = fallbackTexts[currentLang] || fallbackTexts.fr;
+            }
         }
         
         const pingElement = bot.querySelector('.ping');
