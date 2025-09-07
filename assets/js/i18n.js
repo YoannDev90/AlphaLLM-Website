@@ -13,24 +13,67 @@ document.addEventListener('DOMContentLoaded', function() {
       this.init();
     }
 
+    // Méthodes de gestion des cookies
+    setCookie(name, value, days = 365 * 10) { // 10 ans par défaut pour une durée maximale
+      const expires = new Date();
+      expires.setTime(expires.getTime() + (days * 24 * 60 * 60 * 1000));
+      document.cookie = `${name}=${value};expires=${expires.toUTCString()};path=/;SameSite=Lax`;
+    }
+
+    getCookie(name) {
+      const nameEQ = name + "=";
+      const ca = document.cookie.split(';');
+      for (let i = 0; i < ca.length; i++) {
+        let c = ca[i];
+        while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+        if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+      }
+      return null;
+    }
+
+    deleteCookie(name) {
+      document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
+    }
+
     async init() {
       try {
-        // Détecter la langue du navigateur
-        const browserLang = navigator.language.split('-')[0];
-        
-        // Vérifier si la langue du navigateur est supportée
-        if (this.supportedLanguages.includes(browserLang)) {
-          this.currentLanguage = browserLang;
+        // Utiliser la langue détectée précocement si elle existe
+        if (window.earlyDetectedLanguage && this.supportedLanguages.includes(window.earlyDetectedLanguage)) {
+          this.currentLanguage = window.earlyDetectedLanguage;
         } else {
-          this.currentLanguage = 'fr';
+          // Récupérer la langue depuis les cookies en priorité
+          const cookieLang = this.getCookie('user_language');
+          
+          if (cookieLang && this.supportedLanguages.includes(cookieLang)) {
+            this.currentLanguage = cookieLang;
+          } else {
+            // Vérifier si une langue est stockée dans localStorage (migration)
+            const storedLang = localStorage.getItem('language');
+            
+            if (storedLang && this.supportedLanguages.includes(storedLang)) {
+              this.currentLanguage = storedLang;
+              // Migrer vers les cookies et nettoyer localStorage
+              this.setCookie('user_language', storedLang);
+              localStorage.removeItem('language');
+            } else {
+              // Détecter la langue du navigateur
+              const browserLang = navigator.language.split('-')[0];
+              
+              // Vérifier si la langue du navigateur est supportée
+              if (this.supportedLanguages.includes(browserLang)) {
+                this.currentLanguage = browserLang;
+              } else {
+                this.currentLanguage = 'fr';
+              }
+            }
+          }
         }
         
-        // Vérifier si une langue est stockée dans localStorage
-        const storedLang = localStorage.getItem('language');
+        // Sauvegarder la langue détectée dans les cookies
+        this.setCookie('user_language', this.currentLanguage);
         
-        if (storedLang && this.supportedLanguages.includes(storedLang)) {
-          this.currentLanguage = storedLang;
-        }
+        // Définir l'attribut lang du document HTML (au cas où early-i18n n'aurait pas fonctionné)
+        document.documentElement.setAttribute('lang', this.currentLanguage);
         
         // Charger les traductions pour la langue actuelle
         const loadSuccess = await this.loadTranslations(this.currentLanguage);
@@ -38,11 +81,20 @@ document.addEventListener('DOMContentLoaded', function() {
         // Appliquer les traductions à la page
         this.updatePageTranslations();
         
+        // Mettre à jour l'affichage de la langue courante
+        this.updateCurrentLangDisplay(this.currentLanguage);
+        
         // Initialiser les sélecteurs de langue
         this.initLanguageSelectors();
         
       } catch (error) {
-        // Silencieux en production
+        // En cas d'erreur, utiliser le français par défaut
+        this.currentLanguage = 'fr';
+        this.setCookie('user_language', 'fr');
+        document.documentElement.setAttribute('lang', 'fr');
+        await this.loadTranslations('fr');
+        this.updatePageTranslations();
+        this.initLanguageSelectors();
       }
     }
 
@@ -99,10 +151,22 @@ document.addEventListener('DOMContentLoaded', function() {
         const success = await this.loadTranslations(lang);
         if (success) {
           this.currentLanguage = lang;
-          localStorage.setItem('language', lang);
+          
+          // Sauvegarder dans les cookies avec durée de vie maximale
+          this.setCookie('user_language', lang);
+          
+          // Nettoyer l'ancien localStorage si il existe encore
+          if (localStorage.getItem('language')) {
+            localStorage.removeItem('language');
+          }
           
           // Mettre à jour l'attribut lang du document HTML
           document.documentElement.setAttribute('lang', lang);
+          
+          // Mettre à jour le titre de la page pour indiquer la langue
+          const currentTitle = document.title;
+          const baseTitle = currentTitle.replace(/ \([A-Z]{2}\)$/, '');
+          document.title = baseTitle + ' (' + lang.toUpperCase() + ')';
           
           // Appliquer les traductions
           this.updatePageTranslations();
@@ -175,7 +239,7 @@ document.addEventListener('DOMContentLoaded', function() {
       // Mettre à jour les sélecteurs UI pour refléter la langue actuelle
       const langSelectors = document.querySelectorAll('.language-selector');
       
-      langSelectors.forEach((selector, index) => {
+      langSelectors.forEach(selector => {
         if (selector.tagName === 'SELECT') {
           selector.value = lang;
         }
@@ -192,7 +256,11 @@ document.addEventListener('DOMContentLoaded', function() {
         }
       });
       
-      // Mise à jour du texte affiché dans le sélecteur de langue (si présent)
+      // Mise à jour du texte affiché dans le sélecteur de langue
+      this.updateCurrentLangDisplay(lang);
+    }
+
+    updateCurrentLangDisplay(lang) {
       const currentLangDisplay = document.querySelector('.current-lang');
       if (currentLangDisplay) {
         // Map des noms de langues
@@ -236,11 +304,15 @@ document.addEventListener('DOMContentLoaded', function() {
           }
           
           // Ajouter l'écouteur d'événement
-          selector.addEventListener('click', () => {
+          selector.addEventListener('click', (e) => {
+            e.preventDefault();
             this.changeLanguage(lang);
           });
         }
       });
+      
+      // Gérer le dropdown de langues principal
+      this.initLanguageDropdown();
       
       // Initialiser les boutons de changement de langue (pour la rétrocompatibilité)
       const langButtons = document.querySelectorAll('[data-lang]:not(.language-selector)');
@@ -260,6 +332,39 @@ document.addEventListener('DOMContentLoaded', function() {
           this.changeLanguage(lang);
         });
       });
+    }
+
+    initLanguageDropdown() {
+      const dropdownToggle = document.querySelector('.language-dropdown .dropdown-toggle');
+      const dropdownMenu = document.querySelector('.language-dropdown .dropdown-menu');
+      
+      if (dropdownToggle && dropdownMenu) {
+        // Gérer l'ouverture/fermeture du dropdown
+        dropdownToggle.addEventListener('click', (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          dropdownMenu.classList.toggle('show');
+        });
+        
+        // Fermer le dropdown en cliquant ailleurs
+        document.addEventListener('click', (e) => {
+          if (!dropdownToggle.contains(e.target) && !dropdownMenu.contains(e.target)) {
+            dropdownMenu.classList.remove('show');
+          }
+        });
+        
+        // Gérer les clics sur les boutons de langue dans le dropdown
+        const langButtons = dropdownMenu.querySelectorAll('.lang-btn');
+        langButtons.forEach(button => {
+          button.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            const lang = button.getAttribute('data-lang');
+            this.changeLanguage(lang);
+            dropdownMenu.classList.remove('show');
+          });
+        });
+      }
     }
     
     // Méthode utilitaire pour obtenir une traduction par son code
