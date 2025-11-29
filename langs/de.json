@@ -103,6 +103,30 @@
       "searchAI": {
         "title": "KI-Suche",
         "description": "Finde schnell Informationen und Antworten mit unserer integrierten KI-Suchmaschine."
+      },
+      "contextualMemory": {
+        "title": "Kontextuelles Gedächtnis",
+        "description": "Der Bot erinnert sich an vorherige Gespräche für natürlichere und zusammenhängendere Interaktionen."
+      },
+      "fileManagement": {
+        "title": "Dateiverwaltung",
+        "description": "Lade verschiedene Dateitypen hoch, analysiere und verarbeite sie direkt in deinen Gesprächen."
+      },
+      "voiceGeneration": {
+        "title": "Sprachgenerierung",
+        "description": "Konvertiere Text in natürliches Audio mit realistischen und anpassbaren Stimmen."
+      },
+      "codeExecution": {
+        "title": "Code-Ausführung",
+        "description": "Führe Code in mehreren Programmiersprachen in Echtzeit aus und debugge ihn."
+      },
+      "multilingualTranslation": {
+        "title": "Mehrsprachige Übersetzung",
+        "description": "Übersetze instantan zwischen über 100 Sprachen mit außergewöhnlicher Genauigkeit."
+      },
+      "documentAnalysis": {
+        "title": "Dokumentenanalyse",
+        "description": "Extrahiere Schlüsselinformationen und fasse automatisch deine PDF- und Textdokumente zusammen."
       }
     },
     "models": {
@@ -121,6 +145,10 @@
       "gemini": "Googles fortschrittliches multimodales Modell",
       "llama": "Metas leistungsstarkes Open-Source-Modell",
       "deepseek": "KI spezialisiert auf komplexes Denken"
+    },
+    "imageModels": {
+      "title": "Verfügbare Bildermodelle",
+      "subtitle": "Erstelle einzigartige Bilder mit unseren fortschrittlichen KI-Modellen"
     },
     "providers": {
       "title": "Anbieter"
@@ -359,11 +387,6 @@
       "a7": "Fehler können in unserem Discord-Server im Kanal #bug-reports gemeldet oder direkt per E-Mail an das Support-Team gesendet werden. Bitte gib möglichst viele Details an, wie Schritte zur Reproduktion des Problems, Screenshots und Kontext."
     }
   },
-  "docsPage": {
-    "hero": {
-      "title": "AlphaLLM Dokumentation",
-      "subtitle": "Vollständiger Leitfaden zur Beherrschung des Discord KI-Bots"
-    },
     "installation": {
       "title": "Installation und Konfiguration",
       "content": "Um AlphaLLM zu Ihrem Discord-Server hinzuzufügen, klicken Sie auf die Schaltfläche \"Einladen\" auf der Startseite. Erteilen Sie die erforderlichen Berechtigungen, damit der Bot ordnungsgemäß funktioniert.",
@@ -418,6 +441,40 @@
     "support": {
       "title": "Weiterleitung zu Discord",
       "message": "Falls keine automatische Weiterleitung erfolgt, <a href=\"https://discord.gg/QGvyrUgwdK\">hier klicken</a>."
+    }
+  },
+  "downloadPage": {
+    "title": "Downloads",
+    "subtitle": "Lade AlphaLLM für deine bevorzugte Plattform herunter",
+    "platforms": {
+      "windows": {
+        "title": "Windows",
+        "description": "Windows-Version"
+      },
+      "macos": {
+        "title": "macOS",
+        "description": "macOS-Version"
+      },
+      "linux": {
+        "title": "Linux",
+        "description": "Linux-Version"
+      },
+      "android": {
+        "title": "Android",
+        "description": "Android-Version"
+      },
+      "ios": {
+        "title": "iOS",
+        "description": "Über App Store"
+      },
+      "source": {
+        "title": "Quellcode",
+        "description": "Quellcode auf GitHub"
+      }
+    },
+    "buttons": {
+      "soon": "Bald verfügbar",
+      "github": "GitHub"
     }
   }
 }

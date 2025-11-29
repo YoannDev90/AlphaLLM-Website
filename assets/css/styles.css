@@ -51,8 +51,8 @@
     /* Gradients */
     --gradient-primary: linear-gradient(90deg, var(--primary), var(--accent));
     --gradient-glow: linear-gradient(45deg, 
-        rgba(114, 137, 218, 0.15), 
-        rgba(255, 115, 250, 0.15)
+        rgba(255, 0, 0, 0.15), 
+        rgba(0, 0, 255, 0.15)
     );
 }
 

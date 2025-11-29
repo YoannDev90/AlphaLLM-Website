@@ -61,7 +61,39 @@
       "searchAI": {
         "title": "Ricerca AI",
         "description": "Trova rapidamente informazioni e risposte con il nostro motore di ricerca AI integrato."
+      },
+      "contextualMemory": {
+        "title": "Memoria Contestuale",
+        "description": "Il bot ricorda le conversazioni precedenti per interazioni più naturali e coerenti."
+      },
+      "fileManagement": {
+        "title": "Gestione File",
+        "description": "Carica, analizza e elabora vari tipi di file direttamente nelle tue conversazioni."
+      },
+      "voiceGeneration": {
+        "title": "Generazione Vocale",
+        "description": "Converti testo in audio naturale con voci realistiche e personalizzabili."
+      },
+      "codeExecution": {
+        "title": "Esecuzione Codice",
+        "description": "Esegui e debugga codice in molteplici linguaggi di programmazione in tempo reale."
+      },
+      "multilingualTranslation": {
+        "title": "Traduzione Multilingue",
+        "description": "Traduci istantaneamente tra oltre 100 lingue con precisione eccezionale."
+      },
+      "documentAnalysis": {
+        "title": "Analisi Documenti",
+        "description": "Estrai informazioni chiave e riassumi automaticamente i tuoi documenti PDF e testo."
       }
+    },
+    "models": {
+      "title": "Modelli Disponibili",
+      "subtitle": "Scegli tra una vasta gamma di modelli AI avanzati"
+    },
+    "imageModels": {
+      "title": "Modelli Immagini Disponibili",
+      "subtitle": "Genera immagini uniche con i nostri modelli AI avanzati"
     },
     "team": {
       "title": "Il nostro team",
@@ -255,11 +287,6 @@
       }
     }
   },
-  "docsPage": {
-    "hero": {
-      "title": "Documentazione AlphaLLM",
-      "subtitle": "Guida completa per padroneggiare il bot AI di Discord"
-    },
     "installation": {
       "title": "Installazione e Configurazione",
       "content": "Per aggiungere AlphaLLM al tuo server Discord, clicca sul pulsante \"Invita\" dalla pagina iniziale. Concedi i permessi necessari affinché il bot funzioni correttamente.",
@@ -307,5 +334,53 @@
     "subtitle": "Pagina non trovata",
     "message": "La pagina che stai cercando non esiste o è stata spostata.",
     "back": "Torna alla home"
+  },
+  "redirectPages": {
+    "github": {
+      "title": "Reindirizzamento a GitHub",
+      "message": "Se non vieni reindirizzato automaticamente, <a href=\"https://github.com/YoannDev90/AlphaLLM\">clicca qui</a>."
+    },
+    "invite": {
+      "title": "Reindirizzamento all'invito del bot",
+      "message": "Se non vieni reindirizzato automaticamente, <a href=\"https://discord.com/oauth2/authorize?client_id=1286951908786962442\">clicca qui</a>."
+    },
+    "support": {
+      "title": "Reindirizzamento a Discord",
+      "message": "Se non vieni reindirizzato automaticamente, <a href=\"https://discord.gg/QGvyrUgwdK\">clicca qui</a>."
+    }
+  },
+  "downloadPage": {
+    "title": "Download",
+    "subtitle": "Scarica AlphaLLM per la tua piattaforma preferita",
+    "platforms": {
+      "windows": {
+        "title": "Windows",
+        "description": "Versione per Windows"
+      },
+      "macos": {
+        "title": "macOS",
+        "description": "Versione per macOS"
+      },
+      "linux": {
+        "title": "Linux",
+        "description": "Versione per Linux"
+      },
+      "android": {
+        "title": "Android",
+        "description": "Versione Android"
+      },
+      "ios": {
+        "title": "iOS",
+        "description": "Tramite App Store"
+      },
+      "source": {
+        "title": "Codice Sorgente",
+        "description": "Codice sorgente su GitHub"
+      }
+    },
+    "buttons": {
+      "soon": "Presto",
+      "github": "GitHub"
+    }
   }
 }

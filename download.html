@@ -3,36 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Documentation AlphaLLM - Guide d'utilisation du Bot Discord IA</title>
+    <title>AlphaLLM - Downloads</title>
     
     <!-- Favicons -->
     <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
     
     <!-- Meta SEO -->
-    <meta name="description" content="Guide complet pour utiliser AlphaLLM, le bot Discord IA gratuit. Découvrez comment installer, configurer et utiliser les fonctionnalités de chat intelligent, génération d'images et traduction.">
+    <meta name="description" content="Download AlphaLLM, the free AI Discord bot for intelligent chat, image generation and real-time translation.">
     <meta name="author" content="YoannDev90">
     <meta name="robots" content="index, follow">
     <meta name="googlebot" content="index, follow">
     
     <!-- Open Graph / Social Media -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://alphallm.tech/docs.html">
-    <meta property="og:title" content="Documentation AlphaLLM - Guide du Bot Discord IA">
-    <meta property="og:description" content="Apprenez à maîtriser AlphaLLM : installation, commandes et fonctionnalités avancées pour votre serveur Discord.">
-    <meta property="og:image" content="assets/images/banner.jpg">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:url" content="https://alphallm.tech/download.html">
+    <meta property="og:title" content="AlphaLLM - Downloads">
+    <meta property="og:description" content="Download AlphaLLM, the free AI Discord bot.">
+    <meta property="og:image" content="assets/images/logo.webp">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@AlphaLLM_Bot">
-    <meta name="twitter:title" content="Documentation AlphaLLM - Guide du Bot Discord IA">
-    <meta name="twitter:description" content="Apprenez à maîtriser AlphaLLM : installation, commandes et fonctionnalités avancées pour votre serveur Discord.">
-    <meta name="twitter:image" content="assets/images/banner.jpg">
+    <meta name="twitter:title" content="AlphaLLM - Downloads">
+    <meta name="twitter:description" content="Download AlphaLLM, the free AI Discord bot.">
+    <meta name="twitter:image" content="assets/images/logo.webp">
     
     <!-- Canonical URL -->
-    <link rel="canonical" href="https://alphallm.tech/docs.html">
+    <link rel="canonical" href="https://alphallm.tech/download.html">
 
     <!-- Performance Optimizations -->
     <link rel="preload" href="assets/css/main.css" as="style">
@@ -60,13 +57,14 @@
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "WebPage",
-      "name": "Documentation AlphaLLM",
-      "description": "Guide d'utilisation du bot Discord IA AlphaLLM.",
-      "url": "https://alphallm.tech/docs.html",
+      "@type": "WebSite",
+      "name": "AlphaLLM",
+      "description": "Bot Discord IA gratuit pour chat intelligent, génération d'images et traduction.",
+      "url": "https://alphallm.tech/",
       "publisher": {
         "@type": "Organization",
-        "name": "YoannDev90"
+        "name": "YoannDev90",
+        "url": "https://github.com/YoannDev90"
       }
     }
     </script>
@@ -85,7 +83,7 @@
             
             <div class="nav-links">
                 <a href="index.html" data-i18n="global.navigation.home">Accueil</a>
-                <a href="docs.html" class="active" data-i18n="global.navigation.docs">Documentation</a>
+                <a href="download.html" class="active">Téléchargements</a>
                 <a href="status.html" data-i18n="global.navigation.status">Statut</a>
                 <a href="support.html" data-i18n="global.navigation.support">Support</a>
             </div>
@@ -109,84 +107,62 @@
     </header>
 
     <main>
-        <!-- Hero section -->
-        <section class="hero">
+        <!-- Download section -->
+        <section class="download-section">
             <div class="container">
-                <div class="hero-content">
-                    <h1 class="hero-title" data-i18n="docsPage.hero.title">Documentation AlphaLLM</h1>
-                    <p class="hero-subtitle" data-i18n="docsPage.hero.subtitle">Guide complet pour maîtriser le bot Discord IA</p>
-                </div>
-                <div class="hero-image">
-                    <img src="assets/images/logo.webp" style="border-radius: 50px;" alt="Logo d'AlphaLLM, bot Discord IA avancé" class="float">
-                </div>
-                <div class="hero-bg-glow"></div>
-            </div>
-        </section>
-
-        <!-- Documentation sections -->
-        <section class="features-section">
-            <div class="container">
-                <h2 class="section-title" data-i18n="docsPage.installation.title">Installation et Configuration</h2>
-                <p data-i18n="docsPage.installation.content">Pour ajouter AlphaLLM à votre serveur Discord, cliquez sur le bouton "Inviter" depuis la page d'accueil. Accordez les permissions nécessaires pour que le bot fonctionne correctement.</p>
+                <h1 class="section-title" data-i18n="downloadPage.title">Téléchargements</h1>
+                <p class="section-subtitle" data-i18n="downloadPage.subtitle">Téléchargez AlphaLLM pour votre plateforme préférée</p>
                 
-                <h3 data-i18n="docsPage.installation.permissions.title">Permissions Requises</h3>
-                <ul>
-                    <li data-i18n="docsPage.installation.permissions.item1">Lire les messages</li>
-                    <li data-i18n="docsPage.installation.permissions.item2">Envoyer des messages</li>
-                    <li data-i18n="docsPage.installation.permissions.item3">Utiliser des commandes slash</li>
-                    <li data-i18n="docsPage.installation.permissions.item4">Gérer les messages (optionnel pour la modération)</li>
-                </ul>
-            </div>
-        </section>
-
-        <section class="features-section">
-            <div class="container">
-                                <h2 class="section-title" data-i18n="docsPage.commands.title">Commandes Principales</h2>
-                
-                <div class="features-grid">
-                    <div class="feature-card card">
-                        <div class="feature-icon">
-                            <i class="fas fa-robot"></i>
+                <div class="download-grid">
+                    <div class="download-card">
+                        <div class="download-icon">
+                            <i class="fab fa-windows"></i>
                         </div>
-                        <h3 class="feature-title" data-i18n="docsPage.commands.chat.title">/chat</h3>
-                        <p class="feature-description" data-i18n="docsPage.commands.chat.description">Démarrez une conversation avec l'IA. Exemple : /chat message="Bonjour, comment ça va ?"</p>
+                        <h3 class="download-title" data-i18n="downloadPage.platforms.windows.title">Windows</h3>
+                        <button class="btn btn-download" disabled data-i18n="downloadPage.buttons.soon">Soon</button>
                     </div>
                     
-                    <div class="feature-card card">
-                        <div class="feature-icon">
-                            <i class="fas fa-image"></i>
+                    <div class="download-card">
+                        <div class="download-icon">
+                            <i class="fab fa-apple"></i>
                         </div>
-                        <h3 class="feature-title" data-i18n="docsPage.commands.image.title">/image</h3>
-                        <p class="feature-description" data-i18n="docsPage.commands.image.description">Créez des images uniques à partir de simples descriptions textuelles.</p>
+                        <h3 class="download-title" data-i18n="downloadPage.platforms.macos.title">macOS</h3>
+                        <button class="btn btn-download" disabled data-i18n="downloadPage.buttons.soon">Soon</button>
                     </div>
-
-                    <div class="feature-card card">
-                        <div class="feature-icon">
-                            <i class="fas fa-search"></i>
-                        </div>
-                        <h3 class="feature-title" data-i18n="docsPage.commands.search.title">/search</h3>
-                        <p class="feature-description" data-i18n="docsPage.commands.search.description">Trouvez rapidement des informations et des réponses grâce à notre moteur de recherche IA intégré.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="features-section">
-            <div class="container">
-                <h2 class="section-title" data-i18n="docsPage.models.title">Modèles Disponibles</h2>
-                <p data-i18n="docsPage.models.content">AlphaLLM supporte plusieurs modèles IA. Consultez la page d'accueil pour la liste complète.</p>
-            </div>
-        </section>
-
-        <section class="features-section">
-            <div class="container">
-                <h2 class="section-title" data-i18n="docsPage.faq.title">FAQ</h2>
-                <div class="faq">
-                    <h3 data-i18n="docsPage.faq.q1.question">Le bot ne répond pas ?</h3>
-                    <p data-i18n="docsPage.faq.q1.answer">Vérifiez les permissions et assurez-vous que le bot est en ligne (voir la page Statut).</p>
                     
-                    <h3 data-i18n="docsPage.faq.q2.question">Comment changer de modèle ?</h3>
-                    <p data-i18n="docsPage.faq.q2.answer">Utilisez la commande /model pour sélectionner un modèle spécifique.</p>
+                    <div class="download-card">
+                        <div class="download-icon">
+                            <i class="fab fa-linux"></i>
+                        </div>
+                        <h3 class="download-title" data-i18n="downloadPage.platforms.linux.title">Linux</h3>
+                        <button class="btn btn-download" disabled data-i18n="downloadPage.buttons.soon">Soon</button>
+                    </div>
+                    
+                    <div class="download-card">
+                        <div class="download-icon">
+                            <i class="fab fa-android"></i>
+                        </div>
+                        <h3 class="download-title" data-i18n="downloadPage.platforms.android.title">Android</h3>
+                        <button class="btn btn-download" disabled data-i18n="downloadPage.buttons.soon">Soon</button>
+                    </div>
+                    
+                    <div class="download-card">
+                        <div class="download-icon">
+                            <i class="fab fa-app-store-ios"></i>
+                        </div>
+                        <h3 class="download-title" data-i18n="downloadPage.platforms.ios.title">iOS</h3>
+                        <button class="btn btn-download" disabled data-i18n="downloadPage.buttons.soon">Soon</button>
+                    </div>
+                    
+                    <div class="download-card">
+                        <div class="download-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h3 class="download-title" data-i18n="downloadPage.platforms.source.title">Source Code</h3>
+                        <a href="https://github.com/YoannDev90/AlphaLLM" class="btn btn-download" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-github"></i> <span data-i18n="downloadPage.buttons.github">GitHub</span>
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>
@@ -197,7 +173,7 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">
-                    <img src="assets/images/logo.webp" alt="Logo d'AlphaLLM, bot Discord IA gratuit" class="logo-small">
+                    <img src="assets/images/logo.webp" alt="Logo d'AlphaLLM, bot Discord IA gratuit" class="logo-small" loading="lazy" width="50" height="50">
                     <h3>AlphaLLM</h3>
                 </div>
                 
@@ -222,7 +198,6 @@
                 
                 <div class="footer-social">
                     <a href="https://discord.gg/QGvyrUgwdK" target="_blank" rel="noopener noreferrer" aria-label="Discord"><i class="fab fa-discord"></i></a>
-                    <a href="https://x.com/AlphaLLM_Bot" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
                     <a href="https://github.com/YoannDev90/AlphaLLM" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
                 </div>
             </div>

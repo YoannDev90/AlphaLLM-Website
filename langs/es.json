@@ -83,36 +83,64 @@
       "images": "Images generated"
     },
     "features": {
-      "title": "Features",
+      "title": "Características",
       "multiModels": {
-        "title": "Conversational AI",
-        "description": "Chat with an advanced AI capable of understanding context and generating relevant responses."
+        "title": "IA Conversacional",
+        "description": "Chatea con una IA avanzada capaz de entender el contexto y generar respuestas relevantes."
       },
       "imageGeneration": {
-        "title": "Image Generation",
-        "description": "Create unique images from simple text descriptions."
+        "title": "Generación de Imágenes",
+        "description": "Crea imágenes únicas a partir de simples descripciones de texto."
       },
       "searchAI": {
-        "title": "AI Search",
-        "description": "Quickly find information and answers with our integrated AI search engine."
+        "title": "Búsqueda IA",
+        "description": "Encuentra rápidamente información y respuestas con nuestro motor de búsqueda IA integrado."
+      },
+      "contextualMemory": {
+        "title": "Memoria Contextual",
+        "description": "El bot recuerda conversaciones anteriores para interacciones más naturales y coherentes."
+      },
+      "fileManagement": {
+        "title": "Gestión de Archivos",
+        "description": "Sube, analiza y procesa varios tipos de archivos directamente en tus conversaciones."
+      },
+      "voiceGeneration": {
+        "title": "Generación de Voz",
+        "description": "Convierte texto en audio natural con voces realistas y personalizables."
+      },
+      "codeExecution": {
+        "title": "Ejecución de Código",
+        "description": "Ejecuta y depura código en múltiples lenguajes de programación en tiempo real."
+      },
+      "multilingualTranslation": {
+        "title": "Traducción Multilingüe",
+        "description": "Traduce instantáneamente entre más de 100 idiomas con precisión excepcional."
+      },
+      "documentAnalysis": {
+        "title": "Análisis de Documentos",
+        "description": "Extrae información clave y resume automáticamente tus documentos PDF y texto."
       }
     },
     "models": {
-      "title": "Available Models",
-      "subtitle": "Choose from a wide range of advanced AI models",
+      "title": "Modelos Disponibles",
+      "subtitle": "Elige entre una amplia gama de modelos IA avanzados",
       "table": {
-        "icon": "Icon",
-        "name": "Name",
-        "provider": "Provider",
+        "icon": "Icono",
+        "name": "Nombre",
+        "provider": "Proveedor",
         "editor": "Editor",
         "bot": "Bot"
       },
-      "alphallm": "Our main model, optimized for Discord conversations",
-      "chatgpt": "OpenAI's GPT model for versatile responses",
-      "claude": "Anthropic's AI specialized in safe conversations",
-      "gemini": "Google's advanced multimodal model",
-      "llama": "Meta's high-performance open-source model",
-      "deepseek": "AI specialized in complex reasoning"
+      "alphallm": "Nuestro modelo principal, optimizado para conversaciones Discord",
+      "chatgpt": "El modelo GPT de OpenAI para respuestas versátiles",
+      "claude": "IA de Anthropic especializada en conversaciones seguras",
+      "gemini": "El modelo multimodal avanzado de Google",
+      "llama": "Modelo de código abierto de alto rendimiento de Meta",
+      "deepseek": "IA especializada en razonamiento complejo"
+    },
+    "imageModels": {
+      "title": "Modelos de Imágenes Disponibles",
+      "subtitle": "Genera imágenes únicas con nuestros modelos IA avanzados"
     },
     "providers": {
       "title": "Providers"
@@ -351,11 +379,6 @@
       "a7": "You can report bugs on our Discord server in the #bug-reports channel or by contacting our support team directly via email. Please provide as much detail as possible, such as steps to reproduce the issue, screenshots, and context."
     }
   },
-  "docsPage": {
-    "hero": {
-      "title": "Documentación de AlphaLLM",
-      "subtitle": "Guía completa para dominar el bot de IA de Discord"
-    },
     "installation": {
       "title": "Instalación y Configuración",
       "content": "Para agregar AlphaLLM a tu servidor de Discord, haz clic en el botón \"Invitar\" desde la página de inicio. Otorga los permisos necesarios para que el bot funcione correctamente.",
@@ -400,16 +423,50 @@
   },
   "redirectPages": {
     "github": {
-      "title": "Redirecting to GitHub",
-      "message": "If you are not redirected automatically, <a href=\"https://github.com/YoannDev90/AlphaLLM\">click here</a>."
+      "title": "Redirigiendo a GitHub",
+      "message": "Si no eres redirigido automáticamente, <a href=\"https://github.com/YoannDev90/AlphaLLM\">haz clic aquí</a>."
     },
     "invite": {
-      "title": "Redirecting to bot invitation",
-      "message": "If you are not redirected automatically, <a href=\"https://discord.com/oauth2/authorize?client_id=1286951908786962442\">click here</a>."
+      "title": "Redirigiendo a la invitación del bot",
+      "message": "Si no eres redirigido automáticamente, <a href=\"https://discord.com/oauth2/authorize?client_id=1286951908786962442\">haz clic aquí</a>."
     },
     "support": {
-      "title": "Redirecting to Discord",
-      "message": "If you are not redirected automatically, <a href=\"https://discord.gg/QGvyrUgwdK\">click here</a>."
+      "title": "Redirigiendo a Discord",
+      "message": "Si no eres redirigido automáticamente, <a href=\"https://discord.gg/QGvyrUgwdK\">haz clic aquí</a>."
+    }
+  },
+  "downloadPage": {
+    "title": "Descargas",
+    "subtitle": "Descarga AlphaLLM para tu plataforma preferida",
+    "platforms": {
+      "windows": {
+        "title": "Windows",
+        "description": "Versión para Windows"
+      },
+      "macos": {
+        "title": "macOS",
+        "description": "Versión para macOS"
+      },
+      "linux": {
+        "title": "Linux",
+        "description": "Versión para Linux"
+      },
+      "android": {
+        "title": "Android",
+        "description": "Versión Android"
+      },
+      "ios": {
+        "title": "iOS",
+        "description": "A través de App Store"
+      },
+      "source": {
+        "title": "Código Fuente",
+        "description": "Código fuente en GitHub"
+      }
+    },
+    "buttons": {
+      "soon": "Próximamente",
+      "github": "GitHub"
     }
   }
 }

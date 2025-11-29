@@ -4,6 +4,7 @@
     "siteDescription": "Conversational multi-model AI Discord bot with image generation",
     "navigation": {
       "home": "Home",
+      "download": "Download",
       "docs": "Documentation",
       "status": "Status",
       "support": "Support",
@@ -25,6 +26,19 @@
       "menu": "Menu"
     },
     "logoAlt": "AlphaLLM Logo",
+    "header": {
+      "languageSelector": "Language",
+      "currentLang": "English",
+      "languages": {
+        "fr": "French",
+        "en": "English",
+        "de": "German",
+        "es": "Spanish",
+        "pt": "Portuguese",
+        "nl": "Dutch",
+        "it": "Italian"
+      }
+    },
     "footer": {
       "product": "Product",
       "documentation": "Documentation",
@@ -79,9 +93,10 @@
   },
   "homePage": {
     "hero": {
-      "title": "AlphaLLM",
-      "subtitle": "Advanced AI for your Discord server",
-      "cta": "Invite"
+      "title": "AlphaLLM : The Free Advanced AI Discord Bot for Chat, Images and Translation",
+      "subtitle": "Improve your Discord server with intelligent chat, image generation and real-time translation",
+      "description": "Discover AlphaLLM, the free AI Discord bot for intelligent chat, image generation and real-time translation. Enhance your Discord server with advanced models like ChatGPT and Claude. Invite it now!",
+      "cta": "Invite to Discord"
     },
     "stats": {
       "servers": "Servers",
@@ -103,6 +118,30 @@
       "searchAI": {
         "title": "AI Search",
         "description": "Quickly find information and answers with our integrated AI search engine."
+      },
+      "contextualMemory": {
+        "title": "Contextual Memory",
+        "description": "The bot remembers previous conversations for more natural and coherent interactions."
+      },
+      "fileManagement": {
+        "title": "File Management",
+        "description": "Upload, analyze, and process various file types directly in your conversations."
+      },
+      "voiceGeneration": {
+        "title": "Voice Generation",
+        "description": "Convert text to natural audio with realistic and customizable voices."
+      },
+      "codeExecution": {
+        "title": "Code Execution",
+        "description": "Execute and debug code in multiple programming languages in real-time."
+      },
+      "multilingualTranslation": {
+        "title": "Multilingual Translation",
+        "description": "Translate instantly between over 100 languages with exceptional accuracy."
+      },
+      "documentAnalysis": {
+        "title": "Document Analysis",
+        "description": "Extract key information and automatically summarize your PDF and text documents."
       }
     },
     "models": {
@@ -121,6 +160,10 @@
       "gemini": "Google's advanced multimodal model",
       "llama": "Meta's high-performance open-source model",
       "deepseek": "AI specialized in complex reasoning"
+    },
+    "imageModels": {
+      "title": "Available Image Models",
+      "subtitle": "Generate unique images with our advanced AI models"
     },
     "providers": {
       "title": "Providers"
@@ -359,11 +402,6 @@
       "a7": "You can report bugs on our Discord server in the #bug-reports channel or by contacting our support team directly via email. Please provide as much detail as possible, such as steps to reproduce the issue, screenshots, and context."
     }
   },
-  "docsPage": {
-    "hero": {
-      "title": "AlphaLLM Documentation",
-      "subtitle": "Complete guide to master the Discord AI bot"
-    },
     "installation": {
       "title": "Installation and Configuration",
       "content": "To add AlphaLLM to your Discord server, click the \"Invite\" button from the homepage. Grant the necessary permissions for the bot to function properly.",
@@ -418,6 +456,40 @@
     "support": {
       "title": "Redirecting to Discord",
       "message": "If you are not redirected automatically, <a href=\"https://discord.gg/QGvyrUgwdK\">click here</a>."
+    }
+  },
+  "downloadPage": {
+    "title": "Downloads",
+    "subtitle": "Download AlphaLLM for your preferred platform",
+    "platforms": {
+      "windows": {
+        "title": "Windows",
+        "description": "Windows version"
+      },
+      "macos": {
+        "title": "macOS",
+        "description": "macOS version"
+      },
+      "linux": {
+        "title": "Linux",
+        "description": "Linux version"
+      },
+      "android": {
+        "title": "Android",
+        "description": "Android version"
+      },
+      "ios": {
+        "title": "iOS",
+        "description": "Via App Store"
+      },
+      "source": {
+        "title": "Source Code",
+        "description": "Source code on GitHub"
+      }
+    },
+    "buttons": {
+      "soon": "Soon",
+      "github": "GitHub"
     }
   }
 }

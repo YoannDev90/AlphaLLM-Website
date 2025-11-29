@@ -61,7 +61,39 @@
       "searchAI": {
         "title": "AI-zoeken",
         "description": "Vind snel informatie en antwoorden met onze geïntegreerde AI-zoekmachine."
+      },
+      "contextualMemory": {
+        "title": "Contextueel Geheugen",
+        "description": "De bot onthoudt vorige gesprekken voor meer natuurlijke en coherente interacties."
+      },
+      "fileManagement": {
+        "title": "Bestandsbeheer",
+        "description": "Upload, analyseer en verwerk verschillende bestandstypen direct in je gesprekken."
+      },
+      "voiceGeneration": {
+        "title": "Stemgeneratie",
+        "description": "Converteer tekst naar natuurlijke audio met realistische en aanpasbare stemmen."
+      },
+      "codeExecution": {
+        "title": "Code-uitvoering",
+        "description": "Voer code uit en debug in meerdere programmeertalen in real-time."
+      },
+      "multilingualTranslation": {
+        "title": "Meertalige Vertaling",
+        "description": "Vertaal instant tussen meer dan 100 talen met uitzonderlijke nauwkeurigheid."
+      },
+      "documentAnalysis": {
+        "title": "Documentanalyse",
+        "description": "Extraheer sleutelinformation en vat automatisch je PDF- en tekstdocumenten samen."
       }
+    },
+    "models": {
+      "title": "Beschikbare Modellen",
+      "subtitle": "Kies uit een breed scala aan geavanceerde AI-modellen"
+    },
+    "imageModels": {
+      "title": "Beschikbare Beeldmodellen",
+      "subtitle": "Genereer unieke beelden met onze geavanceerde AI-modellen"
     },
     "team": {
       "title": "Ons Team",
@@ -255,11 +287,6 @@
       }
     }
   },
-  "docsPage": {
-    "hero": {
-      "title": "AlphaLLM Documentatie",
-      "subtitle": "Complete gids om de Discord AI-bot te beheersen"
-    },
     "installation": {
       "title": "Installatie en Configuratie",
       "content": "Om AlphaLLM toe te voegen aan uw Discord-server, klik op de \"Uitnodigen\" knop vanaf de startpagina. Verleen de benodigde machtigingen zodat de bot correct functioneert.",
@@ -307,5 +334,53 @@
     "subtitle": "Pagina niet gevonden",
     "message": "De pagina die je zoekt bestaat niet of is verplaatst.",
     "back": "Terug naar home"
+  },
+  "redirectPages": {
+    "github": {
+      "title": "Doorverwijzing naar GitHub",
+      "message": "Als je niet automatisch wordt doorverwezen, <a href=\"https://github.com/YoannDev90/AlphaLLM\">klik hier</a>."
+    },
+    "invite": {
+      "title": "Doorverwijzing naar bot-uitnodiging",
+      "message": "Als je niet automatisch wordt doorverwezen, <a href=\"https://discord.com/oauth2/authorize?client_id=1286951908786962442\">klik hier</a>."
+    },
+    "support": {
+      "title": "Doorverwijzing naar Discord",
+      "message": "Als je niet automatisch wordt doorverwezen, <a href=\"https://discord.gg/QGvyrUgwdK\">klik hier</a>."
+    }
+  },
+  "downloadPage": {
+    "title": "Downloads",
+    "subtitle": "Download AlphaLLM voor je favoriete platform",
+    "platforms": {
+      "windows": {
+        "title": "Windows",
+        "description": "Windows versie"
+      },
+      "macos": {
+        "title": "macOS",
+        "description": "macOS versie"
+      },
+      "linux": {
+        "title": "Linux",
+        "description": "Linux versie"
+      },
+      "android": {
+        "title": "Android",
+        "description": "Android versie"
+      },
+      "ios": {
+        "title": "iOS",
+        "description": "Via App Store"
+      },
+      "source": {
+        "title": "Broncode",
+        "description": "Broncode op GitHub"
+      }
+    },
+    "buttons": {
+      "soon": "Binnenkort",
+      "github": "GitHub"
+    }
   }
 }
