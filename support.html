@@ -9,7 +9,7 @@
     <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
     
     <!-- Meta SEO -->
-    <meta name="description" content="Centre de support AlphaLLM. Obtenez de l'aide, consultez la FAQ et rejoignez notre communauté Discord.">
+    <meta name="description" content="AlphaLLM support center. Get help, check the FAQ and join our Discord community.">
     <meta name="keywords" content="AlphaLLM, Discord Bot, Support, Aide, FAQ, Discord Support">
     <meta name="author" content="YoannDev90">
     
@@ -17,7 +17,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://alphallm.tech/support.html">
     <meta property="og:title" content="Support - AlphaLLM Bot">
-    <meta property="og:description" content="Obtenez de l'aide pour AlphaLLM, consultez notre FAQ et rejoignez la communauté Discord.">
+    <meta property="og:description" content="Get help for AlphaLLM, check our FAQ and join the Discord community.">
     <meta property="og:image" content="https://alphallm.tech/assets/images/og-image.jpg">
     
     <!-- Stylesheets -->
@@ -51,7 +51,7 @@
             
             <div class="nav-links">
                 <a href="index.html" data-i18n="nav.home">Accueil</a>
-                <a href="docs.html" data-i18n="nav.docs">Documentation</a>
+                <a href="download.html">Téléchargements</a>
                 <a href="status.html" data-i18n="nav.status">Statut</a>
                 <a href="support.html" class="active" data-i18n="nav.support">Support</a>
             </div>
@@ -62,11 +62,6 @@
                     <div class="dropdown-menu">
                         <button class="lang-btn language-selector" data-lang="fr"><img src="https://flagcdn.com/fr.svg" alt="FR" width="20"> Français</button>
                         <button class="lang-btn language-selector" data-lang="en"><img src="https://flagcdn.com/us.svg" alt="EN" width="20"> English</button>
-                        <button class="lang-btn language-selector" data-lang="de"><img src="https://flagcdn.com/de.svg" alt="DE" width="20"> Deutsch</button>
-                        <button class="lang-btn language-selector" data-lang="es"><img src="https://flagcdn.com/es.svg" alt="ES" width="20"> Español</button>
-                        <button class="lang-btn language-selector" data-lang="pt"><img src="https://flagcdn.com/pt.svg" alt="PT" width="20"> Português</button>
-                        <button class="lang-btn language-selector" data-lang="nl"><img src="https://flagcdn.com/nl.svg" alt="NL" width="20"> Nederlands</button>
-                        <button class="lang-btn language-selector" data-lang="it"><img src="https://flagcdn.com/it.svg" alt="IT" width="20"> Italiano</button>
                     </div>
                 </div>
                 <button class="mobile-menu-btn" aria-label="Menu"><i class="fas fa-bars"></i></button>
@@ -88,17 +83,6 @@
             <div class="options-grid">
                 <div class="support-card glass-card scale-in" style="--delay: 0.1s;">
                     <div class="support-icon">
-                        <i class="fas fa-book"></i>
-                    </div>
-                    <h3 data-i18n="support.docs.title">Documentation</h3>
-                    <p data-i18n="support.docs.description">Consultez notre documentation détaillée pour tout savoir sur l'utilisation d'AlphaLLM.</p>
-                    <a href="docs.html" class="btn btn-secondary" data-i18n="support.docs.button">
-                        <i class="fas fa-external-link-alt"></i> Voir la documentation
-                    </a>
-                </div>
-
-                <div class="support-card glass-card scale-in" style="--delay: 0.2s;">
-                    <div class="support-icon">
                         <i class="fab fa-discord"></i>
                     </div>
                     <h3 data-i18n="support.discord.title">Serveur Discord</h3>
@@ -108,13 +92,13 @@
                     </a>
                 </div>
 
-                <div class="support-card glass-card scale-in" style="--delay: 0.3s;">
+                <div class="support-card glass-card scale-in" style="--delay: 0.2s;">
                     <div class="support-icon">
                         <i class="fas fa-envelope"></i>
                     </div>
                     <h3 data-i18n="support.contact.title">Contact Direct</h3>
                     <p data-i18n="support.contact.description">Une question spécifique ? Contactez directement notre équipe de support.</p>
-                    <a href="mailto:support@alphallm.tech" class="btn btn-secondary" data-i18n="support.contact.button">
+                    <a href="mailto:alphallm@mailo.com" class="btn btn-secondary" data-i18n="support.contact.button">
                         <i class="fas fa-paper-plane"></i> Envoyer un email
                     </a>
                 </div>
@@ -204,48 +188,43 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">
-                    <img src="assets/images/logo.webp" alt="AlphaLLM Logo" class="logo-small">
+                    <img src="assets/images/logo.webp" alt="Logo d'AlphaLLM, bot Discord IA gratuit" class="logo-small" loading="lazy" width="50" height="50">
                     <h3>AlphaLLM</h3>
                 </div>
                 
                 <div class="footer-links">
                     <div class="footer-column">
-                        <h4 data-i18n="footer.product">Produit</h4>
-                        <a href="docs.html" data-i18n="footer.documentation">Documentation</a>
-                        <a href="status.html" data-i18n="footer.status">Statut</a>
+                        <h4 data-i18n="global.footer.product">Produit</h4>
+                        <a href="status.html" data-i18n="global.footer.status">Statut</a>
                     </div>
                     
                     <div class="footer-column">
-                        <h4 data-i18n="footer.resources">Ressources</h4>
-                        <a href="support.html" data-i18n="footer.support">Support</a>
-                        <a href="https://discord.gg/QGvyrUgwdK" target="_blank" data-i18n="footer.discord">Serveur Discord</a>
-                        <a href="dashboard.html" data-i18n="footer.dashboard">Tableau de bord</a>
+                        <h4 data-i18n="global.footer.resources">Ressources</h4>
+                        <a href="support.html" data-i18n="global.footer.support">Support</a>
+                        <a href="https://discord.gg/QGvyrUgwdK" target="_blank" rel="noopener noreferrer" data-i18n="global.footer.discord">Serveur Discord</a>
                     </div>
                     
                     <div class="footer-column">
-                        <h4 data-i18n="footer.legal">Juridique</h4>
-                        <a href="legals.html#terms" data-i18n="footer.terms">Conditions d'utilisation</a>
-                        <a href="legals.html#privacy" data-i18n="footer.privacy">Politique de confidentialité</a>
-                        <a href="legals.html#cookies" data-i18n="footer.cookies">Politique de cookies</a>
+                        <h4 data-i18n="global.footer.legal">Juridique</h4>
+                        <a href="legals.html#terms" data-i18n="global.footer.termsOfService">Conditions d'utilisation</a>
+                        <a href="legals.html#privacy" data-i18n="global.footer.privacyPolicy">Politique de confidentialité</a>
                     </div>
                 </div>
                 
                 <div class="footer-social">
-                    <a href="https://discord.gg/QGvyrUgwdK" target="_blank" aria-label="Discord"><i class="fab fa-discord"></i></a>
-                    <a href="https://x.com/AlphaLLM_Bot" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                    <a href="https://github.com/YoannDev90/AlphaLLM" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="https://discord.gg/QGvyrUgwdK" target="_blank" rel="noopener noreferrer" aria-label="Discord"><i class="fab fa-discord"></i></a>
+                    <a href="https://github.com/YoannDev90/AlphaLLM" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
                 </div>
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; <span id="current-year">2024</span> AlphaLLM. <span data-i18n="footer.rights">Tous droits réservés.</span></p>
-                <p class="made-with"><span data-i18n="footer.madeWith">Fait avec</span> <i class="fas fa-heart"></i> <span data-i18n="footer.by">par</span> <a href="https://github.com/YoannDev90" target="_blank">Yoann</a></p>
+                <p>&copy; <span id="current-year">2024</span> AlphaLLM. <span data-i18n="global.footer.copyright">Tous droits réservés.</span></p>
             </div>
         </div>
     </footer>
 
     <!-- Back to top button -->
-    <button id="back-to-top" aria-label="Retour en haut" class="neon-effect"><i class="fas fa-arrow-up"></i></button>
+    <button id="back-to-top" class="visible" aria-label="Retour en haut"><i class="fas fa-arrow-up"></i></button>
 
     <!-- Support script -->
     <script defer>

@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
     constructor() {
       this.currentLanguage = 'fr'; // Langue par défaut
       this.translations = {};
-      this.supportedLanguages = ['fr', 'en', 'de', 'es', 'pt', 'nl', 'it'];
+      this.supportedLanguages = ['fr', 'en'];
       this.init();
     }
 
@@ -35,26 +35,44 @@ document.addEventListener('DOMContentLoaded', function() {
       document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
     }
 
+    // Méthodes de gestion du localStorage pour la langue
+    saveLanguageToStorage(lang) {
+      try {
+        localStorage.setItem('language', lang);
+      } catch (error) {
+        console.warn('localStorage not available for language:', error);
+      }
+    }
+
+    getLanguageFromStorage() {
+      try {
+        const storedLang = localStorage.getItem('language');
+        return storedLang && this.supportedLanguages.includes(storedLang) ? storedLang : null;
+      } catch (error) {
+        console.warn('localStorage not available for language:', error);
+        return null;
+      }
+    }
+
     async init() {
       try {
         // Utiliser la langue détectée précocement si elle existe
         if (window.earlyDetectedLanguage && this.supportedLanguages.includes(window.earlyDetectedLanguage)) {
           this.currentLanguage = window.earlyDetectedLanguage;
         } else {
-          // Récupérer la langue depuis les cookies en priorité
-          const cookieLang = this.getCookie('user_language');
+          // Récupérer la langue depuis localStorage en priorité
+          const storedLang = this.getLanguageFromStorage();
           
-          if (cookieLang && this.supportedLanguages.includes(cookieLang)) {
-            this.currentLanguage = cookieLang;
+          if (storedLang) {
+            this.currentLanguage = storedLang;
           } else {
-            // Vérifier si une langue est stockée dans localStorage (migration)
-            const storedLang = localStorage.getItem('language');
+            // Récupérer la langue depuis les cookies (rétrocompatibilité)
+            const cookieLang = this.getCookie('user_language');
             
-            if (storedLang && this.supportedLanguages.includes(storedLang)) {
-              this.currentLanguage = storedLang;
-              // Migrer vers les cookies et nettoyer localStorage
-              this.setCookie('user_language', storedLang);
-              localStorage.removeItem('language');
+            if (cookieLang && this.supportedLanguages.includes(cookieLang)) {
+              this.currentLanguage = cookieLang;
+              // Migrer vers localStorage
+              this.saveLanguageToStorage(cookieLang);
             } else {
               // Détecter la langue du navigateur
               const browserLang = navigator.language.split('-')[0];
@@ -69,7 +87,8 @@ document.addEventListener('DOMContentLoaded', function() {
           }
         }
         
-        // Sauvegarder la langue détectée dans les cookies
+        // Sauvegarder la langue dans localStorage et cookies
+        this.saveLanguageToStorage(this.currentLanguage);
         this.setCookie('user_language', this.currentLanguage);
         
         // Définir l'attribut lang du document HTML (au cas où early-i18n n'aurait pas fonctionné)
@@ -90,6 +109,7 @@ document.addEventListener('DOMContentLoaded', function() {
       } catch (error) {
         // En cas d'erreur, utiliser le français par défaut
         this.currentLanguage = 'fr';
+        this.saveLanguageToStorage('fr');
         this.setCookie('user_language', 'fr');
         document.documentElement.setAttribute('lang', 'fr');
         await this.loadTranslations('fr');
@@ -152,13 +172,9 @@ document.addEventListener('DOMContentLoaded', function() {
         if (success) {
           this.currentLanguage = lang;
           
-          // Sauvegarder dans les cookies avec durée de vie maximale
+          // Sauvegarder dans localStorage et cookies
+          this.saveLanguageToStorage(lang);
           this.setCookie('user_language', lang);
-          
-          // Nettoyer l'ancien localStorage si il existe encore
-          if (localStorage.getItem('language')) {
-            localStorage.removeItem('language');
-          }
           
           // Mettre à jour l'attribut lang du document HTML
           document.documentElement.setAttribute('lang', lang);
@@ -366,7 +382,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
       }
     }
-    
+
     // Méthode utilitaire pour obtenir une traduction par son code
     translate(key, defaultText = '') {
       // Vérifier si la clé contient des points (clé imbriquée)
