@@ -12,29 +12,29 @@
 =================================================== */
 
 /* ===================================================
-   1. Base Theme Variables
+   1. Base Theme Variables - AMOLED Theme
 =================================================== */
 :root {
     /* Colors */
-    --primary: #7289da;
-    --primary-hover: #5b6eae;
-    --secondary: #99aab5;
+    --primary: #5865f2;
+    --primary-hover: #4752c4;
+    --secondary: #6d7b8d;
     --accent: #ff73fa;
-    --success: #00ff9d;
-    --danger: #ff4444;
-    --warning: #ffa726;
-    --info: #29b6f6;
+    --success: #00d4aa;
+    --danger: #f04747;
+    --warning: #faa61a;
+    --info: #3498db;
 
     /* Text Colors */
     --text: #ffffff;
-    --text-muted: #808080;
+    --text-muted: #888888;
     --text-primary: #ffffff;
-    --text-secondary: #a0a0a0;
+    --text-secondary: #cccccc;
 
-    /* Backgrounds */
+    /* Backgrounds - AMOLED Deep Blacks */
     --background: #000000;
     --surface: #0a0a0a;
-    --surface-2: #111111;
+    --surface-2: #141414;
     --card-bg: #0a0a0a;
     --code-bg: #000000;
 
@@ -42,12 +42,12 @@
     --border: #1a1a1a;
     --border-color: #1a1a1a;
     --shadow-color: rgba(0, 0, 0, 0.95);
-    --glow-color: rgba(114, 137, 218, 0.15);
+    --glow-color: rgba(88, 101, 242, 0.15);
 
     /* Status Colors */
-    --online: #00ff9d;
-    --offline: #ff4444;
-    --idle: #ffa726;
+    --online: #00d4aa;
+    --offline: #f04747;
+    --idle: #faa61a;
 
     /* Border Radius */
     --radius-sm: 6px;
@@ -351,27 +351,6 @@ header {
     display: flex;
     align-items: center;
     gap: 1rem;
-}
-
-/* Theme toggle button */
-#themeToggle {
-    background: none;
-    border: none;
-    color: var(--text);
-    font-size: 1.2rem;
-    cursor: pointer;
-    width: 40px;
-    height: 40px;
-    border-radius: var(--radius-round);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all var(--transition-speed) ease;
-}
-
-#themeToggle:hover {
-    background-color: var(--surface-2);
-    transform: rotate(15deg);
 }
 
 /* Language dropdown */

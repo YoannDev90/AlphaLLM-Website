@@ -4,7 +4,6 @@
     "siteDescription": "Bot Discord conversationnel multimodèle avec génération d'images",
     "navigation": {
       "home": "Accueil",
-      "docs": "Documentation",
       "status": "Statut",
       "support": "Support",
       "dashboard": "Tableau de bord",
@@ -25,6 +24,14 @@
       "menu": "Menu"
     },
     "logoAlt": "Logo AlphaLLM",
+    "header": {
+      "languageSelector": "Langue",
+      "currentLang": "Français",
+      "languages": {
+        "fr": "Français",
+        "en": "Anglais"
+      }
+    },
     "footer": {
       "product": "Produit",
       "documentation": "Documentation",
@@ -42,7 +49,6 @@
   },
   "nav": {
     "home": "Accueil",
-    "docs": "Documentation", 
     "status": "Statut",
     "support": "Support"
   },
@@ -80,7 +86,8 @@
   "homePage": {
     "hero": {
       "title": "AlphaLLM",
-      "subtitle": "L'IA avancée pour votre serveur Discord",
+      "subtitle": "Améliorez votre serveur Discord avec un chat intelligent, une génération d'images et une traduction en temps réel",
+      "description": "Découvrez AlphaLLM, le bot IA Discord gratuit pour chat intelligent, génération d'images et traduction en temps réel. Améliorez votre serveur Discord avec des modèles avancés comme ChatGPT et Claude. Invitez-le maintenant !",
       "cta": "Inviter"
     },
     "stats": {
@@ -103,6 +110,30 @@
       "searchAI": {
         "title": "Recherche IA",
         "description": "Trouvez rapidement des informations et des réponses grâce à notre moteur de recherche IA intégré."
+      },
+      "contextualMemory": {
+        "title": "Mémoire Contextuelle",
+        "description": "Le bot se souvient des conversations précédentes pour des interactions plus naturelles et cohérentes."
+      },
+      "fileManagement": {
+        "title": "Gestion de Fichiers",
+        "description": "Téléchargez, analysez et traitez divers types de fichiers directement dans vos conversations."
+      },
+      "voiceGeneration": {
+        "title": "Génération Vocale",
+        "description": "Convertissez du texte en audio naturel avec des voix réalistes et personnalisables."
+      },
+      "codeExecution": {
+        "title": "Exécution de Code",
+        "description": "Exécutez et déboguez du code dans plusieurs langages de programmation en temps réel."
+      },
+      "multilingualTranslation": {
+        "title": "Traduction Multilingue",
+        "description": "Traduisez instantanément entre plus de 100 langues avec une précision exceptionnelle."
+      },
+      "documentAnalysis": {
+        "title": "Analyse de Documents",
+        "description": "Extrayez les informations clés et résumez automatiquement vos documents PDF et texte."
       }
     },
     "models": {
@@ -121,6 +152,10 @@
       "gemini": "Le modèle multimodal avancé de Google",
       "llama": "Modèle open-source performant de Meta",
       "deepseek": "IA spécialisée dans le raisonnement complexe"
+    },
+    "imageModels": {
+      "title": "Modèles d'Images Disponibles",
+      "subtitle": "Générez des images uniques avec nos modèles IA avancés"
     },
     "providers": {
       "title": "Fournisseurs"
@@ -326,11 +361,6 @@
   "support": {
     "title": "Centre de Support",
     "subtitle": "Comment pouvons-nous vous aider aujourd'hui ?",
-    "docs": {
-      "title": "Documentation",
-      "description": "Consultez notre documentation détaillée pour tout savoir sur l'utilisation d'AlphaLLM.",
-      "button": "Voir la Documentation [en construction]"
-    },
     "discord": {
       "title": "Serveur Discord",
       "description": "Rejoignez notre communauté Discord pour obtenir de l'aide et discuter avec d'autres utilisateurs.",
@@ -348,62 +378,15 @@
       "q2": "Le bot est-il entièrement gratuit ?",
       "a2": "Oui, AlphaLLM est entièrement gratuit à utiliser avec toutes ses fonctionnalités. Nous ne proposons pas de version premium pour le moment. Notre objectif est de rendre l'IA accessible à tous les utilisateurs Discord sans barrière financière.",
       "q3": "Comment configurer le bot sur mon serveur ?",
-      "a3": "Après avoir invité le bot, utilisez la commande /guild-config pour paramétrer le bot. Vous pourrez définir le canal d'annonces, la langue, les permissions de vos membres, et d'autres paramètres de personnalisation.",
+      "a3": "Après avoir invité le bot, utilisez la commande /setup pour accéder au menu de configuration. Vous pouvez définir le canal de chat par défaut, les permissions et d'autres paramètres. Pour une configuration plus avancée, vous pouvez également utiliser notre tableau de bord web en vous connectant avec votre compte Discord.",
       "q4": "Quels sont les modèles d'IA disponibles ?",
-      "a4": "AlphaLLM propose plusieurs modèles d'IA avancés, dont ChatGPT 5, Claude Haïku, Gemini 2.5, Mistral, LLaMA 3.3, Qwen 3, Kimi-K2, GLM 4.5, Sonar, EvilGPT et d'autres. Vous pouvez choisir votre modèle préféré avec la commande /user-config",
+      "a4": "AlphaLLM propose plusieurs modèles d'IA avancés, dont ChatGPT, Claude, Gemini, Mistral, LLaMA et d'autres. Vous pouvez choisir votre modèle préféré avec la commande /model ou définir un modèle par défaut pour votre serveur dans les paramètres.",
       "q5": "Comment générer des images avec le bot ?",
-      "a5": "Pour générer des images, utilisez la commande /image suivie de votre description. Vous pouvez spécifier la taille, ainsi que le nombre d'images à générer. Par exemple : /image prompt=\"une forêt enchantée avec des fées lumineuses\" size=2048x2048 n=4",
+      "a5": "Pour générer des images, utilisez la commande /imagine suivie de votre description. Vous pouvez spécifier différents styles et rapports d'aspect. Par exemple : /imagine une forêt enchantée avec des fées lumineuses, style:fantasy ratio:16:9",
       "q6": "Comment limiter l'accès au bot sur mon serveur ?",
-      "a6": "Vous pouvez limiter l'accès au bot à certains rôles ou canaux spécifiques via la commande /guild-config.",
+      "a6": "Vous pouvez limiter l'accès au bot à des rôles ou canaux spécifiques via la commande /permissions ou dans les paramètres du tableau de bord. Vous pouvez également définir des quotas d'utilisation pour éviter les abus.",
       "q7": "J'ai trouvé un bug, comment le signaler ?",
-      "a7": "Vous pouvez signaler les bugs sur notre serveur Discord (accessible par la commande /support) ou en contactant directement notre équipe de support par la commande /contact-dev, ou encore en ouvrant une issue sur le repo Github. Merci de fournir le plus de détails possibles, comme les étapes pour reproduire le problème, des captures d'écran et le contexte."
-    }
-  },
-  "docsPage": {
-    "hero": {
-      "title": "Documentation AlphaLLM",
-      "subtitle": "Guide complet pour maîtriser le bot Discord IA"
-    },
-    "installation": {
-      "title": "Installation et Configuration",
-      "content": "Pour ajouter AlphaLLM à votre serveur Discord, cliquez sur le bouton \"Inviter\" depuis la page d'accueil. Accordez les permissions nécessaires pour que le bot fonctionne correctement.",
-      "permissions": {
-        "title": "Permissions Requises",
-        "item1": "Lire les messages",
-        "item2": "Envoyer des messages",
-        "item3": "Utiliser des commandes slash",
-        "item4": "Gérer les messages (optionnel pour la modération)"
-      }
-    },
-    "commands": {
-      "title": "Commandes Principales",
-      "chat": {
-        "title": "/chat",
-        "description": "Démarrez une conversation avec l'IA. Exemple : /chat message=\"Bonjour, comment ça va ?\""
-      },
-      "image": {
-        "title": "/image",
-        "description": "Générez des images à partir d'une description. Exemple : /image prompt=\"Un chat dans l'espace\""
-      },
-      "search": {
-        "title": "/search",
-        "description": "Recherchez des informations via l'IA. Exemple : /search query=\"Qu'est-ce que l'IA ?\""
-      }
-    },
-    "models": {
-      "title": "Modèles Disponibles",
-      "content": "AlphaLLM supporte plusieurs modèles IA. Consultez la page d'accueil pour la liste complète."
-    },
-    "faq": {
-      "title": "FAQ",
-      "q1": {
-        "question": "Le bot ne répond pas ?",
-        "answer": "Vérifiez les permissions et assurez-vous que le bot est en ligne (voir la page Statut)."
-      },
-      "q2": {
-        "question": "Comment changer de modèle ?",
-        "answer": "Utilisez la commande /model pour sélectionner un modèle spécifique."
-      }
+      "a7": "Vous pouvez signaler les bugs sur notre serveur Discord dans le canal #bug-reports ou en contactant directement notre équipe de support par email. Veuillez fournir le plus de détails possible, comme les étapes pour reproduire le problème, des captures d'écran et le contexte."
     }
   },
   "redirectPages": {
@@ -418,6 +401,40 @@
     "support": {
       "title": "Redirection vers Discord",
       "message": "Si vous n'êtes pas redirigé automatiquement, <a href=\"https://discord.gg/QGvyrUgwdK\">cliquez ici</a>."
+    }
+  },
+  "downloadPage": {
+    "title": "Téléchargements",
+    "subtitle": "Téléchargez AlphaLLM pour votre plateforme préférée",
+    "platforms": {
+      "windows": {
+        "title": "Windows",
+        "description": "Version Windows"
+      },
+      "macos": {
+        "title": "macOS",
+        "description": "Version macOS"
+      },
+      "linux": {
+        "title": "Linux",
+        "description": "Version Linux"
+      },
+      "android": {
+        "title": "Android",
+        "description": "Version Android"
+      },
+      "ios": {
+        "title": "iOS",
+        "description": "Via App Store"
+      },
+      "source": {
+        "title": "Code Source",
+        "description": "Code source sur GitHub"
+      }
+    },
+    "buttons": {
+      "soon": "Bientôt",
+      "github": "GitHub"
     }
   }
 }

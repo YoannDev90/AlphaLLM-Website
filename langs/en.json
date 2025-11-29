@@ -5,7 +5,6 @@
     "navigation": {
       "home": "Home",
       "download": "Download",
-      "docs": "Documentation",
       "status": "Status",
       "support": "Support",
       "dashboard": "Dashboard",
@@ -31,12 +30,7 @@
       "currentLang": "English",
       "languages": {
         "fr": "French",
-        "en": "English",
-        "de": "German",
-        "es": "Spanish",
-        "pt": "Portuguese",
-        "nl": "Dutch",
-        "it": "Italian"
+        "en": "English"
       }
     },
     "footer": {
@@ -56,7 +50,6 @@
   },
   "nav": {
     "home": "Home",
-    "docs": "Documentation", 
     "status": "Status",
     "support": "Support"
   },
@@ -93,7 +86,7 @@
   },
   "homePage": {
     "hero": {
-      "title": "AlphaLLM : The Free Advanced AI Discord Bot for Chat, Images and Translation",
+      "title": "AlphaLLM",
       "subtitle": "Improve your Discord server with intelligent chat, image generation and real-time translation",
       "description": "Discover AlphaLLM, the free AI Discord bot for intelligent chat, image generation and real-time translation. Enhance your Discord server with advanced models like ChatGPT and Claude. Invite it now!",
       "cta": "Invite to Discord"
@@ -369,11 +362,6 @@
   "support": {
     "title": "Support Center",
     "subtitle": "How can we help you today?",
-    "docs": {
-      "title": "Documentation",
-      "description": "Check out our detailed documentation to learn everything about using AlphaLLM.",
-      "button": "View Documentation"
-    },
     "discord": {
       "title": "Discord Server",
       "description": "Join our Discord community for help and to chat with other users.",
@@ -400,48 +388,6 @@
       "a6": "You can limit bot access to specific roles or channels via the /permissions command or in the dashboard settings. You can also set usage quotas to prevent abuse.",
       "q7": "I found a bug, how do I report it?",
       "a7": "You can report bugs on our Discord server in the #bug-reports channel or by contacting our support team directly via email. Please provide as much detail as possible, such as steps to reproduce the issue, screenshots, and context."
-    }
-  },
-    "installation": {
-      "title": "Installation and Configuration",
-      "content": "To add AlphaLLM to your Discord server, click the \"Invite\" button from the homepage. Grant the necessary permissions for the bot to function properly.",
-      "permissions": {
-        "title": "Required Permissions",
-        "item1": "Read messages",
-        "item2": "Send messages",
-        "item3": "Use slash commands",
-        "item4": "Manage messages (optional for moderation)"
-      }
-    },
-    "commands": {
-      "title": "Main Commands",
-      "chat": {
-        "title": "/chat",
-        "description": "Start a conversation with the AI. Example: /chat message=\"Hello, how are you?\""
-      },
-      "image": {
-        "title": "/image",
-        "description": "Generate images from a description. Example: /image prompt=\"A cat in space\""
-      },
-      "search": {
-        "title": "/search",
-        "description": "Search for information via AI. Example: /search query=\"What is AI?\""
-      }
-    },
-    "models": {
-      "title": "Available Models",
-      "content": "AlphaLLM supports multiple AI models. Check the homepage for the complete list."
-    },
-    "faq": {
-      "title": "FAQ",
-      "q1": {
-        "question": "The bot isn't responding?",
-        "answer": "Check permissions and ensure the bot is online (see Status page)."
-      },
-      "q2": {
-        "question": "How to change model?",
-        "answer": "Use the /model command to select a specific model."
-      }
     }
   },
   "redirectPages": {
