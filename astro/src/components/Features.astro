@@ -1,0 +1,252 @@
+---
+const features = [
+  {
+    icon: "🧠",
+    title: "Mémoire persistante",
+    description: "On ne recommence pas à zéro : vos threads restent en tête et AlphaLLM fait le lien tout seul.",
+    tone: "iris",
+    stat: "Contexte multi-threads"
+  },
+  {
+    icon: "👁️",
+    title: "Vision + OCR",
+    description: "Glissez une capture, récupérez un résumé clair, du texte extrait ou une analyse UI sans quitter Discord.",
+    tone: "cyan",
+    stat: "Vision prête"
+  },
+  {
+    icon: "🎨",
+    title: "Images haute qualité",
+    description: "Des visuels nets pour vos annonces, fiches ou posts. Plusieurs variantes, pas de spam.",
+    tone: "pink",
+    stat: "4 générateurs"
+  },
+  {
+    icon: "✨",
+    title: "Multi-modèles",
+    description: "GPT-4o, Claude, Gemini, Llama… Changez de modèle à la volée selon la tâche ou le ton voulu.",
+    tone: "apricot",
+    stat: "10+ modèles"
+  },
+  {
+    icon: "⚡",
+    title: "Commandes naturelles",
+    description: "Slash commands sobres, réponses en fil, résumés automatiques et relais vers vos salons privés.",
+    tone: "violet",
+    stat: "UX Discord"
+  },
+  {
+    icon: "🛡️",
+    title: "Sécurité & modération",
+    description: "Filtres anti-spam, journaux privés, données en Europe et masquage des infos sensibles.",
+    tone: "green",
+    stat: "RGPD"
+  },
+];
+
+const tones = {
+  iris: {
+    bg: "rgba(139, 92, 246, 0.1)",
+    border: "rgba(139, 92, 246, 0.4)",
+    text: "#c8b5ff",
+  },
+  cyan: {
+    bg: "rgba(6, 182, 212, 0.12)",
+    border: "rgba(6, 182, 212, 0.4)",
+    text: "#9ce7f4",
+  },
+  pink: {
+    bg: "rgba(236, 72, 153, 0.12)",
+    border: "rgba(236, 72, 153, 0.4)",
+    text: "#f9b4da",
+  },
+  apricot: {
+    bg: "rgba(249, 115, 22, 0.12)",
+    border: "rgba(249, 115, 22, 0.4)",
+    text: "#ffbb87",
+  },
+  violet: {
+    bg: "rgba(168, 85, 247, 0.12)",
+    border: "rgba(168, 85, 247, 0.4)",
+    text: "#d8b1ff",
+  },
+  green: {
+    bg: "rgba(34, 197, 94, 0.12)",
+    border: "rgba(34, 197, 94, 0.4)",
+    text: "#b7f9ce",
+  },
+};
+---
+
+<section id="features" class="features">
+  <div class="section-shell">
+    <div class="header">
+      <div class="pill">
+        <span class="dot"></span>
+        Fonctionnalités clés
+      </div>
+      <h2>Tout ce qu'il faut pour un bot <span class="gradient">utile</span></h2>
+      <p>Un assistant IA pensé pour la culture Discord : direct, rapide, pas bavard, et respectueux de vos membres.</p>
+    </div>
+
+    <div class="reassure">
+      <span>🔒 Données en UE</span>
+      <span>🧹 Pas de pub, pas de tracking</span>
+      <span>🤝 Support humain sur Discord</span>
+    </div>
+
+    <div class="grid">
+      {features.map((feature, index) => (
+        <article
+          class="card"
+          style={`--tone-bg:${tones[feature.tone].bg};--tone-border:${tones[feature.tone].border};--tone-text:${tones[feature.tone].text};--delay:${index * 0.05}s;`}
+        >
+          <div class="halo"></div>
+          <div class="card-head">
+            <div class="icon">{feature.icon}</div>
+            <span class="stat">{feature.stat}</span>
+          </div>
+          <h3>{feature.title}</h3>
+          <p>{feature.description}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .features {
+    position: relative;
+    padding: 6rem 0 2rem;
+    overflow: hidden;
+  }
+
+  .header {
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto 3rem;
+    display: grid;
+    gap: 1rem;
+  }
+
+  .reassure {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.6rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .reassure span {
+    padding: 0.5rem 0.9rem;
+    border-radius: 12px;
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    color: var(--color-text);
+    font-weight: 600;
+  }
+
+  .dot {
+    width: 8px;
+    height: 8px;
+    background: var(--accent-iris);
+    border-radius: 50%;
+    box-shadow: 0 0 12px rgba(139, 92, 246, 0.5);
+  }
+
+  .features h2 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    letter-spacing: -0.02em;
+  }
+
+  .features p {
+    color: var(--color-muted);
+  }
+
+  .gradient {
+    background: linear-gradient(135deg, var(--accent-iris), var(--accent-apricot));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1rem;
+  }
+
+  .card {
+    position: relative;
+    padding: 1.6rem;
+    border-radius: 20px;
+    background: linear-gradient(160deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.02));
+    border: 1px solid var(--glass-border);
+    overflow: hidden;
+    transition: transform 0.35s var(--ease), border-color 0.35s var(--ease), box-shadow 0.35s var(--ease);
+    animation: fade-up 0.6s var(--ease) forwards;
+    animation-delay: var(--delay);
+    opacity: 0;
+  }
+
+  .card:hover {
+    transform: translateY(-8px);
+    border-color: var(--tone-border);
+    box-shadow: var(--shadow-md);
+  }
+
+  .halo {
+    position: absolute;
+    inset: -30% -10% auto -10%;
+    height: 60%;
+    background: radial-gradient(circle, var(--tone-bg), transparent 60%);
+    opacity: 0.8;
+    filter: blur(50px);
+    pointer-events: none;
+  }
+
+  .card-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.2rem;
+  }
+
+  .icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
+    display: grid;
+    place-items: center;
+    background: var(--tone-bg);
+    border: 1px solid var(--tone-border);
+    font-size: 1.4rem;
+  }
+
+  .stat {
+    padding: 0.3rem 0.7rem;
+    border-radius: 999px;
+    background: var(--tone-bg);
+    border: 1px solid var(--tone-border);
+    color: var(--tone-text);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+  }
+
+  h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+  }
+
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(18px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>

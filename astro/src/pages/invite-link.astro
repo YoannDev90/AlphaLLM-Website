@@ -1,0 +1,41 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Invitation Discord · AlphaLLM" description="Invitez AlphaLLM sur votre serveur Discord.">
+  <main class="page">
+    <section class="block">
+      <div class="section-shell">
+        <h1>Redirection en cours…</h1>
+        <p>Si rien ne se passe, <a href="https://discord.com/oauth2/authorize?client_id=1286951908786962442">cliquez ici pour inviter AlphaLLM</a>.</p>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<script>
+  if (typeof window !== 'undefined') {
+    window.location.href = 'https://discord.com/oauth2/authorize?client_id=1286951908786962442';
+  }
+</script>
+
+<style>
+  .page {
+    min-height: 70vh;
+    display: grid;
+    place-items: center;
+  }
+
+  h1 {
+    font-size: clamp(2rem, 5vw, 2.8rem);
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    color: var(--color-muted);
+  }
+
+  a {
+    color: var(--accent-iris);
+  }
+</style>

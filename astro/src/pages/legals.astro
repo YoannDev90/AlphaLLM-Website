@@ -1,0 +1,107 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<Layout title="Mentions légales · AlphaLLM" description="Mentions légales, CGU et confidentialité d'AlphaLLM.">
+  <Header />
+  <main class="page">
+    <section class="hero">
+      <div class="section-shell">
+        <div class="pill">
+          <span class="dot"></span>
+          Légal
+        </div>
+        <h1>Mentions légales & confidentialité</h1>
+        <p>Ce qui suit résume nos engagements : hébergement en Europe, données privées, transparence sur l'usage.</p>
+      </div>
+    </section>
+
+    <section class="content section-shell">
+      <article id="legal-notice" class="card">
+        <h2>Mentions légales</h2>
+        <p><strong>Responsable :</strong> Dumont Yoann / Yerminator</p>
+        <p><strong>Contact :</strong> <a href="mailto:yoanndev@outlook.fr">yoanndev@outlook.fr</a> · @the_yerminator (Discord)</p>
+        <p><strong>Hébergement :</strong> AzurHosts (UE)</p>
+        <p>Nous assurons le bon fonctionnement du bot sans garantir l'absence de coupure ou perte de données.</p>
+      </article>
+
+      <article id="terms" class="card">
+        <h2>Conditions d'utilisation</h2>
+        <ul>
+          <li>Pas d'usage illégal, abusif ou diffamatoire.</li>
+          <li>Respect des droits d'auteur et des limitations du service.</li>
+          <li>En cas d'abus, l'accès peut être suspendu.</li>
+        </ul>
+        <p>Les services peuvent évoluer ou s'arrêter sans préavis. L'utilisation vaut acceptation de ces conditions.</p>
+      </article>
+
+      <article id="privacy" class="card">
+        <h2>Confidentialité</h2>
+        <ul>
+          <li>Données collectées : ID utilisateur/serveur, messages adressés au bot, logs techniques.</li>
+          <li>Utilisation : statistiques, amélioration, support.</li>
+          <li>Conservation : environ 1 mois, sauf obligation légale.</li>
+          <li>Transmission : aucune donnée à des tiers.</li>
+          <li>Droits : accès, modification ou suppression sur demande via le contact ci-dessus.</li>
+        </ul>
+        <p>En cas de litige, vous pouvez saisir la CNIL (www.cnil.fr).</p>
+      </article>
+    </section>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .page {
+    padding-top: 5rem;
+  }
+
+  .hero {
+    padding: 4rem 0 2rem;
+  }
+
+  h1 {
+    font-size: clamp(2.4rem, 5vw, 3.2rem);
+    letter-spacing: -0.02em;
+    margin: 0.5rem 0 0;
+  }
+
+  h2 {
+    margin: 0 0 0.75rem;
+  }
+
+  p {
+    color: var(--color-muted);
+  }
+
+  .content {
+    display: grid;
+    gap: 1rem;
+    padding-bottom: 3rem;
+  }
+
+  .card {
+    padding: 1.3rem 1.4rem;
+    border-radius: 16px;
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    display: grid;
+    gap: 0.6rem;
+  }
+
+  ul {
+    margin: 0;
+    padding-left: 1.1rem;
+    color: var(--color-muted);
+  }
+
+  .dot {
+    width: 8px;
+    height: 8px;
+    background: var(--accent-iris);
+    border-radius: 50%;
+    box-shadow: 0 0 12px rgba(139, 92, 246, 0.5);
+  }
+</style>

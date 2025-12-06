@@ -1,0 +1,375 @@
+---
+---
+
+<section id="hero" class="hero">
+  <div class="hero-bg">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="grid"></div>
+  </div>
+
+  <div class="section-shell hero-shell">
+    <div class="hero-copy">
+      <div class="pill">
+        <img class="pill-logo" src="/logo.webp" alt="Logo AlphaLLM" loading="eager" />
+        <span class="pulse"></span>
+        AlphaLLM · Bot Discord
+      </div>
+
+      <h1>
+        Votre copilote IA<br />
+        <span class="gradient">qui se souvient et voit</span>
+      </h1>
+
+      <p class="lede">
+        On reste dans vos fils, on garde la mémoire, on lit vos images et on répond sans bla-bla. Ajoutez-le en 30 secondes
+        et laissez AlphaLLM épauler vos membres comme un vrai coéquipier.
+      </p>
+
+      <div class="actions">
+        <a class="primary" href="https://discord.com/oauth2/authorize?client_id=1286951908786962442">Ajouter à Discord</a>
+        <a class="ghost" href="#preview">Voir la démo</a>
+      </div>
+
+      <div class="hero-highlights">
+        <div class="chip">
+          <span>🧠</span>
+          Mémoire longue sur vos fils
+        </div>
+        <div class="chip">
+          <span>👁️</span>
+          Vision + OCR natifs
+        </div>
+        <div class="chip">
+          <span>🎨</span>
+          Images propres pour vos annonces
+        </div>
+        <div class="chip">
+          <span>⚡</span>
+          Réponses plus rapides que l'éclait
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="phone" data-parallax>
+        <div class="glow"></div>
+        <div class="phone-top">
+          <span class="pill badge">Live preview</span>
+          <span class="ping"></span>
+        </div>
+        <div class="phone-body">
+          <img src="/landing-screenshot.png" alt="Interface AlphaLLM sur Discord" loading="eager" />
+        </div>
+        <div class="phone-bar"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    position: relative;
+    padding: 7rem 0 4rem;
+    overflow: hidden;
+  }
+
+  .hero-shell {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 3rem;
+    align-items: center;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  .grid {
+    position: absolute;
+    inset: 10% 0 0 0;
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    background-size: 80px 80px;
+    mask-image: radial-gradient(ellipse 80% 60% at 50% 30%, black, transparent);
+  }
+
+  .orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(120px);
+    opacity: 0.8;
+  }
+
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.45rem 0.9rem;
+    border-radius: 999px;
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.14), rgba(249, 115, 22, 0.1));
+    border: 1px solid rgba(139, 92, 246, 0.25);
+    color: var(--color-text);
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+  }
+
+  .pill-logo {
+    width: 24px;
+    height: 24px;
+    border-radius: 8px;
+    object-fit: cover;
+    border: 1px solid var(--glass-border);
+  }
+
+  .orb-1 {
+    width: 640px;
+    height: 640px;
+    background: radial-gradient(circle, rgba(139, 92, 246, 0.32) 0%, transparent 55%);
+    top: -20%;
+    left: -10%;
+  }
+
+  .orb-2 {
+    width: 520px;
+    height: 520px;
+    background: radial-gradient(circle, rgba(249, 115, 22, 0.22) 0%, transparent 60%);
+    bottom: -10%;
+    right: -10%;
+  }
+
+  .hero-copy {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.6rem, 6vw, 4.4rem);
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+  }
+
+  .gradient {
+    background: linear-gradient(135deg, var(--accent-iris), var(--accent-apricot), var(--accent-pink));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .lede {
+    color: var(--color-muted);
+    font-size: 1.1rem;
+    max-width: 620px;
+  }
+
+  .actions {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  .primary,
+  .ghost {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.9rem 1.35rem;
+    border-radius: 12px;
+    font-weight: 700;
+    transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease), background 0.25s var(--ease);
+  }
+
+  .primary {
+    background: linear-gradient(135deg, var(--accent-iris), var(--accent-apricot));
+    color: #fff;
+    box-shadow: 0 16px 50px rgba(139, 92, 246, 0.35);
+  }
+
+  .primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 22px 65px rgba(139, 92, 246, 0.45);
+  }
+
+  .ghost {
+    color: var(--color-text);
+    border: 1px solid var(--glass-border);
+    background: var(--glass);
+  }
+
+  .ghost:hover {
+    background: var(--color-hover);
+    transform: translateY(-2px);
+  }
+
+  .hero-highlights {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.6rem 0.95rem;
+    border-radius: 999px;
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    color: var(--color-text);
+    font-weight: 600;
+  }
+
+  .pulse {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--accent-iris);
+    box-shadow: 0 0 18px rgba(139, 92, 246, 0.6);
+  }
+
+  .hero-visual {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    place-items: center;
+  }
+
+  .phone {
+    position: relative;
+    width: min(480px, 100%);
+    padding: 1.1rem;
+    border-radius: 32px;
+    background: linear-gradient(150deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--shadow-lg);
+    transform: perspective(1400px) rotateY(-6deg) rotateX(4deg);
+  }
+
+  .glow {
+    position: absolute;
+    inset: -28%;
+    background: radial-gradient(circle at 30% 20%, rgba(139, 92, 246, 0.3), transparent 45%),
+      radial-gradient(circle at 90% 60%, rgba(249, 115, 22, 0.2), transparent 55%);
+    filter: blur(50px);
+    opacity: 0.8;
+    pointer-events: none;
+  }
+
+  .phone-top {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .ping {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #22c55e;
+    box-shadow: 0 0 14px rgba(34, 197, 94, 0.6);
+  }
+
+  .badge {
+    letter-spacing: 0.08em;
+  }
+
+  .phone-body {
+    position: relative;
+    z-index: 1;
+    border-radius: 24px;
+    overflow: hidden;
+    border: 1px solid var(--glass-border);
+    background: #07070f;
+  }
+
+  .phone-body img {
+    width: 100%;
+    display: block;
+  }
+
+  .phone-bar {
+    margin: 0.9rem auto 0;
+    width: 120px;
+    height: 5px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.18);
+  }
+
+  @media (max-width: 768px) {
+    .hero {
+      padding-top: 6rem;
+    }
+
+    .hero-shell {
+      gap: 2rem;
+    }
+
+    .card {
+      width: 100%;
+    }
+  }
+</style>
+
+<script>
+  const initHero = async () => {
+    const { gsap } = await import('gsap');
+
+    gsap.from('.hero-copy > *', {
+      opacity: 0,
+      y: 24,
+      duration: 0.9,
+      ease: 'power3.out',
+      stagger: 0.08,
+    });
+
+    const phone = document.querySelector('[data-parallax]');
+    if (phone && window.innerWidth > 900) {
+      const bounds = () => phone.getBoundingClientRect();
+      const handleMove = (e) => {
+        const rect = bounds();
+        const relX = (e.clientX - rect.left) / rect.width - 0.5;
+        const relY = (e.clientY - rect.top) / rect.height - 0.5;
+        gsap.to(phone, {
+          rotateY: relX * 10 - 6,
+          rotateX: -relY * 6 + 4,
+          x: relX * 18,
+          y: relY * 14,
+          duration: 0.35,
+          ease: 'power2.out',
+        });
+      };
+
+      const reset = () => {
+        gsap.to(phone, {
+          rotateY: -6,
+          rotateX: 4,
+          x: 0,
+          y: 0,
+          duration: 0.6,
+          ease: 'power3.out',
+        });
+      };
+
+      phone.addEventListener('mousemove', handleMove);
+      phone.addEventListener('mouseleave', reset);
+    }
+  };
+
+  if (typeof window !== 'undefined') {
+    window.addEventListener('DOMContentLoaded', () => {
+      initHero();
+    });
+  }
+</script>

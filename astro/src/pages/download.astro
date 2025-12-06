@@ -1,0 +1,139 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<Layout title="Téléchargements · AlphaLLM" description="Téléchargez AlphaLLM et suivez les builds desktop et mobile.">
+  <Header />
+  <main class="page">
+    <section class="hero">
+      <div class="section-shell">
+        <div class="head">
+          <div class="pill">
+            <span class="pulse"></span>
+            Téléchargements
+          </div>
+          <h1>Builds bureau et mobile</h1>
+          <p>Les apps arrivent. En attendant, invitez le bot sur Discord ou consultez le code source.</p>
+          <div class="actions">
+            <a class="primary" href="https://discord.com/oauth2/authorize?client_id=1286951908786962442">Ajouter à Discord</a>
+            <a class="ghost" href="https://github.com/YoannDev90/AlphaLLM" rel="noreferrer">Voir sur GitHub</a>
+          </div>
+        </div>
+
+        <div class="grid">
+          {[
+            { icon: "🪟", title: "Windows", status: "Soon" },
+            { icon: "🍎", title: "macOS", status: "Soon" },
+            { icon: "🐧", title: "Linux", status: "Soon" },
+            { icon: "🤖", title: "Android", status: "Soon" },
+            { icon: "📱", title: "iOS", status: "Soon" },
+            { icon: "</>", title: "Source", link: "https://github.com/YoannDev90/AlphaLLM" },
+          ].map((item) => (
+            <article class="card">
+              <div class="icon">{item.icon}</div>
+              <h3>{item.title}</h3>
+              {item.link ? (
+                <a class="primary ghost" href={item.link} rel="noreferrer">Ouvrir GitHub</a>
+              ) : (
+                <span class="badge">{item.status}</span>
+              )}
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .page {
+    padding-top: 5rem;
+  }
+
+  .hero {
+    padding: 5rem 0 3rem;
+  }
+
+  .head {
+    display: grid;
+    gap: 1rem;
+    max-width: 780px;
+  }
+
+  h1 {
+    font-size: clamp(2.2rem, 5vw, 3rem);
+    letter-spacing: -0.02em;
+  }
+
+  p {
+    color: var(--color-muted);
+  }
+
+  .actions {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  .primary,
+  .ghost {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    padding: 0.85rem 1.3rem;
+    border-radius: 12px;
+    font-weight: 700;
+    transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease), background 0.25s var(--ease);
+  }
+
+  .primary {
+    background: linear-gradient(135deg, var(--accent-iris), var(--accent-apricot));
+    color: #fff;
+    box-shadow: 0 14px 40px rgba(139, 92, 246, 0.35);
+  }
+
+  .primary:hover {
+    transform: translateY(-2px);
+  }
+
+  .ghost {
+    border: 1px solid var(--glass-border);
+    background: var(--glass);
+    color: var(--color-text);
+  }
+
+  .grid {
+    margin-top: 2.5rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+  }
+
+  .card {
+    padding: 1.2rem;
+    border-radius: 16px;
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    display: grid;
+    gap: 0.6rem;
+  }
+
+  .icon {
+    font-size: 1.4rem;
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.4rem 0.8rem;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.06);
+    color: var(--color-dim);
+    font-weight: 700;
+  }
+</style>

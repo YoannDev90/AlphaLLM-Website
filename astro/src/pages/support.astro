@@ -1,0 +1,183 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<Layout title="Support · AlphaLLM" description="Aide, support et contact pour AlphaLLM.">
+  <Header />
+  <main class="page">
+    <section class="hero">
+      <div class="section-shell">
+        <div class="pill">
+          <span class="dot"></span>
+          Support & aide
+        </div>
+        <h1>Besoin d'aide ?</h1>
+        <p>Support rapide via Discord, email ou documentation. Nous répondons dès que possible.</p>
+      </div>
+    </section>
+
+    <section class="content section-shell">
+      <article class="card">
+        <h2>Contact express</h2>
+        <div class="contacts">
+          <a class="contact" href="/invite-link">
+            <div>
+              <p class="label">Discord</p>
+              <p class="strong">Rejoindre le serveur</p>
+            </div>
+            <span class="pill small">Temps réel</span>
+          </a>
+          <a class="contact" href="mailto:yoanndev@outlook.fr">
+            <div>
+              <p class="label">Email</p>
+              <p class="strong">yoanndev@outlook.fr</p>
+            </div>
+            <span class="pill small">24-48h</span>
+          </a>
+        </div>
+      </article>
+
+      <article class="card faq">
+        <h2>FAQ</h2>
+        <details open>
+          <summary>Comment ajouter le bot ?</summary>
+          <p>Utilisez le bouton "Ajouter à Discord" en haut ou la page <a href="/invite-link">/invite-link</a>. Donnez-lui les autorisations par défaut.</p>
+        </details>
+        <details>
+          <summary>Le bot ne répond pas</summary>
+          <p>Vérifiez que le bot est en ligne (page statut), et que les droits d'écriture/lecture sont accordés au canal.</p>
+        </details>
+        <details>
+          <summary>Quelles données sont stockées ?</summary>
+          <p>Uniquement les IDs serveur/utilisateur, le contenu envoyé au bot, et des logs techniques. Durée ~1 mois. Voir la page mentions légales.</p>
+        </details>
+        <details>
+          <summary>Comment supprimer mes données ?</summary>
+          <p>Envoyez-nous un email ou ouvrez un ticket Discord. Nous supprimons les données associées à votre ID.</p>
+        </details>
+      </article>
+
+      <article class="card docs">
+        <h2>Guides rapides</h2>
+        <ul>
+          <li>Configurer la mémoire : créer un canal dédié ou mentionner le bot dans un fil.</li>
+          <li>Activer la vision : autoriser l'upload d'images et demander une analyse.</li>
+          <li>Limiter les permissions : ajuster les rôles et autorisations depuis Discord.</li>
+        </ul>
+      </article>
+    </section>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .page {
+    padding-top: 5rem;
+  }
+
+  .hero {
+    padding: 4rem 0 2rem;
+  }
+
+  h1 {
+    font-size: clamp(2.4rem, 5vw, 3.2rem);
+    letter-spacing: -0.02em;
+    margin: 0.5rem 0 0;
+  }
+
+  p {
+    color: var(--color-muted);
+  }
+
+  h2 {
+    margin: 0 0 0.6rem;
+  }
+
+  .content {
+    display: grid;
+    gap: 1rem;
+    padding-bottom: 3rem;
+  }
+
+  .card {
+    padding: 1.3rem 1.4rem;
+    border-radius: 16px;
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    display: grid;
+    gap: 0.75rem;
+  }
+
+  .contacts {
+    display: grid;
+    gap: 0.6rem;
+  }
+
+  .contact {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.9rem 1rem;
+    border-radius: 12px;
+    border: 1px solid var(--glass-border);
+    background: rgba(255, 255, 255, 0.02);
+    color: var(--color-foreground);
+    text-decoration: none;
+    transition: border-color 0.2s ease, transform 0.2s ease;
+  }
+
+  .contact:hover {
+    border-color: var(--accent-iris);
+    transform: translateY(-1px);
+  }
+
+  .label {
+    font-size: 0.9rem;
+    color: var(--color-muted);
+    margin: 0;
+  }
+
+  .strong {
+    margin: 0;
+    font-weight: 600;
+    color: var(--color-primary);
+  }
+
+  .faq details {
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    padding: 0.8rem 0.9rem;
+    background: rgba(255, 255, 255, 0.02);
+  }
+
+  .faq summary {
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--color-foreground);
+  }
+
+  .faq p {
+    margin: 0.5rem 0 0;
+  }
+
+  ul {
+    margin: 0;
+    padding-left: 1.1rem;
+    color: var(--color-muted);
+  }
+
+  .dot {
+    width: 8px;
+    height: 8px;
+    background: var(--accent-iris);
+    border-radius: 50%;
+    box-shadow: 0 0 12px rgba(139, 92, 246, 0.5);
+  }
+
+  .pill.small {
+    padding: 0.25rem 0.55rem;
+    font-size: 0.85rem;
+  }
+</style>
