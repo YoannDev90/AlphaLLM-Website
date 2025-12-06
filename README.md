@@ -46,13 +46,8 @@ AlphaLLM-Website/
 │ ├── logo.webp
 │ └── favicon.ico
 ├── langs/
-│ ├── de.json
 │ ├── en.json
-│ ├── es.json
-│ ├── fr.json
-│ ├── it.json
-│ ├── nl.json
-│ └── pt.json
+│ └── fr.json
 ├── index.html
 ├── download.html
 ├── status.html
