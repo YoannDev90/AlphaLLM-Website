@@ -67,7 +67,6 @@ jobs:
       with:
         urls: http://localhost:8000
         configPath: .lighthouserc.json
-        uploadArtifacts: true
         temporaryPublicStorage: true
 
   deploy:

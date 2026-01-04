@@ -2,8 +2,8 @@
   "ci": {
     "collect": {
       "numberOfRuns": 3,
-      "startServerCommand": "cd dist && python3 -m http.server 8000",
-      "startServerReadyPattern": "Serving HTTP on",
+      "startServerCommand": "npx serve dist -p 8000",
+      "startServerReadyPattern": "Local:.*",
       "url": ["http://localhost:8000"]
     },
     "assert": {
