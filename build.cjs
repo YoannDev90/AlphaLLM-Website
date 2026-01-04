@@ -12,7 +12,7 @@ const CleanCSS = require('clean-css');
 
 class BuildTool {
   constructor() {
-    this.rootDir = path.join(__dirname, '..');
+    this.rootDir = __dirname;
     this.assetsDir = path.join(this.rootDir, 'assets');
     this.distDir = path.join(this.rootDir, 'dist');
   }
@@ -24,6 +24,9 @@ class BuildTool {
     if (!fs.existsSync(this.distDir)) {
       fs.mkdirSync(this.distDir, { recursive: true });
     }
+
+    // Copier les fichiers statiques (CNAME, robots.txt, etc.)
+    this.copyStaticFiles();
 
     // Analyser la taille des fichiers avant compression
     await this.analyzeSizes();
@@ -172,6 +175,20 @@ class BuildTool {
     });
 
     return arrayOfFiles;
+  }
+
+  copyStaticFiles() {
+    const staticFiles = ['CNAME', 'robots.txt', '.htaccess'];
+    
+    staticFiles.forEach(file => {
+      const srcPath = path.join(this.rootDir, file);
+      const destPath = path.join(this.distDir, file);
+      
+      if (fs.existsSync(srcPath)) {
+        fs.copyFileSync(srcPath, destPath);
+        console.log(`📋 Copié ${file} vers dist/`);
+      }
+    });
   }
 
   ensureDirectoryExists(dirPath) {

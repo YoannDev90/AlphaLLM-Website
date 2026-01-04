@@ -294,7 +294,7 @@ const SEOUtils = {
   // Mettre à jour dynamiquement les métadonnées
   updateMetaTags(pageKey = 'home') {
     const page = SEO_CONFIG.pages[pageKey];
-    if (!page) return;
+    if (!page) {return;}
 
     // Mettre à jour le titre
     document.title = page.title;

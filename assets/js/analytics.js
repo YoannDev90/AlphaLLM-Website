@@ -12,7 +12,7 @@ class PrivacyAnalytics {
   }
 
   init() {
-    if (this.initialized) return;
+    if (this.initialized) {return;}
 
     // Attendre que Plausible soit disponible
     this.waitForPlausible().then(() => {
@@ -242,21 +242,21 @@ class PrivacyAnalytics {
 
   getDeviceCategory() {
     const width = window.innerWidth;
-    if (width < 768) return 'mobile';
-    if (width < 1024) return 'tablet';
+    if (width < 768) {return 'mobile';}
+    if (width < 1024) {return 'tablet';}
     return 'desktop';
   }
 
   getWebVitalRating(metric, value) {
     switch (metric) {
-      case 'LCP':
-        return value <= 2500 ? 'good' : value <= 4000 ? 'needs-improvement' : 'poor';
-      case 'FID':
-        return value <= 100 ? 'good' : value <= 300 ? 'needs-improvement' : 'poor';
-      case 'CLS':
-        return value <= 0.1 ? 'good' : value <= 0.25 ? 'needs-improvement' : 'poor';
-      default:
-        return 'unknown';
+    case 'LCP':
+      return value <= 2500 ? 'good' : value <= 4000 ? 'needs-improvement' : 'poor';
+    case 'FID':
+      return value <= 100 ? 'good' : value <= 300 ? 'needs-improvement' : 'poor';
+    case 'CLS':
+      return value <= 0.1 ? 'good' : value <= 0.25 ? 'needs-improvement' : 'poor';
+    default:
+      return 'unknown';
     }
   }
 
@@ -284,7 +284,7 @@ class PrivacyAnalytics {
       theme: this.getCurrentTheme(),
       language: this.getCurrentLanguage(),
       device: this.getDeviceCategory(),
-      sessionId: this.sessionId,
+      sessionId: this.sessionId
       // Pas d'IP, pas de cookies, pas de fingerprinting
     };
   }
