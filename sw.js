@@ -28,19 +28,19 @@ const STATIC_ASSETS = [
   '/assets/js/status.js',
   '/assets/images/logo.webp',
   '/assets/images/favicon.ico',
+  '/assets/images/site.webmanifest',
   '/langs/fr.json',
   '/langs/en.json',
   '/robots.txt',
-  '/sitemap.xml'
+  '/sitemap.xml',
+  '/sw.js'
 ];
 
 // Installation du Service Worker
 self.addEventListener('install', (event) => {
-  console.log('[SW] Installation');
   event.waitUntil(
     caches.open(STATIC_CACHE)
       .then((cache) => {
-        console.log('[SW] Mise en cache des ressources statiques');
         return cache.addAll(STATIC_ASSETS);
       })
       .then(() => self.skipWaiting())
@@ -49,13 +49,11 @@ self.addEventListener('install', (event) => {
 
 // Activation du Service Worker
 self.addEventListener('activate', (event) => {
-  console.log('[SW] Activation');
   event.waitUntil(
     caches.keys().then((cacheNames) => {
       return Promise.all(
         cacheNames.map((cacheName) => {
           if (cacheName !== STATIC_CACHE && cacheName !== API_CACHE) {
-            console.log('[SW] Suppression de l\'ancien cache:', cacheName);
             return caches.delete(cacheName);
           }
         })
