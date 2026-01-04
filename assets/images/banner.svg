@@ -1,0 +1,78 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Gradient background -->
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#5865f2;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#ff73fa;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00d4aa;stop-opacity:1" />
+    </linearGradient>
+
+    <!-- Glow effect -->
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Text shadow -->
+    <filter id="textShadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="2" dy="2" stdDeviation="1" flood-color="rgba(0,0,0,0.5)"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bgGradient)"/>
+
+  <!-- Decorative elements -->
+  <circle cx="200" cy="150" r="80" fill="rgba(255,255,255,0.1)" opacity="0.6"/>
+  <circle cx="1000" cy="480" r="120" fill="rgba(255,255,255,0.05)" opacity="0.4"/>
+  <circle cx="1100" cy="200" r="60" fill="rgba(255,255,255,0.08)" opacity="0.5"/>
+
+  <!-- Geometric shapes -->
+  <polygon points="50,50 150,50 100,150" fill="rgba(255,255,255,0.1)" opacity="0.3"/>
+  <polygon points="1050,550 1150,550 1100,450" fill="rgba(255,255,255,0.1)" opacity="0.3"/>
+
+  <!-- Main content -->
+  <g transform="translate(600, 315)">
+    <!-- Title -->
+    <text x="0" y="-80" text-anchor="middle" font-family="Arial, sans-serif" font-size="72" font-weight="bold" fill="white" filter="url(#textShadow)">
+      AlphaLLM
+    </text>
+
+    <!-- Subtitle -->
+    <text x="0" y="-20" text-anchor="middle" font-family="Arial, sans-serif" font-size="32" fill="white" opacity="0.9">
+      Free AI Discord Bot
+    </text>
+
+    <!-- Features -->
+    <text x="0" y="40" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" fill="white" opacity="0.8">
+      💬 Chat • 🎨 Images • 🌍 Translation
+    </text>
+
+    <!-- URL -->
+    <text x="0" y="100" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="white" opacity="0.7">
+      alphallm.tech
+    </text>
+  </g>
+
+  <!-- Discord logo -->
+  <g transform="translate(100, 500)">
+    <circle cx="40" cy="40" r="35" fill="#5865f2"/>
+    <path d="M 25 35 Q 25 30 30 30 L 35 30 Q 40 30 40 35 L 40 45 Q 40 50 35 50 L 30 50 Q 25 50 25 45 Z" fill="white"/>
+    <circle cx="28" cy="32" r="2" fill="#5865f2"/>
+    <circle cx="35" cy="32" r="2" fill="#5865f2"/>
+    <path d="M 28 38 Q 28 36 30 36 L 33 36 Q 35 36 35 38 L 35 42 Q 35 44 33 44 L 30 44 Q 28 44 28 42 Z" fill="#5865f2"/>
+  </g>
+
+  <!-- AI icons -->
+  <g transform="translate(950, 100)">
+    <!-- Brain icon -->
+    <circle cx="30" cy="30" r="25" fill="rgba(255,255,255,0.2)" stroke="white" stroke-width="2"/>
+    <path d="M 20 25 Q 20 20 25 20 L 35 20 Q 40 20 40 25 L 40 35 Q 40 40 35 40 L 25 40 Q 20 40 20 35 Z" fill="none" stroke="white" stroke-width="2"/>
+    <circle cx="27" cy="27" r="1.5" fill="white"/>
+    <circle cx="33" cy="27" r="1.5" fill="white"/>
+    <path d="M 27 32 Q 27 30.5 28.5 30.5 L 31.5 30.5 Q 33 30.5 33 32 L 33 35 Q 33 36.5 31.5 36.5 L 28.5 36.5 Q 27 36.5 27 35 Z" fill="white"/>
+  </g>
+</svg>

@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AlphaLLM - Free Advanced AI Discord Bot: Chat, Images and Translation</title>
+    
+    <!-- Favicons -->
+    <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+    
+    <!-- Web App Manifest -->
+    <link rel="manifest" href="assets/images/site.webmanifest">
+    
+    <!-- PWA Meta Tags -->
+    <meta name="theme-color" content="#6366f1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="AlphaLLM">
+    
+    <!-- Meta SEO Avancé -->
+    <meta name="description" content="Discover AlphaLLM, the free AI Discord bot for intelligent chat, image generation and real-time translation. Enhance your Discord server with advanced models like ChatGPT and Claude. Invite it now!">
+    <meta name="keywords" content="AI Discord bot, ChatGPT Discord, Claude Discord, image generation Discord, translation bot, free AI bot, Discord automation, AlphaLLM, YoannDev90">
+    <meta name="author" content="YoannDev90">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+
+    <!-- Geo Tags -->
+    <meta name="geo.region" content="FR">
+    <meta name="geo.country" content="France">
+    <meta name="geo.placename" content="Paris">
+
+    <!-- Language and Locale -->
+    <meta name="language" content="French, English">
+    <meta http-equiv="content-language" content="fr,en">
+
+    <!-- Open Graph / Social Media Avancé -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://alphallm.tech/">
+    <meta property="og:title" content="AlphaLLM - Free Advanced AI Discord Bot: Chat, Images & Translation">
+    <meta property="og:description" content="AI Discord bot for intelligent chat, image generation and real-time translation. Optimize your Discord server with ChatGPT, Claude and more!">
+    <meta property="og:image" content="https://alphallm.tech/assets/images/banner.jpg">
+    <meta property="og:image:secure_url" content="https://alphallm.tech/assets/images/banner.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:alt" content="AlphaLLM Discord Bot - AI Chat, Image Generation, Translation">
+    <meta property="og:site_name" content="AlphaLLM">
+    <meta property="og:locale" content="fr_FR">
+    <meta property="og:locale:alternate" content="en_US">
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@alphallm_tech">
+    <meta name="twitter:creator" content="@yoanndev90">
+    <meta name="twitter:title" content="AlphaLLM - Free Advanced AI Discord Bot">
+    <meta name="twitter:description" content="AI Discord bot for intelligent chat, image generation and real-time translation. Optimize your Discord server!">
+    <meta name="twitter:image" content="https://alphallm.tech/assets/images/banner.jpg">
+    <meta name="twitter:image:alt" content="AlphaLLM Discord Bot">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://alphallm.tech/">
+
+    <!-- Alternate Language Links -->
+    <link rel="alternate" hreflang="fr" href="https://alphallm.tech/">
+    <link rel="alternate" hreflang="en" href="https://alphallm.tech/?lang=en">
+    <link rel="alternate" hreflang="x-default" href="https://alphallm.tech/">
+
+    <!-- Google Search Console Verification -->
+    <meta name="google-site-verification" content="YOUR_GOOGLE_SITE_VERIFICATION_CODE">
+
+    <!-- Bing Webmaster Tools Verification -->
+    <meta name="msvalidate.01" content="YOUR_BING_VERIFICATION_CODE">
+
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="assets/images/site.webmanifest">
+    <meta name="theme-color" content="#6366f1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="AlphaLLM">
+    <link rel="apple-touch-icon" href="assets/images/logo.webp">
+
+    <!-- Performance Optimizations -->
+    <link rel="preload" href="assets/css/main.css" as="style">
+    <link rel="preload" href="assets/css/index.css" as="style">
+    <link rel="preload" href="assets/js/main.js" as="script">
+    <link rel="preload" href="assets/js/i18n.js" as="script">
+    <link rel="preload" href="assets/images/logo.webp" as="image">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Scripts -->
+    <script src="assets/js/early-i18n.js"></script>
+    <script src="assets/js/seo-config.js"></script>
+    <script src="assets/js/error-tracking.js"></script>
+    <script defer src="assets/js/main.js"></script>
+    <script defer src="assets/js/i18n.js"></script>
+    <script defer src="assets/js/analytics.js"></script>
+
+    <!-- Plausible Analytics (Privacy-friendly) -->
+    <script defer data-domain="alphallm.tech" src="https://plausible.io/js/script.js"></script>
+    
+    <!-- Schema Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "AlphaLLM",
+      "description": "Free AI Discord bot for intelligent chat, image generation and translation.",
+      "url": "https://alphallm.tech/",
+      "publisher": {
+        "@type": "Organization",
+        "name": "YoannDev90",
+        "url": "https://github.com/YoannDev90"
+      },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://alphallm.tech/status.html",
+        "query-input": "required name=search"
+      }
+    }
+    </script>
+
+    <!-- Software Application Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "AlphaLLM",
+      "description": "Advanced AI Discord bot with chat, image generation, and translation capabilities",
+      "url": "https://alphallm.tech/",
+      "applicationCategory": "Bot",
+      "operatingSystem": "Discord",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "featureList": [
+        "AI Chat with multiple models",
+        "Image generation",
+        "Real-time translation",
+        "Multi-language support",
+        "Free to use"
+      ],
+      "author": {
+        "@type": "Person",
+        "name": "YoannDev90",
+        "url": "https://github.com/YoannDev90"
+      }
+    }
+    </script>
+
+    <!-- Organization Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "AlphaLLM",
+      "url": "https://alphallm.tech/",
+      "logo": "https://alphallm.tech/assets/images/logo.webp",
+      "description": "Free AI Discord bot for intelligent chat, image generation and translation",
+      "foundingDate": "2024",
+      "founder": {
+        "@type": "Person",
+        "name": "YoannDev90",
+        "url": "https://github.com/YoannDev90"
+      },
+      "sameAs": [
+        "https://github.com/YoannDev90/AlphaLLM",
+        "https://discord.gg/QGvyrUgwdK"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "technical support",
+        "url": "https://alphallm.tech/support.html"
+      }
+    }
+    </script>
+
+    <!-- FAQ Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is AlphaLLM?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "AlphaLLM is a free AI Discord bot that provides intelligent chat, image generation, and real-time translation capabilities. It supports multiple AI models including ChatGPT, Claude, Gemini, and more."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I invite AlphaLLM to my Discord server?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Click the 'Invite Bot' button on our website or visit our Discord server. Follow the authorization process to add AlphaLLM to your server with the necessary permissions."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is AlphaLLM free to use?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, AlphaLLM is completely free to use. There are no premium features or paid tiers. All AI capabilities are available to everyone."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What AI models does AlphaLLM support?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "AlphaLLM supports multiple AI models including ChatGPT (GPT-3.5/4), Claude, Gemini, Llama, DeepSeek, Mistral, and many others for both text chat and image generation."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does AlphaLLM support multiple languages?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, AlphaLLM supports real-time translation between multiple languages. It can translate messages instantly in your Discord server."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <!-- HowTo Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      "name": "How to Add AlphaLLM to Your Discord Server",
+      "description": "Step-by-step guide to invite and set up AlphaLLM AI Discord bot",
+      "totalTime": "PT5M",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "name": "Visit the Website",
+          "text": "Go to alphallm.tech and click the 'Invite Bot' button",
+          "position": 1
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Authorize the Bot",
+          "text": "Select your Discord server and grant the necessary permissions",
+          "position": 2
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Configure Settings",
+          "text": "Set up your preferred AI models and language settings",
+          "position": 3
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Start Using",
+          "text": "Begin chatting with the AI bot using commands like /chat or /image",
+          "position": 4
+        }
+      ]
+    }
+    </script>
+
+    <!-- Breadcrumb Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://alphallm.tech/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Download",
+          "item": "https://alphallm.tech/download.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Status",
+          "item": "https://alphallm.tech/status.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "Support",
+          "item": "https://alphallm.tech/support.html"
+        }
+      ]
+    }
+    </script>
+
+    <!-- Review Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "@id": "https://alphallm.tech/#softwareapplication",
+      "name": "AlphaLLM",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "ratingCount": "1250",
+        "bestRating": "5",
+        "worstRating": "1"
+      },
+      "review": [
+        {
+          "@type": "Review",
+          "author": {
+            "@type": "Person",
+            "name": "Discord User"
+          },
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": "5",
+            "bestRating": "5"
+          },
+          "reviewBody": "AlphaLLM is amazing! The AI responses are incredibly intelligent and the image generation is top-notch."
+        }
+      ]
+    }
+    </script>
+
+<!-- Privacy-friendly analytics by Plausible -->
+<script async src="https://plausible.io/js/pa-04ZD2Q-CcoEaYlaAS6t7Z.js"></script>
+<script>
+  window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+  plausible.init()
+</script>
+</head>
+<body class="dark-theme">
+    <!-- Noise overlay for texture -->
+    <div class="noise-overlay"></div>
+    
+    <!-- Header navigation -->
+    <header>
+        <nav class="navbar">
+            <div class="logo-title-container">
+                <img src="assets/images/logo.webp" alt="AlphaLLM official logo, free AI Discord bot" class="logo animate-pulse">
+                <h1 class="glitch" data-text="AlphaLLM">AlphaLLM</h1>
+            </div>
+            
+            <div class="nav-links">
+                <a href="index.html" class="active" data-i18n="global.navigation.home">Home</a>
+                <a href="download.html" data-i18n="global.navigation.download">Download</a>
+                <a href="status.html" data-i18n="global.navigation.status">Status</a>
+                <a href="support.html" data-i18n="global.navigation.support">Support</a>
+            </div>
+            
+            <div class="buttons">
+                <div class="language-dropdown">
+                    <button class="dropdown-toggle"><i class="fas fa-globe"></i> <span class="current-lang" data-i18n="global.header.currentLang">English</span></button>
+                    <div class="dropdown-menu">
+                        <button class="lang-btn language-selector" data-lang="fr"><img src="https://flagcdn.com/fr.svg" alt="FR" width="20"> <span data-i18n="global.header.languages.fr">French</span></button>
+                        <button class="lang-btn language-selector" data-lang="en"><img src="https://flagcdn.com/us.svg" alt="EN" width="20"> <span data-i18n="global.header.languages.en">English</span></button>
+                    </div>
+                </div>
+                <button class="mobile-menu-btn" aria-label="Ouvrir le menu" aria-expanded="false"><i class="fas fa-bars"></i></button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero section -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title" data-i18n="homePage.hero.title">AlphaLLM</h1>
+                    <p class="hero-subtitle" data-i18n="homePage.hero.subtitle">Improve your Discord server with intelligent chat, image generation and real-time translation</p>
+                    <div class="hero-buttons">
+                        <a href="https://discord.com/api/oauth2/authorize?client_id=1286951908786962442&permissions=8&scope=bot" class="btn btn-primary" rel="noopener noreferrer" data-i18n="homePage.hero.cta">
+                            <i class="fas fa-plus"></i> Invite to Discord
+                        </a>
+                        <a href="#features" class="btn btn-secondary" data-i18n="global.buttons.learnMore">
+                            <i class="fas fa-info-circle"></i> Learn more
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="assets/images/logo.webp" style="border-radius: 50px;" alt="AlphaLLM logo, advanced AI Discord bot" class="float">
+                </div>
+                <div class="hero-bg-glow"></div>
+            </div>
+        </section>
+
+        <!-- Stats section -->
+        <section class="stats-section">
+            <div class="container">
+                <div class="stats-container">
+                    <div class="stat-item">
+                        <i class="fas fa-server"></i>
+                        <h3 class="stat-number">150+</h3>
+                        <p class="stat-label" data-i18n="homePage.stats.servers">Servers</p>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fas fa-users"></i>
+                        <h3 class="stat-number">8K+</h3>
+                        <p class="stat-label" data-i18n="homePage.stats.users">Users</p>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fas fa-bolt"></i>
+                        <h3 class="stat-number">99.8%</h3>
+                        <p class="stat-label" data-i18n="homePage.stats.uptime">Uptime</p>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fas fa-comments"></i>
+                        <h3 class="stat-number">100K+</h3>
+                        <p class="stat-label" data-i18n="homePage.stats.messages">Messages processed</p>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fas fa-image"></i>
+                        <h3 class="stat-number">50K+</h3>
+                        <p class="stat-label" data-i18n="homePage.stats.images">Images generated</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features section -->
+        <section id="features" class="features-section">
+            <div class="container">
+                <h2 class="section-title" data-i18n="homePage.features.title">Features</h2>
+                
+                <div class="features-grid">
+                    <div class="feature-card card">
+                        <div class="feature-icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <h3 class="feature-title" data-i18n="homePage.features.multiModels.title">Conversational AI</h3>
+                        <p class="feature-description" data-i18n="homePage.features.multiModels.description">Chat with an advanced AI capable of understanding context and generating relevant responses.</p>
+                    </div>
+                    
+                    <div class="feature-card card">
+                        <div class="feature-icon">
+                            <i class="fas fa-image"></i>
+                        </div>
+                        <h3 class="feature-title" data-i18n="homePage.features.imageGeneration.title">Image Generation</h3>
+                        <p class="feature-description" data-i18n="homePage.features.imageGeneration.description">Create unique images from simple text descriptions.</p>
+                    </div>
+
+                    <div class="feature-card card">
+                        <div class="feature-icon">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <h3 class="feature-title" data-i18n="homePage.features.searchAI.title">AI Search</h3>
+                        <p class="feature-description" data-i18n="homePage.features.searchAI.description">Quickly find information and answers with our integrated AI search engine.</p>
+                    </div>
+
+                    <div class="feature-card card">
+                        <div class="feature-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h3 class="feature-title" data-i18n="homePage.features.contextualMemory.title">Contextual Memory</h3>
+                        <p class="feature-description" data-i18n="homePage.features.contextualMemory.description">The bot remembers previous conversations for more natural and coherent interactions.</p>
+                    </div>
+
+                    <div class="feature-card card">
+                        <div class="feature-icon">
+                            <i class="fas fa-file-alt"></i>
+                        </div>
+                        <h3 class="feature-title" data-i18n="homePage.features.fileManagement.title">File Management</h3>
+                        <p class="feature-description" data-i18n="homePage.features.fileManagement.description">Upload, analyze, and process various file types directly in your conversations.</p>
+                    </div>
+
+                    <div class="feature-card card">
+                        <div class="feature-icon">
+                            <i class="fas fa-volume-up"></i>
+                        </div>
+                        <h3 class="feature-title" data-i18n="homePage.features.voiceGeneration.title">Voice Generation</h3>
+                        <p class="feature-description" data-i18n="homePage.features.voiceGeneration.description">Convert text to natural audio with realistic and customizable voices.</p>
+                    </div>
+
+                    <div class="feature-card card">
+                        <div class="feature-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h3 class="feature-title" data-i18n="homePage.features.codeExecution.title">Code Execution</h3>
+                        <p class="feature-description" data-i18n="homePage.features.codeExecution.description">Execute and debug code in multiple programming languages in real-time.</p>
+                    </div>
+
+                    <div class="feature-card card">
+                        <div class="feature-icon">
+                            <i class="fas fa-language"></i>
+                        </div>
+                        <h3 class="feature-title" data-i18n="homePage.features.multilingualTranslation.title">Multilingual Translation</h3>
+                        <p class="feature-description" data-i18n="homePage.features.multilingualTranslation.description">Translate instantly between over 100 languages with exceptional accuracy.</p>
+                    </div>
+
+                    <div class="feature-card card">
+                        <div class="feature-icon">
+                            <i class="fas fa-file-pdf"></i>
+                        </div>
+                        <h3 class="feature-title" data-i18n="homePage.features.documentAnalysis.title">Document Analysis</h3>
+                        <p class="feature-description" data-i18n="homePage.features.documentAnalysis.description">Extract key information and automatically summarize your PDF and text documents.</p>
+                    </div>
+                </div>
+                
+                <div class="features-bg-glow"></div>
+            </div>
+        </section>
+
+        <!-- Models section -->
+        <section class="models-section">
+            <div class="container">
+                <h2 class="section-title" data-i18n="homePage.models.title">Available Models</h2>
+                <p class="section-subtitle" data-i18n="homePage.models.subtitle">Choose from a wide range of advanced AI models</p>
+                
+                <div class="models-grid">
+                    <div class="model-card">
+                        <div class="model-icon">
+                            <img src="assets/images/models/chatgpt.webp" alt="Icône ChatGPT" loading="lazy">
+                        </div>
+                        <h3 class="model-name">ChatGPT</h3>
+                        <p class="model-description">OpenAI</p>
+                    </div>
+                    <div class="model-card">
+                        <div class="model-icon">
+                            <img src="assets/images/models/claude.webp" alt="Icône Claude" loading="lazy">
+                        </div>
+                        <h3 class="model-name">Claude</h3>
+                        <p class="model-description">Anthropic</p>
+                    </div>
+                    <div class="model-card">
+                        <div class="model-icon">
+                            <img src="assets/images/models/gemini.webp" alt="Icône Gemini" loading="lazy">
+                        </div>
+                        <h3 class="model-name">Gemini</h3>
+                        <p class="model-description">Google</p>
+                    </div>
+                    <div class="model-card">
+                        <div class="model-icon">
+                            <img src="assets/images/models/llama.webp" alt="Icône Llama" loading="lazy">
+                        </div>
+                        <h3 class="model-name">Llama</h3>
+                        <p class="model-description">Meta</p>
+                    </div>
+                    <div class="model-card">
+                        <div class="model-icon">
+                            <img src="assets/images/models/deepseek.webp" alt="Icône DeepSeek" loading="lazy">
+                        </div>
+                        <h3 class="model-name">DeepSeek</h3>
+                        <p class="model-description">DeepSeek AI</p>
+                    </div>
+                    <div class="model-card">
+                        <div class="model-icon">
+                            <img src="assets/images/models/mistral.webp" alt="Icône Mistral" loading="lazy">
+                        </div>
+                        <h3 class="model-name">Mistral</h3>
+                        <p class="model-description">Mistral AI</p>
+                    </div>
+                    <div class="model-card">
+                        <div class="model-icon">
+                            <img src="assets/images/models/grok.webp" alt="Icône Grok">
+                        </div>
+                        <h3 class="model-name">Grok</h3>
+                        <p class="model-description">xAI</p>
+                    </div>
+                    <div class="model-card">
+                        <div class="model-icon">
+                            <img src="assets/images/models/perplexity.webp" alt="Icône Perplexity">
+                        </div>
+                        <h3 class="model-name">Sonar</h3>
+                        <p class="model-description">Perplexity AI</p>
+                    </div>
+                    <div class="model-card">
+                        <div class="model-icon">
+                            <img src="assets/images/models/qwen.webp" alt="Icône Qwen">
+                        </div>
+                        <h3 class="model-name">Qwen</h3>
+                        <p class="model-description">Alibaba</p>
+                    </div>
+                    <div class="model-card">
+                        <div class="model-icon">
+                            <img src="assets/images/models/phi.webp" alt="Icône Phi">
+                        </div>
+                        <h3 class="model-name">Phi</h3>
+                        <p class="model-description">Microsoft</p>
+                    </div>
+                    <div class="model-card">
+                        <div class="model-icon">
+                            <img src="assets/images/models/glm.webp" alt="Icône GLM">
+                        </div>
+                        <h3 class="model-name">GLM</h3>
+                        <p class="model-description">zAI</p>
+                    </div>
+                    <div class="model-card">
+                        <div class="model-icon">
+                            <img src="assets/images/models/moonshot.webp" alt="Icône Kimi">
+                        </div>
+                        <h3 class="model-name">Kimi</h3>
+                        <p class="model-description">Moonshot</p>
+                    </div>
+                    <div class="model-card">
+                        <div class="model-icon">
+                            <img src="assets/images/models/evilgpt.webp" alt="Icône EvilGPT">
+                        </div>
+                        <h3 class="model-name">EvilGPT</h3>
+                        <p class="model-description">Github</p>
+                    </div>
+                    <div class="model-card">
+                        <div class="model-icon">
+                            <img src="assets/images/models/cohere.webp" alt="Icône Cohere">
+                        </div>
+                        <h3 class="model-name">Cohere</h3>
+                        <p class="model-description">Cohere</p>
+                    </div>
+                    <div class="model-card">
+                        <div class="model-icon">
+                            <img src="assets/images/models/yi.webp" alt="Icône Yi" loading="lazy">
+                        </div>
+                        <h3 class="model-name">Yi</h3>
+                        <p class="model-description">01.AI</p>
+                    </div>
+                    <div class="model-card">
+                        <div class="model-icon">
+                            <img src="assets/images/models/hermes.webp" alt="Icône Hermès" loading="lazy">
+                        </div>
+                        <h3 class="model-name">Hermès</h3>
+                        <p class="model-description">Nous Research</p>
+                    </div>
+                    <div class="model-card">
+                        <div class="model-icon">
+                            <img src="assets/images/models/nemotron.webp" alt="Icône Nemotron" loading="lazy">
+                        </div>
+                        <h3 class="model-name">Nemotron</h3>
+                        <p class="model-description">NVIDIA</p>
+                    </div>
+                    <div class="model-card">
+                        <div class="model-icon">
+                            <img src="assets/images/models/minimax.webp" alt="Icône MiniMax" loading="lazy">
+                        </div>
+                        <h3 class="model-name">MiniMax</h3>
+                        <p class="model-description">MiniMax</p>
+                    </div>
+                    <div class="model-card">
+                        <div class="model-icon">
+                            <img src="assets/images/models/inception.webp" alt="Icône Inception" loading="lazy">
+                        </div>
+                        <h3 class="model-name">Mercury</h3>
+                        <p class="model-description">Inception</p>
+                    </div>
+                    <div class="model-card">
+                        <div class="model-icon">
+                            <img src="assets/images/models/longcat.webp" alt="Icône LongCat" loading="lazy">
+                        </div>
+                        <h3 class="model-name">LongCat</h3>
+                        <p class="model-description">Meituan</p>
+                    </div>
+                    <div class="model-card">
+                        <div class="model-icon">
+                            <img src="assets/images/models/bytedance.webp" alt="Icône Seed" loading="lazy">
+                        </div>
+                        <h3 class="model-name">Seed</h3>
+                        <p class="model-description">Bytedance</p>
+                    </div>
+                    <div class="model-card">
+                        <div class="model-icon">
+                            <img src="assets/images/models/ibm.webp" alt="Icône IBM" loading="lazy">
+                        </div>
+                        <h3 class="model-name">Granite</h3>
+                        <p class="model-description">IBM</p>
+                    </div>
+                    <div class="model-card">
+                        <div class="model-icon">
+                            <img src="assets/images/models/huggingface.webp" alt="Icône Hugging Face" loading="lazy">
+                        </div>
+                        <h3 class="model-name">Rocinante</h3>
+                        <p class="model-description">Hugging Face</p>
+                    </div>
+                    <div class="model-card">
+                        <div class="model-icon">
+                            <img src="assets/images/models/tencent.webp" alt="Icône Tencent" loading="lazy">
+                        </div>
+                        <h3 class="model-name">Hunyuan</h3>
+                        <p class="model-description">Tencent</p>
+                    </div>
+                    <div class="model-card">
+                        <div class="model-icon">
+                            <img src="assets/images/models/jamba.webp" alt="Icône Jamba" loading="lazy">
+                        </div>
+                        <h3 class="model-name">Jamba</h3>
+                        <p class="model-description">AI21 Labs</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Image Models section -->
+        <section class="models-section">
+            <div class="container">
+                <h2 class="section-title" data-i18n="homePage.imageModels.title">Available Image Models</h2>
+                <p class="section-subtitle" data-i18n="homePage.imageModels.subtitle">Generate unique images with our advanced AI models</p>
+                
+                <div class="models-grid">
+                    <div class="model-card">
+                        <div class="model-icon">
+                            <img src="assets/images/models/flux.webp" alt="Icône Flux" loading="lazy">
+                        </div>
+                        <h3 class="model-name">Flux</h3>
+                        <p class="model-description">Black Forest Labs</p>
+                    </div>
+                    <div class="model-card">
+                        <div class="model-icon">
+                            <img src="assets/images/models/chatgpt.webp" alt="Icône GPT-Image" loading="lazy">
+                        </div>
+                        <h3 class="model-name">GPT-Image</h3>
+                        <p class="model-description">OpenAI</p>
+                    </div>
+                    <div class="model-card">
+                        <div class="model-icon">
+                            <img src="assets/images/models/flux.webp" alt="Icône Kontext" loading="lazy">
+                        </div>
+                        <h3 class="model-name">Kontext</h3>
+                        <p class="model-description">Black Forest Labs</p>
+                    </div>
+                    <div class="model-card">
+                        <div class="model-icon">
+                            <img src="assets/images/models/gemini.webp" alt="Icône NanoBanana" loading="lazy">
+                        </div>
+                        <h3 class="model-name">NanoBanana</h3>
+                        <p class="model-description">Google</p>
+                    </div>
+                    <div class="model-card">
+                        <div class="model-icon">
+                            <img src="assets/images/models/bytedance.webp" alt="Icône Bytedance" loading="lazy">
+                        </div>
+                        <h3 class="model-name">Seedream</h3>
+                        <p class="model-description">Bytedance</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- CTA section -->
+        <section class="cta-section">
+            <div class="container">
+                <div class="cta-content">
+                    <h2 data-i18n="homePage.cta.title">Ready to improve your Discord server?</h2>
+                    <p data-i18n="homePage.cta.description">Invite AlphaLLM now and discover all its features.</p>
+                    <a href="https://discord.com/oauth2/authorize?client_id=1286951908786962442" class="btn btn-glow" rel="noopener noreferrer" data-i18n="homePage.cta.button">
+                        <i class="fab fa-discord"></i> Add to Discord
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="assets/images/logo.webp" alt="AlphaLLM logo, free AI Discord bot" class="logo-small" loading="lazy" width="50" height="50">
+                    <h3>AlphaLLM</h3>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4 data-i18n="global.footer.product">Produit</h4>
+                        <a href="status.html" data-i18n="global.footer.status">Statut</a>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4 data-i18n="global.footer.resources">Ressources</h4>
+                        <a href="support.html" data-i18n="global.footer.support">Support</a>
+                        <a href="https://discord.gg/QGvyrUgwdK" target="_blank" rel="noopener noreferrer" data-i18n="global.footer.discord">Serveur Discord</a>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4 data-i18n="global.footer.legal">Juridique</h4>
+                        <a href="legals.html#terms" data-i18n="global.footer.termsOfService">Conditions d'utilisation</a>
+                        <a href="legals.html#privacy" data-i18n="global.footer.privacyPolicy">Politique de confidentialité</a>
+                    </div>
+                </div>
+                
+                <div class="footer-social">
+                    <a href="https://discord.gg/QGvyrUgwdK" target="_blank" rel="noopener noreferrer" aria-label="Discord"><i class="fab fa-discord"></i></a>
+                    <a href="https://github.com/YoannDev90/AlphaLLM" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; <span id="current-year">2024</span> AlphaLLM. <span data-i18n="global.footer.copyright">All rights reserved.</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to top button -->
+    <button id="back-to-top" class="visible" aria-label="Retour en haut"><i class="fas fa-arrow-up"></i></button>
+</body>
+</html>

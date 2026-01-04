@@ -1,0 +1,77 @@
+{
+  "name": "AlphaLLM - AI Discord Bot",
+  "short_name": "AlphaLLM",
+  "description": "Free advanced AI Discord bot for chat, image generation and translation",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0f0f0f",
+  "theme_color": "#6366f1",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "fr",
+  "categories": ["productivity", "utilities", "social"],
+  "icons": [
+    {
+      "src": "/assets/images/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/assets/images/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/assets/images/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/assets/images/favicon.ico",
+      "sizes": "32x32",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/assets/images/favicon.ico",
+      "sizes": "16x16",
+      "type": "image/x-icon"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/assets/images/banner.jpg",
+      "sizes": "1280x720",
+      "type": "image/jpeg",
+      "form_factor": "wide"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Status",
+      "short_name": "Status",
+      "description": "Check bot status and performance",
+      "url": "/status.html",
+      "icons": [
+        {
+          "src": "/assets/images/logo.webp",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Download",
+      "short_name": "Download",
+      "description": "Download and setup instructions",
+      "url": "/download.html",
+      "icons": [
+        {
+          "src": "/assets/images/logo.webp",
+          "sizes": "96x96"
+        }
+      ]
+    }
+  ]
+}

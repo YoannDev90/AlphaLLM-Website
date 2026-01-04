@@ -1,0 +1,443 @@
+{
+  "global": {
+    "siteName": "AlphaLLM",
+    "siteDescription": "Bot Discord conversationnel multimodèle avec génération d'images",
+    "navigation": {
+      "home": "Accueil",
+      "status": "Statut",
+      "support": "Support",
+      "dashboard": "Tableau de bord",
+      "login": "Connexion",
+      "logout": "Déconnexion"
+    },
+    "buttons": {
+      "learnMore": "En savoir plus",
+      "getStarted": "Commencer",
+      "addToDiscord": "Ajouter à Discord",
+      "submit": "Envoyer",
+      "close": "Fermer",
+      "cancel": "Annuler",
+      "confirm": "Confirmer",
+      "back": "Retour",
+      "next": "Suivant",
+      "backToTop": "Retour en haut",
+      "menu": "Menu"
+    },
+    "logoAlt": "Logo AlphaLLM",
+    "header": {
+      "languageSelector": "Langue",
+      "currentLang": "Français",
+      "languages": {
+        "fr": "Français",
+        "en": "Anglais"
+      }
+    },
+    "footer": {
+      "product": "Produit",
+      "documentation": "Documentation",
+      "status": "Statut",
+      "resources": "Ressources",
+      "support": "Support",
+      "discord": "Serveur Discord",
+      "legal": "Juridique",
+      "termsOfService": "Conditions d'utilisation",
+      "privacyPolicy": "Politique de confidentialité",
+      "copyright": "Tous droits réservés.",
+      "madeWith": "Fait avec",
+      "by": "par"
+    }
+  },
+  "nav": {
+    "home": "Accueil",
+    "status": "Statut",
+    "support": "Support"
+  },
+  "status": {
+    "title": "Statut du Bot",
+    "subtitle": "Surveillez en temps réel les performances du bot AlphaLLM",
+    "overview": "Vue d'ensemble",
+    "resources": "Ressources Système",
+    "realtimeCpuRam": "CPU & RAM en Temps Réel (Dernière Minute)",
+    "dailyCpuRam": "CPU & RAM Quotidien (Dernières 24 Heures)",
+    "lastUpdated": "Dernière mise à jour: ",
+    "refreshing": "Actualisation...",
+    "getting": "Chargement...",
+    "online": "En ligne",
+    "offline": "Hors ligne", 
+    "degraded": "Dégradé",
+    "unknown": "Inconnu",
+    "error": {
+      "loadingFailed": "Erreur lors du chargement des statuts"
+    }
+  },
+  "footer": {
+    "product": "Produit",
+    "documentation": "Documentation",
+    "status": "Statut",
+    "resources": "Ressources",
+    "support": "Support",
+    "discord": "Serveur Discord",
+    "dashboard": "Tableau de bord",
+    "legal": "Juridique",
+    "terms": "Conditions d'utilisation",
+    "privacy": "Politique de confidentialité",
+    "cookies": "Politique de cookies",
+    "rights": "Tous droits réservés.",
+    "madeWith": "Fait avec",
+    "by": "par"
+  },
+  "homePage": {
+    "hero": {
+      "title": "AlphaLLM",
+      "subtitle": "Améliorez votre serveur Discord avec un chat intelligent, une génération d'images et une traduction en temps réel",
+      "description": "Découvrez AlphaLLM, le bot IA Discord gratuit pour chat intelligent, génération d'images et traduction en temps réel. Améliorez votre serveur Discord avec des modèles avancés comme ChatGPT et Claude. Invitez-le maintenant !",
+      "cta": "Inviter"
+    },
+    "stats": {
+      "servers": "Serveurs",
+      "users": "Utilisateurs",
+      "uptime": "Disponibilité",
+      "messages": "Messages traités",
+      "images": "Images générées"
+    },
+    "features": {
+      "title": "Fonctionnalités",
+      "multiModels": {
+        "title": "IA Conversationnelle",
+        "description": "Discutez avec une IA avancée capable de comprendre le contexte et de générer des réponses pertinentes."
+      },
+      "imageGeneration": {
+        "title": "Génération d'Images",
+        "description": "Créez des images uniques à partir de simples descriptions textuelles."
+      },
+      "searchAI": {
+        "title": "Recherche IA",
+        "description": "Trouvez rapidement des informations et des réponses grâce à notre moteur de recherche IA intégré."
+      },
+      "contextualMemory": {
+        "title": "Mémoire Contextuelle",
+        "description": "Le bot se souvient des conversations précédentes pour des interactions plus naturelles et cohérentes."
+      },
+      "fileManagement": {
+        "title": "Gestion de Fichiers",
+        "description": "Téléchargez, analysez et traitez divers types de fichiers directement dans vos conversations."
+      },
+      "voiceGeneration": {
+        "title": "Génération Vocale",
+        "description": "Convertissez du texte en audio naturel avec des voix réalistes et personnalisables."
+      },
+      "codeExecution": {
+        "title": "Exécution de Code",
+        "description": "Exécutez et déboguez du code dans plusieurs langages de programmation en temps réel."
+      },
+      "multilingualTranslation": {
+        "title": "Traduction Multilingue",
+        "description": "Traduisez instantanément entre plus de 100 langues avec une précision exceptionnelle."
+      },
+      "documentAnalysis": {
+        "title": "Analyse de Documents",
+        "description": "Extrayez les informations clés et résumez automatiquement vos documents PDF et texte."
+      }
+    },
+    "models": {
+      "title": "Modèles Disponibles",
+      "subtitle": "Choisissez parmi une large gamme de modèles IA avancés",
+      "table": {
+        "icon": "Icône",
+        "name": "Nom",
+        "provider": "Fournisseur",
+        "editor": "Editeur",
+        "bot": "Bot"
+      },
+      "alphallm": "Notre modèle principal, optimisé pour les conversations Discord",
+      "chatgpt": "Le modèle GPT d'OpenAI pour des réponses polyvalentes",
+      "claude": "IA d'Anthropic spécialisée dans les conversations sûres",
+      "gemini": "Le modèle multimodal avancé de Google",
+      "llama": "Modèle open-source performant de Meta",
+      "deepseek": "IA spécialisée dans le raisonnement complexe"
+    },
+    "imageModels": {
+      "title": "Modèles d'Images Disponibles",
+      "subtitle": "Générez des images uniques avec nos modèles IA avancés"
+    },
+    "providers": {
+      "title": "Fournisseurs"
+    },
+    "team": {
+      "title": "Notre équipe",
+      "yoann": "Fondateur & Développeur principal",
+      "lucky": "Développeur Web & UI/UX",
+      "470m": "Modérateur & Support"
+    },
+    "cta": {
+      "title": "Prêt à améliorer votre serveur Discord ?",
+      "description": "Invitez AlphaLLM dès maintenant et découvrez toutes ses fonctionnalités.",
+      "button": "Ajouter à Discord"
+    }
+  },
+  "statusPage": {
+    "title": "Statut du système",
+    "subtitle": "Vérifiez l'état de fonctionnement en temps réel de nos services",
+    "overallStatus": {
+      "operational": "Tous les systèmes opérationnels",
+      "partialOutage": "Panne partielle",
+      "majorOutage": "Panne majeure",
+      "maintenance": "Maintenance en cours"
+    },
+    "services": {
+      "title": "Services",
+      "discordBot": "Bot Discord",
+      "api": "API",
+      "database": "Base de données",
+      "website": "Site web",
+      "dashboard": "Tableau de bord",
+      "imageGeneration": "Génération d'images",
+      "status": {
+        "operational": "Opérationnel",
+        "degraded": "Performance dégradée",
+        "outage": "Hors service",
+        "maintenance": "En maintenance"
+      }
+    },
+    "incidents": {
+      "title": "Incidents récents",
+      "noIncidents": "Aucun incident récent à signaler",
+      "viewAll": "Voir tout l'historique",
+      "date": "Date",
+      "service": "Service",
+      "status": "Statut",
+      "description": "Description"
+    },
+    "uptime": {
+      "title": "Disponibilité",
+      "last24h": "24 dernières heures",
+      "last7d": "7 derniers jours",
+      "last30d": "30 derniers jours"
+    }
+  },
+  "supportPage": {
+    "title": "Support et aide",
+    "subtitle": "Nous sommes là pour vous aider",
+    "searchPlaceholder": "Rechercher dans la base de connaissances...",
+    "categories": {
+      "title": "Catégories",
+      "gettingStarted": "Premiers pas",
+      "account": "Compte et profil",
+      "commands": "Commandes",
+      "billing": "Facturation",
+      "troubleshooting": "Dépannage",
+      "api": "API"
+    },
+    "faq": {
+      "title": "Questions fréquemment posées",
+      "q1": "Comment ajouter AlphaLLM à mon serveur Discord ?",
+      "a1": "Cliquez sur le bouton \"Ajouter à Discord\" sur notre page d'accueil et suivez les instructions.",
+      "q2": "Quelles sont les commandes de base ?",
+      "a2": "Les commandes principales sont /chat pour discuter, /image pour générer des images, et /help pour obtenir de l'aide.",
+      "q3": "Est-ce que le bot est gratuit ?",
+      "a3": "Oui, AlphaLLM propose un plan gratuit avec des fonctionnalités de base. Des plans premium sont disponibles pour plus de fonctionnalités.",
+      "q4": "Comment changer la langue du bot ?",
+      "a4": "Utilisez la commande /settings language pour changer la langue du bot dans votre serveur."
+    },
+    "contact": {
+      "title": "Contactez-nous",
+      "description": "Vous n'avez pas trouvé ce que vous cherchiez ? Envoyez-nous un message.",
+      "discord": "Rejoindre notre Discord",
+      "email": "Nous contacter par email",
+      "form": {
+        "name": "Nom",
+        "email": "Email",
+        "subject": "Sujet",
+        "message": "Message",
+        "submit": "Envoyer"
+      }
+    }
+  },
+  "legalsPage": {
+    "title": "Mentions Légales",
+    "subtitle": "Conditions d'utilisation et informations légales d'AlphaLLM",
+    "tabs": {
+      "legalNotice": "Mentions Légales",
+      "terms": "Conditions d'Utilisation", 
+      "privacy": "Politique de Confidentialité"
+    },
+    "lastUpdated": "Dernière mise à jour:",
+    "lastUpdatedDate": "7 septembre 2025",
+    "legalNotice": {
+      "title": "Mentions Légales",
+      "projectManager": {
+        "title": "Responsable du projet",
+        "name": "Dumont Yoann / Yerminator",
+        "contact": "Contact :",
+        "email": "alphallm@mailo.com",
+        "discord": "@the_yerminator (Discord)"
+      },
+      "hosting": {
+        "title": "Hébergement",
+        "platform": "Plateforme d'hébergement :",
+        "name": "AzurHosts"
+      },
+      "liability": {
+        "title": "Limite de responsabilité",
+        "content": "Le responsable met tout en œuvre pour assurer le bon fonctionnement du bot, mais ne peut être tenu responsable d'un usage inapproprié, d'un dysfonctionnement ou d'une perte de données."
+      }
+    },
+    "terms": {
+      "title": "Conditions d'Utilisation",
+      "acceptance": {
+        "title": "Acceptation des conditions",
+        "content": "En utilisant le bot Discord AlphaLLM, vous acceptez de vous conformer aux présentes conditions d'utilisation et à toutes les lois applicables. Si vous n'acceptez pas ces conditions, vous ne devez pas utiliser le bot."
+      },
+      "purpose": {
+        "title": "Objet",
+        "content": "Le bot propose des fonctionnalités liées à l'intelligence artificielle, notamment la conversation textuelle, la génération d'images et autres services associés."
+      },
+      "usage": {
+        "title": "Utilisation acceptable",
+        "intro": "Vous vous engagez à ne pas utiliser le bot pour :",
+        "item1": "Activités illégales ou frauduleuses",
+        "item2": "Harceler, abuser ou nuire à autrui",
+        "item3": "Diffuser du contenu préjudiciable ou diffamatoire",
+        "item4": "Violer des droits d'auteur ou propriété intellectuelle",
+        "item5": "Manipuler ou contourner les limitations du service",
+        "item6": "Surcharger délibérément le bot ou les serveurs"
+      },
+      "content": {
+        "title": "Contenu généré",
+        "description": "Le contenu généré par le bot peut comporter des erreurs ou biais. L'utilisateur est responsable de l'utilisation du contenu. Le responsable peut suspendre l'accès en cas d'usage abusif."
+      },
+      "modifications": {
+        "title": "Modifications des services",
+        "content": "Le responsable peut modifier, suspendre ou arrêter les services à tout moment sans préavis."
+      },
+      "termination": {
+        "title": "Résiliation",
+        "content": "Le responsable peut résilier ou suspendre l'accès en cas de violation des conditions ou usage abusif."
+      }
+    },
+    "privacy": {
+      "title": "Politique de Confidentialité",
+      "collection": {
+        "title": "Collecte d'informations",
+        "intro": "Le bot collecte les données suivantes :",
+        "item1": "ID utilisateur et pseudo Discord",
+        "item2": "ID serveur, nom serveur, pseudo propriétaire",
+        "item3": "Messages contenant une mention du bot",
+        "item4": "Résultats de sondages optionnels soumis à l'utilisateur"
+      },
+      "usage": {
+        "title": "Utilisation des données",
+        "content": "Ces données sont utilisées pour les statistiques, l'amélioration technique du bot, et le support."
+      },
+      "legalBasis": {
+        "title": "Base légale",
+        "content": "Consentement implicite par l'utilisation du bot."
+      },
+      "retention": {
+        "title": "Conservation",
+        "content": "Les logs et messages soumis au bot sont conservés environ 1 mois."
+      },
+      "userRights": {
+        "title": "Droits des utilisateurs",
+        "content": "Les utilisateurs peuvent demander l'accès, la modification ou la suppression de leurs données via le contact indiqué dans les mentions légales."
+      },
+      "dataTransmission": {
+        "title": "Transmission des données",
+        "content": "Aucune donnée n'est transmise à des tiers."
+      },
+      "complaint": {
+        "title": "Réclamation",
+        "content": "En cas de désaccord, l'utilisateur peut saisir la CNIL (www.cnil.fr)."
+      },
+      "exceptions": {
+        "title": "Exceptions",
+        "content": "Ces dispositions s'appliquent sauf exception légale ou demande des autorités compétentes."
+      }
+    }
+  },
+  "errorPage": {
+    "title": "Erreur 404",
+    "subtitle": "Page non trouvée",
+    "message": "La page que vous recherchez n'existe pas ou a été déplacée.",
+    "back": "Retourner à l'accueil"
+  },
+  "support": {
+    "title": "Centre de Support",
+    "subtitle": "Comment pouvons-nous vous aider aujourd'hui ?",
+    "discord": {
+      "title": "Serveur Discord",
+      "description": "Rejoignez notre communauté Discord pour obtenir de l'aide et discuter avec d'autres utilisateurs.",
+      "button": "Rejoindre Discord"
+    },
+    "contact": {
+      "title": "Contact Direct",
+      "description": "Une question spécifique ? Contactez directement notre équipe de support.",
+      "button": "Nous contacter"
+    },
+    "faq": {
+      "title": "Questions Fréquentes",
+      "q1": "Comment inviter AlphaLLM sur mon serveur ?",
+      "a1": "Pour inviter AlphaLLM sur votre serveur Discord, cliquez simplement sur le bouton \"Inviter\" en haut de la page d'accueil. Vous serez redirigé vers Discord où vous pourrez sélectionner le serveur et les permissions nécessaires. Assurez-vous d'avoir les droits d'administrateur sur le serveur où vous souhaitez ajouter le bot.",
+      "q2": "Le bot est-il entièrement gratuit ?",
+      "a2": "Oui, AlphaLLM est entièrement gratuit à utiliser avec toutes ses fonctionnalités. Nous ne proposons pas de version premium pour le moment. Notre objectif est de rendre l'IA accessible à tous les utilisateurs Discord sans barrière financière.",
+      "q3": "Comment configurer le bot sur mon serveur ?",
+      "a3": "Après avoir invité le bot, utilisez la commande /setup pour accéder au menu de configuration. Vous pouvez définir le canal de chat par défaut, les permissions et d'autres paramètres. Pour une configuration plus avancée, vous pouvez également utiliser notre tableau de bord web en vous connectant avec votre compte Discord.",
+      "q4": "Quels sont les modèles d'IA disponibles ?",
+      "a4": "AlphaLLM propose plusieurs modèles d'IA avancés, dont ChatGPT, Claude, Gemini, Mistral, LLaMA et d'autres. Vous pouvez choisir votre modèle préféré avec la commande /model ou définir un modèle par défaut pour votre serveur dans les paramètres.",
+      "q5": "Comment générer des images avec le bot ?",
+      "a5": "Pour générer des images, utilisez la commande /imagine suivie de votre description. Vous pouvez spécifier différents styles et rapports d'aspect. Par exemple : /imagine une forêt enchantée avec des fées lumineuses, style:fantasy ratio:16:9",
+      "q6": "Comment limiter l'accès au bot sur mon serveur ?",
+      "a6": "Vous pouvez limiter l'accès au bot à des rôles ou canaux spécifiques via la commande /permissions ou dans les paramètres du tableau de bord. Vous pouvez également définir des quotas d'utilisation pour éviter les abus.",
+      "q7": "J'ai trouvé un bug, comment le signaler ?",
+      "a7": "Vous pouvez signaler les bugs sur notre serveur Discord dans le canal #bug-reports ou en contactant directement notre équipe de support par email. Veuillez fournir le plus de détails possible, comme les étapes pour reproduire le problème, des captures d'écran et le contexte."
+    }
+  },
+  "redirectPages": {
+    "github": {
+      "title": "Redirection vers GitHub",
+      "message": "Si vous n'êtes pas redirigé automatiquement, <a href=\"https://github.com/YoannDev90/AlphaLLM\">cliquez ici</a>."
+    },
+    "invite": {
+      "title": "Redirection vers l'invitation du bot",
+      "message": "Si vous n'êtes pas redirigé automatiquement, <a href=\"https://discord.com/oauth2/authorize?client_id=1286951908786962442\">cliquez ici</a>."
+    },
+    "support": {
+      "title": "Redirection vers Discord",
+      "message": "Si vous n'êtes pas redirigé automatiquement, <a href=\"https://discord.gg/QGvyrUgwdK\">cliquez ici</a>."
+    }
+  },
+  "downloadPage": {
+    "title": "Téléchargements",
+    "subtitle": "Téléchargez AlphaLLM pour votre plateforme préférée",
+    "platforms": {
+      "windows": {
+        "title": "Windows",
+        "description": "Version Windows"
+      },
+      "macos": {
+        "title": "macOS",
+        "description": "Version macOS"
+      },
+      "linux": {
+        "title": "Linux",
+        "description": "Version Linux"
+      },
+      "android": {
+        "title": "Android",
+        "description": "Version Android"
+      },
+      "ios": {
+        "title": "iOS",
+        "description": "Via App Store"
+      },
+      "source": {
+        "title": "Code Source",
+        "description": "Code source sur GitHub"
+      }
+    },
+    "buttons": {
+      "soon": "Bientôt",
+      "github": "GitHub"
+    }
+  }
+}

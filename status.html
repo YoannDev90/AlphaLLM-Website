@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Status - AlphaLLM Bot</title>
+    
+    <!-- Favicons -->
+    <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+    
+    <!-- Meta SEO -->
+    <meta name="description" content="Real-time status page of AlphaLLM. Check the availability and performance of the Discord bot.">
+    <meta name="keywords" content="AlphaLLM, Discord Bot, Status, Uptime, Performance, Monitoring">
+    <meta name="author" content="YoannDev90">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://alphallm.tech/status.html">
+    <meta property="og:title" content="Status - AlphaLLM Bot">
+    <meta property="og:description" content="Check the real-time availability and performance of the AlphaLLM Discord bot.">
+    <meta property="og:image" content="https://alphallm.tech/assets/images/og-image.jpg">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/status.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" crossorigin="anonymous">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Scripts -->
+    <script src="assets/js/early-i18n.js"></script>
+    <script src="assets/js/error-tracking.js"></script>
+    <script src="assets/js/config.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script defer src="assets/js/main.js"></script>
+    <script defer src="assets/js/i18n.js"></script>
+    <script defer src="assets/js/lazy-loading.js"></script>
+    <script defer src="assets/js/status.js"></script>
+
+<!-- Privacy-friendly analytics by Plausible -->
+<script async src="https://plausible.io/js/pa-04ZD2Q-CcoEaYlaAS6t7Z.js"></script>
+<script>
+  window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+  plausible.init()
+</script>
+</head>
+<body class="dark-theme">
+    <!-- Noise overlay for texture -->
+    <div class="noise-overlay"></div>
+    <div class="gradient-bg"></div>
+    
+    <!-- Header navigation -->
+    <header>
+        <nav class="navbar">
+            <div class="logo-title-container">
+                <img src="assets/images/logo.webp" alt="AlphaLLM Logo" class="logo animate-pulse">
+                <h1 class="glitch" data-text="AlphaLLM">AlphaLLM</h1>
+            </div>
+            
+            <div class="nav-links">
+                <a href="index.html" data-i18n="nav.home">Accueil</a>
+                <a href="download.html">Téléchargements</a>
+                <a href="status.html" class="active" data-i18n="nav.status">Statut</a>
+                <a href="support.html" data-i18n="nav.support">Support</a>
+            </div>
+            
+            <div class="buttons">
+                <div class="language-dropdown">
+                    <button class="dropdown-toggle"><i class="fas fa-globe"></i> <span class="current-lang">Français</span></button>
+                    <div class="dropdown-menu">
+                        <button class="lang-btn language-selector" data-lang="fr"><img src="https://flagcdn.com/fr.svg" alt="FR" width="20"> Français</button>
+                        <button class="lang-btn language-selector" data-lang="en"><img src="https://flagcdn.com/us.svg" alt="EN" width="20"> English</button>
+                    </div>
+                </div>
+                <button class="mobile-menu-btn" aria-label="Ouvrir le menu" aria-expanded="false"><i class="fas fa-bars"></i></button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Page Header -->
+    <div class="page-header fade-in">
+        <div class="container text-center">
+            <h1 class="page-title glow-text" data-i18n="status.title">Statut du Bot</h1>
+            <p class="subtitle" data-i18n="status.subtitle">Surveillez en temps réel les performances du bot AlphaLLM</p>
+        </div>
+    </div>
+
+    <main class="container">
+        <section class="status-overview glass-card scale-in collapsible-section">
+            <div class="collapsible-header" onclick="toggleCollapsible(this)">
+                <h2 data-i18n="status.overview">Vue d'ensemble</h2>
+                <button class="collapsible-toggle" aria-label="Toggle section">
+                    <i class="fas fa-chevron-up"></i>
+                </button>
+            </div>
+            
+            <div class="collapsible-content">
+                <div class="status-header">
+                    <div id="refresh-container">
+                        <span id="last-updated" data-i18n="status.lastUpdated">Dernière mise à jour: </span>
+                        <span id="update-time"></span>
+                        <span id="refresh-status-text" class="refresh-status-text" data-i18n="status.refreshing" style="display: none;">Actualisation...</span>
+                        <button id="refresh-status" class="btn-icon pulse-effect" aria-label="Actualiser">
+                            <i class="fas fa-sync-alt"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="bots-list">
+                <!-- Bots -->
+                <div class="bot-item glass-effect">
+                    <div class="bot-thumbnail">
+                        <img data-src="assets/images/models/chatgpt.webp" alt="ChatGPT">
+                    </div>
+                    <div class="bot-info">
+                        <h3>ChatGPT</h3>
+                        <div class="bot-status">
+                            <span class="status getting" data-i18n="status.getting">Getting ...</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bot-item glass-effect">
+                    <div class="bot-thumbnail">
+                        <img data-src="assets/images/models/claude.webp" alt="Claude">
+                    </div>
+                    <div class="bot-info">
+                        <h3>Claude</h3>
+                        <div class="bot-status">
+                            <span class="status getting" data-i18n="status.getting">Getting ...</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bot-item glass-effect">
+                    <div class="bot-thumbnail">
+                        <img data-src="assets/images/models/gemini.webp" alt="Gemini">
+                    </div>
+                    <div class="bot-info">
+                        <h3>Gemini</h3>
+                        <div class="bot-status">
+                            <span class="status getting" data-i18n="status.getting">Getting ...</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bot-item glass-effect">
+                    <div class="bot-thumbnail">
+                        <img data-src="assets/images/models/llama.webp" alt="Llama">
+                    </div>
+                    <div class="bot-info">
+                        <h3>Llama</h3>
+                        <div class="bot-status">
+                            <span class="status getting" data-i18n="status.getting">Getting ...</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bot-item glass-effect">
+                    <div class="bot-thumbnail">
+                        <img src="assets/images/models/deepseek.webp" alt="DeepSeek">
+                    </div>
+                    <div class="bot-info">
+                        <h3>DeepSeek</h3>
+                        <div class="bot-status">
+                            
+                            <span class="status getting" data-i18n="status.getting">Getting ...</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bot-item glass-effect">
+                    <div class="bot-thumbnail">
+                        <img src="assets/images/models/mistral.webp" alt="Mistral">
+                    </div>
+                    <div class="bot-info">
+                        <h3>Mistral</h3>
+                        <div class="bot-status">
+                            
+                            <span class="status getting" data-i18n="status.getting">Getting ...</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bot-item glass-effect">
+                    <div class="bot-thumbnail">
+                        <img src="assets/images/models/grok.webp" alt="Grok">
+                    </div>
+                    <div class="bot-info">
+                        <h3>Grok</h3>
+                        <div class="bot-status">
+                            
+                            <span class="status getting" data-i18n="status.getting">Getting ...</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bot-item glass-effect">
+                    <div class="bot-thumbnail">
+                        <img src="assets/images/models/perplexity.webp" alt="Perplexity">
+                    </div>
+                    <div class="bot-info">
+                        <h3>Perplexity</h3>
+                        <div class="bot-status">
+                            
+                            <span class="status getting" data-i18n="status.getting">Getting ...</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bot-item glass-effect">
+                    <div class="bot-thumbnail">
+                        <img src="assets/images/models/qwen.webp" alt="Qwen">
+                    </div>
+                    <div class="bot-info">
+                        <h3>Qwen</h3>
+                        <div class="bot-status">
+                            
+                            <span class="status getting" data-i18n="status.getting">Getting ...</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bot-item glass-effect">
+                    <div class="bot-thumbnail">
+                        <img src="assets/images/models/phi.webp" alt="Phi">
+                    </div>
+                    <div class="bot-info">
+                        <h3>Phi</h3>
+                        <div class="bot-status">
+                            
+                            <span class="status getting" data-i18n="status.getting">Getting ...</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bot-item glass-effect">
+                    <div class="bot-thumbnail">
+                        <img src="assets/images/models/glm.webp" alt="GLM">
+                    </div>
+                    <div class="bot-info">
+                        <h3>GLM</h3>
+                        <div class="bot-status">
+                            
+                            <span class="status getting" data-i18n="status.getting">Getting ...</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bot-item glass-effect">
+                    <div class="bot-thumbnail">
+                        <img src="assets/images/models/moonshot.webp" alt="Moonshot">
+                    </div>
+                    <div class="bot-info">
+                        <h3>Kimi</h3>
+                        <div class="bot-status">
+                            
+                            <span class="status getting" data-i18n="status.getting">Getting ...</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bot-item glass-effect">
+                    <div class="bot-thumbnail">
+                        <img src="assets/images/models/evilgpt.webp" alt="EvilGPT">
+                    </div>
+                    <div class="bot-info">
+                        <h3>EvilGPT</h3>
+                        <div class="bot-status">
+                            
+                            <span class="status getting" data-i18n="status.getting">Getting ...</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bot-item glass-effect">
+                    <div class="bot-thumbnail">
+                        <img src="assets/images/models/cohere.webp" alt="Cohere">
+                    </div>
+                    <div class="bot-info">
+                        <h3>Cohere</h3>
+                        <div class="bot-status">
+                            
+                            <span class="status getting" data-i18n="status.getting">Getting ...</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bot-item glass-effect">
+                    <div class="bot-thumbnail">
+                        <img src="assets/images/models/yi.webp" alt="Yi">
+                    </div>
+                    <div class="bot-info">
+                        <h3>Yi</h3>
+                        <div class="bot-status">
+                            
+                            <span class="status getting" data-i18n="status.getting">Getting ...</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bot-item glass-effect">
+                    <div class="bot-thumbnail">
+                        <img src="assets/images/models/hermes.webp" alt="Hermès">
+                    </div>
+                    <div class="bot-info">
+                        <h3>Hermès</h3>
+                        <div class="bot-status">
+                            
+                            <span class="status getting" data-i18n="status.getting">Getting ...</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bot-item glass-effect">
+                    <div class="bot-thumbnail">
+                        <img src="assets/images/models/nemotron.webp" alt="Nemotron">
+                    </div>
+                    <div class="bot-info">
+                        <h3>Nemotron</h3>
+                        <div class="bot-status">
+                            
+                            <span class="status getting" data-i18n="status.getting">Getting ...</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bot-item glass-effect">
+                    <div class="bot-thumbnail">
+                        <img src="assets/images/models/minimax.webp" alt="MiniMax">
+                    </div>
+                    <div class="bot-info">
+                        <h3>MiniMax</h3>
+                        <div class="bot-status">
+                            
+                            <span class="status getting" data-i18n="status.getting">Getting ...</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bot-item glass-effect">
+                    <div class="bot-thumbnail">
+                        <img src="assets/images/models/inception.webp" alt="Inception">
+                    </div>
+                    <div class="bot-info">
+                        <h3>Inception</h3>
+                        <div class="bot-status">
+                            
+                            <span class="status getting" data-i18n="status.getting">Getting ...</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bot-item glass-effect">
+                    <div class="bot-thumbnail">
+                        <img src="assets/images/models/longcat.webp" alt="LongCat">
+                    </div>
+                    <div class="bot-info">
+                        <h3>LongCat</h3>
+                        <div class="bot-status">
+                            
+                            <span class="status getting" data-i18n="status.getting">Getting ...</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bot-item glass-effect">
+                    <div class="bot-thumbnail">
+                        <img src="assets/images/models/bytedance.webp" alt="Seed">
+                    </div>
+                    <div class="bot-info">
+                        <h3>Seed</h3>
+                        <div class="bot-status">
+                            
+                            <span class="status getting" data-i18n="status.getting">Getting ...</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </section>
+        
+        <!-- System Resources Section -->
+        <section class="system-resources glass-card scale-in collapsible-section">
+            <div class="collapsible-header" onclick="toggleCollapsible(this)">
+                <h2 data-i18n="status.resources">Ressources Système</h2>
+                <button class="collapsible-toggle" aria-label="Toggle section">
+                    <i class="fas fa-chevron-up"></i>
+                </button>
+            </div>
+            
+            <div class="collapsible-content">
+            
+            <div class="charts-container">
+                <div class="chart-wrapper">
+                    <h3 data-i18n="status.realtimeCpuRam">CPU & RAM en Temps Réel (Dernière Minute)</h3>
+                    <canvas id="realtime-cpu-ram-chart"></canvas>
+                </div>
+                
+                <div class="chart-wrapper">
+                    <h3 data-i18n="status.dailyCpuRam">CPU & RAM Quotidien (Dernières 24 Heures)</h3>
+                    <canvas id="daily-cpu-ram-chart"></canvas>
+                </div>
+            </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="assets/images/logo.webp" alt="Logo d'AlphaLLM, bot Discord IA gratuit" class="logo-small" loading="lazy" width="50" height="50">
+                    <h3>AlphaLLM</h3>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4 data-i18n="global.footer.product">Produit</h4>
+                        <a href="status.html" data-i18n="global.footer.status">Statut</a>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4 data-i18n="global.footer.resources">Ressources</h4>
+                        <a href="support.html" data-i18n="global.footer.support">Support</a>
+                        <a href="https://discord.gg/QGvyrUgwdK" target="_blank" rel="noopener noreferrer" data-i18n="global.footer.discord">Serveur Discord</a>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4 data-i18n="global.footer.legal">Juridique</h4>
+                        <a href="legals.html#terms" data-i18n="global.footer.termsOfService">Conditions d'utilisation</a>
+                        <a href="legals.html#privacy" data-i18n="global.footer.privacyPolicy">Politique de confidentialité</a>
+                    </div>
+                </div>
+                
+                <div class="footer-social">
+                    <a href="https://discord.gg/QGvyrUgwdK" target="_blank" rel="noopener noreferrer" aria-label="Discord"><i class="fab fa-discord"></i></a>
+                    <a href="https://github.com/YoannDev90/AlphaLLM" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; <span id="current-year">2024</span> AlphaLLM. <span data-i18n="global.footer.copyright">Tous droits réservés.</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to top button -->
+    <button id="back-to-top" class="visible" aria-label="Retour en haut"><i class="fas fa-arrow-up"></i></button>
+</body>
+</html>
