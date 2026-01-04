@@ -32,9 +32,12 @@
     
     <!-- Scripts -->
     <script src="assets/js/early-i18n.js"></script>
+    <script src="assets/js/error-tracking.js"></script>
+    <script src="assets/js/config.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script defer src="assets/js/main.js"></script>
     <script defer src="assets/js/i18n.js"></script>
+    <script defer src="assets/js/lazy-loading.js"></script>
     <script defer src="assets/js/status.js"></script>
 </head>
 <body class="dark-theme">
@@ -65,7 +68,7 @@
                         <button class="lang-btn language-selector" data-lang="en"><img src="https://flagcdn.com/us.svg" alt="EN" width="20"> English</button>
                     </div>
                 </div>
-                <button class="mobile-menu-btn" aria-label="Menu"><i class="fas fa-bars"></i></button>
+                <button class="mobile-menu-btn" aria-label="Ouvrir le menu" aria-expanded="false"><i class="fas fa-bars"></i></button>
             </div>
         </nav>
     </header>
@@ -100,28 +103,26 @@
                 </div>
                 
                 <div class="bots-list">
-                <!-- Bots -->              
+                <!-- Bots -->
                 <div class="bot-item glass-effect">
                     <div class="bot-thumbnail">
-                        <img src="assets/images/models/chatgpt.webp" alt="ChatGPT">
+                        <img data-src="assets/images/models/chatgpt.webp" alt="ChatGPT">
                     </div>
                     <div class="bot-info">
                         <h3>ChatGPT</h3>
                         <div class="bot-status">
-                            <span class="ping"><i class="fas fa-bolt"></i> --</span>
                             <span class="status getting" data-i18n="status.getting">Getting ...</span>
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="bot-item glass-effect">
                     <div class="bot-thumbnail">
-                        <img src="assets/images/models/claude.webp" alt="Claude">
+                        <img data-src="assets/images/models/claude.webp" alt="Claude">
                     </div>
                     <div class="bot-info">
                         <h3>Claude</h3>
                         <div class="bot-status">
-                            <span class="ping"><i class="fas fa-bolt"></i> --</span>
                             <span class="status getting" data-i18n="status.getting">Getting ...</span>
                         </div>
                     </div>
@@ -129,25 +130,23 @@
                 
                 <div class="bot-item glass-effect">
                     <div class="bot-thumbnail">
-                        <img src="assets/images/models/gemini.webp" alt="Gemini">
+                        <img data-src="assets/images/models/gemini.webp" alt="Gemini">
                     </div>
                     <div class="bot-info">
                         <h3>Gemini</h3>
                         <div class="bot-status">
-                            <span class="ping"><i class="fas fa-bolt"></i> --</span>
                             <span class="status getting" data-i18n="status.getting">Getting ...</span>
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="bot-item glass-effect">
                     <div class="bot-thumbnail">
-                        <img src="assets/images/models/llama.webp" alt="Llama">
+                        <img data-src="assets/images/models/llama.webp" alt="Llama">
                     </div>
                     <div class="bot-info">
                         <h3>Llama</h3>
                         <div class="bot-status">
-                            <span class="ping"><i class="fas fa-bolt"></i> --</span>
                             <span class="status getting" data-i18n="status.getting">Getting ...</span>
                         </div>
                     </div>
@@ -160,7 +159,7 @@
                     <div class="bot-info">
                         <h3>DeepSeek</h3>
                         <div class="bot-status">
-                            <span class="ping"><i class="fas fa-bolt"></i> --</span>
+                            
                             <span class="status getting" data-i18n="status.getting">Getting ...</span>
                         </div>
                     </div>
@@ -173,7 +172,7 @@
                     <div class="bot-info">
                         <h3>Mistral</h3>
                         <div class="bot-status">
-                            <span class="ping"><i class="fas fa-bolt"></i> --</span>
+                            
                             <span class="status getting" data-i18n="status.getting">Getting ...</span>
                         </div>
                     </div>
@@ -186,7 +185,7 @@
                     <div class="bot-info">
                         <h3>Grok</h3>
                         <div class="bot-status">
-                            <span class="ping"><i class="fas fa-bolt"></i> --</span>
+                            
                             <span class="status getting" data-i18n="status.getting">Getting ...</span>
                         </div>
                     </div>
@@ -199,7 +198,7 @@
                     <div class="bot-info">
                         <h3>Perplexity</h3>
                         <div class="bot-status">
-                            <span class="ping"><i class="fas fa-bolt"></i> --</span>
+                            
                             <span class="status getting" data-i18n="status.getting">Getting ...</span>
                         </div>
                     </div>
@@ -212,7 +211,7 @@
                     <div class="bot-info">
                         <h3>Qwen</h3>
                         <div class="bot-status">
-                            <span class="ping"><i class="fas fa-bolt"></i> --</span>
+                            
                             <span class="status getting" data-i18n="status.getting">Getting ...</span>
                         </div>
                     </div>
@@ -225,7 +224,7 @@
                     <div class="bot-info">
                         <h3>Phi</h3>
                         <div class="bot-status">
-                            <span class="ping"><i class="fas fa-bolt"></i> --</span>
+                            
                             <span class="status getting" data-i18n="status.getting">Getting ...</span>
                         </div>
                     </div>
@@ -238,7 +237,7 @@
                     <div class="bot-info">
                         <h3>GLM</h3>
                         <div class="bot-status">
-                            <span class="ping"><i class="fas fa-bolt"></i> --</span>
+                            
                             <span class="status getting" data-i18n="status.getting">Getting ...</span>
                         </div>
                     </div>
@@ -251,7 +250,7 @@
                     <div class="bot-info">
                         <h3>Kimi</h3>
                         <div class="bot-status">
-                            <span class="ping"><i class="fas fa-bolt"></i> --</span>
+                            
                             <span class="status getting" data-i18n="status.getting">Getting ...</span>
                         </div>
                     </div>
@@ -264,7 +263,7 @@
                     <div class="bot-info">
                         <h3>EvilGPT</h3>
                         <div class="bot-status">
-                            <span class="ping"><i class="fas fa-bolt"></i> --</span>
+                            
                             <span class="status getting" data-i18n="status.getting">Getting ...</span>
                         </div>
                     </div>
@@ -277,7 +276,7 @@
                     <div class="bot-info">
                         <h3>Cohere</h3>
                         <div class="bot-status">
-                            <span class="ping"><i class="fas fa-bolt"></i> --</span>
+                            
                             <span class="status getting" data-i18n="status.getting">Getting ...</span>
                         </div>
                     </div>
@@ -290,7 +289,7 @@
                     <div class="bot-info">
                         <h3>Yi</h3>
                         <div class="bot-status">
-                            <span class="ping"><i class="fas fa-bolt"></i> --</span>
+                            
                             <span class="status getting" data-i18n="status.getting">Getting ...</span>
                         </div>
                     </div>
@@ -303,7 +302,7 @@
                     <div class="bot-info">
                         <h3>Hermès</h3>
                         <div class="bot-status">
-                            <span class="ping"><i class="fas fa-bolt"></i> --</span>
+                            
                             <span class="status getting" data-i18n="status.getting">Getting ...</span>
                         </div>
                     </div>
@@ -316,7 +315,7 @@
                     <div class="bot-info">
                         <h3>Nemotron</h3>
                         <div class="bot-status">
-                            <span class="ping"><i class="fas fa-bolt"></i> --</span>
+                            
                             <span class="status getting" data-i18n="status.getting">Getting ...</span>
                         </div>
                     </div>
@@ -329,7 +328,7 @@
                     <div class="bot-info">
                         <h3>MiniMax</h3>
                         <div class="bot-status">
-                            <span class="ping"><i class="fas fa-bolt"></i> --</span>
+                            
                             <span class="status getting" data-i18n="status.getting">Getting ...</span>
                         </div>
                     </div>
@@ -342,7 +341,7 @@
                     <div class="bot-info">
                         <h3>Inception</h3>
                         <div class="bot-status">
-                            <span class="ping"><i class="fas fa-bolt"></i> --</span>
+                            
                             <span class="status getting" data-i18n="status.getting">Getting ...</span>
                         </div>
                     </div>
@@ -355,7 +354,7 @@
                     <div class="bot-info">
                         <h3>LongCat</h3>
                         <div class="bot-status">
-                            <span class="ping"><i class="fas fa-bolt"></i> --</span>
+                            
                             <span class="status getting" data-i18n="status.getting">Getting ...</span>
                         </div>
                     </div>
@@ -368,7 +367,7 @@
                     <div class="bot-info">
                         <h3>Seed</h3>
                         <div class="bot-status">
-                            <span class="ping"><i class="fas fa-bolt"></i> --</span>
+                            
                             <span class="status getting" data-i18n="status.getting">Getting ...</span>
                         </div>
                     </div>

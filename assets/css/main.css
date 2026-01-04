@@ -72,6 +72,45 @@
 }
 
 /* ===================================================
+   Light Theme Variables
+=================================================== */
+[data-theme="light"] {
+    /* Colors */
+    --primary: #5865f2;
+    --primary-hover: #4752c4;
+    --secondary: #6d7b8d;
+    --accent: #ff73fa;
+    --success: #00d4aa;
+    --danger: #f04747;
+    --warning: #faa61a;
+    --info: #3498db;
+
+    /* Text Colors */
+    --text: #2c2c2c;
+    --text-muted: #666666;
+    --text-primary: #1a1a1a;
+    --text-secondary: #4a4a4a;
+
+    /* Backgrounds - Light Theme */
+    --background: #f8f9fa;
+    --surface: #ffffff;
+    --surface-2: #f1f3f4;
+    --card-bg: #ffffff;
+    --code-bg: #f8f9fa;
+
+    /* Borders & Shadows */
+    --border: #e1e5e9;
+    --border-color: #e1e5e9;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --glow-color: rgba(88, 101, 242, 0.2);
+
+    /* Status Colors (same) */
+    --online: #00d4aa;
+    --offline: #f04747;
+    --idle: #faa61a;
+}
+
+/* ===================================================
    2. Reset & Base Styles
 =================================================== */
 * {
@@ -187,6 +226,41 @@ img {
 
 .btn-glow:hover::before {
     left: 100%;
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: var(--radius-round);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--text);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition-speed) ease;
+    z-index: 1000;
+    box-shadow: var(--shadow-md);
+}
+
+.theme-toggle:hover {
+    background: var(--surface-2);
+    transform: scale(1.1);
+    box-shadow: var(--shadow-lg);
+}
+
+.theme-toggle i {
+    font-size: 1.2rem;
+    transition: transform var(--transition-speed) ease;
+}
+
+.theme-toggle:hover i {
+    transform: rotate(180deg);
 }
 
 .section-title {
@@ -1015,4 +1089,42 @@ footer {
         padding: 10px 20px;
         font-size: 0.9rem;
     }
+}
+
+/* ===================================================
+   10. Lazy Loading Styles
+=================================================== */
+
+/* Images avec lazy loading */
+img[data-src] {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    filter: blur(2px);
+    transform: scale(1.02);
+}
+
+img[data-src].loaded {
+    opacity: 1;
+    filter: blur(0);
+    transform: scale(1);
+}
+
+/* Placeholder pour les images non chargées */
+img[data-src]:not(.loaded)::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 40px;
+    height: 40px;
+    margin: -20px 0 0 -20px;
+    border: 3px solid var(--border);
+    border-top: 3px solid var(--primary);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }

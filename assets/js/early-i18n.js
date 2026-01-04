@@ -25,7 +25,7 @@
   }
   
   // Langues supportées
-  const supportedLanguages = ['fr', 'en', 'de', 'es', 'pt', 'nl', 'it'];
+  const supportedLanguages = ['fr', 'en'];
   
   // Détecter la langue
   let detectedLanguage = 'fr'; // Par défaut

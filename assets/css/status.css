@@ -231,19 +231,6 @@
 .bot-status {
     display: flex;
     align-items: center;
-    gap: 1rem;
-}
-
-.ping {
-    display: flex;
-    align-items: center;
-    gap: 0.3rem;
-    font-size: 0.85rem;
-    color: var(--color-text-muted);
-}
-
-.ping i {
-    color: var(--color-primary);
 }
 
 .status {

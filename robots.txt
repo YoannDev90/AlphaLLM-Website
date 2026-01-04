@@ -1,4 +1,81 @@
+# Robots.txt pour AlphaLLM Website
+# https://alphallm.tech/robots.txt
+
+# Règles pour tous les robots
 User-agent: *
 Allow: /
 
+# Pages importantes à crawler en priorité
+Allow: /index.html
+Allow: /status.html
+Allow: /support.html
+Allow: /download.html
+
+# Bloquer les dossiers techniques
+Disallow: /assets/js/
+Disallow: /assets/css/
+Disallow: /langs/
+Disallow: /node_modules/
+Disallow: /.git/
+Disallow: /dist/
+
+# Bloquer les fichiers temporaires et de développement
+Disallow: /*.tmp
+Disallow: /*.bak
+Disallow: /*.log
+Disallow: /.env
+
+# Règles spécifiques pour Googlebot
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+# Règles spécifiques pour Bingbot
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+# Règles spécifiques pour moteurs de recherche mobiles
+User-agent: Googlebot-Mobile
+Allow: /
+Crawl-delay: 1
+
+User-agent: Googlebot-Image
+Allow: /assets/images/
+Allow: /*.jpg
+Allow: /*.png
+Allow: /*.svg
+Allow: /*.webp
+
+# Règles pour les bots de médias sociaux
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+# Règles pour les bots d'archivage
+User-agent: ia_archiver
+Allow: /
+
+User-agent: archive.org_bot
+Allow: /
+
+# Bloquer les bots malveillants connus
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+# Sitemaps
 Sitemap: https://alphallm.tech/sitemap.xml
+
+# Informations de contact pour les moteurs de recherche
+# Contact: admin@alphallm.tech

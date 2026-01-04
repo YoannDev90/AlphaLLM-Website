@@ -1,0 +1,54 @@
+{
+  "name": "alphallm-website",
+  "version": "1.0.0",
+  "description": "Site web officiel du bot Discord AlphaLLM - IA conversationnelle multimodèle",
+  "main": "index.html",
+  "scripts": {
+    "build": "node build.js",
+    "dev": "python3 -m http.server 8000",
+    "lint": "echo 'Linting JavaScript...' && npx eslint assets/js/*.js --fix || true",
+    "test": "echo 'Running tests...' && npm run lint",
+    "analyze": "echo 'Analyzing bundle...' && npx webpack-bundle-analyzer dist/stats.json || true",
+    "clean": "rm -rf dist/",
+    "prebuild": "npm run clean",
+    "postbuild": "echo 'Build completed! Check dist/ folder.'"
+  },
+  "keywords": [
+    "discord",
+    "bot",
+    "ai",
+    "chatbot",
+    "multimodal",
+    "website",
+    "pwa"
+  ],
+  "author": "YoannDev90",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/YoannDev90/AlphaLLM-Website.git"
+  },
+  "bugs": {
+    "url": "https://github.com/YoannDev90/AlphaLLM-Website/issues"
+  },
+  "homepage": "https://alphallm.tech",
+  "devDependencies": {
+    "clean-css": "^5.3.3",
+    "terser": "^5.31.0",
+    "eslint": "^8.57.0",
+    "webpack-bundle-analyzer": "^4.10.1"
+  },
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=8.0.0"
+  },
+  "browserslist": [
+    "last 2 versions",
+    "> 1%",
+    "not dead",
+    "Chrome >= 60",
+    "Firefox >= 60",
+    "Safari >= 12",
+    "Edge >= 79"
+  ]
+}

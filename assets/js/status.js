@@ -1,11 +1,11 @@
 /**
  * Status.js - Script pour la page de statut du bot
- * Récupère les statuts et latences des bots via l'API
+ * Récupère les statuts des bots via l'API
  */
 
 // Configuration de l'API
-const API_ENDPOINT = 'https://alphallm-api.onrender.com/status';
-const RESOURCES_ENDPOINT = 'https://alphallm-api.onrender.com/resources';
+const API_ENDPOINT = CONFIG.API.BASE_URL + CONFIG.API.STATUS_ENDPOINT;
+const RESOURCES_ENDPOINT = CONFIG.API.BASE_URL + CONFIG.API.RESOURCES_ENDPOINT;
 
 // Variables pour les graphiques
 let realtimeCpuRamChart;
@@ -389,12 +389,7 @@ function showErrorMessage(message) {
         const currentLang = document.documentElement.lang || 'fr';
         const errorPrefixFallback = {
             fr: 'Erreur lors du chargement des statuts',
-            en: 'Error loading bot statuses',
-            de: 'Fehler beim Laden der Bot-Status',
-            es: 'Error cargando estados de bots',
-            pt: 'Erro ao carregar status dos bots',
-            nl: 'Fout bij laden bot statussen',
-            it: 'Errore caricamento stati bot'
+            en: 'Error loading bot statuses'
         };
         const prefix = errorPrefixFallback[currentLang] || errorPrefixFallback.fr;
         errorText = `${prefix}: ${message}`;
@@ -435,25 +430,10 @@ function setAllBotsToError() {
                 const currentLang = document.documentElement.lang || 'fr';
                 const fallbackTexts = {
                     fr: 'Hors ligne',
-                    en: 'Offline',
-                    de: 'Offline',
-                    es: 'Fuera de línea',
-                    pt: 'Offline',
-                    nl: 'Offline',
-                    it: 'Offline'
+                    en: 'Offline'
                 };
                 statusElement.textContent = fallbackTexts[currentLang] || fallbackTexts.fr;
             }
-        }
-        
-        const pingElement = bot.querySelector('.ping');
-        if (pingElement) {
-            const pingIcon = pingElement.querySelector('i');
-            pingElement.innerHTML = ''; // Effacer le contenu
-            if (pingIcon) {
-                pingElement.appendChild(pingIcon); // Remettre l'icône
-            }
-            pingElement.appendChild(document.createTextNode(' --'));
         }
     });
 }
@@ -568,17 +548,19 @@ function updateBotsStatusFromAPI(apiData) {
         const botName = botNameElement.textContent.trim();
         const botData = apiData[botName];
         
-        let statusClass, statusI18nKey, latency;
+        let statusClass, statusI18nKey;
         
         // Si aucune donnée n'est disponible pour ce bot, il est considéré comme offline
         if (!botData) {
             console.warn(`Aucune donnée disponible pour le bot: ${botName} - considéré comme offline`);
             statusClass = 'offline';
             statusI18nKey = 'status.offline';
-            latency = '--';
         } else {
+            // botData est maintenant toujours une chaîne représentant le statut
+            const status = botData;
+            
             // Déterminer le statut et la classe CSS
-            switch (botData.status.toLowerCase()) {
+            switch (status.toLowerCase()) {
                 case 'online':
                     statusClass = 'online';
                     statusI18nKey = 'status.online';
@@ -595,13 +577,6 @@ function updateBotsStatusFromAPI(apiData) {
                     statusClass = 'offline';
                     statusI18nKey = 'status.unknown';
             }
-            
-            // Formater la latence
-            if (botData.ping === 0 || botData.status.toLowerCase() === 'offline') {
-                latency = '--';
-            } else {
-                latency = Math.round(botData.ping);
-            }
         }
         
         // Mettre à jour le statut du bot
@@ -617,26 +592,15 @@ function updateBotsStatusFromAPI(apiData) {
             } else {
                 // Fallback si i18n n'est pas encore chargé
                 const fallbackTexts = {
-                    'status.online': { fr: 'En ligne', en: 'Online', de: 'Online', es: 'En línea', pt: 'Online', nl: 'Online', it: 'Online' },
-                    'status.offline': { fr: 'Hors ligne', en: 'Offline', de: 'Offline', es: 'Fuera de línea', pt: 'Offline', nl: 'Offline', it: 'Offline' },
-                    'status.degraded': { fr: 'Dégradé', en: 'Degraded', de: 'Beeinträchtigt', es: 'Degradado', pt: 'Degradado', nl: 'Verslechterd', it: 'Degradato' },
-                    'status.unknown': { fr: 'Inconnu', en: 'Unknown', de: 'Unbekannt', es: 'Desconocido', pt: 'Desconhecido', nl: 'Onbekend', it: 'Sconosciuto' }
+                    'status.online': { fr: 'En ligne', en: 'Online' },
+                    'status.offline': { fr: 'Hors ligne', en: 'Offline' },
+                    'status.degraded': { fr: 'Dégradé', en: 'Degraded' },
+                    'status.unknown': { fr: 'Inconnu', en: 'Unknown' }
                 };
                 const currentLang = document.documentElement.lang || 'fr';
                 const fallbackText = fallbackTexts[statusI18nKey];
                 statusElement.textContent = (fallbackText && fallbackText[currentLang]) || fallbackText?.fr || 'Unknown';
             }
-        }
-        
-        // Mettre à jour la latence
-        const pingElement = bot.querySelector('.ping');
-        if (pingElement) {
-            const pingIcon = pingElement.querySelector('i');
-            pingElement.innerHTML = ''; // Effacer le contenu
-            if (pingIcon) {
-                pingElement.appendChild(pingIcon); // Remettre l'icône
-            }
-            pingElement.appendChild(document.createTextNode(' ' + (latency === '--' ? latency : latency + 'ms')));
         }
         
         // Application d'effets visuels pour la mise à jour
@@ -791,12 +755,7 @@ function showResourcesErrorMessage(message) {
         const currentLang = document.documentElement.lang || 'fr';
         const errorPrefixFallback = {
             fr: 'Erreur lors du chargement des ressources',
-            en: 'Error loading system resources',
-            de: 'Fehler beim Laden der Systemressourcen',
-            es: 'Error cargando recursos del sistema',
-            pt: 'Erro ao carregar recursos do sistema',
-            nl: 'Fout bij laden systeemresources',
-            it: 'Errore caricamento risorse sistema'
+            en: 'Error loading system resources'
         };
         const prefix = errorPrefixFallback[currentLang] || errorPrefixFallback.fr;
         errorText = `${prefix}: ${message}`;
