@@ -179,7 +179,9 @@ class BuildTool {
 
   copyStaticFiles() {
     const staticFiles = ['CNAME', 'robots.txt', '.htaccess'];
+    const htmlFiles = ['index.html', '404.html', 'download.html', 'github-link.html', 'invite-link.html', 'legals.html', 'status.html', 'support-link.html', 'support.html', 'sitemap.xml'];
     
+    // Copier les fichiers statiques
     staticFiles.forEach(file => {
       const srcPath = path.join(this.rootDir, file);
       const destPath = path.join(this.distDir, file);
@@ -187,6 +189,45 @@ class BuildTool {
       if (fs.existsSync(srcPath)) {
         fs.copyFileSync(srcPath, destPath);
         console.log(`📋 Copié ${file} vers dist/`);
+      }
+    });
+
+    // Copier les fichiers HTML
+    htmlFiles.forEach(file => {
+      const srcPath = path.join(this.rootDir, file);
+      const destPath = path.join(this.distDir, file);
+      
+      if (fs.existsSync(srcPath)) {
+        fs.copyFileSync(srcPath, destPath);
+        console.log(`📄 Copié ${file} vers dist/`);
+      }
+    });
+
+    // Copier le dossier langs
+    const langsSrc = path.join(this.rootDir, 'langs');
+    const langsDest = path.join(this.distDir, 'langs');
+    
+    if (fs.existsSync(langsSrc)) {
+      this.copyDirectory(langsSrc, langsDest);
+      console.log(`📁 Copié langs/ vers dist/`);
+    }
+  }
+
+  copyDirectory(src, dest) {
+    if (!fs.existsSync(dest)) {
+      fs.mkdirSync(dest, { recursive: true });
+    }
+    
+    const files = fs.readdirSync(src);
+    
+    files.forEach(file => {
+      const srcPath = path.join(src, file);
+      const destPath = path.join(dest, file);
+      
+      if (fs.statSync(srcPath).isDirectory()) {
+        this.copyDirectory(srcPath, destPath);
+      } else {
+        fs.copyFileSync(srcPath, destPath);
       }
     });
   }
