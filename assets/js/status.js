@@ -337,7 +337,7 @@ async function fetchStatusData() {
     return {
       status: 'success',
       timestamp: new Date().toISOString(),
-      bots: data
+      bots: data.data_service
     };
   } catch (error) {
     console.error('Erreur lors de la récupération des données:', error);
@@ -538,6 +538,31 @@ async function fetchAndUpdateResources() {
  * Met à jour les statuts des bots avec les données de l'API
  */
 function updateBotsStatusFromAPI(apiData) {
+  // Mapping des noms d'affichage aux clés API
+  const nameToKeyMap = {
+    'ChatGPT': 'openai',
+    'Claude': 'claude',
+    'Gemini': 'gemini',
+    'Llama': 'llama',
+    'DeepSeek': 'deepseek',
+    'Mistral': 'mistral',
+    'Grok': 'grok',
+    'Perplexity': 'mercury', // Assuming Perplexity maps to mercury
+    'Qwen': 'qwen',
+    'Phi': 'phi',
+    'GLM': 'glm',
+    'Kimi': 'kimi',
+    'EvilGPT': 'evilgpt',
+    'Cohere': 'cohere',
+    'Yi': 'yi',
+    'Hermès': 'hermes',
+    'Nemotron': 'nemotron',
+    'MiniMax': 'minimax',
+    'Inception': 'granite', // Assuming Inception maps to granite
+    'LongCat': 'longcat',
+    'Seed': 'seed'
+  };
+    
   const botItems = document.querySelectorAll('.bot-item');
     
   botItems.forEach(bot => {
@@ -545,14 +570,15 @@ function updateBotsStatusFromAPI(apiData) {
     const botNameElement = bot.querySelector('.bot-info h3');
     if (!botNameElement) {return;}
         
-    const botName = botNameElement.textContent.trim();
-    const botData = apiData[botName];
+    const displayName = botNameElement.textContent.trim();
+    const apiKey = nameToKeyMap[displayName];
+    const botData = apiKey ? apiData[apiKey] : null;
         
     let statusClass, statusI18nKey;
         
     // Si aucune donnée n'est disponible pour ce bot, il est considéré comme offline
     if (!botData) {
-      console.warn(`Aucune donnée disponible pour le bot: ${botName} - considéré comme offline`);
+      console.warn(`Aucune donnée disponible pour le bot: ${displayName} - considéré comme offline`);
       statusClass = 'offline';
       statusI18nKey = 'status.offline';
     } else {
