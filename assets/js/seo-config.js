@@ -279,7 +279,7 @@ const SEOUtils = {
   },
 
   // Générer les métadonnées Twitter Cards
-  getTwitterMeta(pageKey = 'home') {
+  getTwitterMeta(_pageKey = 'home') {
     return {
       'twitter:card': SEO_CONFIG.twitter.card,
       'twitter:site': SEO_CONFIG.twitter.site,

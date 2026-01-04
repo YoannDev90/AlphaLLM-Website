@@ -203,6 +203,15 @@ class BuildTool {
       }
     });
 
+    // Copier le Service Worker
+    const swSrc = path.join(this.rootDir, 'sw.js');
+    const swDest = path.join(this.distDir, 'sw.js');
+    
+    if (fs.existsSync(swSrc)) {
+      fs.copyFileSync(swSrc, swDest);
+      console.log(`📜 Copié sw.js vers dist/`);
+    }
+
     // Copier le dossier langs
     const langsSrc = path.join(this.rootDir, 'langs');
     const langsDest = path.join(this.distDir, 'langs');
@@ -210,6 +219,15 @@ class BuildTool {
     if (fs.existsSync(langsSrc)) {
       this.copyDirectory(langsSrc, langsDest);
       console.log(`📁 Copié langs/ vers dist/`);
+    }
+
+    // Copier le dossier images (pour les favicons et manifest)
+    const imagesSrc = path.join(this.rootDir, 'assets', 'images');
+    const imagesDest = path.join(this.distDir, 'assets', 'images');
+    
+    if (fs.existsSync(imagesSrc)) {
+      this.copyDirectory(imagesSrc, imagesDest);
+      console.log(`📁 Copié assets/images/ vers dist/`);
     }
   }
 

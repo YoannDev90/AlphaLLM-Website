@@ -59,4 +59,4 @@ class LazyLoader {
 }
 
 // Initialisation
-const lazyLoader = new LazyLoader();
+new LazyLoader();

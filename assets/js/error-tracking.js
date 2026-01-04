@@ -91,7 +91,7 @@ class ErrorTracker {
     this.reportError(error);
   }
 
-  reportError(error) {
+  reportError(_error) {
     // Ici vous pourriez envoyer les erreurs à un service comme Sentry, LogRocket, etc.
     // Pour l'instant, on les stocke seulement localement
 

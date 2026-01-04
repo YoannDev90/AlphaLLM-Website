@@ -95,7 +95,7 @@ document.addEventListener('DOMContentLoaded', function() {
         document.documentElement.setAttribute('lang', this.currentLanguage);
         
         // Charger les traductions pour la langue actuelle
-        const loadSuccess = await this.loadTranslations(this.currentLanguage);
+        await this.loadTranslations(this.currentLanguage);
         
         // Appliquer les traductions à la page
         this.updatePageTranslations();
@@ -166,8 +166,6 @@ document.addEventListener('DOMContentLoaded', function() {
       }
       
       try {
-        const previousLang = this.currentLanguage;
-        
         const success = await this.loadTranslations(lang);
         if (success) {
           this.currentLanguage = lang;
@@ -203,10 +201,7 @@ document.addEventListener('DOMContentLoaded', function() {
       // Sélectionner tous les éléments avec l'attribut data-i18n
       const elements = document.querySelectorAll('[data-i18n]');
       
-      let translatedCount = 0;
-      let missingCount = 0;
-      
-      elements.forEach((element, index) => {
+      elements.forEach((element, _index) => {
         const key = element.getAttribute('data-i18n');
         
         // Si la clé contient des points, il s'agit d'une clé imbriquée
@@ -226,15 +221,9 @@ document.addEventListener('DOMContentLoaded', function() {
           
           if (value !== null) {
             element.innerHTML = value;
-            translatedCount++;
-          } else {
-            missingCount++;
           }
         } else if (this.translations[key]) {
           element.innerHTML = this.translations[key];
-          translatedCount++;
-        } else {
-          missingCount++;
         }
         
         // Gérer les attributs comme placeholder, title, alt, etc.
@@ -297,7 +286,7 @@ document.addEventListener('DOMContentLoaded', function() {
       // Initialiser les sélecteurs de langue (dropdown, boutons, etc.)
       const langSelectors = document.querySelectorAll('.language-selector');
       
-      langSelectors.forEach((selector, index) => {
+      langSelectors.forEach((selector, _index) => {
         // S'assurer que la valeur actuelle est correctement définie
         if (selector.tagName === 'SELECT') {
           // Définir la valeur du select sur la langue actuelle
@@ -333,7 +322,7 @@ document.addEventListener('DOMContentLoaded', function() {
       // Initialiser les boutons de changement de langue (pour la rétrocompatibilité)
       const langButtons = document.querySelectorAll('[data-lang]:not(.language-selector)');
       
-      langButtons.forEach((button, index) => {
+      langButtons.forEach((button, _index) => {
         const lang = button.getAttribute('data-lang');
         
         // Ajouter la classe active au bouton de la langue actuelle

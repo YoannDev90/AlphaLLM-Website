@@ -895,23 +895,6 @@ function initStatusPage() {
   }
 }
 
-/**
- * Toggle une section repliable
- */
-function toggleCollapsible(headerElement) {
-  const section = headerElement.closest('.collapsible-section');
-  const content = section.querySelector('.collapsible-content');
-  const toggle = headerElement.querySelector('.collapsible-toggle');
-    
-  if (content.classList.contains('collapsed')) {
-    content.classList.remove('collapsed');
-    toggle.setAttribute('aria-expanded', 'true');
-  } else {
-    content.classList.add('collapsed');
-    toggle.setAttribute('aria-expanded', 'false');
-  }
-}
-
 // Initialiser quand tout est chargé
 window.addEventListener('load', function() {
   // Petit délai supplémentaire pour s'assurer que tout est prêt

@@ -156,7 +156,7 @@ runner.test('Internationalization', () => {
 
 // Test des performances
 runner.test('Performance metrics', async () => {
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve, _reject) => {
     if (!('PerformanceObserver' in window)) {
       console.warn('PerformanceObserver non supporté');
       resolve();
