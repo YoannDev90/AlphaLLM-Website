@@ -4,55 +4,313 @@
  */
 
 // Configuration de l'API
-const API_ENDPOINT = 'alphallm-api.onrender.com/status';
+const API_ENDPOINT = 'https://alphallm-api.onrender.com/status';
+const RESOURCES_ENDPOINT = 'https://alphallm-api.onrender.com/resources';
 
-document.addEventListener('DOMContentLoaded', function() {
-    // Initialisation
-    updateStatusTime();
-    fetchAndUpdateBotsStatus();
-    
-    // Événement pour le bouton de rafraîchissement
-    document.getElementById('refresh-status').addEventListener('click', function() {
-        this.disabled = true;
-        this.classList.add('refreshing');
-        updateStatusTime();
-        fetchAndUpdateBotsStatus();
-    });
-    
-    // Événement pour le bouton de retour en haut
-    const backToTopBtn = document.getElementById('back-to-top');
-    if (backToTopBtn) {
-        window.addEventListener('scroll', function() {
-            if (window.pageYOffset > 300) {
-                backToTopBtn.classList.add('visible');
-            } else {
-                backToTopBtn.classList.remove('visible');
-            }
-        });
-        
-        backToTopBtn.addEventListener('click', function() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-    }
-});
+// Variables pour les graphiques
+let realtimeCpuRamChart;
+let dailyCpuRamChart;
 
 /**
- * Met à jour l'horodatage de la dernière mise à jour
+ * Affiche un indicateur de chargement
  */
-function updateStatusTime() {
-    const now = new Date();
-    const options = { 
-        year: 'numeric', 
-        month: 'long', 
-        day: 'numeric',
-        hour: '2-digit', 
-        minute: '2-digit'
-    };
-    const formattedDate = now.toLocaleDateString(document.documentElement.lang || 'fr-FR', options);
-    document.getElementById('update-time').textContent = formattedDate;
+function showLoadingIndicator() {
+    // Afficher le texte d'actualisation
+    const refreshText = document.getElementById('refresh-status-text');
+    if (refreshText) {
+        refreshText.style.display = 'inline';
+    }
+    
+    // Masquer l'horodatage pendant l'actualisation
+    const updateTime = document.getElementById('update-time');
+    if (updateTime) {
+        updateTime.style.opacity = '0.5';
+    }
+    
+    // Désactiver et animer le bouton
+    const refreshButton = document.getElementById('refresh-status');
+    if (refreshButton) {
+        refreshButton.disabled = true;
+        refreshButton.classList.add('refreshing');
+    }
+}
+
+/**
+ * Affiche un indicateur de chargement pour les ressources
+ */
+function showResourcesLoadingIndicator() {
+    // Afficher le texte d'actualisation
+    const refreshText = document.getElementById('resources-refresh-status-text');
+    if (refreshText) {
+        refreshText.style.display = 'inline';
+    }
+    
+    // Masquer l'horodatage pendant l'actualisation
+    const updateTime = document.getElementById('resources-update-time');
+    if (updateTime) {
+        updateTime.style.opacity = '0.5';
+    }
+    
+    // Désactiver et animer le bouton
+    const refreshButton = document.getElementById('refresh-resources');
+    if (refreshButton) {
+        refreshButton.disabled = true;
+        refreshButton.classList.add('refreshing');
+    }
+}
+
+/**
+ * Met à jour les graphiques des ressources
+ */
+function updateResourcesCharts(data) {
+    console.log('Mise à jour des graphiques avec les données:', data);
+    
+    // Vérifier si les éléments canvas existent
+    const realtimeCanvas = document.getElementById('realtime-cpu-ram-chart');
+    const dailyCanvas = document.getElementById('daily-cpu-ram-chart');
+    
+    if (!realtimeCanvas || !dailyCanvas) {
+        console.warn('Éléments canvas non trouvés, réessai dans 100ms');
+        setTimeout(() => updateResourcesCharts(data), 100);
+        return;
+    }
+
+    // Vérifier si Chart.js est disponible
+    if (typeof Chart === 'undefined') {
+        console.warn('Chart.js n\'est pas encore chargé, réessai dans 100ms');
+        setTimeout(() => updateResourcesCharts(data), 100);
+        return;
+    }
+
+    // Préparer les données pour les graphiques
+    const realtimeLabels = data.realtime.map(d => {
+        const date = new Date(d.timestamp);
+        return date.toLocaleTimeString(document.documentElement.lang || 'fr-FR', { 
+            hour: '2-digit', 
+            minute: '2-digit', 
+            second: '2-digit' 
+        });
+    });
+    const realtimeCpu = data.realtime.map(d => d.cpu_percent);
+    const realtimeRam = data.realtime.map(d => d.memory_percent);
+
+    console.log('Données temps réel préparées:', { labels: realtimeLabels.length, cpu: realtimeCpu.length, ram: realtimeRam.length });
+
+    const dailyLabels = data.daily.map(d => {
+        const date = new Date(d.timestamp);
+        return date.toLocaleTimeString(document.documentElement.lang || 'fr-FR', { 
+            hour: '2-digit', 
+            minute: '2-digit' 
+        });
+    });
+    const dailyCpu = data.daily.map(d => d.cpu_percent);
+    const dailyRam = data.daily.map(d => d.memory_percent);
+
+    console.log('Données quotidiennes préparées:', { labels: dailyLabels.length, cpu: dailyCpu.length, ram: dailyRam.length });
+
+    // Créer ou mettre à jour le graphique temps réel CPU + RAM
+    const realtimeCtx = document.getElementById('realtime-cpu-ram-chart').getContext('2d');
+    if (realtimeCpuRamChart) {
+        console.log('Mise à jour du graphique temps réel existant');
+        realtimeCpuRamChart.data.labels = realtimeLabels;
+        realtimeCpuRamChart.data.datasets[0].data = realtimeCpu;
+        realtimeCpuRamChart.data.datasets[1].data = realtimeRam;
+        realtimeCpuRamChart.update();
+    } else {
+        console.log('Création du graphique temps réel');
+        realtimeCpuRamChart = new Chart(realtimeCtx, {
+            type: 'line',
+            data: {
+                labels: realtimeLabels,
+                datasets: [{
+                    label: 'CPU %',
+                    data: realtimeCpu,
+                    borderColor: 'rgba(52, 152, 219, 1)',
+                    backgroundColor: 'rgba(52, 152, 219, 0.1)',
+                    borderWidth: 2,
+                    fill: true,
+                    tension: 0.4,
+                    pointRadius: 0,
+                    pointHoverRadius: 0,
+                    yAxisID: 'y'
+                }, {
+                    label: 'RAM %',
+                    data: realtimeRam,
+                    borderColor: 'rgba(155, 89, 182, 1)',
+                    backgroundColor: 'rgba(155, 89, 182, 0.1)',
+                    borderWidth: 2,
+                    fill: true,
+                    tension: 0.4,
+                    pointRadius: 0,
+                    pointHoverRadius: 0,
+                    yAxisID: 'y1'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: true,
+                        position: 'top'
+                    },
+                    tooltip: {
+                        mode: 'index',
+                        intersect: false,
+                        callbacks: {
+                            label: function(context) {
+                                if (context.datasetIndex === 0) {
+                                    return `CPU: ${context.parsed.y.toFixed(1)}%`;
+                                } else {
+                                    return `RAM: ${context.parsed.y.toFixed(1)}%`;
+                                }
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        display: true,
+                        title: {
+                            display: true,
+                            text: 'Temps'
+                        }
+                    },
+                    y: {
+                        type: 'linear',
+                        display: true,
+                        position: 'left',
+                        title: {
+                            display: true,
+                            text: 'CPU %'
+                        },
+                        beginAtZero: true,
+                        max: 100
+                    },
+                    y1: {
+                        type: 'linear',
+                        display: true,
+                        position: 'right',
+                        title: {
+                            display: true,
+                            text: 'RAM %'
+                        },
+                        beginAtZero: true,
+                        max: 100,
+                        grid: {
+                            drawOnChartArea: false,
+                        }
+                    }
+                },
+                interaction: {
+                    mode: 'nearest',
+                    axis: 'x',
+                    intersect: false
+                }
+            }
+        });
+    }
+
+    // Créer ou mettre à jour le graphique quotidien CPU + RAM
+    const dailyCtx = document.getElementById('daily-cpu-ram-chart').getContext('2d');
+    if (dailyCpuRamChart) {
+        dailyCpuRamChart.data.labels = dailyLabels;
+        dailyCpuRamChart.data.datasets[0].data = dailyCpu;
+        dailyCpuRamChart.data.datasets[1].data = dailyRam;
+        dailyCpuRamChart.update();
+    } else {
+        dailyCpuRamChart = new Chart(dailyCtx, {
+            type: 'line',
+            data: {
+                labels: dailyLabels,
+                datasets: [{
+                    label: 'CPU %',
+                    data: dailyCpu,
+                    borderColor: 'rgba(46, 204, 113, 1)',
+                    backgroundColor: 'rgba(46, 204, 113, 0.1)',
+                    borderWidth: 2,
+                    fill: true,
+                    tension: 0.4,
+                    pointRadius: 0,
+                    pointHoverRadius: 0,
+                    yAxisID: 'y'
+                }, {
+                    label: 'RAM %',
+                    data: dailyRam,
+                    borderColor: 'rgba(230, 126, 34, 1)',
+                    backgroundColor: 'rgba(230, 126, 34, 0.1)',
+                    borderWidth: 2,
+                    fill: true,
+                    tension: 0.4,
+                    pointRadius: 0,
+                    pointHoverRadius: 0,
+                    yAxisID: 'y1'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: true,
+                        position: 'top'
+                    },
+                    tooltip: {
+                        mode: 'index',
+                        intersect: false,
+                        callbacks: {
+                            label: function(context) {
+                                if (context.datasetIndex === 0) {
+                                    return `CPU: ${context.parsed.y.toFixed(1)}%`;
+                                } else {
+                                    return `RAM: ${context.parsed.y.toFixed(1)}%`;
+                                }
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        display: true,
+                        title: {
+                            display: true,
+                            text: 'Heure'
+                        }
+                    },
+                    y: {
+                        type: 'linear',
+                        display: true,
+                        position: 'left',
+                        title: {
+                            display: true,
+                            text: 'CPU %'
+                        },
+                        beginAtZero: true,
+                        max: 100
+                    },
+                    y1: {
+                        type: 'linear',
+                        display: true,
+                        position: 'right',
+                        title: {
+                            display: true,
+                            text: 'RAM %'
+                        },
+                        beginAtZero: true,
+                        max: 100,
+                        grid: {
+                            drawOnChartArea: false,
+                        }
+                    }
+                },
+                interaction: {
+                    mode: 'nearest',
+                    axis: 'x',
+                    intersect: false
+                }
+            }
+        });
+    }
 }
 
 /**
@@ -66,7 +324,7 @@ async function fetchStatusData() {
         });
 
         // Faire la requête avec le timeout
-        const fetchPromise = fetch(`https://${API_ENDPOINT}`);
+        const fetchPromise = fetch(`${API_ENDPOINT}`);
         
         const response = await Promise.race([fetchPromise, timeoutPromise]);
         
@@ -102,6 +360,105 @@ async function fetchStatusData() {
 }
 
 /**
+ * Affiche un message d'erreur
+ */
+function showErrorMessage(message) {
+    let errorElement = document.getElementById('error-message');
+    if (!errorElement) {
+        errorElement = document.createElement('div');
+        errorElement.id = 'error-message';
+        errorElement.className = 'error-message';
+        
+        // Insérer le message d'erreur après l'indicateur de chargement ou le bouton
+        const loadingIndicator = document.getElementById('loading-indicator');
+        const refreshButton = document.getElementById('refresh-status');
+        const insertAfter = loadingIndicator || refreshButton;
+        
+        if (insertAfter && insertAfter.parentNode) {
+            insertAfter.parentNode.insertBefore(errorElement, insertAfter.nextSibling);
+        }
+    }
+    
+    // Utiliser le système i18n pour le message d'erreur
+    let errorText;
+    if (window.i18n && typeof window.i18n.translate === 'function') {
+        const errorPrefix = window.i18n.translate('status.error.loadingFailed');
+        errorText = `${errorPrefix}: ${message}`;
+    } else {
+        // Fallback avec traductions intégrées
+        const currentLang = document.documentElement.lang || 'fr';
+        const errorPrefixFallback = {
+            fr: 'Erreur lors du chargement des statuts',
+            en: 'Error loading bot statuses',
+            de: 'Fehler beim Laden der Bot-Status',
+            es: 'Error cargando estados de bots',
+            pt: 'Erro ao carregar status dos bots',
+            nl: 'Fout bij laden bot statussen',
+            it: 'Errore caricamento stati bot'
+        };
+        const prefix = errorPrefixFallback[currentLang] || errorPrefixFallback.fr;
+        errorText = `${prefix}: ${message}`;
+    }
+    
+    errorElement.textContent = errorText;
+    errorElement.style.display = 'block';
+}
+
+/**
+ * Cache le message d'erreur
+ */
+function hideErrorMessage() {
+    const errorElement = document.getElementById('error-message');
+    if (errorElement) {
+        errorElement.style.display = 'none';
+    }
+}
+
+/**
+ * Met tous les bots en état offline en cas de problème avec l'API
+ */
+function setAllBotsToError() {
+    const botItems = document.querySelectorAll('.bot-item');
+    
+    botItems.forEach(bot => {
+        const statusElement = bot.querySelector('.status');
+        if (statusElement) {
+            statusElement.className = 'status offline';
+            statusElement.setAttribute('data-i18n', 'status.offline');
+            
+            // Utiliser le système i18n pour obtenir la traduction
+            if (window.i18n && typeof window.i18n.translate === 'function') {
+                const translatedText = window.i18n.translate('status.offline');
+                statusElement.textContent = translatedText;
+            } else {
+                // Fallback
+                const currentLang = document.documentElement.lang || 'fr';
+                const fallbackTexts = {
+                    fr: 'Hors ligne',
+                    en: 'Offline',
+                    de: 'Offline',
+                    es: 'Fuera de línea',
+                    pt: 'Offline',
+                    nl: 'Offline',
+                    it: 'Offline'
+                };
+                statusElement.textContent = fallbackTexts[currentLang] || fallbackTexts.fr;
+            }
+        }
+        
+        const pingElement = bot.querySelector('.ping');
+        if (pingElement) {
+            const pingIcon = pingElement.querySelector('i');
+            pingElement.innerHTML = ''; // Effacer le contenu
+            if (pingIcon) {
+                pingElement.appendChild(pingIcon); // Remettre l'icône
+            }
+            pingElement.appendChild(document.createTextNode(' --'));
+        }
+    });
+}
+
+/**
  * Récupère et met à jour les statuts des bots depuis l'API
  */
 async function fetchAndUpdateBotsStatus() {
@@ -124,6 +481,76 @@ async function fetchAndUpdateBotsStatus() {
         setAllBotsToError();
     } finally {
         hideLoadingIndicator();
+    }
+}
+
+/**
+ * Récupère les données de ressources depuis l'API
+ */
+async function fetchResourcesData() {
+    try {
+        // Créer une promesse de timeout de 5 secondes
+        const timeoutPromise = new Promise((_, reject) => {
+            setTimeout(() => reject(new Error('Timeout: La requête a pris trop de temps')), 5000);
+        });
+
+        // Faire la requête avec le timeout
+        const fetchPromise = fetch(RESOURCES_ENDPOINT);
+        
+        const response = await Promise.race([fetchPromise, timeoutPromise]);
+        
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        
+        const data = await response.json();
+        console.log('Resources data:', data);
+        return {
+            status: 'success',
+            timestamp: new Date().toISOString(),
+            data: data
+        };
+    } catch (error) {
+        console.error('Erreur lors de la récupération des données de ressources:', error);
+        
+        // Gestion spécifique pour les erreurs
+        let errorMessage = error.message;
+        if (error.message.includes('NetworkError') || error.message.includes('Mixed Content')) {
+            errorMessage = 'Impossible de charger les données de ressources: problème de sécurité HTTPS/HTTP.';
+        } else if (error.message.includes('Timeout')) {
+            errorMessage = 'Délai d\'attente dépassé: les services semblent indisponibles.';
+        }
+        
+        return {
+            status: 'error',
+            error: errorMessage,
+            timestamp: new Date().toISOString(),
+            data: null
+        };
+    }
+}
+
+/**
+ * Récupère et met à jour les ressources système
+ */
+async function fetchAndUpdateResources() {
+    // Afficher un indicateur de chargement
+    showResourcesLoadingIndicator();
+    
+    try {
+        const result = await fetchResourcesData();
+        
+        if (result.status === 'success' && result.data) {
+            updateResourcesCharts(result.data);
+            hideResourcesErrorMessage();
+        } else {
+            throw new Error(result.error || 'Erreur inconnue');
+        }
+    } catch (error) {
+        console.error('Erreur lors de la mise à jour des ressources:', error);
+        showResourcesErrorMessage(error.message);
+    } finally {
+        hideResourcesLoadingIndicator();
     }
 }
 
@@ -178,12 +605,6 @@ function updateBotsStatusFromAPI(apiData) {
         }
         
         // Mettre à jour le statut du bot
-        const statusDot = bot.querySelector('.status-dot');
-        if (statusDot) {
-            statusDot.className = 'status-dot ' + statusClass;
-        }
-        
-        // Mettre à jour le texte de statut avec le système i18n
         const statusElement = bot.querySelector('.status');
         if (statusElement) {
             statusElement.className = 'status ' + statusClass;
@@ -231,7 +652,9 @@ function updateBotsStatusFromAPI(apiData) {
     }
 }
 
-// Ajouter une classe CSS pour l'effet de chargement
+/**
+ * Cache l'indicateur de chargement pour les ressources
+ */
 document.head.insertAdjacentHTML('beforeend', `
 <style>
 .refreshing {
@@ -315,19 +738,81 @@ document.head.insertAdjacentHTML('beforeend', `
 `);
 
 /**
- * Affiche un indicateur de chargement
+ * Cache l'indicateur de chargement pour les ressources
  */
-function showLoadingIndicator() {
-    // Afficher le texte d'actualisation
-    const refreshText = document.getElementById('refresh-status-text');
+function hideResourcesLoadingIndicator() {
+    // Masquer le texte d'actualisation
+    const refreshText = document.getElementById('resources-refresh-status-text');
     if (refreshText) {
-        refreshText.style.display = 'inline';
+        refreshText.style.display = 'none';
     }
     
-    // Masquer l'horodatage pendant l'actualisation
-    const updateTime = document.getElementById('update-time');
+    // Restaurer l'opacité de l'horodatage
+    const updateTime = document.getElementById('resources-update-time');
     if (updateTime) {
-        updateTime.style.opacity = '0.5';
+        updateTime.style.opacity = '1';
+    }
+    
+    // Réactiver le bouton de refresh
+    const refreshButton = document.getElementById('refresh-resources');
+    if (refreshButton) {
+        refreshButton.disabled = false;
+        refreshButton.classList.remove('refreshing');
+    }
+}
+
+/**
+ * Affiche un message d'erreur pour les ressources
+ */
+function showResourcesErrorMessage(message) {
+    let errorElement = document.getElementById('resources-error-message');
+    if (!errorElement) {
+        errorElement = document.createElement('div');
+        errorElement.id = 'resources-error-message';
+        errorElement.className = 'error-message';
+        
+        // Insérer le message d'erreur dans la section des ressources
+        const resourcesSection = document.querySelector('.system-resources');
+        if (resourcesSection) {
+            const chartsContainer = resourcesSection.querySelector('.charts-container');
+            if (chartsContainer) {
+                chartsContainer.parentNode.insertBefore(errorElement, chartsContainer);
+            }
+        }
+    }
+    
+    // Utiliser le système i18n pour le message d'erreur
+    let errorText;
+    if (window.i18n && typeof window.i18n.translate === 'function') {
+        const errorPrefix = window.i18n.translate('status.error.loadingFailed');
+        errorText = `${errorPrefix}: ${message}`;
+    } else {
+        // Fallback avec traductions intégrées
+        const currentLang = document.documentElement.lang || 'fr';
+        const errorPrefixFallback = {
+            fr: 'Erreur lors du chargement des ressources',
+            en: 'Error loading system resources',
+            de: 'Fehler beim Laden der Systemressourcen',
+            es: 'Error cargando recursos del sistema',
+            pt: 'Erro ao carregar recursos do sistema',
+            nl: 'Fout bij laden systeemresources',
+            it: 'Errore caricamento risorse sistema'
+        };
+        const prefix = errorPrefixFallback[currentLang] || errorPrefixFallback.fr;
+        errorText = `${prefix}: ${message}`;
+    }
+    
+    errorElement.textContent = errorText;
+    errorElement.style.display = 'block';
+}
+
+/**
+ * Cache le message d'erreur pour les ressources
+ */
+function hideResourcesErrorMessage() {
+    const errorElement = document.getElementById('resources-error-message');
+    if (errorElement) {
+        errorElement.style.display = 'none';
     }
 }
 
@@ -356,107 +841,37 @@ function hideLoadingIndicator() {
 }
 
 /**
- * Affiche un message d'erreur
+ * Met à jour l'horodatage de la dernière mise à jour
  */
-function showErrorMessage(message) {
-    let errorElement = document.getElementById('error-message');
-    if (!errorElement) {
-        errorElement = document.createElement('div');
-        errorElement.id = 'error-message';
-        errorElement.className = 'error-message';
-        
-        // Insérer le message d'erreur après l'indicateur de chargement ou le bouton
-        const loadingIndicator = document.getElementById('loading-indicator');
-        const refreshButton = document.getElementById('refresh-status');
-        const insertAfter = loadingIndicator || refreshButton;
-        
-        if (insertAfter && insertAfter.parentNode) {
-            insertAfter.parentNode.insertBefore(errorElement, insertAfter.nextSibling);
-        }
-    }
-    
-    // Utiliser le système i18n pour le message d'erreur
-    let errorText;
-    if (window.i18n && typeof window.i18n.translate === 'function') {
-        const errorPrefix = window.i18n.translate('status.error.loadingFailed');
-        errorText = `${errorPrefix}: ${message}`;
-    } else {
-        // Fallback avec traductions intégrées
-        const currentLang = document.documentElement.lang || 'fr';
-        const errorPrefixFallback = {
-            fr: 'Erreur lors du chargement des statuts',
-            en: 'Error loading bot statuses',
-            de: 'Fehler beim Laden der Bot-Status',
-            es: 'Error cargando estados de bots',
-            pt: 'Erro ao carregar status dos bots',
-            nl: 'Fout bij laden bot statussen',
-            it: 'Errore caricamento stati bot'
-        };
-        const prefix = errorPrefixFallback[currentLang] || errorPrefixFallback.fr;
-        errorText = `${prefix}: ${message}`;
-    }
-    
-    errorElement.textContent = errorText;
-    errorElement.style.display = 'block';
+function updateStatusTime() {
+    const now = new Date();
+    const options = { 
+        year: 'numeric', 
+        month: 'long', 
+        day: 'numeric',
+        hour: '2-digit', 
+        minute: '2-digit',
+        second: '2-digit'
+    };
+    const formattedDate = now.toLocaleDateString(document.documentElement.lang || 'fr-FR', options);
+    document.getElementById('update-time').textContent = formattedDate;
 }
 
 /**
- * Cache le message d'erreur
+ * Met à jour l'horodatage de la dernière mise à jour des ressources
  */
-function hideErrorMessage() {
-    const errorElement = document.getElementById('error-message');
-    if (errorElement) {
-        errorElement.style.display = 'none';
-    }
-}
-
-/**
- * Met tous les bots en état offline en cas de problème avec l'API
- */
-function setAllBotsToError() {
-    const botItems = document.querySelectorAll('.bot-item');
-    
-    botItems.forEach(bot => {
-        const statusDot = bot.querySelector('.status-dot');
-        if (statusDot) {
-            statusDot.className = 'status-dot offline';
-        }
-        
-        const statusElement = bot.querySelector('.status');
-        if (statusElement) {
-            statusElement.className = 'status offline';
-            statusElement.setAttribute('data-i18n', 'status.offline');
-            
-            // Utiliser le système i18n pour obtenir la traduction
-            if (window.i18n && typeof window.i18n.translate === 'function') {
-                const translatedText = window.i18n.translate('status.offline');
-                statusElement.textContent = translatedText;
-            } else {
-                // Fallback
-                const currentLang = document.documentElement.lang || 'fr';
-                const fallbackTexts = {
-                    fr: 'Hors ligne',
-                    en: 'Offline',
-                    de: 'Offline',
-                    es: 'Fuera de línea',
-                    pt: 'Offline',
-                    nl: 'Offline',
-                    it: 'Offline'
-                };
-                statusElement.textContent = fallbackTexts[currentLang] || fallbackTexts.fr;
-            }
-        }
-        
-        const pingElement = bot.querySelector('.ping');
-        if (pingElement) {
-            const pingIcon = pingElement.querySelector('i');
-            pingElement.innerHTML = '';
-            if (pingIcon) {
-                pingElement.appendChild(pingIcon);
-            }
-            pingElement.appendChild(document.createTextNode(' --'));
-        }
-    });
+function updateResourcesTime() {
+    const now = new Date();
+    const options = { 
+        year: 'numeric', 
+        month: 'long', 
+        day: 'numeric',
+        hour: '2-digit', 
+        minute: '2-digit',
+        second: '2-digit'
+    };
+    const formattedDate = now.toLocaleDateString(document.documentElement.lang || 'fr-FR', options);
+    document.getElementById('resources-update-time').textContent = formattedDate;
 }
 
 // Rafraîchissement automatique toutes les 60 secondes
@@ -464,3 +879,82 @@ setInterval(() => {
     fetchAndUpdateBotsStatus();
     updateStatusTime();
 }, 60000);
+
+// Rafraîchissement automatique des ressources toutes les secondes
+setInterval(() => {
+    fetchAndUpdateResources();
+    updateResourcesTime();
+}, 1000);
+
+/**
+ * Initialise la page au chargement
+ */
+function initStatusPage() {
+    console.log('Initialisation de la page status...');
+    
+    // Vérifier que tous les éléments nécessaires sont présents
+    const realtimeCanvas = document.getElementById('realtime-cpu-ram-chart');
+    const dailyCanvas = document.getElementById('daily-cpu-ram-chart');
+    
+    if (!realtimeCanvas || !dailyCanvas) {
+        console.warn('Éléments canvas non trouvés, attente...');
+        setTimeout(initStatusPage, 500);
+        return;
+    }
+    
+    if (typeof Chart === 'undefined') {
+        console.warn('Chart.js non chargé, attente...');
+        setTimeout(initStatusPage, 500);
+        return;
+    }
+    
+    console.log('Tous les éléments chargés, démarrage...');
+    
+    // Charger les données initiales des bots
+    fetchAndUpdateBotsStatus();
+    updateStatusTime();
+    
+    // Charger les données initiales des ressources
+    fetchAndUpdateResources();
+    updateResourcesTime();
+    
+    // Configurer les event listeners pour les boutons de refresh
+    const refreshStatusButton = document.getElementById('refresh-status');
+    if (refreshStatusButton) {
+        refreshStatusButton.addEventListener('click', function() {
+            fetchAndUpdateBotsStatus();
+            updateStatusTime();
+        });
+    }
+    
+    const refreshResourcesButton = document.getElementById('refresh-resources');
+    if (refreshResourcesButton) {
+        refreshResourcesButton.addEventListener('click', function() {
+            fetchAndUpdateResources();
+            updateResourcesTime();
+        });
+    }
+}
+
+/**
+ * Toggle une section repliable
+ */
+function toggleCollapsible(headerElement) {
+    const section = headerElement.closest('.collapsible-section');
+    const content = section.querySelector('.collapsible-content');
+    const toggle = headerElement.querySelector('.collapsible-toggle');
+    
+    if (content.classList.contains('collapsed')) {
+        content.classList.remove('collapsed');
+        toggle.setAttribute('aria-expanded', 'true');
+    } else {
+        content.classList.add('collapsed');
+        toggle.setAttribute('aria-expanded', 'false');
+    }
+}
+
+// Initialiser quand tout est chargé
+window.addEventListener('load', function() {
+    // Petit délai supplémentaire pour s'assurer que tout est prêt
+    setTimeout(initStatusPage, 100);
+});

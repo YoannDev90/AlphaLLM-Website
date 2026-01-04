@@ -32,10 +32,10 @@
     
     <!-- Scripts -->
     <script src="assets/js/early-i18n.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script defer src="assets/js/main.js"></script>
     <script defer src="assets/js/i18n.js"></script>
     <script defer src="assets/js/status.js"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body class="dark-theme">
     <!-- Noise overlay for texture -->
@@ -79,39 +79,31 @@
     </div>
 
     <main class="container">
-        <section class="status-overview glass-card scale-in">
-            <div class="status-header">
+        <section class="status-overview glass-card scale-in collapsible-section">
+            <div class="collapsible-header" onclick="toggleCollapsible(this)">
                 <h2 data-i18n="status.overview">Vue d'ensemble</h2>
-                <div id="refresh-container">
-                    <span id="last-updated" data-i18n="status.lastUpdated">Dernière mise à jour: </span>
-                    <span id="update-time">9 juin 2025, 14:32</span>
-                    <span id="refresh-status-text" class="refresh-status-text" data-i18n="status.refreshing" style="display: none;">Actualisation...</span>
-                    <button id="refresh-status" class="btn-icon pulse-effect" aria-label="Actualiser">
-                        <i class="fas fa-sync-alt"></i>
-                    </button>
-                </div>
+                <button class="collapsible-toggle" aria-label="Toggle section">
+                    <i class="fas fa-chevron-up"></i>
+                </button>
             </div>
             
-            <div class="bots-list">
-                <!-- Bots -->
-                <div class="bot-item glass-effect">
-                    <div class="bot-thumbnail">
-                        <img src="assets/images/models/old-alphallm.webp" alt="AlphaLLM">
-                        <span class="status-dot getting"></span>
-                    </div>
-                    <div class="bot-info">
-                        <h3>AlphaLLM</h3>
-                        <div class="bot-status">
-                            <span class="ping"><i class="fas fa-bolt"></i> --</span>
-                            <span class="status getting" data-i18n="status.getting">Getting ...</span>
-                        </div>
+            <div class="collapsible-content">
+                <div class="status-header">
+                    <div id="refresh-container">
+                        <span id="last-updated" data-i18n="status.lastUpdated">Dernière mise à jour: </span>
+                        <span id="update-time"></span>
+                        <span id="refresh-status-text" class="refresh-status-text" data-i18n="status.refreshing" style="display: none;">Actualisation...</span>
+                        <button id="refresh-status" class="btn-icon pulse-effect" aria-label="Actualiser">
+                            <i class="fas fa-sync-alt"></i>
+                        </button>
                     </div>
                 </div>
                 
+                <div class="bots-list">
+                <!-- Bots -->              
                 <div class="bot-item glass-effect">
                     <div class="bot-thumbnail">
                         <img src="assets/images/models/chatgpt.webp" alt="ChatGPT">
-                        <span class="status-dot getting"></span>
                     </div>
                     <div class="bot-info">
                         <h3>ChatGPT</h3>
@@ -125,7 +117,6 @@
                 <div class="bot-item glass-effect">
                     <div class="bot-thumbnail">
                         <img src="assets/images/models/claude.webp" alt="Claude">
-                        <span class="status-dot getting"></span>
                     </div>
                     <div class="bot-info">
                         <h3>Claude</h3>
@@ -138,50 +129,7 @@
                 
                 <div class="bot-item glass-effect">
                     <div class="bot-thumbnail">
-                        <img src="assets/images/models/cohere.webp" alt="Cohere">
-                        <span class="status-dot getting"></span>
-                    </div>
-                    <div class="bot-info">
-                        <h3>Command</h3>
-                        <div class="bot-status">
-                            <span class="ping"><i class="fas fa-bolt"></i> --</span>
-                            <span class="status getting" data-i18n="status.getting">Getting ...</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="bot-item glass-effect">
-                    <div class="bot-thumbnail">
-                        <img src="assets/images/models/deepseek.webp" alt="DeepSeek">
-                        <span class="status-dot getting"></span>
-                    </div>
-                    <div class="bot-info">
-                        <h3>DeepSeek</h3>
-                        <div class="bot-status">
-                            <span class="ping"><i class="fas fa-bolt"></i> --</span>
-                            <span class="status getting" data-i18n="status.getting">Getting ...</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="bot-item glass-effect">
-                    <div class="bot-thumbnail">
-                        <img src="assets/images/models/evilgpt.webp" alt="EvilGPT">
-                        <span class="status-dot getting"></span>
-                    </div>
-                    <div class="bot-info">
-                        <h3>EvilGPT</h3>
-                        <div class="bot-status">
-                            <span class="ping"><i class="fas fa-bolt"></i> --</span>
-                            <span class="status getting" data-i18n="status.getting">Getting ...</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="bot-item glass-effect">
-                    <div class="bot-thumbnail">
                         <img src="assets/images/models/gemini.webp" alt="Gemini">
-                        <span class="status-dot getting"></span>
                     </div>
                     <div class="bot-info">
                         <h3>Gemini</h3>
@@ -194,50 +142,7 @@
                 
                 <div class="bot-item glass-effect">
                     <div class="bot-thumbnail">
-                        <img src="assets/images/models/glm.webp" alt="GLM">
-                        <span class="status-dot getting"></span>
-                    </div>
-                    <div class="bot-info">
-                        <h3>GLM</h3>
-                        <div class="bot-status">
-                            <span class="ping"><i class="fas fa-bolt"></i> --</span>
-                            <span class="status getting" data-i18n="status.getting">Getting ...</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="bot-item glass-effect">
-                    <div class="bot-thumbnail">
-                        <img src="assets/images/models/grok.webp" alt="Grok">
-                        <span class="status-dot getting"></span>
-                    </div>
-                    <div class="bot-info">
-                        <h3>Grok</h3>
-                        <div class="bot-status">
-                            <span class="ping"><i class="fas fa-bolt"></i> --</span>
-                            <span class="status getting" data-i18n="status.getting">Getting ...</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="bot-item glass-effect">
-                    <div class="bot-thumbnail">
-                        <img src="assets/images/models/moonshot.webp" alt="Moonshot">
-                        <span class="status-dot getting"></span>
-                    </div>
-                    <div class="bot-info">
-                        <h3>Kimi</h3>
-                        <div class="bot-status">
-                            <span class="ping"><i class="fas fa-bolt"></i> --</span>
-                            <span class="status getting" data-i18n="status.getting">Getting ...</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="bot-item glass-effect">
-                    <div class="bot-thumbnail">
                         <img src="assets/images/models/llama.webp" alt="Llama">
-                        <span class="status-dot getting"></span>
                     </div>
                     <div class="bot-info">
                         <h3>Llama</h3>
@@ -250,8 +155,20 @@
                 
                 <div class="bot-item glass-effect">
                     <div class="bot-thumbnail">
+                        <img src="assets/images/models/deepseek.webp" alt="DeepSeek">
+                    </div>
+                    <div class="bot-info">
+                        <h3>DeepSeek</h3>
+                        <div class="bot-status">
+                            <span class="ping"><i class="fas fa-bolt"></i> --</span>
+                            <span class="status getting" data-i18n="status.getting">Getting ...</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bot-item glass-effect">
+                    <div class="bot-thumbnail">
                         <img src="assets/images/models/mistral.webp" alt="Mistral">
-                        <span class="status-dot getting"></span>
                     </div>
                     <div class="bot-info">
                         <h3>Mistral</h3>
@@ -264,8 +181,20 @@
                 
                 <div class="bot-item glass-effect">
                     <div class="bot-thumbnail">
+                        <img src="assets/images/models/grok.webp" alt="Grok">
+                    </div>
+                    <div class="bot-info">
+                        <h3>Grok</h3>
+                        <div class="bot-status">
+                            <span class="ping"><i class="fas fa-bolt"></i> --</span>
+                            <span class="status getting" data-i18n="status.getting">Getting ...</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bot-item glass-effect">
+                    <div class="bot-thumbnail">
                         <img src="assets/images/models/perplexity.webp" alt="Perplexity">
-                        <span class="status-dot getting"></span>
                     </div>
                     <div class="bot-info">
                         <h3>Perplexity</h3>
@@ -278,8 +207,20 @@
                 
                 <div class="bot-item glass-effect">
                     <div class="bot-thumbnail">
+                        <img src="assets/images/models/qwen.webp" alt="Qwen">
+                    </div>
+                    <div class="bot-info">
+                        <h3>Qwen</h3>
+                        <div class="bot-status">
+                            <span class="ping"><i class="fas fa-bolt"></i> --</span>
+                            <span class="status getting" data-i18n="status.getting">Getting ...</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bot-item glass-effect">
+                    <div class="bot-thumbnail">
                         <img src="assets/images/models/phi.webp" alt="Phi">
-                        <span class="status-dot getting"></span>
                     </div>
                     <div class="bot-info">
                         <h3>Phi</h3>
@@ -292,17 +233,172 @@
                 
                 <div class="bot-item glass-effect">
                     <div class="bot-thumbnail">
-                        <img src="assets/images/models/qwen.webp" alt="Qwen">
-                        <span class="status-dot getting"></span>
+                        <img src="assets/images/models/glm.webp" alt="GLM">
                     </div>
                     <div class="bot-info">
-                        <h3>Qwen</h3>
+                        <h3>GLM</h3>
                         <div class="bot-status">
                             <span class="ping"><i class="fas fa-bolt"></i> --</span>
                             <span class="status getting" data-i18n="status.getting">Getting ...</span>
                         </div>
                     </div>
                 </div>
+                
+                <div class="bot-item glass-effect">
+                    <div class="bot-thumbnail">
+                        <img src="assets/images/models/moonshot.webp" alt="Moonshot">
+                    </div>
+                    <div class="bot-info">
+                        <h3>Kimi</h3>
+                        <div class="bot-status">
+                            <span class="ping"><i class="fas fa-bolt"></i> --</span>
+                            <span class="status getting" data-i18n="status.getting">Getting ...</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bot-item glass-effect">
+                    <div class="bot-thumbnail">
+                        <img src="assets/images/models/evilgpt.webp" alt="EvilGPT">
+                    </div>
+                    <div class="bot-info">
+                        <h3>EvilGPT</h3>
+                        <div class="bot-status">
+                            <span class="ping"><i class="fas fa-bolt"></i> --</span>
+                            <span class="status getting" data-i18n="status.getting">Getting ...</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bot-item glass-effect">
+                    <div class="bot-thumbnail">
+                        <img src="assets/images/models/cohere.webp" alt="Cohere">
+                    </div>
+                    <div class="bot-info">
+                        <h3>Cohere</h3>
+                        <div class="bot-status">
+                            <span class="ping"><i class="fas fa-bolt"></i> --</span>
+                            <span class="status getting" data-i18n="status.getting">Getting ...</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bot-item glass-effect">
+                    <div class="bot-thumbnail">
+                        <img src="assets/images/models/yi.webp" alt="Yi">
+                    </div>
+                    <div class="bot-info">
+                        <h3>Yi</h3>
+                        <div class="bot-status">
+                            <span class="ping"><i class="fas fa-bolt"></i> --</span>
+                            <span class="status getting" data-i18n="status.getting">Getting ...</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bot-item glass-effect">
+                    <div class="bot-thumbnail">
+                        <img src="assets/images/models/hermes.webp" alt="Hermès">
+                    </div>
+                    <div class="bot-info">
+                        <h3>Hermès</h3>
+                        <div class="bot-status">
+                            <span class="ping"><i class="fas fa-bolt"></i> --</span>
+                            <span class="status getting" data-i18n="status.getting">Getting ...</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bot-item glass-effect">
+                    <div class="bot-thumbnail">
+                        <img src="assets/images/models/nemotron.webp" alt="Nemotron">
+                    </div>
+                    <div class="bot-info">
+                        <h3>Nemotron</h3>
+                        <div class="bot-status">
+                            <span class="ping"><i class="fas fa-bolt"></i> --</span>
+                            <span class="status getting" data-i18n="status.getting">Getting ...</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bot-item glass-effect">
+                    <div class="bot-thumbnail">
+                        <img src="assets/images/models/minimax.webp" alt="MiniMax">
+                    </div>
+                    <div class="bot-info">
+                        <h3>MiniMax</h3>
+                        <div class="bot-status">
+                            <span class="ping"><i class="fas fa-bolt"></i> --</span>
+                            <span class="status getting" data-i18n="status.getting">Getting ...</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bot-item glass-effect">
+                    <div class="bot-thumbnail">
+                        <img src="assets/images/models/inception.webp" alt="Inception">
+                    </div>
+                    <div class="bot-info">
+                        <h3>Inception</h3>
+                        <div class="bot-status">
+                            <span class="ping"><i class="fas fa-bolt"></i> --</span>
+                            <span class="status getting" data-i18n="status.getting">Getting ...</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bot-item glass-effect">
+                    <div class="bot-thumbnail">
+                        <img src="assets/images/models/longcat.webp" alt="LongCat">
+                    </div>
+                    <div class="bot-info">
+                        <h3>LongCat</h3>
+                        <div class="bot-status">
+                            <span class="ping"><i class="fas fa-bolt"></i> --</span>
+                            <span class="status getting" data-i18n="status.getting">Getting ...</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bot-item glass-effect">
+                    <div class="bot-thumbnail">
+                        <img src="assets/images/models/bytedance.webp" alt="Seed">
+                    </div>
+                    <div class="bot-info">
+                        <h3>Seed</h3>
+                        <div class="bot-status">
+                            <span class="ping"><i class="fas fa-bolt"></i> --</span>
+                            <span class="status getting" data-i18n="status.getting">Getting ...</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </section>
+        
+        <!-- System Resources Section -->
+        <section class="system-resources glass-card scale-in collapsible-section">
+            <div class="collapsible-header" onclick="toggleCollapsible(this)">
+                <h2 data-i18n="status.resources">Ressources Système</h2>
+                <button class="collapsible-toggle" aria-label="Toggle section">
+                    <i class="fas fa-chevron-up"></i>
+                </button>
+            </div>
+            
+            <div class="collapsible-content">
+            
+            <div class="charts-container">
+                <div class="chart-wrapper">
+                    <h3 data-i18n="status.realtimeCpuRam">CPU & RAM en Temps Réel (Dernière Minute)</h3>
+                    <canvas id="realtime-cpu-ram-chart"></canvas>
+                </div>
+                
+                <div class="chart-wrapper">
+                    <h3 data-i18n="status.dailyCpuRam">CPU & RAM Quotidien (Dernières 24 Heures)</h3>
+                    <canvas id="daily-cpu-ram-chart"></canvas>
+                </div>
+            </div>
             </div>
         </section>
     </main>
