@@ -865,11 +865,41 @@ setInterval(() => {
   updateStatusTime();
 }, 60000);
 
-// Rafraîchissement automatique des ressources toutes les secondes
-setInterval(() => {
-  fetchAndUpdateResources();
-  updateResourcesTime();
-}, 1000);
+// SSE pour les ressources en temps réel
+let resourcesEventSource;
+
+/**
+ * Démarre la connexion SSE pour les ressources
+ */
+function startResourcesSSE() {
+  if (resourcesEventSource) {
+    resourcesEventSource.close();
+  }
+
+  resourcesEventSource = new EventSource(RESOURCES_ENDPOINT);
+
+  resourcesEventSource.onmessage = function(event) {
+    try {
+      const data = JSON.parse(event.data);
+      console.log('SSE data received:', data);
+      updateResourcesCharts(data);
+      updateResourcesTime();
+      hideResourcesErrorMessage();
+    } catch (error) {
+      console.error('Erreur lors du parsing des données SSE:', error);
+      showResourcesErrorMessage('Erreur de format des données reçues');
+    }
+  };
+
+  resourcesEventSource.onerror = function(event) {
+    console.error('Erreur SSE:', event);
+    showResourcesErrorMessage('Connexion perdue avec le serveur de ressources');
+  };
+
+  resourcesEventSource.onopen = function() {
+    console.log('Connexion SSE ouverte pour les ressources');
+  };
+}
 
 /**
  * Initialise la page au chargement
@@ -899,9 +929,8 @@ function initStatusPage() {
   fetchAndUpdateBotsStatus();
   updateStatusTime();
     
-  // Charger les données initiales des ressources
-  fetchAndUpdateResources();
-  updateResourcesTime();
+  // Démarrer la connexion SSE pour les ressources
+  startResourcesSSE();
     
   // Configurer les event listeners pour les boutons de refresh
   const refreshStatusButton = document.getElementById('refresh-status');
@@ -915,8 +944,7 @@ function initStatusPage() {
   const refreshResourcesButton = document.getElementById('refresh-resources');
   if (refreshResourcesButton) {
     refreshResourcesButton.addEventListener('click', function() {
-      fetchAndUpdateResources();
-      updateResourcesTime();
+      startResourcesSSE();
     });
   }
 }
