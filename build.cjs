@@ -84,7 +84,7 @@ class BuildTool {
           },
         });
 
-        const outputPath = file.replace('/assets/', '/dist/');
+        const outputPath = file.replace('/assets/', '/dist/assets/');
         this.ensureDirectoryExists(path.dirname(outputPath));
         fs.writeFileSync(outputPath, result.code);
 
@@ -119,7 +119,7 @@ class BuildTool {
           console.warn(`  ⚠️  Erreurs CSS dans ${path.basename(file)}:`, result.errors);
         }
 
-        const outputPath = file.replace('/assets/', '/dist/');
+        const outputPath = file.replace('/assets/', '/dist/assets/');
         this.ensureDirectoryExists(path.dirname(outputPath));
         fs.writeFileSync(outputPath, result.styles);
 
