@@ -9,6 +9,7 @@ const fs = require('fs');
 const path = require('path');
 const { minify } = require('terser');
 const CleanCSS = require('clean-css');
+const crypto = require('crypto');
 
 class BuildTool {
   constructor() {
@@ -36,6 +37,9 @@ class BuildTool {
 
     // Compresser les fichiers CSS
     await this.compressCSS();
+
+    // Mettre à jour les HTML avec cache busting
+    this.updateHTMLWithCacheBusting();
 
     // Générer le rapport de build
     await this.generateReport();
@@ -229,6 +233,15 @@ class BuildTool {
       this.copyDirectory(imagesSrc, imagesDest);
       console.log(`📁 Copié assets/images/ vers dist/`);
     }
+
+    // Copier les autres assets (js et css déjà compressés)
+    const assetsSrc = path.join(this.rootDir, 'assets');
+    const assetsDest = path.join(this.distDir, 'assets');
+    
+    if (fs.existsSync(assetsSrc)) {
+      this.copyDirectory(assetsSrc, assetsDest);
+      console.log(`📁 Copié assets/ vers dist/`);
+    }
   }
 
   copyDirectory(src, dest) {
@@ -254,6 +267,51 @@ class BuildTool {
     if (!fs.existsSync(dirPath)) {
       fs.mkdirSync(dirPath, { recursive: true });
     }
+  }
+
+  getFileHash(filePath) {
+    const fileBuffer = fs.readFileSync(filePath);
+    const hashSum = crypto.createHash('md5');
+    hashSum.update(fileBuffer);
+    return hashSum.digest('hex').substring(0, 8); // Utiliser les 8 premiers caractères
+  }
+
+  updateHTMLWithCacheBusting() {
+    console.log('🔄 Mise à jour des HTML avec cache busting...');
+
+    const htmlFiles = this.getAllFiles(this.rootDir)
+      .filter(file => file.endsWith('.html'));
+
+    const assetHashes = {};
+
+    // Calculer les hashes pour tous les assets
+    const assetFiles = this.getAllFiles(this.assetsDir);
+
+    assetFiles.forEach(file => {
+      const relativePath = path.relative(this.rootDir, file);
+      assetHashes[relativePath] = this.getFileHash(file);
+    });
+
+    // Mettre à jour chaque HTML
+    htmlFiles.forEach(htmlFile => {
+      let content = fs.readFileSync(htmlFile, 'utf8');
+      let updated = false;
+
+      // Remplacer les liens CSS et JS avec des hashes
+      Object.keys(assetHashes).forEach(assetPath => {
+        const hash = assetHashes[assetPath];
+        const regex = new RegExp(`(["'])${assetPath}\\1`, 'g');
+        content = content.replace(regex, `$1${assetPath}?v=${hash}$1`);
+        if (content !== fs.readFileSync(htmlFile, 'utf8')) updated = true;
+      });
+
+      if (updated) {
+        const outputPath = htmlFile.replace(this.rootDir, this.distDir);
+        this.ensureDirectoryExists(path.dirname(outputPath));
+        fs.writeFileSync(outputPath, content);
+        console.log(`  ✅ Mis à jour ${path.basename(htmlFile)}`);
+      }
+    });
   }
 }
 
