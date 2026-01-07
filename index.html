@@ -87,15 +87,14 @@
     <link rel="preload" href="assets/js/i18n.js" as="script">
     <link rel="preload" href="assets/images/logo.webp" as="image">
     
-    <!-- Stylesheets -->
-    <link rel="stylesheet" href="assets/css/main.css">
-    <link rel="stylesheet" href="assets/css/index.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome (non-blocking) -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"></noscript>
     
     <!-- Scripts -->
     <script src="assets/js/early-i18n.js"></script>
@@ -344,7 +343,7 @@
     <header>
         <nav class="navbar">
             <div class="logo-title-container">
-                <img src="assets/images/logo.webp" alt="AlphaLLM official logo, free AI Discord bot" class="logo animate-pulse">
+                <img src="assets/images/logo.webp" alt="AlphaLLM official logo, free AI Discord bot" class="logo animate-pulse" fetchpriority="high">
                 <h1 class="glitch" data-text="AlphaLLM">AlphaLLM</h1>
             </div>
             
