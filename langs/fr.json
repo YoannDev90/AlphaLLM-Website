@@ -53,8 +53,8 @@
     "support": "Support"
   },
   "status": {
-    "title": "Statut du Bot",
-    "subtitle": "Surveillez en temps réel les performances du bot AlphaLLM",
+    "title": "Statut des Modèles",
+    "subtitle": "Surveillez en temps réel les performances des modèles AlphaLLM",
     "overview": "Vue d'ensemble",
     "resources": "Ressources Système",
     "realtimeCpuRam": "CPU & RAM en Temps Réel (Dernière Minute)",
@@ -90,7 +90,7 @@
     "hero": {
       "title": "AlphaLLM",
       "subtitle": "Améliorez votre serveur Discord avec un chat intelligent, une génération d'images et une traduction en temps réel",
-      "description": "Découvrez AlphaLLM, le bot IA Discord gratuit pour chat intelligent, génération d'images et traduction en temps réel. Améliorez votre serveur Discord avec des modèles avancés comme ChatGPT et Claude. Invitez-le maintenant !",
+      "description": "Découvrez AlphaLLM, l'IA Discord gratuite pour chat intelligent, génération d'images et traduction en temps réel. Améliorez votre serveur Discord avec des modèles avancés comme ChatGPT et Claude. Invitez-la maintenant !",
       "cta": "Inviter"
     },
     "stats": {
@@ -173,84 +173,6 @@
       "title": "Prêt à améliorer votre serveur Discord ?",
       "description": "Invitez AlphaLLM dès maintenant et découvrez toutes ses fonctionnalités.",
       "button": "Ajouter à Discord"
-    }
-  },
-  "statusPage": {
-    "title": "Statut du système",
-    "subtitle": "Vérifiez l'état de fonctionnement en temps réel de nos services",
-    "overallStatus": {
-      "operational": "Tous les systèmes opérationnels",
-      "partialOutage": "Panne partielle",
-      "majorOutage": "Panne majeure",
-      "maintenance": "Maintenance en cours"
-    },
-    "services": {
-      "title": "Services",
-      "discordBot": "Bot Discord",
-      "api": "API",
-      "database": "Base de données",
-      "website": "Site web",
-      "dashboard": "Tableau de bord",
-      "imageGeneration": "Génération d'images",
-      "status": {
-        "operational": "Opérationnel",
-        "degraded": "Performance dégradée",
-        "outage": "Hors service",
-        "maintenance": "En maintenance"
-      }
-    },
-    "incidents": {
-      "title": "Incidents récents",
-      "noIncidents": "Aucun incident récent à signaler",
-      "viewAll": "Voir tout l'historique",
-      "date": "Date",
-      "service": "Service",
-      "status": "Statut",
-      "description": "Description"
-    },
-    "uptime": {
-      "title": "Disponibilité",
-      "last24h": "24 dernières heures",
-      "last7d": "7 derniers jours",
-      "last30d": "30 derniers jours"
-    }
-  },
-  "supportPage": {
-    "title": "Support et aide",
-    "subtitle": "Nous sommes là pour vous aider",
-    "searchPlaceholder": "Rechercher dans la base de connaissances...",
-    "categories": {
-      "title": "Catégories",
-      "gettingStarted": "Premiers pas",
-      "account": "Compte et profil",
-      "commands": "Commandes",
-      "billing": "Facturation",
-      "troubleshooting": "Dépannage",
-      "api": "API"
-    },
-    "faq": {
-      "title": "Questions fréquemment posées",
-      "q1": "Comment ajouter AlphaLLM à mon serveur Discord ?",
-      "a1": "Cliquez sur le bouton \"Ajouter à Discord\" sur notre page d'accueil et suivez les instructions.",
-      "q2": "Quelles sont les commandes de base ?",
-      "a2": "Les commandes principales sont /chat pour discuter, /image pour générer des images, et /help pour obtenir de l'aide.",
-      "q3": "Est-ce que le bot est gratuit ?",
-      "a3": "Oui, AlphaLLM propose un plan gratuit avec des fonctionnalités de base. Des plans premium sont disponibles pour plus de fonctionnalités.",
-      "q4": "Comment changer la langue du bot ?",
-      "a4": "Utilisez la commande /settings language pour changer la langue du bot dans votre serveur."
-    },
-    "contact": {
-      "title": "Contactez-nous",
-      "description": "Vous n'avez pas trouvé ce que vous cherchiez ? Envoyez-nous un message.",
-      "discord": "Rejoindre notre Discord",
-      "email": "Nous contacter par email",
-      "form": {
-        "name": "Nom",
-        "email": "Email",
-        "subject": "Sujet",
-        "message": "Message",
-        "submit": "Envoyer"
-      }
     }
   },
   "legalsPage": {

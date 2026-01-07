@@ -3,6 +3,8 @@
  * Cache des ressources statiques et gestion hors ligne
  */
 
+importScripts('/assets/js/config.js');
+
 const CACHE_NAME = CONFIG.CACHE.VERSION;
 const STATIC_CACHE = 'static-' + CACHE_NAME;
 const API_CACHE = 'api-' + CACHE_NAME;
