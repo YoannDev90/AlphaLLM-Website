@@ -1,0 +1,42 @@
+---
+name: ✨ Feature Request
+description: Proposer une nouvelle fonctionnalité
+title: "[FEATURE] "
+labels: ["enhancement", "triage"]
+assignees: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## ✨ Nouvelle fonctionnalité
+        Décrivez la fonctionnalité que vous souhaitez voir ajoutée.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problème actuel
+      description: Quel problème cette fonctionnalité résoudrait-elle ?
+      placeholder: Actuellement, il n'est pas possible de...
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: Solution proposée
+      description: Décrivez la fonctionnalité souhaitée
+      placeholder: Je propose d'ajouter...
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives envisagées
+      description: Avez-vous envisagé d'autres solutions ?
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Informations supplémentaires
+      description: Maquettes, exemples, liens, etc.

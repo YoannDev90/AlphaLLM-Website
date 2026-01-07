@@ -1,0 +1,68 @@
+---
+name: 📝 Content Issue
+description: Signaler un problème de contenu (traduction, information incorrecte, etc.)
+title: "[CONTENT] "
+labels: ["content", "triage"]
+assignees: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## 📝 Problème de contenu
+        Signaler une erreur dans le contenu du site.
+
+  - type: input
+    id: url
+    attributes:
+      label: URL de la page
+      description: Sur quelle page se trouve le problème ?
+      placeholder: https://alphallm.tech/...
+    validations:
+      required: true
+
+  - type: dropdown
+    id: type
+    attributes:
+      label: Type de problème
+      description: Quel type de problème avez-vous identifié ?
+      options:
+        - Information incorrecte
+        - Traduction manquante ou erronée
+        - Lien cassé
+        - Contenu obsolète
+        - Erreur de frappe
+        - Autre
+    validations:
+      required: true
+
+  - type: dropdown
+    id: language
+    attributes:
+      label: Langue concernée
+      options:
+        - Français
+        - Anglais
+        - Les deux
+    validations:
+      required: true
+
+  - type: textarea
+    id: current
+    attributes:
+      label: Contenu actuel
+      description: Quel est le contenu actuel problématique ?
+    validations:
+      required: true
+
+  - type: textarea
+    id: correction
+    attributes:
+      label: Correction proposée
+      description: Comment devrait-il être corrigé ?
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Informations supplémentaires

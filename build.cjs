@@ -178,7 +178,7 @@ class BuildTool {
   }
 
   copyStaticFiles() {
-    const staticFiles = ['CNAME', 'robots.txt', '.htaccess'];
+    const staticFiles = ['CNAME', 'robots.txt', '.htaccess', '.nojekyll'];
     const htmlFiles = ['index.html', '404.html', 'download.html', 'github-link.html', 'invite-link.html', 'legals.html', 'status.html', 'support-link.html', 'support.html', 'sitemap.xml'];
     
     // Copier les fichiers statiques

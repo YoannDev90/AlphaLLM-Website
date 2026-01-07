@@ -1,0 +1,59 @@
+---
+name: ⚡ Performance/Accessibilité
+description: Signaler un problème de performance ou d'accessibilité
+title: "[PERF] "
+labels: ["performance", "accessibility", "triage"]
+assignees: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## ⚡ Problème de performance ou accessibilité
+        Signaler un problème affectant les performances ou l'accessibilité du site.
+
+  - type: input
+    id: url
+    attributes:
+      label: URL de la page
+      description: Sur quelle page se trouve le problème ?
+      placeholder: https://alphallm.tech/...
+    validations:
+      required: true
+
+  - type: dropdown
+    id: type
+    attributes:
+      label: Type de problème
+      options:
+        - Performance (chargement lent)
+        - Accessibilité (WCAG)
+        - SEO
+        - Mobile responsiveness
+        - Autre
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Description du problème
+      description: Décrivez le problème en détail
+    validations:
+      required: true
+
+  - type: textarea
+    id: impact
+    attributes:
+      label: Impact sur l'utilisateur
+      description: Comment cela affecte-t-il l'expérience utilisateur ?
+
+  - type: textarea
+    id: metrics
+    attributes:
+      label: Métriques/Tests
+      description: Résultats Lighthouse, outils utilisés, etc.
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: Solution proposée
