@@ -27,7 +27,6 @@ AlphaLLM-Website est le site vitrine du bot Discord AlphaLLM. Le site propose :
 - Lazy loading des images
 - Service Worker pour le cache
 - Monitoring d'erreurs JavaScript
-- Analytics privacy-friendly
 
 ## 🔧 Structure du projet
 
@@ -184,9 +183,9 @@ Nous accueillons les contributions ! Voir le [guide de contribution](CONTRIBUTIN
 ### Proposer une fonctionnalité
 [Créer une issue](https://github.com/YoannDev90/AlphaLLM-Website/issues/new?template=feature_request.md)
 
-## 🔍 SEO & Analytics
+## 🔍 SEO
 
-Le site inclut une optimisation SEO complète et des analytics avancés :
+Le site inclut une optimisation SEO complète :
 
 ### Optimisations SEO
 - **Métadonnées complètes** : Open Graph, Twitter Cards, Schema.org

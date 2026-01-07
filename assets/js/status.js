@@ -38,6 +38,7 @@ function showLoadingIndicator() {
 /**
  * Affiche un indicateur de chargement pour les ressources
  */
+// eslint-disable-next-line no-unused-vars
 function showResourcesLoadingIndicator() {
   // Afficher le texte d'actualisation
   const refreshText = document.getElementById('resources-refresh-status-text');
@@ -664,6 +665,7 @@ document.head.insertAdjacentHTML('beforeend', `
 /**
  * Cache l'indicateur de chargement pour les ressources
  */
+// eslint-disable-next-line no-unused-vars
 function hideResourcesLoadingIndicator() {
   // Masquer le texte d'actualisation
   const refreshText = document.getElementById('resources-refresh-status-text');

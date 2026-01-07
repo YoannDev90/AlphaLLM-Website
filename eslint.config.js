@@ -28,6 +28,7 @@ export default [
         confirm: 'readonly',
         Event: 'readonly',
         performance: 'readonly',
+        EventSource: 'readonly',
 
         // Modern browser APIs
         MutationObserver: 'readonly',

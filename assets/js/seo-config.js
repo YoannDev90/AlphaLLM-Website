@@ -1,6 +1,6 @@
 /**
  * Configuration SEO pour AlphaLLM Website
- * Centralisation de tous les paramètres SEO et analytics
+ * Centralisation de tous les paramètres SEO
  */
 
 const SEO_CONFIG = {
@@ -52,24 +52,6 @@ const SEO_CONFIG = {
     description: 'AI Discord bot for intelligent chat, image generation and real-time translation. Optimize your Discord server!',
     image: 'https://alphallm.tech/assets/images/banner.svg',
     imageAlt: 'AlphaLLM Discord Bot'
-  },
-
-  // Configuration Analytics (Plausible uniquement - Privacy-friendly)
-  analytics: {
-    provider: 'plausible',
-    enabled: false,
-    privacy: {
-      noCookies: true,
-      gdprCompliant: true,
-      noTracking: false
-    }
-  },
-
-  // Configuration Plausible Analytics
-  plausible: {
-    domain: 'alphallm.tech',
-    enabled: false,
-    script: 'https://plausible.io/js/script.js'
   },
 
   // Métadonnées SEO par page

@@ -233,6 +233,7 @@ if ('serviceWorker' in navigator) {
 }
 
 // Gestionnaire d'installation PWA
+// eslint-disable-next-line no-unused-vars
 let deferredPrompt;
 
 window.addEventListener('beforeinstallprompt', (e) => {
