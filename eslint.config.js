@@ -36,7 +36,6 @@ export default [
 
         // Third-party libraries
         Chart: 'readonly',
-        plausible: 'readonly',
 
         // Project globals
         CONFIG: 'readonly',

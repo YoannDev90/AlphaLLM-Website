@@ -47,7 +47,7 @@
 }
 
 .collapsible-content {
-    max-height: 2000px;
+    max-height: 5000px;
     overflow: hidden;
     transition: max-height 0.5s ease-in-out;
 }
@@ -184,51 +184,75 @@
     animation: pulse 2s infinite;
 }
 
-/* Bots List Grid */
-.bots-list {
+/* Models List Flex Layout (Centered) */
+.models-list {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    grid-template-columns: repeat(1, 1fr);
     gap: 1.5rem;
+    justify-content: center;
 }
 
-.bot-item {
+@media (min-width: 700px) {
+  .models-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 1000px) {
+  .models-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (min-width: 1200px) {
+  .models-list {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+@media (min-width: 1500px) {
+  .models-list {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+.model-item {
+    min-width: 0;
     display: flex;
     align-items: center;
-    padding: 1.2rem;
+    padding: 1rem;
     border-radius: 12px;
     transition: transform 0.3s, box-shadow 0.3s;
+    background: rgba(var(--color-card-bg-rgb), 0.3);
 }
 
-.bot-item:hover {
+.model-item:hover {
     transform: translateY(-5px);
     box-shadow: var(--card-shadow-hover);
 }
 
-.bot-thumbnail {
+.model-thumbnail {
     position: relative;
-    margin-right: 1rem;
+    margin-right: 0.75rem;
 }
 
-.bot-thumbnail img {
-    width: 50px;
-    height: 50px;
+.model-thumbnail img {
+    width: 40px;
+    height: 40px;
     border-radius: 25%;
     object-fit: cover;
     border: 2px solid var(--color-border);
 }
 
-.bot-info {
+.model-info {
     flex: 1;
 }
 
-.bot-info h3 {
-    font-size: 1.1rem;
+.model-info h3 {
+    font-size: 0.95rem;
     font-weight: 600;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.25rem;
     color: var(--color-text);
 }
 
-.bot-status {
+.model-status {
     display: flex;
     align-items: center;
 }
@@ -336,6 +360,13 @@
     border-radius: 12px;
     padding: 1.5rem;
     box-shadow: var(--card-shadow);
+    resize: vertical;
+    overflow: hidden;
+    min-height: 500px;
+    height: 500px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
 }
 
 .chart-wrapper h3 {
@@ -344,24 +375,41 @@
     color: var(--color-text);
     margin-bottom: 1rem;
     text-align: center;
+    flex: 0 0 auto;
+}
+
+.chart-container-inner {
+    position: relative;
+    flex: 1 1 auto;
+    width: 100%;
+    height: 0; /* Important for flex-grow to work properly with Chart.js */
+    min-height: 0;
 }
 
 .chart-wrapper canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100% !important;
-    height: 35vh !important;
-    min-height: 300px !important;
+    height: 100% !important;
 }
 
 /* Responsive Design */
 @media (max-width: 1200px) {
-    .bots-list {
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    .model-item {
+        flex-basis: calc(33.33% - 1.2rem);
+    }
+}
+
+@media (max-width: 992px) {
+    .model-item {
+        flex-basis: calc(50% - 1.2rem);
     }
 }
 
 @media (max-width: 768px) {
-    .bots-list {
-        grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
+    .model-item {
+        flex-basis: calc(50% - 1.2rem);
     }
     
     .charts-container {
@@ -369,40 +417,24 @@
     }
 }
 
-@media (max-width: 768px) {
-    .page-title {
-        font-size: 2.2rem;
-    }
-    
-    .status-header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 1rem;
-    }
-    
-    .bots-list {
-        grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
-    }
-    
-    .glass-card {
-        padding: 1.5rem;
-    }
-}
-
 @media (max-width: 480px) {
+    .model-item {
+        flex-basis: 100%;
+    }
+
     .page-title {
         font-size: 1.8rem;
     }
     
-    .bot-status {
+    .model-status {
         flex-direction: column;
         align-items: flex-start;
         gap: 0.5rem;
     }
     
-    .bot-thumbnail img {
-        width: 40px;
-        height: 40px;
+    .model-thumbnail img {
+        width: 35px;
+        height: 35px;
     }
     
     #refresh-container {

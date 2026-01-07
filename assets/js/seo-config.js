@@ -57,7 +57,7 @@ const SEO_CONFIG = {
   // Configuration Analytics (Plausible uniquement - Privacy-friendly)
   analytics: {
     provider: 'plausible',
-    enabled: true,
+    enabled: false,
     privacy: {
       noCookies: true,
       gdprCompliant: true,
@@ -68,7 +68,7 @@ const SEO_CONFIG = {
   // Configuration Plausible Analytics
   plausible: {
     domain: 'alphallm.tech',
-    enabled: true,
+    enabled: false,
     script: 'https://plausible.io/js/script.js'
   },
 

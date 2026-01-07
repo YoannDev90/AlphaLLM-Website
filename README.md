@@ -118,8 +118,7 @@ Le site utilise les endpoints suivants (configurables dans `config.js`) :
 - **SEO optimisé** avec meta tags et sitemap
 - **Performance** avec compression et cache
 - **Lazy loading** des images pour des chargements plus rapides
-- **Monitoring d'erreurs** JavaScript automatique (voir [ERROR_TRACKING.md](ERROR_TRACKING.md))
-- **Analytics privacy-friendly** avec Plausible
+- **Monitoring d'erreurs** JavaScript automatique
 - **Build system** automatisé avec minification
 - **Tests automatisés** pour la qualité du code
 - **Accessibilité** WCAG 2.1 AA compliant
@@ -197,22 +196,8 @@ Le site inclut une optimisation SEO complète et des analytics avancés :
 - **URLs canoniques** : Évite le duplicate content
 - **Multilingue** : Support FR/EN avec hreflang
 
-### Analytics
-- **Plausible Analytics** : Privacy-friendly, RGPD compliant, Core Web Vitals
-- **Événements personnalisés** : Thème, langue, interactions
-- **Performance tracking** : LCP, FID, CLS automatiquement
-- **Respect de la vie privée** : Pas de cookies tiers, anonymisation des données
-
-### Guide SEO
-Voir le [guide SEO complet](SEO_GUIDE.md) pour :
-- Configuration détaillée
-- Métriques à surveiller
-- Maintenance et optimisation
-- Outils recommandés
-
 ### Configuration des services externes
 Voir le [guide de configuration](EXTERNAL_SERVICES_SETUP.md) pour :
-- Plausible Analytics
 - Google Search Console
 - Twitter Cards
 - Bing Webmaster Tools

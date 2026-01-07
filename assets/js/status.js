@@ -1,6 +1,6 @@
 /**
- * Status.js - Script pour la page de statut du bot
- * Récupère les statuts des bots via l'API
+ * Status.js - Script pour la page de statut des modèles
+ * Récupère les statuts des modèles via l'API
  */
 
 // Configuration de l'API
@@ -148,7 +148,7 @@ function updateResourcesCharts(data) {
       },
       options: {
         responsive: true,
-        maintainAspectRatio: true,
+        maintainAspectRatio: false,
         plugins: {
           legend: {
             display: true,
@@ -249,7 +249,7 @@ function updateResourcesCharts(data) {
       },
       options: {
         responsive: true,
-        maintainAspectRatio: true,
+        maintainAspectRatio: false,
         plugins: {
           legend: {
             display: true,
@@ -337,7 +337,7 @@ async function fetchStatusData() {
     return {
       status: 'success',
       timestamp: new Date().toISOString(),
-      bots: data.data_service
+      models: data.data_service
     };
   } catch (error) {
     console.error('Erreur lors de la récupération des données:', error);
@@ -354,7 +354,7 @@ async function fetchStatusData() {
       status: 'error',
       error: errorMessage,
       timestamp: new Date().toISOString(),
-      bots: null
+      models: null
     };
   }
 }
@@ -389,7 +389,7 @@ function showErrorMessage(message) {
     const currentLang = document.documentElement.lang || 'fr';
     const errorPrefixFallback = {
       fr: 'Erreur lors du chargement des statuts',
-      en: 'Error loading bot statuses'
+      en: 'Error loading model statuses'
     };
     const prefix = errorPrefixFallback[currentLang] || errorPrefixFallback.fr;
     errorText = `${prefix}: ${message}`;
@@ -410,13 +410,13 @@ function hideErrorMessage() {
 }
 
 /**
- * Met tous les bots en état offline en cas de problème avec l'API
+ * Met tous les modèles en état offline en cas de problème avec l'API
  */
-function setAllBotsToError() {
-  const botItems = document.querySelectorAll('.bot-item');
+function setAllModelsToError() {
+  const modelItems = document.querySelectorAll('.model-item');
     
-  botItems.forEach(bot => {
-    const statusElement = bot.querySelector('.status');
+  modelItems.forEach(model => {
+    const statusElement = model.querySelector('.status');
     if (statusElement) {
       statusElement.className = 'status offline';
       statusElement.setAttribute('data-i18n', 'status.offline');
@@ -439,17 +439,17 @@ function setAllBotsToError() {
 }
 
 /**
- * Récupère et met à jour les statuts des bots depuis l'API
+ * Récupère et met à jour les statuts des modèles depuis l'API
  */
-async function fetchAndUpdateBotsStatus() {
+async function fetchAndUpdateModelsStatus() {
   // Afficher un indicateur de chargement
   showLoadingIndicator();
     
   try {
     const result = await fetchStatusData();
         
-    if (result.status === 'success' && result.bots) {
-      updateBotsStatusFromAPI(result.bots);
+    if (result.status === 'success' && result.models) {
+      updateModelsStatusFromAPI(result.models);
       hideErrorMessage();
     } else {
       throw new Error(result.error || 'Erreur inconnue');
@@ -458,86 +458,16 @@ async function fetchAndUpdateBotsStatus() {
     console.error('Erreur lors de la mise à jour des statuts:', error);
     showErrorMessage(error.message);
     // En cas d'erreur, on peut garder les anciens statuts ou afficher des statuts d'erreur
-    setAllBotsToError();
+    setAllModelsToError();
   } finally {
     hideLoadingIndicator();
   }
 }
 
 /**
- * Récupère les données de ressources depuis l'API
+ * Met à jour les statuts des modèles avec les données de l'API
  */
-async function fetchResourcesData() {
-  try {
-    // Créer une promesse de timeout de 5 secondes
-    const timeoutPromise = new Promise((_, reject) => {
-      setTimeout(() => reject(new Error('Timeout: La requête a pris trop de temps')), 5000);
-    });
-
-    // Faire la requête avec le timeout
-    const fetchPromise = fetch(RESOURCES_ENDPOINT);
-        
-    const response = await Promise.race([fetchPromise, timeoutPromise]);
-        
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-        
-    const data = await response.json();
-    console.log('Resources data:', data);
-    return {
-      status: 'success',
-      timestamp: new Date().toISOString(),
-      data: data
-    };
-  } catch (error) {
-    console.error('Erreur lors de la récupération des données de ressources:', error);
-        
-    // Gestion spécifique pour les erreurs
-    let errorMessage = error.message;
-    if (error.message.includes('NetworkError') || error.message.includes('Mixed Content')) {
-      errorMessage = 'Impossible de charger les données de ressources: problème de sécurité HTTPS/HTTP.';
-    } else if (error.message.includes('Timeout')) {
-      errorMessage = 'Délai d\'attente dépassé: les services semblent indisponibles.';
-    }
-        
-    return {
-      status: 'error',
-      error: errorMessage,
-      timestamp: new Date().toISOString(),
-      data: null
-    };
-  }
-}
-
-/**
- * Récupère et met à jour les ressources système
- */
-async function fetchAndUpdateResources() {
-  // Afficher un indicateur de chargement
-  showResourcesLoadingIndicator();
-    
-  try {
-    const result = await fetchResourcesData();
-        
-    if (result.status === 'success' && result.data) {
-      updateResourcesCharts(result.data);
-      hideResourcesErrorMessage();
-    } else {
-      throw new Error(result.error || 'Erreur inconnue');
-    }
-  } catch (error) {
-    console.error('Erreur lors de la mise à jour des ressources:', error);
-    showResourcesErrorMessage(error.message);
-  } finally {
-    hideResourcesLoadingIndicator();
-  }
-}
-
-/**
- * Met à jour les statuts des bots avec les données de l'API
- */
-function updateBotsStatusFromAPI(apiData) {
+function updateModelsStatusFromAPI(apiData) {
   // Mapping des noms d'affichage aux clés API
   const nameToKeyMap = {
     'ChatGPT': 'openai',
@@ -547,7 +477,7 @@ function updateBotsStatusFromAPI(apiData) {
     'DeepSeek': 'deepseek',
     'Mistral': 'mistral',
     'Grok': 'grok',
-    'Perplexity': 'mercury', // Assuming Perplexity maps to mercury
+    'Sonar': 'sonar',
     'Qwen': 'qwen',
     'Phi': 'phi',
     'GLM': 'glm',
@@ -558,32 +488,36 @@ function updateBotsStatusFromAPI(apiData) {
     'Hermès': 'hermes',
     'Nemotron': 'nemotron',
     'MiniMax': 'minimax',
-    'Inception': 'granite', // Assuming Inception maps to granite
+    'Mercury': 'granite',
     'LongCat': 'longcat',
-    'Seed': 'seed'
+    'Seed': 'seed',
+    'Granite': 'granite',
+    'Rocinante': 'rocinante',
+    'Hunyuan': 'hunyuan',
+    'Jamba': 'jamba',
   };
     
-  const botItems = document.querySelectorAll('.bot-item');
+  const modelItems = document.querySelectorAll('.model-item');
     
-  botItems.forEach(bot => {
-    // Récupérer le nom du bot depuis l'élément h3 dans .bot-info
-    const botNameElement = bot.querySelector('.bot-info h3');
-    if (!botNameElement) {return;}
+  modelItems.forEach(model => {
+    // Récupérer le nom du modèle depuis l'élément h3 dans .model-info
+    const modelNameElement = model.querySelector('.model-info h3');
+    if (!modelNameElement) {return;}
         
-    const displayName = botNameElement.textContent.trim();
+    const displayName = modelNameElement.textContent.trim();
     const apiKey = nameToKeyMap[displayName];
-    const botData = apiKey ? apiData[apiKey] : null;
+    const modelData = apiKey ? apiData[apiKey] : null;
         
     let statusClass, statusI18nKey;
         
-    // Si aucune donnée n'est disponible pour ce bot, il est considéré comme offline
-    if (!botData) {
-      console.warn(`Aucune donnée disponible pour le bot: ${displayName} - considéré comme offline`);
+    // Si aucune donnée n'est disponible pour ce modèle, il est considéré comme offline
+    if (!modelData) {
+      console.warn(`Aucune donnée disponible pour le modèle: ${displayName} - considéré comme offline`);
       statusClass = 'offline';
       statusI18nKey = 'status.offline';
     } else {
-      // botData est maintenant toujours une chaîne représentant le statut
-      const status = botData;
+      // modelData est maintenant toujours une chaîne représentant le statut
+      const status = modelData;
             
       // Déterminer le statut et la classe CSS
       switch (status.toLowerCase()) {
@@ -605,8 +539,8 @@ function updateBotsStatusFromAPI(apiData) {
       }
     }
         
-    // Mettre à jour le statut du bot
-    const statusElement = bot.querySelector('.status');
+    // Mettre à jour le statut du modèle
+    const statusElement = model.querySelector('.status');
     if (statusElement) {
       statusElement.className = 'status ' + statusClass;
       statusElement.setAttribute('data-i18n', statusI18nKey);
@@ -630,9 +564,9 @@ function updateBotsStatusFromAPI(apiData) {
     }
         
     // Application d'effets visuels pour la mise à jour
-    bot.classList.add('updating');
+    model.classList.add('updating');
     setTimeout(() => {
-      bot.classList.remove('updating');
+      model.classList.remove('updating');
     }, 500);
   });
     
@@ -667,7 +601,7 @@ document.head.insertAdjacentHTML('beforeend', `
     100% { transform: translateX(100%); }
 }
 
-.updating {
+.model-item.updating {
     animation: pulse 0.5s ease-in-out;
 }
 
@@ -839,29 +773,15 @@ function updateStatusTime() {
     second: '2-digit'
   };
   const formattedDate = now.toLocaleDateString(document.documentElement.lang || 'fr-FR', options);
-  document.getElementById('update-time').textContent = formattedDate;
-}
-
-/**
- * Met à jour l'horodatage de la dernière mise à jour des ressources
- */
-function updateResourcesTime() {
-  const now = new Date();
-  const options = { 
-    year: 'numeric', 
-    month: 'long', 
-    day: 'numeric',
-    hour: '2-digit', 
-    minute: '2-digit',
-    second: '2-digit'
-  };
-  const formattedDate = now.toLocaleDateString(document.documentElement.lang || 'fr-FR', options);
-  document.getElementById('resources-update-time').textContent = formattedDate;
+  const timeElement = document.getElementById('update-time');
+  if (timeElement) {
+    timeElement.textContent = formattedDate;
+  }
 }
 
 // Rafraîchissement automatique toutes les 60 secondes
 setInterval(() => {
-  fetchAndUpdateBotsStatus();
+  fetchAndUpdateModelsStatus();
   updateStatusTime();
 }, 60000);
 
@@ -883,7 +803,6 @@ function startResourcesSSE() {
       const data = JSON.parse(event.data);
       console.log('SSE data received:', data);
       updateResourcesCharts(data);
-      updateResourcesTime();
       hideResourcesErrorMessage();
     } catch (error) {
       console.error('Erreur lors du parsing des données SSE:', error);
@@ -925,8 +844,8 @@ function initStatusPage() {
     
   console.log('Tous les éléments chargés, démarrage...');
     
-  // Charger les données initiales des bots
-  fetchAndUpdateBotsStatus();
+  // Charger les données initiales des modèles
+  fetchAndUpdateModelsStatus();
   updateStatusTime();
     
   // Démarrer la connexion SSE pour les ressources
@@ -936,15 +855,8 @@ function initStatusPage() {
   const refreshStatusButton = document.getElementById('refresh-status');
   if (refreshStatusButton) {
     refreshStatusButton.addEventListener('click', function() {
-      fetchAndUpdateBotsStatus();
+      fetchAndUpdateModelsStatus();
       updateStatusTime();
-    });
-  }
-    
-  const refreshResourcesButton = document.getElementById('refresh-resources');
-  if (refreshResourcesButton) {
-    refreshResourcesButton.addEventListener('click', function() {
-      startResourcesSSE();
     });
   }
 }
