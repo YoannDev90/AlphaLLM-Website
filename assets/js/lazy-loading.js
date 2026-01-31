@@ -41,6 +41,16 @@ class LazyLoader {
 
   loadImage(img) {
     const src = img.getAttribute('data-src');
+    const srcset = img.getAttribute('data-srcset');
+    const sizes = img.getAttribute('data-sizes');
+    if (srcset) {
+      img.srcset = srcset;
+      img.removeAttribute('data-srcset');
+    }
+    if (sizes) {
+      img.sizes = sizes;
+      img.removeAttribute('data-sizes');
+    }
     if (src) {
       img.src = src;
       img.classList.add('loaded');

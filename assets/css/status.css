@@ -415,6 +415,11 @@
     .charts-container {
         gap: 1.5rem;
     }
+    
+    .model-thumbnail img {
+        width: 35px;
+        height: 35px;
+    }
 }
 
 @media (max-width: 480px) {

@@ -863,6 +863,17 @@ function initStatusPage() {
   }
 }
 
+// Fonction pour définir une adresse de serveur alternative depuis la console
+window.set_server_address = function(address) {
+  if (typeof address === 'string' && address.trim() !== '') {
+    CONFIG.API.BASE_URL = address.trim();
+    console.log('Adresse du serveur définie sur:', CONFIG.API.BASE_URL);
+    console.log('Rechargez la page ou actualisez le statut pour utiliser la nouvelle adresse.');
+  } else {
+    console.error('Adresse invalide. Utilisez: set_server_address("http://votre-adresse")');
+  }
+};
+
 // Initialiser quand tout est chargé
 window.addEventListener('load', function() {
   // Petit délai supplémentaire pour s'assurer que tout est prêt
