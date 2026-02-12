@@ -9,7 +9,6 @@ const RESOURCES_ENDPOINT = CONFIG.API.BASE_URL + CONFIG.API.RESOURCES_ENDPOINT;
 
 // Variables pour les graphiques
 let realtimeCpuRamChart;
-let dailyCpuRamChart;
 
 /**
  * Affiche un indicateur de chargement
@@ -36,31 +35,6 @@ function showLoadingIndicator() {
 }
 
 /**
- * Affiche un indicateur de chargement pour les ressources
- */
-// eslint-disable-next-line no-unused-vars
-function showResourcesLoadingIndicator() {
-  // Afficher le texte d'actualisation
-  const refreshText = document.getElementById('resources-refresh-status-text');
-  if (refreshText) {
-    refreshText.style.display = 'inline';
-  }
-    
-  // Masquer l'horodatage pendant l'actualisation
-  const updateTime = document.getElementById('resources-update-time');
-  if (updateTime) {
-    updateTime.style.opacity = '0.5';
-  }
-    
-  // Désactiver et animer le bouton
-  const refreshButton = document.getElementById('refresh-resources');
-  if (refreshButton) {
-    refreshButton.disabled = true;
-    refreshButton.classList.add('refreshing');
-  }
-}
-
-/**
  * Met à jour les graphiques des ressources
  */
 function updateResourcesCharts(data) {
@@ -68,9 +42,8 @@ function updateResourcesCharts(data) {
     
   // Vérifier si les éléments canvas existent
   const realtimeCanvas = document.getElementById('realtime-cpu-ram-chart');
-  const dailyCanvas = document.getElementById('daily-cpu-ram-chart');
     
-  if (!realtimeCanvas || !dailyCanvas) {
+  if (!realtimeCanvas) {
     console.warn('Éléments canvas non trouvés, réessai dans 100ms');
     setTimeout(() => updateResourcesCharts(data), 100);
     return;
@@ -96,18 +69,6 @@ function updateResourcesCharts(data) {
   const realtimeRam = data.realtime.map(d => d.memory_percent);
 
   console.log('Données temps réel préparées:', { labels: realtimeLabels.length, cpu: realtimeCpu.length, ram: realtimeRam.length });
-
-  const dailyLabels = data.daily.map(d => {
-    const date = new Date(d.timestamp);
-    return date.toLocaleTimeString(document.documentElement.lang || 'fr-FR', { 
-      hour: '2-digit', 
-      minute: '2-digit' 
-    });
-  });
-  const dailyCpu = data.daily.map(d => d.cpu_percent);
-  const dailyRam = data.daily.map(d => d.memory_percent);
-
-  console.log('Données quotidiennes préparées:', { labels: dailyLabels.length, cpu: dailyCpu.length, ram: dailyRam.length });
 
   // Créer ou mettre à jour le graphique temps réel CPU + RAM
   const realtimeCtx = document.getElementById('realtime-cpu-ram-chart').getContext('2d');
@@ -175,107 +136,6 @@ function updateResourcesCharts(data) {
             title: {
               display: true,
               text: 'Temps'
-            }
-          },
-          y: {
-            type: 'linear',
-            display: true,
-            position: 'left',
-            title: {
-              display: true,
-              text: 'CPU %'
-            },
-            beginAtZero: true,
-            max: 100
-          },
-          y1: {
-            type: 'linear',
-            display: true,
-            position: 'right',
-            title: {
-              display: true,
-              text: 'RAM %'
-            },
-            beginAtZero: true,
-            max: 100,
-            grid: {
-              drawOnChartArea: false
-            }
-          }
-        },
-        interaction: {
-          mode: 'nearest',
-          axis: 'x',
-          intersect: false
-        }
-      }
-    });
-  }
-
-  // Créer ou mettre à jour le graphique quotidien CPU + RAM
-  const dailyCtx = document.getElementById('daily-cpu-ram-chart').getContext('2d');
-  if (dailyCpuRamChart) {
-    dailyCpuRamChart.data.labels = dailyLabels;
-    dailyCpuRamChart.data.datasets[0].data = dailyCpu;
-    dailyCpuRamChart.data.datasets[1].data = dailyRam;
-    dailyCpuRamChart.update();
-  } else {
-    dailyCpuRamChart = new Chart(dailyCtx, {
-      type: 'line',
-      data: {
-        labels: dailyLabels,
-        datasets: [{
-          label: 'CPU %',
-          data: dailyCpu,
-          borderColor: 'rgba(46, 204, 113, 1)',
-          backgroundColor: 'rgba(46, 204, 113, 0.1)',
-          borderWidth: 2,
-          fill: true,
-          tension: 0.4,
-          pointRadius: 0,
-          pointHoverRadius: 0,
-          yAxisID: 'y'
-        }, {
-          label: 'RAM %',
-          data: dailyRam,
-          borderColor: 'rgba(230, 126, 34, 1)',
-          backgroundColor: 'rgba(230, 126, 34, 0.1)',
-          borderWidth: 2,
-          fill: true,
-          tension: 0.4,
-          pointRadius: 0,
-          pointHoverRadius: 0,
-          yAxisID: 'y1'
-        }]
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: {
-          legend: {
-            display: true,
-            position: 'top'
-          },
-          tooltip: {
-            mode: 'index',
-            intersect: false,
-            callbacks: {
-              label: function(context) {
-                if (context.datasetIndex === 0) {
-                  return `CPU: ${context.parsed.y.toFixed(1)}%`;
-                } else {
-                  return `RAM: ${context.parsed.y.toFixed(1)}%`;
-                }
-              }
-            }
-          }
-        },
-        scales: {
-          x: {
-            display: true,
-            title: {
-              display: true,
-              text: 'Heure'
             }
           },
           y: {
@@ -489,13 +349,8 @@ function updateModelsStatusFromAPI(apiData) {
     'Hermès': 'hermes',
     'Nemotron': 'nemotron',
     'MiniMax': 'minimax',
-    'Mercury': 'granite',
     'LongCat': 'longcat',
-    'Seed': 'seed',
     'Granite': 'granite',
-    'Rocinante': 'rocinante',
-    'Hunyuan': 'hunyuan',
-    'Jamba': 'jamba',
   };
     
   const modelItems = document.querySelectorAll('.model-item');
@@ -517,8 +372,11 @@ function updateModelsStatusFromAPI(apiData) {
       statusClass = 'offline';
       statusI18nKey = 'status.offline';
     } else {
-      // modelData est maintenant toujours une chaîne représentant le statut
-      const status = modelData;
+      // modelData est un objet avec status, success_rate, etc.
+      let status = modelData.status;
+      if (typeof status !== 'string') {
+        status = 'unknown';
+      }
             
       // Déterminer le statut et la classe CSS
       switch (status.toLowerCase()) {
@@ -808,13 +666,13 @@ function startResourcesSSE() {
       hideResourcesErrorMessage();
     } catch (error) {
       console.error('Erreur lors du parsing des données SSE:', error);
-      showResourcesErrorMessage('Erreur de format des données reçues');
+      // Removed error message display
     }
   };
 
   resourcesEventSource.onerror = function(event) {
     console.error('Erreur SSE:', event);
-    showResourcesErrorMessage('Connexion perdue avec le serveur de ressources');
+    // Removed error message display to avoid annoying errors
   };
 
   resourcesEventSource.onopen = function() {
@@ -830,9 +688,8 @@ function initStatusPage() {
     
   // Vérifier que tous les éléments nécessaires sont présents
   const realtimeCanvas = document.getElementById('realtime-cpu-ram-chart');
-  const dailyCanvas = document.getElementById('daily-cpu-ram-chart');
     
-  if (!realtimeCanvas || !dailyCanvas) {
+  if (!realtimeCanvas) {
     console.warn('Éléments canvas non trouvés, attente...');
     setTimeout(initStatusPage, 500);
     return;
@@ -862,17 +719,6 @@ function initStatusPage() {
     });
   }
 }
-
-// Fonction pour définir une adresse de serveur alternative depuis la console
-window.set_server_address = function(address) {
-  if (typeof address === 'string' && address.trim() !== '') {
-    CONFIG.API.BASE_URL = address.trim();
-    console.log('Adresse du serveur définie sur:', CONFIG.API.BASE_URL);
-    console.log('Rechargez la page ou actualisez le statut pour utiliser la nouvelle adresse.');
-  } else {
-    console.error('Adresse invalide. Utilisez: set_server_address("http://votre-adresse")');
-  }
-};
 
 // Initialiser quand tout est chargé
 window.addEventListener('load', function() {

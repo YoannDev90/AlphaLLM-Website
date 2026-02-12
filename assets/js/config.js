@@ -7,8 +7,8 @@ const CONFIG = {
   // URLs de l'API
   API: {
     BASE_URL: 'https://api.alphallm.tech',
-    STATUS_ENDPOINT: '/status',
-    RESOURCES_ENDPOINT: '/resources'
+    STATUS_ENDPOINT: '/api/status',
+    RESOURCES_ENDPOINT: '/api/resources'
   },
 
   // URLs du site
@@ -37,9 +37,9 @@ const CONFIG = {
 
   // Configuration des graphiques
   CHARTS: {
-    REALTIME_UPDATE_INTERVAL: 30000, // 30 secondes
-    DAILY_UPDATE_INTERVAL: 300000, // 5 minutes
-    MAX_DATA_POINTS: 50
+    REALTIME_UPDATE_INTERVAL: 5, // 5 secondes
+    DAILY_UPDATE_INTERVAL: 300, // 5 minutes
+    MAX_DATA_POINTS: 60
   },
 
   // Configuration du cache
